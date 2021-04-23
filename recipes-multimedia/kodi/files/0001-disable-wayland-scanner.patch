@@ -1,0 +1,39 @@
+From a5591953504930016f22217fc124a693211d827b Mon Sep 17 00:00:00 2001
+From: Markus Volk <f_l_k@t-online.de>
+Date: Sun, 14 Mar 2021 16:39:04 +0100
+Subject: [PATCH] disable wayland-scanner++
+Disable wayland-scanner pkgconfig check, which failes in case of cross compiling.
+Lead the way to wayland-scanner-native manually in kodi_%.bbappend
+
+Signed-off-by: Markus Volk <f_l_k@t-online.de>
+---
+ cmake/modules/FindWaylandpp.cmake | 12 ++++++------
+ 1 file changed, 6 insertions(+), 6 deletions(-)
+
+diff --git a/cmake/modules/FindWaylandpp.cmake b/cmake/modules/FindWaylandpp.cmake
+index ba229d7ffcb..6ccd1791030 100644
+--- a/cmake/modules/FindWaylandpp.cmake
++++ b/cmake/modules/FindWaylandpp.cmake
+@@ -18,13 +18,13 @@ else()
+   message(SEND_ERROR "wayland-client++ not found via pkg-config")
+ endif()
+ 
+-pkg_check_modules(PC_WAYLANDPP_SCANNER wayland-scanner++ QUIET)
++#pkg_check_modules(PC_WAYLANDPP_SCANNER wayland-scanner++ QUIET)
+ 
+-if(PC_WAYLANDPP_SCANNER_FOUND)
+-  pkg_get_variable(PC_WAYLANDPP_SCANNER wayland-scanner++ wayland_scannerpp)
+-else()
+-  message(SEND_ERROR "wayland-scanner++ not found via pkg-config")
+-endif()
++#if(PC_WAYLANDPP_SCANNER_FOUND)
++#  pkg_get_variable(PC_WAYLANDPP_SCANNER wayland-scanner++ wayland_scannerpp)
++#else()
++#  message(SEND_ERROR "wayland-scanner++ not found via pkg-config")
++#endif()
+ 
+ find_path(WAYLANDPP_INCLUDE_DIR wayland-client.hpp PATHS ${PC_WAYLANDPP_INCLUDEDIR})
+ 
+-- 
+2.25.1
+

@@ -1,0 +1,11 @@
+--- a/net/net-lib.pl	2021-02-18 20:51:06.401514667 +0100
++++ b/net/net-lib.pl	2021-02-18 20:50:47.662376626 +0100
+@@ -31,7 +31,7 @@
+ 	$net_mode = "netplan";
+ 	}
+ else {
+-	do "$gconfig{'os_type'}-lib.pl";
++	do "debian-linux-lib.pl";
+ 	$net_mode = $gconfig{'os_type'};
+ 	}
+ 

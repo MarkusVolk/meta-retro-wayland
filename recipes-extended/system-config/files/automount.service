@@ -1,0 +1,8 @@
+[Unit]
+Description=Automounter using udevadm
+
+[Service]
+Type=simple
+ExecStart=/etc/udev/scripts/automountd
+Restart=on-failure
+

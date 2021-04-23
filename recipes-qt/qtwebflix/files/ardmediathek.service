@@ -1,0 +1,12 @@
+[Unit]
+Description=QtWebflix
+
+[Service]
+Type=simple
+EnvironmentFile=-/etc/environment
+ExecStart=/bin/sh -c "/usr/bin/qtwebflix -p https://www.ardmediathek.de/ard/"
+Restart=on-failure
+RemainAfterExit=no
+
+[Install]
+WantedBy=multi-user.target

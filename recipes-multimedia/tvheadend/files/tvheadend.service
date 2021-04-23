@@ -1,0 +1,14 @@
+[Unit]
+Description=tvheadend
+Conflicts=neutrino.service
+After=syslog.target network.target auditd.service
+
+[Service]
+Type=forking
+PIDFile=/run/tvheadend.pid
+ExecStart=/usr/bin/tvheadend -f -p /var/run/tvheadend.pid -C -u root -g root
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target
+

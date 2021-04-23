@@ -1,0 +1,14 @@
+[Unit]
+Description=Neutrino HD
+Requires=networking.service
+After=firstboot.service
+Conflicts=tvheadend.service kodi.service weston.service
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/neutrino.sh
+ExecStartPost=-/etc/etckeeper/create_etc.sh
+TimeoutSec=5
+
+[Install]
+WantedBy=multi-user.target

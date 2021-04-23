@@ -1,0 +1,8 @@
+/* Allow members of the retro group to execute any actions
+ * without password authentication, similar to "sudo NOPASSWD:"
+ */
+polkit.addRule(function(action, subject) {
+    if (subject.isInGroup("retro")) {
+        return polkit.Result.YES;
+    }
+});

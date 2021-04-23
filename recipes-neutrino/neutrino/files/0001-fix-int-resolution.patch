@@ -1,0 +1,26 @@
+From 145433c55cf3bc0f614a8df9fd4eb947d90314aa Mon Sep 17 00:00:00 2001
+From: Markus Volk <f_l_k@t-online.de>
+Date: Sat, 3 Apr 2021 10:42:58 +0200
+Subject: [PATCH] fix int resolution
+
+Signed-off-by: Markus Volk <f_l_k@t-online.de>
+---
+ src/neutrino.cpp | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/src/neutrino.cpp b/src/neutrino.cpp
+index cb65bf2e9..a63291f95 100644
+--- a/src/neutrino.cpp
++++ b/src/neutrino.cpp
+@@ -929,7 +929,7 @@ int CNeutrinoApp::loadSetup(const char * fname)
+ 	g_settings.channellist_show_res_icon = configfile.getInt32("channellist_show_res_icon", 0);
+ 
+ 	//screen configuration
+-	int osd_res = OSDMODE_720;
++	int osd_res = OSDMODE_1080;
+ #if HAVE_ARM_HARDWARE || (HAVE_CST_HARDWARE && defined(BOXMODEL_CST_HD2)) || HAVE_GENERIC_HARDWARE
+ 	osd_res = OSDMODE_1080;
+ #endif
+-- 
+2.25.1
+
