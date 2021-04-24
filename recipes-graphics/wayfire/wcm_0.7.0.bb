@@ -21,7 +21,7 @@ SRC_URI[sha256sum] = "924a9682dc2f632bad8b6914a8927ad5dcee4b6698f75e89251f1647ad
 
 S = "${WORKDIR}/${PN}-${PV}"
 
-inherit meson pkgconfig
+inherit meson pkgconfig features_check
 
 EXTRA_OEMESON += "--buildtype release"
 

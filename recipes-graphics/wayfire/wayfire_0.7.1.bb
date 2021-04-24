@@ -25,9 +25,10 @@ DEPENDS += "wlroots\
             wayland \
             wayland-protocols \
             wayland-native \
-           "
+"
 
 RRECOMMENDS_${PN} += " \
+	wlroots \
 	wcm \
 	wf-config \
 	wf-recorder \
@@ -35,7 +36,7 @@ RRECOMMENDS_${PN} += " \
 "
 
 SRC_URI = "https://github.com/WayfireWM/wayfire/releases/download/v${PV}/wayfire-${PV}.tar.xz"
-SRC_URI[sha256sum] = "0d8ec311510bf10647d857c2db6e3dbbccfe3ac9064463661c8062c8cbb469a6"
+SRC_URI[sha256sum] = "587988f9292b41fc4a91b73ea4fde9841bba5fb3325129729bef58d8eae2fb71"
 
 S = "${WORKDIR}/${PN}-${PV}"
 
@@ -43,7 +44,7 @@ inherit meson pkgconfig features_check
 
 EXTRA_OEMESON += "--buildtype release"
 
-FILES_${PN}_append += "${datadir}"
+FILES_${PN} += "${datadir}"
 
 BBCLASSEXTEND = ""
 

@@ -14,7 +14,6 @@ DEPENDS = " \
 	gtkmm3 \
 	wf-config \
 	pulseaudio \
-	gobject-introspection \
 	libnotify3 \
 "
 
@@ -30,7 +29,7 @@ SRC_URI[sha256sum] = "7495c690a1c021e0c82ba304513b3e7870cb329f7f0bf88df3bc5f4653
 
 S = "${WORKDIR}/${PN}-${PV}"
 
-inherit meson pkgconfig
+inherit meson pkgconfig features_check
 
 EXTRA_OEMESON += "--buildtype release"
 
