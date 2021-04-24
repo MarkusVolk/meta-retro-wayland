@@ -29,49 +29,52 @@ VDPAUSUPPORT_rpi = "0"
 PACKAGECONFIG_append += "bluetooth samba wayland"
 
 
-RRECOMMENDS_${PN}_append = " libcec \
-                             libcurl \
-                             libnfs \
-                             nss \
-                             os-release \
-                             python3 \
-                             python3-ctypes \
-                             python3-netclient \
-                             python3-html \
-                             python3-difflib \
-                             python3-json \
-                             python3-shell \
-                             python3-six \
-                             python3-sqlite3 \
-                             python3-compression \
-                             python3-xmlrpc \
-                             python3-pycryptodomex \
-                             python3-profile \
-                             tvheadend \
-                             tzdata-africa \
-                             tzdata-americas \
-                             tzdata-antarctica \
-                             tzdata-arctic \
-                             tzdata-asia \
-                             tzdata-atlantic \
-                             tzdata-australia \
-                             tzdata-europe \
-                             tzdata-pacific \
-                             v4l-utils \
-                             xkeyboard-config \
-                             kodi-addon-inputstream-adaptive \
-                             kodi-addon-peripheral-joystick \
-                             kodi-addon-pvr-hts \
-                             alsa-plugins \
-                           "
+RRECOMMENDS_${PN}_append = " \
+	libcec \
+	libcurl \
+	libnfs \
+	nss \
+	os-release \
+	python3 \
+	python3-ctypes \
+	python3-netclient \
+	python3-html \
+	python3-difflib \
+	python3-json \
+	python3-shell \
+	python3-six \
+	python3-sqlite3 \
+	python3-compression \
+	python3-xmlrpc \
+	python3-pycryptodomex \
+	python3-profile \
+	tvheadend \
+	tzdata-africa \
+	tzdata-americas \
+	tzdata-antarctica \
+	tzdata-arctic \
+	tzdata-asia \
+	tzdata-atlantic \
+	tzdata-australia \
+	tzdata-europe \
+	tzdata-pacific \
+	v4l-utils \
+	xkeyboard-config \
+	kodi-addon-inputstream-adaptive \
+	kodi-addon-inputstream-rtmp \
+	kodi-addon-peripheral-joystick \
+	kodi-addon-pvr-hts \
+	alsa-plugins \
+"
 
-RRECOMMENDS_${PN}_append_libc-glibc = " glibc-charmap-ibm850 \
-                                        glibc-gconv-ibm850 \
-                                        glibc-charmap-ibm437 \
-                                        glibc-gconv-ibm437 \
-                                        glibc-gconv-unicode \
-                                        glibc-gconv-utf-32 \
-                                        glibc-charmap-utf-8 \
-                                        glibc-localedata-en-us \
+RRECOMMENDS_${PN}_append_libc-glibc = " \
+	glibc-charmap-ibm850 \
+	glibc-gconv-ibm850 \
+	glibc-charmap-ibm437 \
+	glibc-gconv-ibm437 \
+	glibc-gconv-unicode \
+	glibc-gconv-utf-32 \
+	glibc-charmap-utf-8 \
+	glibc-localedata-en-us \
 "
 
