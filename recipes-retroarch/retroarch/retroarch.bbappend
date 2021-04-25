@@ -1,5 +1,3 @@
-FILESEXTRAPATHS_prepend := "${THISDIR}/files:"
-
 SRCREV = "cf6ca2a47f44126f4caf9242cfa7917b94abbc52"
 PV = "1.9.1"
 
