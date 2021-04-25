@@ -5,15 +5,12 @@ LIC_FILES_CHKSUM = "file://${COREBASE}/meta/files/common-licenses/GPL-2.0-only;m
 
 inherit kodi-addon
 
-DEPENDS += "expat"
+PV = "3.4.0"
 
-SRCREV = "${AUTOREV}"
-
-PV = "${SRCPV}"
-
-SRC_URI = "git://github.com/xbmc/inputstream.rtmp.git;protocol=https;nobranch=1 \
-         "
-         
+SRCREV = "${PV}-${KODICODENAME}"
+SRC_URI = "git://github.com/xbmc/inputstream.rtmp.git;protocol=https;nobranch=1"
+      
 S = "${WORKDIR}/git"
 
 KODIADDONNAME = "inputstream.rtmp"
+
