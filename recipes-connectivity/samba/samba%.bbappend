@@ -14,9 +14,11 @@ do_install_append() {
 	install -m 644 ${WORKDIR}/smb.conf ${D}${sysconfdir}/samba/
 }
 
+inherit retro-user
+
 pkg_postinst_ontarget_${PN}() {
 #!/bin/sh
 
-pdbedit -L | grep retro >> /dev/null || smbpasswd -n -a retro
+pdbedit -L | grep ${RETRO_USER_NAME} >> /dev/null || smbpasswd -n -a ${RETRO_USER_NAME}
 }
 
