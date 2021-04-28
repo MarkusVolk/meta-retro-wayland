@@ -1,5 +1,3 @@
-SRCREV = "cf6ca2a47f44126f4caf9242cfa7917b94abbc52"
-PV = "1.9.1"
-
-PACKAGECONFIG += "lakka gles3_2"
+PACKAGECONFIG_append = " lakka gles3_2"
 RETROARCH_DEFAULT_AUDIO_DRIVER ?= "pulse"
+
