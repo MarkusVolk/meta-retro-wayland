@@ -17,6 +17,6 @@ do_install_append() {
 pkg_postinst_ontarget_${PN}() {
 #!/bin/sh
 
-pdbedit -L | grep root >> /dev/null || smbpasswd -n -a root
+pdbedit -L | grep retro >> /dev/null || smbpasswd -n -a retro
 }
 

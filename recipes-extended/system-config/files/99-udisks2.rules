@@ -1,5 +1,3 @@
-/etc/udev/rules.d/99-udisks2.rules
-
 # UDISKS_FILESYSTEM_SHARED
 # ==1: mount filesystem to a shared directory (/media/VolumeName)
 # ==0: mount filesystem to a private directory (/run/media/$USER/VolumeName)
