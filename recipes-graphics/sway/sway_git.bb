@@ -30,12 +30,13 @@ RRECOMMENDS_${PN} += " \
 "
 
 SRC_URI = " \
-	https://github.com/swaywm/sway/releases/download/${PV}/sway-${PV}.tar.gz \
+	git://github.com/swaywm/sway.git;protocol=https \
 "
 
-SRC_URI[sha256sum] = "9ecfd2f38239f7e90922a13cd348fc95fc059e8fa0e4b75b8ffcc7b61685a5fb"
+SRCREV = "7c74f01f0ae9d5b3f92d3e6fc64cb9abe95b4c52"
+PV = "1.6+${SRCREV}"
 
-S = "${WORKDIR}/${PN}-${PV}"
+S = "${WORKDIR}/git"
 
 inherit meson pkgconfig features_check
 

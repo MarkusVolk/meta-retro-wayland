@@ -17,6 +17,7 @@ DEPENDS += "cmake-native \
             libinput \
             libxkbcommon \
             pixman \
+            seatd \
             systemd \
             udev \
             virtual/egl \
@@ -25,10 +26,11 @@ DEPENDS += "cmake-native \
             wayland-protocols \
            "
 
-SRC_URI = "https://github.com/swaywm/wlroots/releases/download/${PV}/wlroots-${PV}.tar.gz"
-SRC_URI[sha256sum] = "f6bea37fd4a6f5e5f552b83d61adae8c73e64b0bcb9ae0ab464ebcd9309d3cf3"
+SRC_URI = "git://github.com/swaywm/wlroots.git;protocol=https"
+SRCREV = "c85789a3a9f6f851e6fbc900495057ba91b3e255"
+PV = "0.13+${SRCREV}"
 
-S = "${WORKDIR}/wlroots-${PV}"
+S = "${WORKDIR}/git"
 
 inherit meson pkgconfig features_check
 
