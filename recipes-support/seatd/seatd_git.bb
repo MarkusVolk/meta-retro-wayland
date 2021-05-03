@@ -10,9 +10,11 @@ SRC_URI = "git://git.sr.ht/~kennylevinsen/seatd;protocol=https"
 SRCREV = "355cc9c944a29d29736de84e782a2e91168f1a59"
 
 PACKAGECONFIG[systemd] = ",,systemd"
+PACKAGECONFIG[sysvinit] = ",,elogind"
 
 PACKAGECONFIG ?= " \
     ${@bb.utils.filter('DISTRO_FEATURES', 'systemd', d)} \
+    ${@bb.utils.filter('DISTRO_FEATURES', 'sysvinit', d)} \
 "
 
 S = "${WORKDIR}/git"
