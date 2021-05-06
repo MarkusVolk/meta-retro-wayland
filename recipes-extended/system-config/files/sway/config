@@ -158,12 +158,9 @@ bindsym $mod+Shift+0 move container to workspace 10
 exec_always ~/.config/waybar/waybar.sh
 
 # Not Always
-#exec mako
-#exec waybar
-#exec pactl load-module module-loopback latency_msec=1
-#exec nm-applet --indicator
 exec /usr/libexec/xfce-polkit &
 exec /usr/bin/thunar --daemon &
+exec /usr/bin/blueman-applet &
 
 # Startup program launcher
 exec swaymsg "workspace 1:Kodi; exec kodi;"
