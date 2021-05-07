@@ -25,6 +25,7 @@ DEPENDS += " \
 "
 
 PACKAGECONFIG[bluetooth] = "-Drfkill=enabled,-Drfkill=disabled"
+PACKAGECONFIG[date] = ",,date"
 PACKAGECONFIG[pulseaudio] = ",,pulseaudio"
 PACKAGECONFIG[gtk-layer-shell] = ",,gtk-layer-shell"
 PACKAGECONFIG[mpd] = ",,libmpdclient"
@@ -41,6 +42,7 @@ PACKAGECONFIG ?= " \
     ${@bb.utils.filter('DISTRO_FEATURES', 'sysvinit', d)} \
     network \
     gtk-layer-shell \
+    date \
 "
 
 RRECOMMENDS_${PN} += " \
@@ -59,3 +61,4 @@ PACKAGES += "${PN}-systemd"
 FILES_${PN}-systemd += "${libdir}/systemd"
 
 BBCLASSEXTEND = ""
+
