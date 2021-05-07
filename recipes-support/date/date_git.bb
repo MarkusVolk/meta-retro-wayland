@@ -18,7 +18,11 @@ inherit cmake
 
 DEPENDS = "curl"
 
-EXTRA_OECMAKE += "-DBUILD_TZ_LIB=ON -DBUILD_SHARED_LIBS=ON"
+EXTRA_OECMAKE += " \
+	-DBUILD_TZ_LIB=ON \
+	-DBUILD_SHARED_LIBS=ON \
+	-DUSE_SYSTEM_TZ_DB=ON \
+"
 
 do_install_append() {
 	# source lacks pkgconfig support. Include a pc file, so 'date' can be found using pkgconfig
