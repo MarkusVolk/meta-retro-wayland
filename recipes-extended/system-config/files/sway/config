@@ -155,7 +155,7 @@ bindsym $mod+Shift+0 move container to workspace 10
 
 
 # Always
-exec_always ~/.config/waybar/waybar.sh
+exec_always ~/.config/waybar/scripts/waybar.sh
 
 # Not Always
 exec /usr/libexec/xfce-polkit &

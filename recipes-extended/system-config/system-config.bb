@@ -23,11 +23,12 @@ SRC_URI = " \
 	file://retro.jpg \
 	file://waybar/config \
 	file://waybar/style.css \
-	file://waybar/waybar.sh \
-	file://waybar/pulse.sh \
-	file://waybar/net.sh \
-	file://waybar/monitor.sh \
-	file://waybar/blueman-manager.sh \
+	file://waybar/scripts/waybar.sh \
+	file://waybar/scripts/pulse.sh \
+	file://waybar/scripts/net.sh \
+	file://waybar/scripts/processes.sh \
+	file://waybar/scripts/resources.sh \
+	file://waybar/scripts/blueman-manager.sh \
 "
 	
 	
@@ -37,7 +38,7 @@ do_install() {
 	install -d ${D}${RETRO_USER_HOMEDIR}/.config/systemd/user
 	install -d ${D}${RETRO_USER_HOMEDIR}/.config/samba
 	install -d ${D}${RETRO_USER_HOMEDIR}/.config/connman
-	install -d ${D}${RETRO_USER_HOMEDIR}/.config/waybar
+	install -d ${D}${RETRO_USER_HOMEDIR}/.config/waybar/scripts
 	install -d ${D}${sysconfdir}/polkit-1/rules.d
 	install -d ${D}${sysconfdir}/udev/scripts
 	install -d ${D}${sysconfdir}/udev/rules.d
@@ -57,11 +58,12 @@ do_install() {
 	install -m 0755 ${WORKDIR}/automountd ${D}${sysconfdir}/udev/scripts
 	install -m 0644 ${WORKDIR}/waybar/config ${D}${RETRO_USER_HOMEDIR}/.config/waybar/config
 	install -m 0644 ${WORKDIR}/waybar/style.css ${D}${RETRO_USER_HOMEDIR}/.config/waybar/style.css
-	install -m 0755 ${WORKDIR}/waybar/waybar.sh ${D}${RETRO_USER_HOMEDIR}/.config/waybar/waybar.sh
-	install -m 0755 ${WORKDIR}/waybar/pulse.sh ${D}${RETRO_USER_HOMEDIR}/.config/waybar	
-	install -m 0755 ${WORKDIR}/waybar/net.sh ${D}${RETRO_USER_HOMEDIR}/.config/waybar
-	install -m 0755 ${WORKDIR}/waybar/blueman-manager.sh ${D}${RETRO_USER_HOMEDIR}/.config/waybar
-	install -m 0755 ${WORKDIR}/waybar/monitor.sh ${D}${RETRO_USER_HOMEDIR}/.config/waybar
+	install -m 0755 ${WORKDIR}/waybar/scripts/waybar.sh ${D}${RETRO_USER_HOMEDIR}/.config/waybar/scripts/waybar.sh
+	install -m 0755 ${WORKDIR}/waybar/scripts/pulse.sh ${D}${RETRO_USER_HOMEDIR}/.config/waybar/scripts	
+	install -m 0755 ${WORKDIR}/waybar/scripts/net.sh ${D}${RETRO_USER_HOMEDIR}/.config/waybar/scripts
+	install -m 0755 ${WORKDIR}/waybar/scripts/blueman-manager.sh ${D}${RETRO_USER_HOMEDIR}/.config/waybar/scripts
+	install -m 0755 ${WORKDIR}/waybar/scripts/processes.sh ${D}${RETRO_USER_HOMEDIR}/.config/waybar/scripts
+	install -m 0755 ${WORKDIR}/waybar/scripts/resources.sh ${D}${RETRO_USER_HOMEDIR}/.config/waybar/scripts
 	install -m 0644 ${WORKDIR}/automount.service ${D}${systemd_system_unitdir}
 	ln -sf ${systemd_system_unitdir}/automount.service ${D}${systemd_system_unitdir}/sysinit.target.wants
 	install -m 0644 ${WORKDIR}/99-udisks2.rules ${D}${sysconfdir}/udev/rules.d

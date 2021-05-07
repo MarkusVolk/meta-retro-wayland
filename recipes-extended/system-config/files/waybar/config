@@ -42,16 +42,16 @@
             "enabled": "",
             "disabled": ""
         },
-        "on-click": "~/.config/waybar/blueman-manager.sh",
+        "on-click": "~/.config/waybar/scripts/blueman-manager.sh",
     },
     "cpu": {
         "format": "{usage}% ",
         "tooltip": false,
-        "on-click": "$HOME/.config/waybar/monitor.sh"
+        "on-click": "$HOME/.config/waybar/scripts/resources.sh"
     },
     "memory": {
 	"format": "{}% ",
-	"on-click": "$HOME/.config/waybar/monitor.sh"
+	"on-click": "$HOME/.config/waybar/scripts/processes.sh"
     },
     "temperature": {
         // "thermal-zone": 2,
@@ -69,7 +69,7 @@
 	"format-linked": "{ifname} (No IP) ",
 	"format-disconnected": "Disconnected ⚠",
 	"format-icons": [""],
-	"on-click": "$HOME/.config/waybar/net.sh"
+	"on-click": "$HOME/.config/waybar/scripts/net.sh"
     },
     "pulseaudio": {
         // "scroll-step": 1, // %, can be a float
@@ -88,7 +88,7 @@
             "car": "",
             "default": ["", "", ""]
         },
-        "on-click": "$HOME/.config/waybar/pulse.sh"
+        "on-click": "$HOME/.config/waybar/scripts/pulse.sh"
     }
 }
 
