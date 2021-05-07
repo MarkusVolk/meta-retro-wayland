@@ -22,11 +22,12 @@ SRC_URI = " \
 	file://media.conf \
 	file://retro.jpg \
 	file://waybar/config \
+	file://waybar/style.css \
 	file://waybar/waybar.sh \
 	file://waybar/pulse.sh \
 	file://waybar/net.sh \
-	file://waybar/gparted.sh \
 	file://waybar/monitor.sh \
+	file://waybar/blueman-manager.sh \
 "
 	
 	
@@ -41,7 +42,6 @@ do_install() {
 	install -d ${D}${sysconfdir}/udev/scripts
 	install -d ${D}${sysconfdir}/udev/rules.d
 	install -d ${D}${sysconfdir}/tmpfiles.d
-	install -d ${D}${sysconfdir}/xdg/waybar	
 	install -d ${D}${systemd_system_unitdir}/sysinit.target.wants
 	install -m 0644 ${WORKDIR}/bashrc ${D}${RETRO_USER_HOMEDIR}/.bashrc
 	install -m 0644 ${WORKDIR}/profile ${D}${RETRO_USER_HOMEDIR}/.profile
@@ -55,11 +55,12 @@ do_install() {
 	install -m 0644 ${WORKDIR}/10-wifimanagement.rules ${D}${sysconfdir}/polkit-1/rules.d
 	install -m 0644 ${WORKDIR}/49-nopasswd_global.rules ${D}${sysconfdir}/polkit-1/rules.d
 	install -m 0755 ${WORKDIR}/automountd ${D}${sysconfdir}/udev/scripts
-	install -m 0644 ${WORKDIR}/waybar/config ${D}${sysconfdir}/xdg/waybar/config
+	install -m 0644 ${WORKDIR}/waybar/config ${D}${RETRO_USER_HOMEDIR}/.config/waybar/config
+	install -m 0644 ${WORKDIR}/waybar/style.css ${D}${RETRO_USER_HOMEDIR}/.config/waybar/style.css
 	install -m 0755 ${WORKDIR}/waybar/waybar.sh ${D}${RETRO_USER_HOMEDIR}/.config/waybar/waybar.sh
 	install -m 0755 ${WORKDIR}/waybar/pulse.sh ${D}${RETRO_USER_HOMEDIR}/.config/waybar	
 	install -m 0755 ${WORKDIR}/waybar/net.sh ${D}${RETRO_USER_HOMEDIR}/.config/waybar
-	install -m 0755 ${WORKDIR}/waybar/gparted.sh ${D}${RETRO_USER_HOMEDIR}/.config/waybar
+	install -m 0755 ${WORKDIR}/waybar/blueman-manager.sh ${D}${RETRO_USER_HOMEDIR}/.config/waybar
 	install -m 0755 ${WORKDIR}/waybar/monitor.sh ${D}${RETRO_USER_HOMEDIR}/.config/waybar
 	install -m 0644 ${WORKDIR}/automount.service ${D}${systemd_system_unitdir}
 	ln -sf ${systemd_system_unitdir}/automount.service ${D}${systemd_system_unitdir}/sysinit.target.wants

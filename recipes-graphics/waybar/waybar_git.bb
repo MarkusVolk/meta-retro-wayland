@@ -8,24 +8,39 @@ LICENSE = "MIT"
 
 LIC_FILES_CHKSUM = "file://LICENSE;md5=98f7e9dc79966298d76caf1b0a6d35c1"
 
-REQUIRED_DISTRO_FEATURES = "wayland"
+REQUIRED_DISTRO_FEATURES = "wayland gobject-introspection-data"
 
 DEPENDS += " \
 	glib-2.0-native \
 	gtkmm3 \
-	gtk-layer-shell \
 	jsoncpp \
 	libsigc++-3 \
 	fmt \
 	spdlog \
 	gtk+3 \
 	gobject-introspection \
-	pulseaudio \
-	bluez5 \
-	libnl \
 	wayland \
 	wayland-native \
 	wayland-protocols \
+"
+
+PACKAGECONFIG[bluetooth] = "-Drfkill=enabled,-Drfkill=disabled"
+PACKAGECONFIG[pulseaudio] = ",,pulseaudio"
+PACKAGECONFIG[gtk-layer-shell] = ",,gtk-layer-shell"
+PACKAGECONFIG[mpd] = ",,libmpdclient"
+PACKAGECONFIG[network] = ",,libnl"
+PACKAGECONFIG[sysvinit] = ",,eudev"
+PACKAGECONFIG[systemd] = ",,systemd"
+# this would rdepend on a bunch of libindicator recipes we dont provide
+PACKAGECONFIG[tray] = ",,libdbusmenu"
+
+PACKAGECONFIG ?= " \
+    ${@bb.utils.filter('DISTRO_FEATURES', 'bluetooth', d)} \
+    ${@bb.utils.filter('DISTRO_FEATURES', 'pulseaudio', d)} \
+    ${@bb.utils.filter('DISTRO_FEATURES', 'systemd', d)} \
+    ${@bb.utils.filter('DISTRO_FEATURES', 'sysvinit', d)} \
+    network \
+    gtk-layer-shell \
 "
 
 RRECOMMENDS_${PN} += " \
@@ -38,10 +53,6 @@ SRCREV = "c21dc681c95361bcdbc1b4b998d2b2b9370f337c"
 S = "${WORKDIR}/git"
 
 inherit meson pkgconfig features_check
-
-do_install_append() {
-	rm -rf ${D}${sysconfdir}/xdg/waybar/config
-}
 
 PACKAGES += "${PN}-systemd"
 
