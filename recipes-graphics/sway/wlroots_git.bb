@@ -10,21 +10,31 @@ LICENSE = "MIT"
 
 LIC_FILES_CHKSUM = "file://LICENSE;md5=7578fad101710ea2d289ff5411f1b818"
 
-REQUIRED_DISTRO_FEATURES = "wayland systemd"
+REQUIRED_DISTRO_FEATURES = "wayland"
 
-DEPENDS += "cmake-native \
-            libdrm \
-            libinput \
-            libxkbcommon \
-            pixman \
-            seatd \
-            systemd \
-            udev \
-            virtual/egl \
-            wayland \
-            wayland-native \
-            wayland-protocols \
-           "
+DEPENDS += " \
+	libdrm \
+	libinput \
+	libxkbcommon \
+	pixman \
+	seatd \
+	virtual/libgbm \
+	wayland \
+	wayland-native \
+	wayland-protocols \
+"
+
+PACKAGECONFIG[gles2] = "-Drenderers=gles2"
+PACKAGECONFIG[systemd] = ",,systemd"
+PACKAGECONFIG[sysvinit] = ",,eudev elogind"
+PACKAGECONFIG[x11-backend] = "-Dx11-backend=enabled,-Dx11-backend=disabled,xcb-util-renderutil"
+PACKAGECONFIG[xwayland] = "-Dxwayland=enabled,-Dxwayland=disabled,xserver-xorg xcb-util-wm"
+
+PACKAGECONFIG ?= " \
+	${@bb.utils.filter('DISTRO_FEATURES', 'systemd', d)} \
+	${@bb.utils.filter('DISTRO_FEATURES', 'sysvinit', d)} \
+	gles2 \
+"
 
 SRC_URI = "git://github.com/swaywm/wlroots.git;protocol=https"
 SRCREV = "c85789a3a9f6f851e6fbc900495057ba91b3e255"
@@ -36,16 +46,11 @@ inherit meson pkgconfig features_check
 
 EXTRA_OEMESON += "--buildtype release"
 
-do_configure_prepend() {
-    export WLR_BACKENDS="drm,libinput,wayland"
-}
-
 FILES_${PN} = "${bindir} \
                ${libdir} \
               "
 
 FILES_${PN}-dev = "${includedir} \
-                   /usr/src/ \
                    ${libdir}/libwlroots.so \
 "
 
