@@ -9,7 +9,6 @@ SRC_URI_append =  " \
 	file://kodi-100.13-udevprovider-filter-out-OE-specific-mounts.patch \
 	file://kodi-100.25-hack-fix-texture-packer-cmake-source-dir.patch \
 	file://kodi-995.10-devinputmappings.patch \
-	file://kodi-995.30-CDVDVideoCodecDRMPRIME-skip-frames-when-requested.patch \
 "
 
 DEPENDS_append += "kodi-tools-jsonschemabuilder-native kodi-tools-texturepacker-native wayland-native waylandpp-native"
