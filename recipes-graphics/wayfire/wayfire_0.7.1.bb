@@ -6,25 +6,25 @@ LICENSE = "MIT"
 
 LIC_FILES_CHKSUM = "file://${S}/LICENSE;md5=14e4594093363e3c3a530e9b54cb5285"
 
-REQUIRED_DISTRO_FEATURES = "wayland systemd"
+REQUIRED_DISTRO_FEATURES = "wayland"
 
-DEPENDS += "wlroots\
-            freetype \
-            glm \
-            cairo \
-            libdrm \
-            libevdev \
-            mesa \
-            libinput \
-            jpeg \
-            libpng \
-            libxkbcommon \
-            libxml2 \
-            pixman \
-            wf-config \
-            wayland \
-            wayland-protocols \
-            wayland-native \
+DEPENDS += " \
+	cairo \
+	freetype \
+	glm \
+	jpeg \
+	libdrm \
+	libevdev \
+	libinput \
+	libpng \
+	libxkbcommon \
+	libxml2 \
+	mesa \
+	pixman \
+	seatd \
+	wayland \
+	wayland-native \
+	wayland-protocols \
 "
 
 RRECOMMENDS_${PN} += " \
@@ -35,16 +35,24 @@ RRECOMMENDS_${PN} += " \
 	wf-shell \
 "
 
-SRC_URI = "https://github.com/WayfireWM/wayfire/releases/download/v${PV}/wayfire-${PV}.tar.xz"
-SRC_URI[sha256sum] = "587988f9292b41fc4a91b73ea4fde9841bba5fb3325129729bef58d8eae2fb71"
+PACKAGECONFIG[gles32] = "-Denable_gles32=true,-Denable_gles32=false"
+PACKAGECONFIG[use_system_wfconfig] = "-Duse_system_wfconfig=enabled,-Duse_system_wfconfig=disabled,wlroots"
+PACKAGECONFIG[use_system_wlroots] = "-Duse_system_wlroots=enabled,-Duse_system_wlroots=disabled,wf-config"
+PACKAGECONFIG[xwayland] = "-Dxwayland=enabled,-Dxwayland=disabled"
 
-S = "${WORKDIR}/${PN}-${PV}"
+PACKAGECONFIG ?= " \
+	use_system_wfconfig \
+	use_system_wlroots \
+"
+
+SRC_URI = "git://github.com/WayfireWM/wayfire.git;protocol=https"
+SRCREV = "be207f693675d0b48e79d7a5f4adb6f46cd228e2"
+
+S = "${WORKDIR}/git"
 
 inherit meson pkgconfig features_check
 
 EXTRA_OEMESON += "--buildtype release"
-
-FILES_${PN} += "${datadir}"
 
 BBCLASSEXTEND = ""
 
