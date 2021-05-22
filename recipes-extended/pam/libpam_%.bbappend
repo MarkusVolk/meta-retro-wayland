@@ -6,8 +6,6 @@ do_install_append() {
 	echo "XDG_RUNTIME_DIR=/run/user/1000" >> ${D}${sysconfdir}/environment
 	echo "QT_QPA_FONTDIR=/usr/share/fonts" >> ${D}${sysconfdir}/environment
 	echo "QT_LOGGING_RULES=qt.qpa.*=true" >> ${D}${sysconfdir}/environment
-	echo "#QT_QPA_GENERIC_PLUGINS=evdevmouse" >> ${D}${sysconfdir}/environment
-	echo "#QT_QPA_EVDEV_MOUSE_PARAMETERS=/dev/input/event1:grab" >> ${D}${sysconfdir}/environment
-	echo "QTWEBENGINE_CHROMIUM_FLAGS=''" >> ${D}${sysconfdir}/environment
+	echo "SDL_VIDEODRIVER=wayland" >> ${D}${sysconfdir}/environment
 }
 
