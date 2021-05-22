@@ -1,0 +1,49 @@
+From 9f9efe9fc9567a0e5d1b54dbbac656e78bbc49ee Mon Sep 17 00:00:00 2001
+From: Markus Volk <f_l_k@t-online.de>
+Date: Sat, 22 May 2021 18:57:56 +0200
+Subject: [PATCH] CMakeLIST.txt: dont use sdl-config; dont install /run entry
+
+Signed-off-by: Markus Volk <f_l_k@t-online.de>
+---
+ CMakeLists.txt | 20 ++++++++++----------
+ 1 file changed, 10 insertions(+), 10 deletions(-)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 98cc350c900..73346b1e491 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -89,9 +89,9 @@ find_package(X11)
+ if(NOT WIN32)
+ 	# needed to get some SDL2 defines in... (as of rev31694 -D_GNU_SOURCE=1 is required!)
+ 	if(NOT MINGW)
+-		set(SDL2_CONFIG "sdl2-config" CACHE STRING "Path to sdl2-config script")
+-		exec_program(${SDL2_CONFIG} ARGS "--cflags" OUTPUT_VARIABLE SDL2_CFLAGS)
+-		add_definitions(${SDL2_CFLAGS})
++#		set(SDL2_CONFIG "sdl2-config" CACHE STRING "Path to sdl2-config script")
++#		exec_program(${SDL2_CONFIG} ARGS "--cflags" OUTPUT_VARIABLE SDL2_CFLAGS)
++#		add_definitions(${SDL2_CFLAGS})
+ 	else()
+ 		# equivalent to sdl2-config --cflags --libs
+ 		# since cmake cannot execute sdl2-config in msys2 shell
+@@ -580,12 +580,12 @@ if(ENABLE_APPDATA_FILE AND ENABLE_GAME)
+ 	install(FILES packaging/org.wesnoth.Wesnoth.appdata.xml DESTINATION ${CMAKE_INSTALL_DATAROOTDIR}/metainfo )
+ endif(ENABLE_APPDATA_FILE AND ENABLE_GAME)
+ 
+-if(ENABLE_SERVER AND FIFO_DIR)
+-	install(CODE "execute_process(COMMAND ${CMAKE_COMMAND} -E make_directory \$ENV{DESTDIR}/${FIFO_DIR})")
+-	if(SERVER_UID AND SERVER_GID)
+-		install(CODE "execute_process(COMMAND chown ${SERVER_UID}:${SERVER_GID} \$ENV{DESTDIR}/${FIFO_DIR})")
+-	endif()
+-endif()
++#if(ENABLE_SERVER AND FIFO_DIR)
++#	install(CODE "execute_process(COMMAND ${CMAKE_COMMAND} -E make_directory \$ENV{DESTDIR}/${FIFO_DIR})")
++#	if(SERVER_UID AND SERVER_GID)
++#		install(CODE "execute_process(COMMAND chown ${SERVER_UID}:${SERVER_GID} \$ENV{DESTDIR}/${FIFO_DIR})")
++#	endif()
++#endif()
+ 
+ #
+ # uninstall
+-- 
+2.25.1
+
