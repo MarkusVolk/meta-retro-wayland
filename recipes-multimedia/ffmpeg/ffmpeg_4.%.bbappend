@@ -35,27 +35,28 @@ SRC_URI[sha256sum] = "c2558449f1eddb6b13ed168288388c7804049c2af8d6db4952ccd6b4af
 PV = "4.3.2-Matrix-19.1"
 S = "${WORKDIR}/FFmpeg-${PV}"
 
+PACKAGECONFIG[dav1d] = "--enable-libdav1d,--disable-libdav1d,dav1d"
 PACKAGECONFIG[libass] = "--enable-libass,--disable-libass,libass"
 PACKAGECONFIG[libfreetype] = "--enable-libfreetype,--disable-libfreetype,freetype"
 PACKAGECONFIG[librtmp] = "--enable-librtmp,--disable-librtmp,rtmpdump"
-PACKAGECONFIG[wavpack] = "--enable-libwavpack,--disable-libwavpack,wavpack"
-PACKAGECONFIG[webp] = "--enable-libwebp,--disable-libwebp,libwebp"
 PACKAGECONFIG[libv4l2] = "--enable-libv4l2,--disable-libv4l2,v4l-utils"
 PACKAGECONFIG[pulseaudio] = "--enable-libpulse,--disable-libpulse,pulseaudio"
-PACKAGECONFIG[libdrm] = "--enable-libdrm,--disable-libdrm,libdrm"
+PACKAGECONFIG[v4l2-request] = "--enable-v4l2-request --enable-libdrm --enable-libudev,--disable-v4l2-request,libdrm"
+PACKAGECONFIG[wavpack] = "--enable-libwavpack,--disable-libwavpack,wavpack"
+PACKAGECONFIG[webp] = "--enable-libwebp,--disable-libwebp,libwebp"
 
 PACKAGECONFIG_append = " \
+	dav1d \
+	gpl \
 	librtmp \
 	libvorbis \
 	mp3lame \
 	openssl \
 	pulseaudio \
+	v4l2-request \
 	vpx \
-	webp \
 	wavpack \
-	libv4l2 \
-	libdrm \
-	gpl \
+	webp \
 	x264 \
 "
 
@@ -90,7 +91,6 @@ EXTRA_FFCONF = " \
 	--enable-indevs \
 	--enable-outdevs \
 	--enable-filters \
-	--enable-libudev \
 	--enable-hwaccels \
 	--enable-optimizations \
 	--enable-pthreads \
@@ -126,8 +126,6 @@ EXTRA_FFCONF_append_armarch = " \
 	--disable-fma3 \
 	--disable-fma4 \
 	--disable-avx2 \
-	--enable-v4l2-request \
-	--enable-v4l2-m2m \
 	${@bb.utils.contains("TARGET_ARCH", "arm", "--enable-armv6 --enable-armv6t2 --enable-vfp --enable-neon", "", d)} \
 	${@bb.utils.contains("TUNE_FEATURES", "aarch64", "--enable-armv8 --enable-vfp --enable-neon", "", d)} \
 "
