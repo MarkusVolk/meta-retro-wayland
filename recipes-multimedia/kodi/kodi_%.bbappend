@@ -60,6 +60,7 @@ RRECOMMENDS_${PN}_append = " \
 	v4l-utils \
 	xkeyboard-config \
 	kodi-addon-inputstream-adaptive \
+	kodi-addon-inputstream-ffmpegdirect \
 	kodi-addon-inputstream-rtmp \
 	kodi-addon-peripheral-joystick \
 	kodi-addon-pvr-hts \
