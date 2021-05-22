@@ -6,6 +6,8 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=435fa6b85536eff97b3594b76fd0048f"
 
 DEPENDS = "libsdl2 libsdl2-image libsdl2-mixer"
 
+RRECOMMENDS_${PN} = "doom-wad"
+
 inherit cmake
 
 SRC_URI = " \
