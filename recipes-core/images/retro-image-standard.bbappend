@@ -1,5 +1,8 @@
-# add default password for root
+inherit retro-user
+inherit extrausers
+EXTRA_USERS_PARAMS = "usermod -aG sudo,shutdown,plugdev ${RETRO_USER_NAME};"
 
+# add default password for root
 ROOTFS_POSTPROCESS_COMMAND += "set_root_passwd;"
 set_root_passwd() {
    ROOTPW_ENCRYPTED=""
@@ -62,7 +65,6 @@ IMAGE_INSTALL_append = " \
 	minidlna \
 	mpv \
 	nano \
-	neutrino-mp \
 	nfs-utils \
 	nfs-utils-client \
 	ntpdate \
