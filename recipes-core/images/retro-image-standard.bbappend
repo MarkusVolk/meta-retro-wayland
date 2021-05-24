@@ -1,7 +1,3 @@
-inherit retro-user
-inherit extrausers
-EXTRA_USERS_PARAMS = "usermod -aG sudo,shutdown,plugdev ${RETRO_USER_NAME};"
-
 # add default password for root
 ROOTFS_POSTPROCESS_COMMAND += "set_root_passwd;"
 set_root_passwd() {
@@ -24,7 +20,6 @@ IMAGE_INSTALL_append = " \
 	blueman \
 	bzip2 \
 	ca-certificates \
-	chromium-ozone-wayland \
 	cifs-utils \
 	connman-gtk \
 	coreutils-stdbuf \
