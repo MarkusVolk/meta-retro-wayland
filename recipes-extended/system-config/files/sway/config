@@ -10,6 +10,9 @@ set $down down
 set $up up
 set $right right
 
+# hide cursor on inactivity
+seat * hide_cursor 8000
+
 # application launcher
 set $menu dmenu-wl_run
 
