@@ -5,6 +5,7 @@ LICENSE = "GPL-2.0-only"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=cdfb10fe3916436d25f4410fcd6a97b8" 
 
 DEPENDS = "libsdl2 virtual/libgles2 curl openal-soft"
+RDEPENDS_${PN} = "openal-soft"
 RRECOMMENDS_${PN} = "quake2-pak"
 
 inherit cmake pkgconfig
