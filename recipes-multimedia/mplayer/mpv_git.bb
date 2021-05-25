@@ -8,7 +8,7 @@ DEPENDS = "zlib ffmpeg jpeg libv4l libass"
 LICENSE = "GPLv2+"
 LIC_FILES_CHKSUM = "file://LICENSE.GPL;md5=91f1cb870c1cc2d31351a4d2595441cb"
 
-PV = "0.33.1"
+PV = "0.32.0"
 SRCREV_mpv = "v${PV}"
 SRC_URI = " \
     git://github.com/mpv-player/mpv;name=mpv;branch=release/0.33 \
