@@ -1,5 +1,2 @@
-PACKAGECONFIG_append += "egl drm wayland gbm opengl pulseaudio openal sdl2 alsa shared zimg"
-
-
-
+PACKAGECONFIG_append += "lua egl drm gbm openal sdl2 shared zimg"
 

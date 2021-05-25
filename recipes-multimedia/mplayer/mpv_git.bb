@@ -28,10 +28,11 @@ LDFLAGS_append_riscv64 = " -latomic"
 
 # Note: lua is required to get on-screen-display (controls)
 PACKAGECONFIG ??= " \
-    lua \
-    ${@bb.utils.filter('DISTRO_FEATURES', 'wayland', d)} \
-    ${@bb.utils.filter('DISTRO_FEATURES', 'x11', d)} \
-    ${@bb.utils.filter('DISTRO_FEATURES', 'opengl', d)} \
+	${@bb.utils.filter('DISTRO_FEATURES', 'wayland', d)} \
+	${@bb.utils.filter('DISTRO_FEATURES', 'x11', d)} \
+	${@bb.utils.filter('DISTRO_FEATURES', 'opengl', d)} \
+	${@bb.utils.filter('DISTRO_FEATURES', 'alsa', d)} \
+	${@bb.utils.filter('DISTRO_FEATURES', 'pulseaudio', d)} \
 "
 
 PACKAGECONFIG[x11] = "--enable-x11,--disable-x11,virtual/libx11"
