@@ -5,10 +5,6 @@ HOMEPAGE = "http://www.mpv.io/"
 
 DEPENDS = "zlib ffmpeg jpeg libv4l libass"
 
-DEPENDS += " \
-    ${@bb.utils.contains('DISTRO_FEATURES', 'x11', ' virtual/libx11 xsp libxv libxscrnsaver libxinerama', '', d)} \
-"
-
 LICENSE = "GPLv2+"
 LIC_FILES_CHKSUM = "file://LICENSE.GPL;md5=91f1cb870c1cc2d31351a4d2595441cb"
 
@@ -35,8 +31,7 @@ PACKAGECONFIG ??= " \
 	${@bb.utils.filter('DISTRO_FEATURES', 'pulseaudio', d)} \
 "
 
-PACKAGECONFIG[x11] = "--enable-x11,--disable-x11,virtual/libx11"
-PACKAGECONFIG[xv] = "--enable-xv,--disable-xv,libxv"
+PACKAGECONFIG[x11] = "--enable-x11,--disable-x11,virtual/libx11 xsp libxv libxscrnsaver libxinerama"
 PACKAGECONFIG[opengl] = "--enable-gl,--disable-gl,virtual/libgl"
 PACKAGECONFIG[egl] = "--enable-egl,--disable-egl,"
 PACKAGECONFIG[drm] = "--enable-drm,--disable-drm,libdrm"
