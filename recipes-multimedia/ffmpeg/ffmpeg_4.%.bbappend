@@ -44,6 +44,7 @@ PACKAGECONFIG[pulseaudio] = "--enable-libpulse,--disable-libpulse,pulseaudio"
 PACKAGECONFIG[v4l2-request] = "--enable-v4l2-request --enable-libdrm --enable-libudev,--disable-v4l2-request,libdrm"
 PACKAGECONFIG[wavpack] = "--enable-libwavpack,--disable-libwavpack,wavpack"
 PACKAGECONFIG[webp] = "--enable-libwebp,--disable-libwebp,libwebp"
+PACKAGECONFIG[zimg] = "--enable-libzimg,--disable-libzimg,zimg"
 
 PACKAGECONFIG_append = " \
 	dav1d \
@@ -58,6 +59,7 @@ PACKAGECONFIG_append = " \
 	wavpack \
 	webp \
 	x264 \
+	zimg \
 "
 
 inherit retro-overrides
