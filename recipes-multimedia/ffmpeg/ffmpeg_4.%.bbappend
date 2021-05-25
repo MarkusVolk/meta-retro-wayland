@@ -50,6 +50,7 @@ PACKAGECONFIG_append = " \
 	dav1d \
 	gpl \
 	librtmp \
+	libass \
 	libvorbis \
 	mp3lame \
 	openssl \
