@@ -14,6 +14,8 @@ set_root_passwd() {
    rm -rf ${IMAGE_ROOTFS}/tmp/*
 }
 
+RETRO_WAYLAND_COMPOSITOR ?= "sway"
+
 IMAGE_INSTALL_append = " \
 	autofs \
 	bash \
@@ -76,7 +78,6 @@ IMAGE_INSTALL_append = " \
 	shadow \
 	shared-mime-info \
 	sudo \
-	sway \
 	system-config \
 	tar \
 	thunar \
@@ -90,6 +91,7 @@ IMAGE_INSTALL_append = " \
 	wireless-regdb-static \
 	xfce4-terminal \
 	xfce-polkit \
+	${RETRO_WAYLAND_COMPOSITOR} \
 "
 
 
