@@ -16,24 +16,55 @@ set_root_passwd() {
 
 RETRO_WAYLAND_COMPOSITOR ?= "sway"
 
-IMAGE_INSTALL_append = " \
-	autofs \
-	bash \
+WGTK_APPS ?= " \
 	blueman \
-	bzip2 \
-	ca-certificates \
-	cifs-utils \
 	connman-gtk \
+	file-roller \
+	gdk-pixbuf \
+	gnome-system-monitor \
+	gparted \
+	gsettings-desktop-schemas \
+	gvfs \
+	gvfsd-trash \
+	l3afpad \
+	pavucontrol \
+	thunar \
+	xfce4-terminal \
+	xfce-polkit \
+"
+
+WCONSOLE_TOOLS ?= " \
+	bash \
+	bzip2 \
 	coreutils-stdbuf \
 	curl \
 	dosfstools \
-	dvb-femon \
-	dvb-usb-drivers-meta \
 	e2fsprogs \
-	file-roller \
 	findutils \
-	gdk-pixbuf \
 	git \
+	grep \
+	gzip \
+	htop \
+	less \
+	libusb1 \
+	nano \
+	pv \
+	rsync \
+	sed \
+	shadow \
+	sudo \
+	tar \
+	usbutils \
+	util-linux \
+	util-linux-agetty \
+	util-linux-fstrim \
+	imagemagick \
+	libswscale \
+	mpv \
+"
+
+WSYSTEM_CONF ?= " \
+	ca-certificates \
 	glibc-binary-localedata-cs-cz \
 	glibc-binary-localedata-de-de \
 	glibc-binary-localedata-en-us \
@@ -42,56 +73,42 @@ IMAGE_INSTALL_append = " \
 	glibc-binary-localedata-pl-pl \
 	glibc-binary-localedata-ru-ru \
 	glibc-charmap-utf-8 \
-	gnome-system-monitor \
-	gparted \
-	gsettings-desktop-schemas \
-	gvfs \
-	gvfsd-trash \
-	gzip \
-	htop \
-	imagemagick \
-	l3afpad \
-	less \
-	libswscale \
-	libusb1 \
 	localedef \
-	lua-expat \
-	lua-feedparser \
-	lua-json \
-	luaposix \
+	packagegroup-fonts-truetype \
+	shared-mime-info \
+	system-config \
+	tzdata \
+	tzdata-europe \
+	wireless-regdb-static \
+"
+	
+WNET_SERVICES ?= " \
+	autofs \
+	cifs-utils \
 	minidlna \
-	mpv \
-	nano \
 	nfs-utils \
 	nfs-utils-client \
 	ntpdate \
 	oscam \
-	packagegroup-fonts-truetype \
-	pavucontrol \
 	proftpd \
 	pulseaudio \
-	pv \
 	rpcbind \
-	rsync \
 	samba \
-	sed \
-	shadow \
-	shared-mime-info \
-	sudo \
-	system-config \
-	tar \
-	thunar \
-	tzdata \
-	tzdata-europe \
-	usbutils \
-	util-linux \
-	util-linux-agetty \
-	util-linux-fstrim \
-	virtual/lua \
-	wireless-regdb-static \
-	xfce4-terminal \
-	xfce-polkit \
-	${RETRO_WAYLAND_COMPOSITOR} \
 "
 
+WLUA ?= " \
+	luajit \
+	lua-expat \
+	lua-feedparser \
+	lua-json \
+	luaposix \
+"
+
+IMAGE_INSTALL_append = " \
+	${WGTK_APPS} \
+	${WCONSOLE_TOOLS} \
+	${WSYSTEM_CONF} \
+	${WNET_SERVICES} \
+	${WLUA} \
+"
 
