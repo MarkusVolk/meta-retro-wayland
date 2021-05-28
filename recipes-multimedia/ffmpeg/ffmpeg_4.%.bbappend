@@ -37,6 +37,7 @@ S = "${WORKDIR}/FFmpeg-${PV}"
 
 PACKAGECONFIG[dav1d] = "--enable-libdav1d,--disable-libdav1d,dav1d"
 PACKAGECONFIG[libass] = "--enable-libass,--disable-libass,libass"
+PACKAGECONFIG[libopus] = "--enable-libopus,--disable-libopus,libopus"
 PACKAGECONFIG[libfreetype] = "--enable-libfreetype,--disable-libfreetype,freetype"
 PACKAGECONFIG[librtmp] = "--enable-librtmp,--disable-librtmp,rtmpdump"
 PACKAGECONFIG[libv4l2] = "--enable-libv4l2,--disable-libv4l2,v4l-utils"
@@ -51,6 +52,7 @@ PACKAGECONFIG_append = " \
 	gpl \
 	librtmp \
 	libass \
+	libopus \
 	libvorbis \
 	mp3lame \
 	openssl \
