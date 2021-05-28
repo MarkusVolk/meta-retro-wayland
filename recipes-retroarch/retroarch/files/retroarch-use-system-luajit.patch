@@ -1,0 +1,77 @@
+From 24dd99435be6db91595c323064ed97a90e492111 Mon Sep 17 00:00:00 2001
+From: Markus Volk <f_l_k@t-online.de>
+Date: Fri, 28 May 2021 19:19:21 +0200
+Subject: [PATCH] use system luajit instead static internal source
+
+Signed-off-by: Markus Volk <f_l_k@t-online.de>
+---
+ Makefile.common   | 39 +++------------------------------------
+ qb/config.libs.sh |  2 ++
+ 2 files changed, 5 insertions(+), 36 deletions(-)
+
+diff --git a/Makefile.common b/Makefile.common
+index 2c555ad17a..18fa5cf987 100644
+--- a/Makefile.common
++++ b/Makefile.common
+@@ -2128,42 +2128,9 @@ ifeq ($(HAVE_NETWORKING), 1)
+              deps/rcheevos/src/rurl/url.o
+ 
+       ifeq ($(HAVE_LUA), 1)
+-         DEFINES += -DHAVE_LUA \
+-                    -DLUA_32BITS
+-         INCLUDE_DIRS += -Ideps/lua/src
+-         OBJ += deps/lua/src/lapi.o \
+-                deps/lua/src/lcode.o \
+-                deps/lua/src/lctype.o \
+-                deps/lua/src/ldebug.o \
+-                deps/lua/src/ldo.o \
+-                deps/lua/src/ldump.o \
+-                deps/lua/src/lfunc.o \
+-                deps/lua/src/lgc.o \
+-                deps/lua/src/llex.o \
+-                deps/lua/src/lmem.o \
+-                deps/lua/src/lobject.o \
+-                deps/lua/src/lopcodes.o \
+-                deps/lua/src/lparser.o \
+-                deps/lua/src/lstate.o \
+-                deps/lua/src/lstring.o \
+-                deps/lua/src/ltable.o \
+-                deps/lua/src/ltm.o \
+-                deps/lua/src/lundump.o \
+-                deps/lua/src/lvm.o \
+-                deps/lua/src/lzio.o \
+-                deps/lua/src/lauxlib.o \
+-                deps/lua/src/lbaselib.o \
+-                deps/lua/src/lbitlib.o \
+-                deps/lua/src/lcorolib.o \
+-                deps/lua/src/ldblib.o \
+-                deps/lua/src/liolib.o \
+-                deps/lua/src/lmathlib.o \
+-                deps/lua/src/loslib.o \
+-                deps/lua/src/lstrlib.o \
+-                deps/lua/src/ltablib.o \
+-                deps/lua/src/lutf8lib.o \
+-                deps/lua/src/loadlib.o \
+-                deps/lua/src/linit.o
++         DEFINES += -DHAVE_LUA
++         LIBS    += $(LUAJIT_LIBS)
++         INCLUDE_DIRS += $(LUAJIT_CFLAGS)
+       else
+          DEFINES += -DRC_DISABLE_LUA
+       endif
+diff --git a/qb/config.libs.sh b/qb/config.libs.sh
+index 361766246b..676070596c 100644
+--- a/qb/config.libs.sh
++++ b/qb/config.libs.sh
+@@ -312,6 +312,8 @@ check_enabled FLAC BUILTINFLAC 'builtin flac' 'flac is' true
+ 
+ check_val '' FLAC '-lFLAC' '' flac '' '' false
+ 
++check_pkgconf LUAJIT luajit
++
+ 
+ check_enabled SSL SYSTEMMBEDTLS 'system mbedtls' 'ssl is' false
+ check_enabled SSL BUILTINMBEDTLS 'builtin mbedtls' 'ssl is' false
+-- 
+2.25.1
+
