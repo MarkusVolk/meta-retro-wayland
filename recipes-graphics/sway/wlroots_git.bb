@@ -2,7 +2,6 @@ SUMMARY = "A modular Wayland compositor library"
 DESCRIPTION = "Pluggable, composable, unopinionated modules for building a \
                Wayland compositor; or about 50,000 lines of code you were \
                going to write anyway"
-AUTHOR = ""
 HOMEPAGE = "https://github.com/swaywm/wlroots"
 BUGTRACKER = "https://github.com/swaywm/wlroots/issues"
 SECTION = "graphics"
