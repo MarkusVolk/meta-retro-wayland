@@ -15,15 +15,15 @@ DEPENDS_append += "kodi-tools-jsonschemabuilder-native kodi-tools-texturepacker-
 DEPENDS_remove = "libsquish"
 
 EXTRA_OECMAKE += "-DWAYLANDPP_SCANNER=${STAGING_BINDIR_NATIVE}/wayland-scanner++" 
-EXTRA_OECMAKE += "-DENABLE_CCACHE=0"
 EXTRA_OECMAKE += "-DCORE_PLATFORM_NAME=wayland"
 EXTRA_OECMAKE += "-DAPP_RENDER_SYSTEM=gles"
 
 EXTRA_OECMAKE_BUILD = ""
 
-VAAPISUPPORT_rockchip = "0"
-VDPAUSUPPORT_rockchip = "0"
-VDPAUSUPPORT_rpi = "0"
+inherit retro-overrides
+
+VAAPISUPPORT_armarch = "0"
+VDPAUSUPPORT_armarch = "0"
 
 PACKAGECONFIG_append += "bluetooth samba wayland"
 
