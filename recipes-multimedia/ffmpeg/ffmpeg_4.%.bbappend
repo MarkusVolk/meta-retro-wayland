@@ -47,30 +47,36 @@ PACKAGECONFIG[v4l2-request] = "--enable-v4l2-request --enable-libdrm --enable-li
 PACKAGECONFIG[wavpack] = "--enable-libwavpack,--disable-libwavpack,wavpack"
 PACKAGECONFIG[webp] = "--enable-libwebp,--disable-libwebp,libwebp"
 PACKAGECONFIG[zimg] = "--enable-libzimg,--disable-libzimg,zimg"
+PACKAGECONFIG[libxml2] = "--enable-libxml2,--disable-libxml2,libxml2"
 
 PACKAGECONFIG_append = " \
 	dav1d \
+	fdk-aac \
 	gpl \
 	librtmp \
 	libass \
 	libfontconfig \
 	libfreetype \
 	libopus \
+	libv4l2 \
 	libvorbis \
+	libxml2 \
 	mp3lame \
 	openssl \
 	pulseaudio \
+	sdl2 \
 	v4l2-request \
 	vpx \
 	wavpack \
 	webp \
 	x264 \
+	x265 \
 	zimg \
 "
 
 inherit retro-overrides
 
-VAAPISUPPORT_rockchip = "0"
+VAAPISUPPORT_armarch = "0"
 VDPAUSUPPORT_armarch = "0"
 
 EXTRA_FFCONF = " \
