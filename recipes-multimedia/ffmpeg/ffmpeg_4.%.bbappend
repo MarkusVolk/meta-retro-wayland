@@ -1,7 +1,7 @@
 FILESEXTRAPATHS_prepend := "${THISDIR}/ffmpeg:"
 
 SRC_URI = " \
-	https://github.com/xbmc/FFmpeg/archive/${PV}.tar.gz \
+	git://github.com/xbmc/FFmpeg.git;protocol=https;branch=release/4.3-kodi \
 	file://mips64_cpu_detection.patch \
 	file://0001-libavutil-include-assembly-with-full-path-from-sourc.patch \
 	file://4_02_fix_mpegts.patch \
@@ -30,10 +30,9 @@ SRC_URI_append_rockchip = " \
 	file://ffmpeg-001-v4l2-drmprime.patch \
 "
 
-SRC_URI[sha256sum] = "c2558449f1eddb6b13ed168288388c7804049c2af8d6db4952ccd6b4af6e9fdd"
-
-PV = "4.3.2-Matrix-19.1"
-S = "${WORKDIR}/FFmpeg-${PV}"
+S = "${WORKDIR}/git"
+PV = "4.3.2"
+SRCREV = "${PV}-Matrix-19.1"
 
 PACKAGECONFIG[dav1d] = "--enable-libdav1d,--disable-libdav1d,dav1d"
 PACKAGECONFIG[libass] = "--enable-libass,--disable-libass,libass"
