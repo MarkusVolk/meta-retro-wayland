@@ -29,6 +29,7 @@ RRECOMMENDS_${PN} += " \
 	pulseaudio-module-switch-on-port-available \
 	pulseaudio-module-switch-on-connect \
 	pulseaudio-module-systemd-login \
+	pulseaudio-module-passthrough \	
 "
 		
 
