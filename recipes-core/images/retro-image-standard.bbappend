@@ -29,7 +29,6 @@ WGTK_APPS ?= " \
 	l3afpad \
 	pavucontrol \
 	thunar \
-	xfce4-terminal \
 	xfce-polkit \
 "
 

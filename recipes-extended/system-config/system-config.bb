@@ -18,6 +18,7 @@ SRC_URI = " \
 	file://automount.service \
 	file://99-udisks2.rules \
 	file://media.conf \
+	file://foot/foot.ini \
 	file://retro.jpg \
 	file://waybar/config \
 	file://waybar/style.css \
@@ -34,6 +35,7 @@ do_install() {
 	install -d ${D}${RETRO_USER_HOMEDIR}/.config/sway/wallpaper
 	install -d ${D}${RETRO_USER_HOMEDIR}/.config/sway/scripts
 	install -d ${D}${RETRO_USER_HOMEDIR}/.config/systemd/user
+	install -d ${D}${RETRO_USER_HOMEDIR}/.config/foot
 	install -d ${D}${RETRO_USER_HOMEDIR}/.config/samba
 	install -d ${D}${RETRO_USER_HOMEDIR}/.config/connman
 	install -d ${D}${RETRO_USER_HOMEDIR}/.config/waybar/scripts
@@ -54,6 +56,7 @@ do_install() {
 	install -m 0644 ${WORKDIR}/10-wifimanagement.rules ${D}${sysconfdir}/polkit-1/rules.d
 	install -m 0644 ${WORKDIR}/49-nopasswd_global.rules ${D}${sysconfdir}/polkit-1/rules.d
 	install -m 0755 ${WORKDIR}/automountd ${D}${sysconfdir}/udev/scripts
+	install -m 0644 ${WORKDIR}/foot/foot.ini ${D}${RETRO_USER_HOMEDIR}/.config/foot/foot.ini
 	install -m 0644 ${WORKDIR}/waybar/config ${D}${RETRO_USER_HOMEDIR}/.config/waybar/config
 	install -m 0644 ${WORKDIR}/waybar/style.css ${D}${RETRO_USER_HOMEDIR}/.config/waybar/style.css
 	install -m 0755 ${WORKDIR}/waybar/scripts/waybar.sh ${D}${RETRO_USER_HOMEDIR}/.config/waybar/scripts/waybar.sh
