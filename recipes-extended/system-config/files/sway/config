@@ -2,7 +2,7 @@
 set $mod Mod1
 
 # terminal
-set $term "/usr/bin/xfce4-terminal"
+set $term "/usr/bin/foot"
 
 # movement
 set $left left
