@@ -8,7 +8,6 @@ SRC_URI = "${SOURCEFORGE_MIRROR}/webadmin/webmin-${PV}.tar.gz \
            file://init-exclude.patch \
            file://net-generic.patch \
            file://remove-startup-option.patch \
-           file://disable-version-check.patch;apply=no \
            file://nfs-export.patch \
            file://exports-lib.pl.patch \
            file://mount-excludefs.patch \
@@ -17,7 +16,6 @@ SRC_URI = "${SOURCEFORGE_MIRROR}/webadmin/webmin-${PV}.tar.gz \
            file://net-lib.pl.patch \
            file://media-tomb.patch \
            file://remove-python2.3.patch \
-           file://mysql-config-fix.patch \
            file://webmin.service \
 	   file://samba_config \
 	   file://exports_config \
@@ -28,9 +26,9 @@ SRC_URI = "${SOURCEFORGE_MIRROR}/webadmin/webmin-${PV}.tar.gz \
 
 RDEPENDS-${PN}-module += "perl"
 
-SRC_URI[sha256sum] = "6798027c7230be1adf6cf2fd27a74185718abcb0e1ff8b674a518b41e885651e"
+SRC_URI[sha256sum] = "ed536f2056a5ba85102523de6182ff56d946a0a619f0d9a2c06fb84495acd197"
 
-inherit perlnative systemd
+inherit perlnative systemd retro-user
 
 do_configure() {
     # Remove binaries and plugins for other platforms
@@ -76,8 +74,8 @@ do_configure() {
     sed -i "s/find_pid_command=.*/find_pid_command=pidof NAME/" config-generic-linux
 }
 
-WEBMIN_LOGIN ?= "root"
-WEBMIN_PASSWORD ?= "root"
+WEBMIN_LOGIN ?= "${RETRO_USER_NAME}"
+WEBMIN_PASSWORD ?= "${RETRO_USER_PASSWORD}"
 
 do_install() {
     install -d ${D}${sysconfdir}
