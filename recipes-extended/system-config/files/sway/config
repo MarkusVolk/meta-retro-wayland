@@ -120,6 +120,9 @@ client.unfocused         $iab     $bg     $fg    $bg        $iab
 client.urgent            $ub	  $bg     $fg    $bg        $ub
 client.placeholder	 $bg	  $bg     $fg    $bg        $bg
 
+focus_on_window_activation focus
+
+
 set $ws1 "1:Kodi"
 set $ws2 "2:Retroarch"
 set $ws3 "3:Chromium"
@@ -129,10 +132,20 @@ set $ws6 "6"
 set $ws7 "7"
 set $ws8 "8"
 set $ws9 "9"
-set $ws10 "10"
+set $ws10 "10:mpv"
 
 assign [app_id="Kodi"] $ws1
 assign [app_id="retroarch"] $ws2
+assign [app_id="Chromium-browser"] $ws3
+assign [app_id="mpv"] $ws10	
+
+for_window [app_id="Kodi"] fullscreen enable
+for_window [app_id="Kodi"] focus
+for_window [app_id="retroarch"] fullscreen enable
+for_window [app_id="retroarch"] focus
+for_window [app_id="Chromium-browser"] focus
+for_window [app_id="mpv"] fullscreen enable
+for_window [app_id="mpv"] focus
 
 bindsym $mod+1 workspace 1:Kodi; exec ~/.config/sway/scripts/kodi.sh
 bindsym $mod+2 workspace 2:Retroarch; exec ~/.config/sway/scripts/retroarch.sh
@@ -143,7 +156,7 @@ bindsym $mod+6 workspace 6
 bindsym $mod+7 workspace 7
 bindsym $mod+8 workspace 8
 bindsym $mod+9 workspace 9
-bindsym $mod+0 workspace 10
+bindsym $mod+0 workspace 10:mpv
 
 bindsym $mod+Shift+1 move container to workspace 1:Kodi
 bindsym $mod+Shift+2 move container to workspace 2:Retroarch
@@ -174,4 +187,3 @@ default_floating_border pixel 3
 titlebar_border_thickness 0
 smart_gaps on
 hide_edge_borders --i3 smart
-
