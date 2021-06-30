@@ -1,5 +1,7 @@
 FILESEXTRAPATHS_prepend := "${THISDIR}/ffmpeg:"
 
+inherit retro-overrides
+
 SRC_URI = " \
 	git://github.com/xbmc/FFmpeg.git;protocol=https;branch=release/4.3-kodi \
 	file://mips64_cpu_detection.patch \
@@ -21,8 +23,7 @@ SRC_URI = " \
 "
 
 SRC_URI_append_rpi = "	\
-	file://rpi/ffmpeg-rpi.patch \
-	file://rpi/workaround-header-issue.patch \
+	file://rpi/ffmpeg-001-rpi.patch \
 "
 	
 SRC_URI_append_rockchip = " \
@@ -32,7 +33,7 @@ SRC_URI_append_rockchip = " \
 
 S = "${WORKDIR}/git"
 PV = "4.3.2"
-SRCREV = "${PV}-Matrix-19.1"
+SRCREV = "${PV}-Matrix-19.2"
 
 PACKAGECONFIG[dav1d] = "--enable-libdav1d,--disable-libdav1d,dav1d"
 PACKAGECONFIG[libass] = "--enable-libass,--disable-libass,libass"
@@ -42,7 +43,8 @@ PACKAGECONFIG[libopus] = "--enable-libopus,--disable-libopus,libopus"
 PACKAGECONFIG[librtmp] = "--enable-librtmp,--disable-librtmp,rtmpdump"
 PACKAGECONFIG[libv4l2] = "--enable-libv4l2,--disable-libv4l2,v4l-utils"
 PACKAGECONFIG[pulseaudio] = "--enable-libpulse,--disable-libpulse,pulseaudio"
-PACKAGECONFIG[v4l2-request] = "--enable-v4l2-request --enable-libdrm --enable-libudev,--disable-v4l2-request,libdrm"
+PACKAGECONFIG[v4l2-m2m] = "--enable-v4l2_m2m --enable-libdrm,--disable-v4l2_m2m,libdrm"
+PACKAGECONFIG[v4l2-request] = "--enable-v4l2-request --enable-libudev,--disable-v4l2-request"
 PACKAGECONFIG[wavpack] = "--enable-libwavpack,--disable-libwavpack,wavpack"
 PACKAGECONFIG[webp] = "--enable-libwebp,--disable-libwebp,libwebp"
 PACKAGECONFIG[zimg] = "--enable-libzimg,--disable-libzimg,zimg"
@@ -64,7 +66,6 @@ PACKAGECONFIG_append = " \
 	openssl \
 	pulseaudio \
 	sdl2 \
-	v4l2-request \
 	vpx \
 	wavpack \
 	webp \
@@ -73,7 +74,10 @@ PACKAGECONFIG_append = " \
 	zimg \
 "
 
-inherit retro-overrides
+PACKAGECONFIG_append_armarch = " \
+	v4l2-m2m \
+	v4l2-request \
+"
 
 VAAPISUPPORT_armarch = "0"
 VDPAUSUPPORT_armarch = "0"
