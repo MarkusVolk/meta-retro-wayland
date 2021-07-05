@@ -112,3 +112,6 @@ IMAGE_INSTALL_append = " \
 	${WLUA} \
 "
 
+IMAGE_INSTALL_remove = "retroarch-service"
+
+
