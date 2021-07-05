@@ -47,6 +47,7 @@ WCONSOLE_TOOLS ?= " \
 	less \
 	libusb1 \
 	nano \
+	procps \
 	pv \
 	rsync \
 	sed \
