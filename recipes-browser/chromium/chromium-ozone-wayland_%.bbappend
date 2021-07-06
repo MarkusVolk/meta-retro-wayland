@@ -1,6 +1,6 @@
 FILESEXTRAPATHS_prepend := "${THISDIR}/files:"
 
-PACKAGECONFIG_append = " impl-side-painting proprietary-codecs"
+PACKAGECONFIG_append = " proprietary-codecs"
 
 inherit ccache
 
