@@ -112,6 +112,11 @@ IMAGE_INSTALL_append = " \
 	${WLUA} \
 "
 
+IMAGE_INSTALL_append_rockchip = " \
+	rockchip-firmware \
+	ap6256-firmware \
+"
+
 IMAGE_INSTALL_remove = "retroarch-service"
 
 
