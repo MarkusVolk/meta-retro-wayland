@@ -16,8 +16,8 @@ SRC_URI = " \
     git://github.com/yquake2/yquake2.git;protocol=https \
 "
 
-PV = "7.45"
-SRCREV = "6102a36dab33cf4789e96d2d23b410fd0db04425"
+PV = "8.00"
+SRCREV = "QUAKE2_8_00"
 S = "${WORKDIR}/git"
 
 # thumb is unsupported
