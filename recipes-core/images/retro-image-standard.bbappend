@@ -46,7 +46,7 @@ WCONSOLE_TOOLS ?= " \
 	htop \
 	less \
 	libusb1 \
-	nano \
+	micro \
 	procps \
 	pv \
 	rsync \
