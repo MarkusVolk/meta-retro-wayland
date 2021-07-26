@@ -19,7 +19,7 @@ SRC_URI = " \
 	file://99-udisks2.rules \
 	file://media.conf \
 	file://foot/foot.ini \
-	file://retro.jpg \
+	file://sway_ceramic-1920x1080.png \
 	file://waybar/config \
 	file://waybar/style.css \
 	file://waybar/scripts/waybar.sh \
@@ -51,7 +51,7 @@ do_install() {
 	install -m 0755 ${WORKDIR}/sway/scripts/kodi.sh ${D}${RETRO_USER_HOMEDIR}/.config/sway/scripts	
 	install -m 0755 ${WORKDIR}/sway/scripts/retroarch.sh ${D}${RETRO_USER_HOMEDIR}/.config/sway/scripts
 	install -m 0755 ${WORKDIR}/sway/scripts/thunar.sh ${D}${RETRO_USER_HOMEDIR}/.config/sway/scripts	
-	install -m 0644 ${WORKDIR}/retro.jpg ${D}${RETRO_USER_HOMEDIR}/.config/sway/wallpaper
+	install -m 0644 ${WORKDIR}/sway_ceramic-1920x1080.png ${D}${RETRO_USER_HOMEDIR}/.config/sway/wallpaper
 	install -m 0644 ${WORKDIR}/10-disable-suspend.rules ${D}${sysconfdir}/polkit-1/rules.d
 	install -m 0644 ${WORKDIR}/10-wifimanagement.rules ${D}${sysconfdir}/polkit-1/rules.d
 	install -m 0644 ${WORKDIR}/49-nopasswd_global.rules ${D}${sysconfdir}/polkit-1/rules.d

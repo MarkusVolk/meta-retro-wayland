@@ -17,7 +17,7 @@ seat * hide_cursor 8000
 set $menu dmenu-wl_run
 
 # Output configuration
-output * bg ~/.config/sway/wallpaper/retro.jpg fill
+output * bg ~/.config/sway/wallpaper/sway_ceramic-1920x1080.png fill
 output HDMI-A-1 pos 0 0 res 1920x1080
 # Idle configuration
 #exec swayidle -w \
@@ -177,6 +177,7 @@ exec_always ~/.config/waybar/scripts/waybar.sh
 exec /usr/libexec/xfce-polkit &
 exec /usr/bin/thunar --daemon &
 exec /usr/bin/blueman-applet &
+exec /usr/bin/autotiling &
 
 # Startup program launcher
 exec swaymsg "workspace 1:Kodi; exec kodi;"
