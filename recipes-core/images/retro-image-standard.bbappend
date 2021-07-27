@@ -21,6 +21,7 @@ WGTK_APPS ?= " \
 	connman-gtk \
 	file-roller \
 	gdk-pixbuf \
+	librsvg-gtk \
 	gnome-system-monitor \
 	gparted \
 	gsettings-desktop-schemas \
@@ -40,7 +41,9 @@ WCONSOLE_TOOLS ?= " \
 	dosfstools \
 	e2fsprogs \
 	findutils \
+	fzf \
 	git \
+	gotop \
 	grep \
 	gzip \
 	htop \
