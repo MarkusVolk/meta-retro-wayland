@@ -12,8 +12,8 @@ SRC_URI = " \
 SRC_URI[sha256sum] = "ed17776afe5d9076baf2c718e54fc0cb0866bafbcdce3f2658e67e2e5c17c217"
 
 do_install() {
-	install -d ${D}${datadir}
-	cp -rf ${WORKDIR}/quake2 ${D}${datadir}
+	install -d ${D}${datadir}/games
+	cp -rf ${WORKDIR}/quake2 ${D}${datadir}/games
 }
 
 FILES_${PN} = " \
