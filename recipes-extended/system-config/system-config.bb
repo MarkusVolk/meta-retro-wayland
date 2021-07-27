@@ -29,7 +29,8 @@ SRC_URI = " \
 	file://waybar/scripts/resources.sh \
 	file://waybar/scripts/blueman-manager.sh \
 "
-	
+
+RRECCOMMENDS_${PN} = "nwg-launchers"	
 	
 do_install() {
 	install -d ${D}${RETRO_USER_HOMEDIR}/.config/sway/wallpaper

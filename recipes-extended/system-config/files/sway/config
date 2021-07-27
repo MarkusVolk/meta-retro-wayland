@@ -14,7 +14,7 @@ set $right right
 seat * hide_cursor 8000
 
 # application launcher
-set $menu dmenu-wl_run
+set $menu nwggrid
 
 # Output configuration
 output * bg ~/.config/sway/wallpaper/sway_ceramic-1920x1080.png fill

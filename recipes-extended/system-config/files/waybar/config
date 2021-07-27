@@ -28,7 +28,7 @@
     },
     "custom/power":{
 	"format": "  ",
-	"on-click":"swaynag -t warning -m 'Power Menu Options' -b 'Reboot' 'systemctl reboot' -b 'Shutdown' 'systemctl halt'",
+	"on-click":"nwgbar",
 	"tooltip": false,
     },
     "clock": {
