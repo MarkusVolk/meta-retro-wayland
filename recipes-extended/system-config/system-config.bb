@@ -30,7 +30,11 @@ SRC_URI = " \
 	file://waybar/scripts/blueman-manager.sh \
 "
 
-RRECCOMMENDS_${PN} = "nwg-launchers"	
+RRECOMMENDS_${PN} = " \
+	autotiling \
+	nwg-launchers \
+	waybar \
+"	
 	
 do_install() {
 	install -d ${D}${RETRO_USER_HOMEDIR}/.config/sway/wallpaper

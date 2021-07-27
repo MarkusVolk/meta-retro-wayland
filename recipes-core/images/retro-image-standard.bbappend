@@ -47,9 +47,13 @@ WCONSOLE_TOOLS ?= " \
 	grep \
 	gzip \
 	htop \
+	imagemagick \
+	imv \
 	less \
+	libswscale \
 	libusb1 \
 	micro \
+	mpv \
 	procps \
 	pv \
 	rsync \
@@ -61,9 +65,7 @@ WCONSOLE_TOOLS ?= " \
 	util-linux \
 	util-linux-agetty \
 	util-linux-fstrim \
-	imagemagick \
-	libswscale \
-	mpv \
+	wf-recorder \
 "
 
 WSYSTEM_CONF ?= " \
