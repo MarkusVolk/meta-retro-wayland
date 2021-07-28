@@ -66,6 +66,7 @@ WCONSOLE_TOOLS ?= " \
 	util-linux-agetty \
 	util-linux-fstrim \
 	wf-recorder \
+	wl-sunset \
 "
 
 WSYSTEM_CONF ?= " \
@@ -81,6 +82,7 @@ WSYSTEM_CONF ?= " \
 	localedef \
 	packagegroup-fonts-truetype \
 	shared-mime-info \
+	shared-mime-info-data \
 	system-config \
 	tzdata \
 	tzdata-europe \
