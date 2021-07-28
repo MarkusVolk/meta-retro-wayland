@@ -28,12 +28,15 @@ SRC_URI = " \
 	file://waybar/scripts/processes.sh \
 	file://waybar/scripts/resources.sh \
 	file://waybar/scripts/blueman-manager.sh \
+	file://glib-2.0/settings/keyfile \
 "
 
 RRECOMMENDS_${PN} = " \
 	autotiling \
 	nwg-launchers \
 	waybar \
+	nordic-darker-theme \
+	tela-circle-icon-theme \
 "	
 	
 do_install() {
@@ -42,6 +45,7 @@ do_install() {
 	install -d ${D}${RETRO_USER_HOMEDIR}/.config/systemd/user
 	install -d ${D}${RETRO_USER_HOMEDIR}/.config/foot
 	install -d ${D}${RETRO_USER_HOMEDIR}/.config/samba
+	install -d ${D}${RETRO_USER_HOMEDIR}/.config/glib-2.0/settings
 	install -d ${D}${RETRO_USER_HOMEDIR}/.config/connman
 	install -d ${D}${RETRO_USER_HOMEDIR}/.config/waybar/scripts
 	install -d ${D}${sysconfdir}/polkit-1/rules.d
@@ -74,6 +78,7 @@ do_install() {
 	ln -sf ${systemd_system_unitdir}/automount.service ${D}${systemd_system_unitdir}/sysinit.target.wants
 	install -m 0644 ${WORKDIR}/99-udisks2.rules ${D}${sysconfdir}/udev/rules.d
 	install -m 0644 ${WORKDIR}/media.conf ${D}${sysconfdir}/tmpfiles.d
+	install -m 0644 ${WORKDIR}/glib-2.0/settings/keyfile ${D}${RETRO_USER_HOMEDIR}/.config/glib-2.0/settings
 	chown ${RETRO_USER_NAME}:${RETRO_USER_NAME} -R ${D}${RETRO_USER_HOMEDIR}
 }
 

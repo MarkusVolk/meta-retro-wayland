@@ -1,0 +1,7 @@
+[org/gnome/desktop/interface]
+gtk-theme='Nordic-darker'
+icon-theme='Tela-circle-dark'
+
+[org/gnome/desktop/wm/preferences]
+theme='Nordic-darker'
+
