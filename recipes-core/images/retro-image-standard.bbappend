@@ -17,6 +17,7 @@ set_root_passwd() {
 RETRO_WAYLAND_COMPOSITOR ?= "sway"
 
 WGTK_APPS ?= " \
+	azote \
 	blueman \
 	connman-gtk \
 	file-roller \
