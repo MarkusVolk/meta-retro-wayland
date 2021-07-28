@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+pkill swaybg
+swaybg -o 'HDMI-A-1' -i '/usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png' -m fill &

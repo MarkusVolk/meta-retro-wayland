@@ -4,6 +4,7 @@ LIC_FILES_CHKSUM = "file://${COMMON_LICENSE_DIR}/GPL-2.0-only;md5=801f80980d171d
 inherit retro-user
 
 SRC_URI = " \
+	file://azotebg \
 	file://bashrc \
 	file://sway/config \
 	file://sway/scripts/chromium.sh \
@@ -19,7 +20,6 @@ SRC_URI = " \
 	file://99-udisks2.rules \
 	file://media.conf \
 	file://foot/foot.ini \
-	file://sway_ceramic-1920x1080.png \
 	file://waybar/config \
 	file://waybar/style.css \
 	file://waybar/scripts/waybar.sh \
@@ -40,7 +40,6 @@ RRECOMMENDS_${PN} = " \
 "	
 	
 do_install() {
-	install -d ${D}${RETRO_USER_HOMEDIR}/.config/sway/wallpaper
 	install -d ${D}${RETRO_USER_HOMEDIR}/.config/sway/scripts
 	install -d ${D}${RETRO_USER_HOMEDIR}/.config/systemd/user
 	install -d ${D}${RETRO_USER_HOMEDIR}/.config/foot
@@ -60,7 +59,6 @@ do_install() {
 	install -m 0755 ${WORKDIR}/sway/scripts/kodi.sh ${D}${RETRO_USER_HOMEDIR}/.config/sway/scripts	
 	install -m 0755 ${WORKDIR}/sway/scripts/retroarch.sh ${D}${RETRO_USER_HOMEDIR}/.config/sway/scripts
 	install -m 0755 ${WORKDIR}/sway/scripts/thunar.sh ${D}${RETRO_USER_HOMEDIR}/.config/sway/scripts	
-	install -m 0644 ${WORKDIR}/sway_ceramic-1920x1080.png ${D}${RETRO_USER_HOMEDIR}/.config/sway/wallpaper
 	install -m 0644 ${WORKDIR}/10-disable-suspend.rules ${D}${sysconfdir}/polkit-1/rules.d
 	install -m 0644 ${WORKDIR}/10-wifimanagement.rules ${D}${sysconfdir}/polkit-1/rules.d
 	install -m 0644 ${WORKDIR}/49-nopasswd_global.rules ${D}${sysconfdir}/polkit-1/rules.d
@@ -74,6 +72,7 @@ do_install() {
 	install -m 0755 ${WORKDIR}/waybar/scripts/blueman-manager.sh ${D}${RETRO_USER_HOMEDIR}/.config/waybar/scripts
 	install -m 0755 ${WORKDIR}/waybar/scripts/processes.sh ${D}${RETRO_USER_HOMEDIR}/.config/waybar/scripts
 	install -m 0755 ${WORKDIR}/waybar/scripts/resources.sh ${D}${RETRO_USER_HOMEDIR}/.config/waybar/scripts
+	install -m 0755 ${WORKDIR}/azotebg ${D}${RETRO_USER_HOMEDIR}/.azotebg
 	install -m 0644 ${WORKDIR}/automount.service ${D}${systemd_system_unitdir}
 	ln -sf ${systemd_system_unitdir}/automount.service ${D}${systemd_system_unitdir}/sysinit.target.wants
 	install -m 0644 ${WORKDIR}/99-udisks2.rules ${D}${sysconfdir}/udev/rules.d
