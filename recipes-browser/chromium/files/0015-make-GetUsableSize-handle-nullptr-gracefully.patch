@@ -1,0 +1,50 @@
+From 5c510ae6905ff30dcb267c7b24dafdd9e20ce19f Mon Sep 17 00:00:00 2001
+From: Bartek Nowierski <bartekn@chromium.org>
+Date: Wed, 21 Jul 2021 15:01:38 +0000
+Subject: [PATCH] Make GetUsableSize() handle nullptr gracefully
+
+malloc_usable_size() is expected to not crush on NULL and return 0.
+
+Bug: 1221442
+Change-Id: I6a3b90dcf3a8ad18114c206d87b98f60d5f50eb1
+Reviewed-on: https://chromium-review.googlesource.com/c/chromium/src/+/3042177
+Commit-Queue: Bartek Nowierski <bartekn@chromium.org>
+Commit-Queue: Kentaro Hara <haraken@chromium.org>
+Auto-Submit: Bartek Nowierski <bartekn@chromium.org>
+Reviewed-by: Kentaro Hara <haraken@chromium.org>
+Cr-Commit-Position: refs/heads/master@{#903900}
+
+---
+ .../allocator/partition_allocator/partition_alloc_unittest.cc | 4 ++++
+ base/allocator/partition_allocator/partition_root.h           | 3 +++
+ 2 files changed, 7 insertions(+)
+
+diff --git a/base/allocator/partition_allocator/partition_alloc_unittest.cc b/base/allocator/partition_allocator/partition_alloc_unittest.cc
+index bb6faf759e..d494f02d4e 100644
+--- a/base/allocator/partition_allocator/partition_alloc_unittest.cc
++++ b/base/allocator/partition_allocator/partition_alloc_unittest.cc
+@@ -2752,6 +2752,10 @@ TEST_F(PartitionAllocTest, OptimizedGetSlotNumber) {
+   }
+ }
+ 
++TEST_F(PartitionAllocTest, GetUsableSizeNull) {
++  EXPECT_EQ(0ULL, PartitionRoot<ThreadSafe>::GetUsableSize(nullptr));
++}
++
+ TEST_F(PartitionAllocTest, GetUsableSize) {
+   size_t delta = SystemPageSize() + 1;
+   for (size_t size = 1; size <= kMinDirectMappedDownsize; size += delta) {
+diff --git a/base/allocator/partition_allocator/partition_root.h b/base/allocator/partition_allocator/partition_root.h
+index 742ac8937c..de427e66bf 100644
+--- a/base/allocator/partition_allocator/partition_root.h
++++ b/base/allocator/partition_allocator/partition_root.h
+@@ -1164,6 +1164,9 @@ ALWAYS_INLINE bool PartitionRoot<thread_safe>::TryRecommitSystemPagesForData(
+ // PartitionAlloc's internal data. Used as malloc_usable_size.
+ template <bool thread_safe>
+ ALWAYS_INLINE size_t PartitionRoot<thread_safe>::GetUsableSize(void* ptr) {
++  // malloc_usable_size() is expected to handle NULL gracefully and return 0.
++  if (!ptr)
++    return 0;
+   auto* slot_span = SlotSpan::FromSlotInnerPtr(ptr);
+   auto* root = FromSlotSpan(slot_span);
+   return slot_span->GetUsableSize(root);
