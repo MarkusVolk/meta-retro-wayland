@@ -178,6 +178,7 @@ exec /usr/libexec/xfce-polkit &
 exec /usr/bin/thunar --daemon &
 exec /usr/bin/blueman-applet &
 exec /usr/bin/autotiling &
+exec /usr/bin/wlsunset -l 49.5 -L 11.1 &
 exec ~/.azotebg
 
 # Startup program launcher

@@ -67,7 +67,7 @@ WCONSOLE_TOOLS ?= " \
 	util-linux-agetty \
 	util-linux-fstrim \
 	wf-recorder \
-	wl-sunset \
+	wlsunset \
 "
 
 WSYSTEM_CONF ?= " \
