@@ -37,6 +37,7 @@ RRECOMMENDS_${PN} = " \
 	waybar \
 	nordic-darker-theme \
 	tela-circle-icon-theme \
+	xdg-user-dirs \
 "	
 	
 do_install() {
