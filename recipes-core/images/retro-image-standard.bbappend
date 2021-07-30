@@ -40,6 +40,7 @@ WCONSOLE_TOOLS ?= " \
 	coreutils-stdbuf \
 	curl \
 	dosfstools \
+	dosbox-staging \
 	e2fsprogs \
 	findutils \
 	fzf \
