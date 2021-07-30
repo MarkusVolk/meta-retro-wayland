@@ -13,6 +13,9 @@ set $right right
 # hide cursor on inactivity
 seat * hide_cursor 8000
 
+# set cursor theme
+seat * xcursor_theme capitaine-cursors-light 48
+
 # application launcher
 set $menu nwggrid
 

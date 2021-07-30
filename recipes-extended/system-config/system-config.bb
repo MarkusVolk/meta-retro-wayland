@@ -33,6 +33,7 @@ SRC_URI = " \
 
 RRECOMMENDS_${PN} = " \
 	autotiling \
+	capitaine-cursors \
 	nwg-launchers \
 	waybar \
 	nordic-darker-theme \
