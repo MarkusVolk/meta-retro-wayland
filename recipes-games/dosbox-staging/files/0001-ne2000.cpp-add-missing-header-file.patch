@@ -1,0 +1,26 @@
+From f074aff8ce56849ae9db62d64486cad35bad2cd9 Mon Sep 17 00:00:00 2001
+From: Markus Volk <f_l_k@t-online.de>
+Date: Fri, 30 Jul 2021 02:53:04 +0200
+Subject: [PATCH] ne2000.cpp: add missing header file
+
+Signed-off-by: Markus Volk <f_l_k@t-online.de>
+---
+ src/hardware/ne2000.cpp | 2 ++
+ 1 file changed, 2 insertions(+)
+
+diff --git a/src/hardware/ne2000.cpp b/src/hardware/ne2000.cpp
+index 7b4dcec4..0c331f9b 100644
+--- a/src/hardware/ne2000.cpp
++++ b/src/hardware/ne2000.cpp
+@@ -29,6 +29,8 @@
+ #include <cstdio>
+ #include <cstring>
+ 
++#include <stdarg.h>
++
+ #include <pcap.h>
+ 
+ #include "callback.h"
+-- 
+2.25.1
+
