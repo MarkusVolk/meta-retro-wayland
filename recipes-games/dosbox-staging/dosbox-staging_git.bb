@@ -10,7 +10,7 @@ DEPENDS = " \
 	opusfile \
 "
 
-inherit meson gtk-icon-cache features_check
+inherit meson gtk-icon-cache
 
 SRC_URI = " \
 	git://github.com/dosbox-staging/dosbox-staging.git \

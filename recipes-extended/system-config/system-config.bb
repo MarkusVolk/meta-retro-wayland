@@ -46,6 +46,7 @@ do_install() {
 	install -d ${D}${RETRO_USER_HOMEDIR}/.config/foot
 	install -d ${D}${RETRO_USER_HOMEDIR}/.config/samba
 	install -d ${D}${RETRO_USER_HOMEDIR}/.config/glib-2.0/settings
+	install -d ${D}/home/root/.config/glib-2.0/settings
 	install -d ${D}${RETRO_USER_HOMEDIR}/.config/connman
 	install -d ${D}${RETRO_USER_HOMEDIR}/.config/waybar/scripts
 	install -d ${D}${sysconfdir}/polkit-1/rules.d
@@ -79,10 +80,12 @@ do_install() {
 	install -m 0644 ${WORKDIR}/99-udisks2.rules ${D}${sysconfdir}/udev/rules.d
 	install -m 0644 ${WORKDIR}/media.conf ${D}${sysconfdir}/tmpfiles.d
 	install -m 0644 ${WORKDIR}/glib-2.0/settings/keyfile ${D}${RETRO_USER_HOMEDIR}/.config/glib-2.0/settings
+	install -m 0644 ${WORKDIR}/glib-2.0/settings/keyfile ${D}/home/root/.config/glib-2.0/settings
 	chown ${RETRO_USER_NAME}:${RETRO_USER_NAME} -R ${D}${RETRO_USER_HOMEDIR}
 }
 
 
-FILES_${PN} = "${sysconfdir} ${RETRO_USER_HOMEDIR} ${systemd_system_unitdir}"
+FILES_${PN} = "${sysconfdir} ${RETRO_USER_HOMEDIR} /home/root ${systemd_system_unitdir}"
 
 INSANE_SKIP_${PN} = "host-user-contaminated"
+

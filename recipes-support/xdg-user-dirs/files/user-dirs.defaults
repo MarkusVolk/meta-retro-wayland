@@ -3,6 +3,8 @@
 # The values are relative pathnames from the home directory and
 # will be translated on a per-path-element basis into the users locale
 ROMS=Roms
-MUSIC=Music
+MUSIC=Audio
 VIDEOS=Videos
 DOWNLOADS=Downloads
+PICTURES=Pictures
+
