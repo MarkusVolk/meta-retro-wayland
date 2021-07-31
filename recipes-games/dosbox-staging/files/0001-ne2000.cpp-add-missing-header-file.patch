@@ -16,7 +16,7 @@ index 7b4dcec4..0c331f9b 100644
  #include <cstdio>
  #include <cstring>
  
-+#include <stdarg.h>
++#include <cstdarg>
 +
  #include <pcap.h>
  
