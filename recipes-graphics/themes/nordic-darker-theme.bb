@@ -16,5 +16,5 @@ do_install() {
 	cp -r ${S} ${D}${datadir}/themes
 }
 
-FILES_${PN} = " ${datadir}"
+FILES:${PN} = " ${datadir}"
 

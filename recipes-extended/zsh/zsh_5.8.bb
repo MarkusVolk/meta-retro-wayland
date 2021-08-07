@@ -50,7 +50,7 @@ pkg_postinst_ontarget_${PN} () {
     chsh -s /bin/zsh
 }
 
-FILES_${PN}-dbg += "\
+FILES:${PN}-dbg += "\
     ${libdir}/${PN}/${PV}/${PN}/.debug/*.so \
     ${libdir}/${PN}/${PV}/${PN}/db/.debug/*.so \
     ${libdir}/${PN}/${PV}/${PN}/net/.debug/*.so \

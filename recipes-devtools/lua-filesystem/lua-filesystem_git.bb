@@ -3,7 +3,7 @@ LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://${COREBASE}/meta/files/common-licenses/MIT;md5=0835ade698e0bcf8506ecda2f7b4f302"
 HOMEPAGE = "https://github.com/keplerproject/luafilesystem.git"
 DEPENDS += "virtual/lua"
-RDEPENDS_${PN} += "virtual/lua"
+RDEPENDS:${PN} += "virtual/lua"
 
 include ../lua.inc
 
@@ -21,14 +21,14 @@ inherit autotools-brokensep pkgconfig
 
 TARGET_CC_ARCH += "${LDFLAGS}" 
 
-CFLAGS_append += "-I${STAGING_INCDIR}"
+CFLAGS:append += "-I${STAGING_INCDIR}"
 
 do_install () {
 	install -d ${D}${libdir}/lua/${LUA_VER}
 	install -m 755 ${S}/src/lfs.so ${D}${libdir}/lua/${LUA_VER}
 }
 
-FILES_${PN} += "${libdir}/lua/${LUA_VER}/lfs.so"
+FILES:${PN} += "${libdir}/lua/${LUA_VER}/lfs.so"
 FILES-dbg_${PN} += "${libdir}/lua/${LUA_VER}/.debug/lfs.so"
 
 BBCLASSEXTEND = "native nativesdk"

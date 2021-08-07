@@ -18,7 +18,7 @@ DEPENDS = " \
 	boost \
 "
 
-RDEPENDS_${PN} = "bash"
+RDEPENDS:${PN} = "bash"
 
 inherit cmake pkgconfig
 
@@ -31,7 +31,7 @@ PV = "1.15.13"
 SRCREV = "${PV}"
 S = "${WORKDIR}/git"
 
-FILES_${PN} += " \
+FILES:${PN} += " \
 	${sysconfdir} \
 	${datadir} \
 "

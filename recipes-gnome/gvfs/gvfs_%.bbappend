@@ -1,2 +1,2 @@
 
-PACKAGECONFIG_append = " samba fuse"
+PACKAGECONFIG:append = " samba fuse"

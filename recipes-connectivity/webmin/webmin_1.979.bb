@@ -122,7 +122,7 @@ do_install() {
     sed -i -e 's#${D}##g' ${D}${sysconfdir}/webmin/start
 }
 
-do_install_append() {
+do_install:append() {
 	install -d ${D}${sysconfdir}/pam.d
 	install -m 644 ${WORKDIR}/samba_config ${D}${sysconfdir}/webmin/samba/config
         install -m 644 ${WORKDIR}/exports_config ${D}${sysconfdir}/webmin/exports/config
@@ -144,27 +144,27 @@ SYSTEMD_AUTO_ENABLE_${PN} = "enable"
 DEPENDS += "perl smartmontools procps mdadm"
 
 # FIXME: some of this should be figured out automatically
-RDEPENDS_${PN} += "perl perl-module-socket perl-module-exporter perl-module-exporter-heavy perl-module-carp perl-module-strict webmin-theme-authentic-theme"
-RDEPENDS_${PN} += "perl-module-warnings perl-module-xsloader perl-module-posix perl-module-autoloader perl-module-digest-md5"
-RDEPENDS_${PN} += "perl-module-fcntl perl-module-tie-hash perl-module-vars perl-module-time-local perl-module-config perl-module-constant perl-module-overloading"
-RDEPENDS_${PN} += "perl-module-file-glob perl-module-file-copy perl-module-sdbm-file perl-module-feature smartmontools perl-module-encode-encoding perl-module-base"
+RDEPENDS:${PN} += "perl perl-module-socket perl-module-exporter perl-module-exporter-heavy perl-module-carp perl-module-strict webmin-theme-authentic-theme"
+RDEPENDS:${PN} += "perl-module-warnings perl-module-xsloader perl-module-posix perl-module-autoloader perl-module-digest-md5"
+RDEPENDS:${PN} += "perl-module-fcntl perl-module-tie-hash perl-module-vars perl-module-time-local perl-module-config perl-module-constant perl-module-overloading"
+RDEPENDS:${PN} += "perl-module-file-glob perl-module-file-copy perl-module-sdbm-file perl-module-feature smartmontools perl-module-encode-encoding perl-module-base"
 
 PACKAGES_DYNAMIC += "webmin-module-* webmin-theme-*"
-RDEPENDS_${PN} += "webmin-module-system-status libnet-ssleay-perl perl-module-file-path webmin-module-mount gnupg webmin-module-samba \
+RDEPENDS:${PN} += "webmin-module-system-status libnet-ssleay-perl perl-module-file-path webmin-module-mount gnupg webmin-module-samba \
 webmin-module-change-user webmin-module-net webmin-module-pam webmin-module-shell webmin-module-smart-status webmin-module-sshd webmin-module-status webmin-module-time \
 webmin-module-system-status webmin-module-webmin webmin-module-webminlog webmin-module-updown webmin-module-acl webmin-module-servers webmin-module-filemin \
 webmin-module-fdisk webmin-module-exports webmin-module-useradmin webmin-module-passwd webmin-module-proc webmin-module-proftpd webmin-module-webmincron \
 webmin-module-software perl-module-json-pp shared-mime-info webmin-module-init \
 "
 
-RRECOMMENDS_${PN}-module-proc = "procps"
-RRECOMMENDS_${PN}-module-raid = "mdadm"
-RRECOMMENDS_${PN}-module-filemin = "perl-module-perlio perl-module-perlio-encoding"
-RRECOMMENDS_${PN}-module-exports = "perl-module-file-basename perl-module-file-path perl-module-cwd perl-module-file-spec perl-module-file-spec-unix"
-RRECOMMENDS_${PN}-module-fdisk = "parted"
-RRECOMMENDS_${PN}-module-lvm = "lvm2"
+RRECOMMENDS:${PN}-module-proc = "procps"
+RRECOMMENDS:${PN}-module-raid = "mdadm"
+RRECOMMENDS:${PN}-module-filemin = "perl-module-perlio perl-module-perlio-encoding"
+RRECOMMENDS:${PN}-module-exports = "perl-module-file-basename perl-module-file-path perl-module-cwd perl-module-file-spec perl-module-file-spec-unix"
+RRECOMMENDS:${PN}-module-fdisk = "parted"
+RRECOMMENDS:${PN}-module-lvm = "lvm2"
 
-python populate_packages_prepend() {
+python populate_packages:prepend() {
     import os, os.path
 
     wadir = bb.data.expand('${libexecdir}/webmin', d)
@@ -188,6 +188,6 @@ package_do_pkgconfig() {
     :
 }
 
-INSANE_SKIP_${PN}-module-shellinabox += "file-rdeps already-stripped"
+INSANE_SKIP:${PN}-module-shellinabox += "file-rdeps already-stripped"
 
 INSANE_SKIP += "file-rdeps src-uri-bad"

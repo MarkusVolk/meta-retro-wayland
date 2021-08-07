@@ -30,7 +30,7 @@ do_install() {
 	oe_runmake install
 }
 
-FILES_${PN}  += "${libdir}/* ${datadir}/lua/5.*/"
-FILES_${PN}-dbg  += "${libdir}/lua/5.*/.debug ${libdir}/lua/5.*/*/.debug"
+FILES:${PN}  += "${libdir}/* ${datadir}/lua/5.*/"
+FILES:${PN}-dbg  += "${libdir}/lua/5.*/.debug ${libdir}/lua/5.*/*/.debug"
 
 BBCLASSEXTEND = "native nativesdk"

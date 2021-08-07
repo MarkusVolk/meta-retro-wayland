@@ -1,4 +1,4 @@
-FILESEXTRAPATHS_prepend := "${THISDIR}/ffmpeg:"
+FILESEXTRAPATHS:prepend := "${THISDIR}/ffmpeg:"
 
 inherit retro-overrides
 
@@ -22,11 +22,11 @@ SRC_URI = " \
 	file://ffmpeg-0003-libavfilter-v4l2deinterlace-dequeue-both-destination.patch \
 "
 
-SRC_URI_append_rpi = "	\
+SRC_URI:append:rpi = "	\
 	file://rpi/ffmpeg-001-rpi.patch \
 "
 	
-SRC_URI_append_rockchip = " \
+SRC_URI:append:rockchip = " \
 	file://ffmpeg-001-v4l2-request.patch \
 	file://ffmpeg-001-v4l2-drmprime.patch \
 "
@@ -50,7 +50,7 @@ PACKAGECONFIG[webp] = "--enable-libwebp,--disable-libwebp,libwebp"
 PACKAGECONFIG[zimg] = "--enable-libzimg,--disable-libzimg,zimg"
 PACKAGECONFIG[libxml2] = "--enable-libxml2,--disable-libxml2,libxml2"
 
-PACKAGECONFIG_append = " \
+PACKAGECONFIG:append = " \
 	dav1d \
 	fdk-aac \
 	gpl \
@@ -74,7 +74,7 @@ PACKAGECONFIG_append = " \
 	zimg \
 "
 
-PACKAGECONFIG_append_armarch = " \
+PACKAGECONFIG:append:armarch = " \
 	v4l2-m2m \
 	v4l2-request \
 "
@@ -126,7 +126,7 @@ EXTRA_FFCONF = " \
 	--extra-cflags="${TARGET_CFLAGS} ${HOST_CC_ARCH}${TOOLCHAIN_OPTIONS} -ffunction-sections -fdata-sections -fno-aggressive-loop-optimizations" \
 "
 
-EXTRA_FFCONF_append_armarch = " \
+EXTRA_FFCONF:append:armarch = " \
 	--disable-amd3dnow \
 	--disable-amd3dnowext \
 	--disable-mmx \
@@ -147,7 +147,7 @@ EXTRA_FFCONF_append_armarch = " \
 	${@bb.utils.contains("TUNE_FEATURES", "aarch64", "--enable-armv8 --enable-vfp --enable-neon", "", d)} \
 "
 
-EXTRA_FFCONF_append_rpi = " \
+EXTRA_FFCONF:append:rpi = " \
 	--disable-rpi \
 	--enable-sand \
 	--disable-mmal \

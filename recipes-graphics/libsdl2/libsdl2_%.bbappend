@@ -1,4 +1,4 @@
 inherit retro-overrides
 
-PACKAGECONFIG_append = " kmsdrm"
-PACKAGECONFIG_append_armarch = " arm-neon"
+PACKAGECONFIG:append = " kmsdrm"
+PACKAGECONFIG:append:armarch = " arm-neon"

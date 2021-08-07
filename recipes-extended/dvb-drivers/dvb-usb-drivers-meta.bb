@@ -8,7 +8,7 @@ inherit allarch
 PACKAGES = "${PN}"
 ALLOW_EMPTY_${PN} = "1"
 
-RDEPENDS_${PN} = "\
+RDEPENDS:${PN} = "\
 	drivers-atsc-usb-hauppauge \
 	drivers-atsc-usb-hauppauge-950q \
 	drivers-atsc-usb-hauppauge-955q \

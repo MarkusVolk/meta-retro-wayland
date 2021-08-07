@@ -15,5 +15,5 @@ do_install() {
 	install -m 644 ${WORKDIR}/rtl8761b_fw.bin ${D}${base_libdir}/firmware/rtl_bt
 }
 
-FILES_${PN} = "${base_libdir}"
+FILES:${PN} = "${base_libdir}"
 

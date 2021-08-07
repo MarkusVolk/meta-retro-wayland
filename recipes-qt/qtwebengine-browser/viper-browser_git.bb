@@ -17,5 +17,5 @@ S = "${WORKDIR}/git"
 
 inherit cmake_qt5 pkgconfig mime-xdg
 
-FILES_${PN} += "${datadir}/icons"
+FILES:${PN} += "${datadir}/icons"
 

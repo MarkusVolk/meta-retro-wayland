@@ -1,6 +1,6 @@
-DEPENDS_class-target += "zlib openssl rtmpdump"
+DEPENDS:class-target += "zlib openssl rtmpdump"
 
-EXTRA_OECONF_append_class-target = " \
+EXTRA_OECONF:append:class-target = " \
 	--with-librtmp \
 	--with-ssl \
 	--with-zlib \

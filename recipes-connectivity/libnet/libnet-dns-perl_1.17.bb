@@ -18,7 +18,7 @@ EXTRA_CPANFLAGS = "EXPATLIBPATH=${STAGING_LIBDIR} EXPATINCPATH=${STAGING_INCDIR}
 
 inherit cpan
 
-RDEPENDS_${PN} = "perl-module-integer"
+RDEPENDS:${PN} = "perl-module-integer"
 
 do_compile() {
     export LIBC="$(find ${STAGING_DIR_TARGET}/${base_libdir}/ -name 'libc-*.so')"

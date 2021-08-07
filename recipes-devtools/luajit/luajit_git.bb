@@ -11,7 +11,7 @@ SRC_URI = "git://luajit.org/git/luajit-2.0.git;protocol=http;branch=v2.1 \
            "
 
 PROVIDES = "virtual/lua"
-RPROVIDES_${PN} += "virtual/lua"
+RPROVIDES:${PN} += "virtual/lua"
 
 S = "${WORKDIR}/git"
 
@@ -25,7 +25,7 @@ BBCLASSEXTEND = "native"
 # you need to install the multilib development package (e.g.
 # libc6-dev-i386 on Debian/Ubuntu) and build a 32 bit host part
 # (HOST_CC="gcc -m32").
-BUILD_CC_ARCH_append = " ${@['-m32',''][d.getVar('SITEINFO_BITS') != '32']}"
+BUILD_CC_ARCH:append = " ${@['-m32',''][d.getVar('SITEINFO_BITS') != '32']}"
 
 # The lua makefiles expect the TARGET_SYS to be from uname -s
 # Values: Windows, Linux, Darwin, iOS, SunOS, PS3, GNU/kFreeBSD
@@ -79,7 +79,7 @@ do_install () {
           ${D}${libdir}/lua
 }
 
-do_install_append() {
+do_install:append() {
 		ln -sf $(basename ${D}/usr/bin/luajit-*) ${D}/usr/bin/luajit
 }
 
@@ -87,15 +87,15 @@ PACKAGES += 'luajit-common'
 
 # See the comment for EXTRA_OEMAKEINST. This is needed to ensure the hardcoded
 # paths are packaged regardless of what the libdir and datadir paths are.
-FILES_${PN} += "${prefix}/${baselib} ${prefix}/share"
-FILES_${PN} += "${libdir}/libluajit-5.1.so.2 \
+FILES:${PN} += "${prefix}/${baselib} ${prefix}/share"
+FILES:${PN} += "${libdir}/libluajit-5.1.so.2 \
     ${libdir}/libluajit-5.1.so.${PV} \
 "
-FILES_${PN}-dev += "${libdir}/libluajit-5.1.a \
+FILES:${PN}-dev += "${libdir}/libluajit-5.1.a \
     ${libdir}/libluajit-5.1.so \
     ${libdir}/pkgconfig/luajit.pc \
 "
-FILES_luajit-common = "${datadir}/${BPN}-${PV}"
+FILES:luajit-common = "${datadir}/${BPN}-${PV}"
 
 # mips64/ppc/ppc64/riscv64 is not supported in this release
 COMPATIBLE_HOST_mipsarchn32 = "null"

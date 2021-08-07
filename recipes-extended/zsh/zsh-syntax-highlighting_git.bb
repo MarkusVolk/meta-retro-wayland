@@ -6,7 +6,7 @@ SECTION = "base/shell"
 LICENSE = "BSD-3-Clause"
 LIC_FILES_CHKSUM = "file://COPYING.md;md5=3bf38c5f1bf4c65eeb1029f986724465"
 
-RDEPENDS_${PN} = "zsh"
+RDEPENDS:${PN} = "zsh"
 
 SRC_URI = "git://github.com/zsh-users/zsh-syntax-highlighting.git;protocol=https \
 "
@@ -26,4 +26,4 @@ do_install () {
 	chown ${RETRO_USER}:${RETRO_USER} -R ${D}${RETRO_USER_HOMEDIR}
 }
 
-FILES_${PN} = "${RETRO_USER_HOMEDIR}"
+FILES:${PN} = "${RETRO_USER_HOMEDIR}"

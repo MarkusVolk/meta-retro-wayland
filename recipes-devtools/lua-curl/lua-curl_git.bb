@@ -3,7 +3,7 @@ LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://${COREBASE}/meta/files/common-licenses/MIT;md5=0835ade698e0bcf8506ecda2f7b4f302"
 HOMEPAGE = "https://github.com/Lua-cURL/Lua-cURLv3"
 DEPENDS += "curl virtual/lua"
-RDEPENDS_${PN} += "virtual/lua"
+RDEPENDS:${PN} += "virtual/lua"
 
 include ../lua.inc
 
@@ -19,7 +19,7 @@ EXTRA_OEMAKE += "LUA_VER=${LUA_VER}"
 
 inherit autotools-brokensep
 
-FILES_${PN} =  "/usr/share \
+FILES:${PN} =  "/usr/share \
 		/usr/lib \
 "
 

@@ -18,11 +18,11 @@ S = "${WORKDIR}/perl-ldap-${PV}"
 
 inherit cpan
 
-do_configure_prepend() {
+do_configure:prepend() {
     perl -pi -e 's/auto_install_now.*//g' Makefile.PL
 }
 
-RDEPENDS_${PN} = "perl \
+RDEPENDS:${PN} = "perl \
     libconvert-asn1-perl \
     libio-socket-ssl-perl \
     libauthen-sasl-perl \

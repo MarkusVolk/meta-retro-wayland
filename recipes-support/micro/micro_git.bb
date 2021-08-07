@@ -17,7 +17,7 @@ do_compile() {
 	go install -trimpath ./cmd/micro
 }
 
-do_install_append() {
+do_install:append() {
 	install -d ${D}${datadir}/applications
 	install -m 644 ${S}/src/${GO_IMPORT}/assets/packaging/micro.desktop ${D}${datadir}/applications
 	# make files removable by buildsystem
@@ -26,5 +26,5 @@ do_install_append() {
 
 GO_INSTALL = "${GO_IMPORT}"
 
-FILES_${PN}_append = " ${datadir}"
+FILES:${PN}:append = " ${datadir}"
 

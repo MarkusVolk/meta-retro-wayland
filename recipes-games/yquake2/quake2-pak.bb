@@ -16,7 +16,7 @@ do_install() {
 	cp -rf ${WORKDIR}/quake2 ${D}${datadir}/games
 }
 
-FILES_${PN} = " \
+FILES:${PN} = " \
 	${datadir} \
 "
 

@@ -6,7 +6,7 @@ SECTION = "base/shell"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=239c25ece29e6df812e1e05750ff8271"
 
-RDEPENDS_${PN} = "zsh"
+RDEPENDS:${PN} = "zsh"
 
 SRC_URI = "git://github.com/romkatv/powerlevel10k;depth=1;protocol=https \
 "
@@ -26,6 +26,6 @@ do_install () {
 	chown ${RETRO_USER}:${RETRO_USER} -R ${D}${RETRO_USER_HOMEDIR}
 }
 
-FILES_${PN} = "${RETRO_USER_HOMEDIR} \
+FILES:${PN} = "${RETRO_USER_HOMEDIR} \
 	       ${sysconfdir} \
 "

@@ -20,7 +20,7 @@ S = "${WORKDIR}/git"
 
 inherit waf pkgconfig mime-xdg
 
-LDFLAGS_append_riscv64 = " -latomic"
+LDFLAGS:append:riscv64 = " -latomic"
 
 # Note: lua is required to get on-screen-display (controls)
 PACKAGECONFIG ??= " \
@@ -97,7 +97,7 @@ link_waf() {
 }
 do_unpack[postfuncs] += "link_waf"
 
-FILES_${PN} += " \
+FILES:${PN} += " \
     ${datadir}/icons \
     ${datadir}/zsh \
     ${datadir}/bash-completion \

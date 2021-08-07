@@ -1,2 +1,2 @@
-PACKAGECONFIG_append = " pulseaudio"
+PACKAGECONFIG:append = " pulseaudio"
 

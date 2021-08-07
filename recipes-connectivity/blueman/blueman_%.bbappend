@@ -1,1 +1,1 @@
-RDEPENDS_${PN} += "python3-pygobject"
+RDEPENDS:${PN} += "python3-pygobject"

@@ -24,7 +24,7 @@ EXTRA_OEMAKE = " \
     SYS=posix INC=-I=/usr/include DESTDIR=${D} \
     prefix=${prefix} libdir=${libdir} incdir=${includedir}/librtmp bindir=${bindir} mandir=${mandir}"
 
-do_install_prepend() {
+do_install:prepend() {
 	install -d ${D}/usr/lib
 }
 

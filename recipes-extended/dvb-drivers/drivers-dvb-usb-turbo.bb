@@ -4,7 +4,7 @@ LICENSE = "CLOSED"
 
 PACKAGE_ARCH = "${MACHINE_ARCH}"
 
-RRECOMMENDS_${PN} = " \
+RRECOMMENDS:${PN} = " \
     kernel-module-dvb-usb \
     kernel-module-dvb-usb-v2 \
     kernel-module-cypress-firmware \

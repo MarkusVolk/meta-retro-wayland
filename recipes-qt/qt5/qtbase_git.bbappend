@@ -1,10 +1,10 @@
-RDEPENDS_${PN}  += "virtual/libgles2"
+RDEPENDS:${PN}  += "virtual/libgles2"
 
-FILESEXTRAPATHS_prepend := "${THISDIR}/qtbase:"
+FILESEXTRAPATHS:prepend := "${THISDIR}/qtbase:"
 
 DEPENDS += "mesa drm wayland wayland-protocols wayland-native"
 
-PACKAGECONFIG_DEFAULT_append = " \
+PACKAGECONFIG_DEFAULT:append = " \
 	freetype \
 	fontconfig \
 	eglfs \
@@ -33,7 +33,7 @@ INSANE_SKIP_${PN}-plugins +="file-rdeps"
 
 SET_QT_QPA_DEFAULT_PLATFORM = "wayland"
 
-do_configure_prepend() {
+do_configure:prepend() {
 cat >> ${S}/mkspecs/oe-device-extra.pri <<EOF
 QT_QPA_DEFAULT_PLATFORM = ${SET_QT_QPA_DEFAULT_PLATFORM}
 EOF

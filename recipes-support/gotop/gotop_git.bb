@@ -19,12 +19,12 @@ do_compile() {
 	go install -trimpath ./cmd/gotop
 }
 
-do_install_append() {
+do_install:append() {
 	# make files removable by buildsystem
 	chmod +w -R ${B}/pkg/mod
 }
 
 GO_INSTALL = "${GO_IMPORT}"
 
-INSANE_SKIP_${PN}-dev = "file-rdeps"
+INSANE_SKIP:${PN}-dev = "file-rdeps"
 

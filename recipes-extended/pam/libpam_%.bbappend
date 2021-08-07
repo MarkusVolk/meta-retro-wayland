@@ -1,6 +1,6 @@
 inherit retro-overrides
 
-do_install_append() {
+do_install:append() {
 	echo "LANG=en_US.UTF-8" >> ${D}${sysconfdir}/environment
 	echo "LC_ALL=en_US.UTF-8" >> ${D}${sysconfdir}/environment
 	echo "XKB_DEFAULT_LAYOUT=de" >> ${D}${sysconfdir}/environment
@@ -12,10 +12,10 @@ do_install_append() {
 	echo "LIBC_WIDEVINE_PATCHLEVEL=1" >> ${D}${sysconfdir}/environment
 }
 
-do_install_append_armarch() {
+do_install:append:armarch() {
 	echo "MALLOC_MMAP_THRESHOLD_=8192" >> ${D}${sysconfdir}/environment
 }
 
-do_install_append_x86arch() {
+do_install:append:x86arch() {
 	echo "MALLOC_MMAP_THRESHOLD_=524288" >> ${D}${sysconfdir}/environment
 }

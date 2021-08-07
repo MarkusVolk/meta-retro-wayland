@@ -18,7 +18,7 @@ do_install() {
 	chmod 755 ${D}${bindir}/doom
 }
 
-FILES_${PN} = " \
+FILES:${PN} = " \
 	${bindir} \
 	${datadir} \
 "

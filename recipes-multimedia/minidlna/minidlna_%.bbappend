@@ -1,13 +1,13 @@
 inherit retro-user
 
-do_configure_prepend() {
+do_configure:prepend() {
 	sed -i 's|media_dir=\/opt|media_dir=\/media|' ${S}/minidlna.conf
 	sed -i 's|#user=jmaggard|user=${RETRO_USER_NAME}|' ${S}/minidlna.conf
 	sed -i 's|#db_dir=\/var\/cache\/minidlna|db_dir=\/home\/${RETRO_USER_NAME}\/.minidlna|' ${S}/minidlna.conf
 	sed -i 's|#log_dir=\/var\/log|log_dir=\/home\/${RETRO_USER_NAME}\/.minidlna|' ${S}/minidlna.conf
 }
 
-do_install_append() {
+do_install:append() {
 	# fix service start
 	sed -i 's|Type=notify|Type=forking|' ${D}${systemd_system_unitdir}/minidlna.service
 	sed -i 's|ExecStart=.*|ExecStart=\/usr\/sbin\/minidlnad -f \/etc\/minidlna.conf -P \/home\/${RETRO_USER_NAME}\/.minidlna/minidlna.pid|' \

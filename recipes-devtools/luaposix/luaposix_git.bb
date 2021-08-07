@@ -30,9 +30,9 @@ do_install() {
 	cp -rf ${S}/lib/posix ${D}${datadir}/lua/${LUA_VER}
 }
 
-FILES_${PN} = "${datadir}/lua/${LUA_VER} ${libdir}/lua/${LUA_VER}"
+FILES:${PN} = "${datadir}/lua/${LUA_VER} ${libdir}/lua/${LUA_VER}"
 
 BBCLASSEXTEND = "native"
 
-INSANE_SKIP_${PN} = "ldflags"
+INSANE_SKIP:${PN} = "ldflags"
 

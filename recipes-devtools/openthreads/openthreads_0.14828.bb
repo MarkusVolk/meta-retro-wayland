@@ -24,7 +24,7 @@ EXTRA_OECMAKE += "-DCMAKE_BUILD_TYPE=Release \
                   -D_OPENTHREADS_ATOMIC_USE_GCC_BUILTINS=1 \
 "
 
-do_install_append() {
+do_install:append() {
 	[ -d ${D}/usr/lib64 ] && mv ${D}/usr/lib64 ${D}/usr/lib || exit 0;
 }
 

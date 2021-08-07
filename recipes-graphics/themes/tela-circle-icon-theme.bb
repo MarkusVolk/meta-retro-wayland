@@ -16,5 +16,5 @@ do_install() {
 	./install.sh -n Tela-circle -d ${D}${datadir}/icons
 }
 
-FILES_${PN} = "${datadir}"
+FILES:${PN} = "${datadir}"
 

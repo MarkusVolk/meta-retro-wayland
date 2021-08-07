@@ -1,2 +1,2 @@
-PACKAGECONFIG_remove = "gtk"
+PACKAGECONFIG:remove = "gtk"
 

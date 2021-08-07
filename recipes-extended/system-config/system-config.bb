@@ -31,7 +31,7 @@ SRC_URI = " \
 	file://glib-2.0/settings/keyfile \
 "
 
-RRECOMMENDS_${PN} = " \
+RRECOMMENDS:${PN} = " \
 	autotiling \
 	capitaine-cursors \
 	nwg-launchers \
@@ -86,7 +86,7 @@ do_install() {
 }
 
 
-FILES_${PN} = "${sysconfdir} ${RETRO_USER_HOMEDIR} /home/root ${systemd_system_unitdir}"
+FILES:${PN} = "${sysconfdir} ${RETRO_USER_HOMEDIR} /home/root ${systemd_system_unitdir}"
 
-INSANE_SKIP_${PN} = "host-user-contaminated"
+INSANE_SKIP:${PN} = "host-user-contaminated"
 

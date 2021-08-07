@@ -1,10 +1,10 @@
-FILESEXTRAPATHS_prepend := "${THISDIR}/files:"
+FILESEXTRAPATHS:prepend := "${THISDIR}/files:"
 
-SRC_URI_append += "file://nanorc"
+SRC_URI:append += "file://nanorc"
 
-RDEPENDS_${PN}_append += "nano-syntax-highlighting"
+RDEPENDS:${PN}:append += "nano-syntax-highlighting"
 
-do_install_append() {
+do_install:append() {
 	# provided by nano-syntax-highlighting
 	rm -rf ${D}${datadir}/nano/*.nanorc
 	# use custom nanorc

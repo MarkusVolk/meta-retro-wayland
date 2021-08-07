@@ -113,7 +113,7 @@ WLUA ?= " \
 	luaposix \
 "
 
-IMAGE_INSTALL_append = " \
+IMAGE_INSTALL:append = " \
 	${WGTK_APPS} \
 	${WCONSOLE_TOOLS} \
 	${WSYSTEM_CONF} \
@@ -121,11 +121,11 @@ IMAGE_INSTALL_append = " \
 	${WLUA} \
 "
 
-IMAGE_INSTALL_append_rockchip = " \
+IMAGE_INSTALL:append:rockchip = " \
 	rockchip-firmware \
 	ap6256-firmware \
 "
 
-IMAGE_INSTALL_remove = "retroarch-service"
+IMAGE_INSTALL:remove = "retroarch-service"
 
 

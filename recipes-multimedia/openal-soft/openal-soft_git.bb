@@ -26,5 +26,5 @@ PV = "1.21.1"
 SRCREV = "${PV}"
 S = "${WORKDIR}/git"
 
-FILES_${PN} += "${datadir}"
+FILES:${PN} += "${datadir}"
 

@@ -38,5 +38,5 @@ PACKAGECONFIG ?= " \
 	pcap \
 "
 
-FILES_${PN} += "${datadir}"
+FILES:${PN} += "${datadir}"
 

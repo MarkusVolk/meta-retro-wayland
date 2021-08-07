@@ -1,12 +1,12 @@
 inherit gobject-introspection
 
-DEPENDS_append_class_target = " \
+DEPENDS:append:class-target = " \
 	wayland-protocols \
 	wayland \
 	libxkbcommon \
 "
 
-EXTRA_OECONF_append_class-target += " \
+EXTRA_OECONF:append:class-target += " \
 	--enable-wayland-backend \	
 	--enable-introspection \
 "

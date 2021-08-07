@@ -3,7 +3,7 @@ LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://${COREBASE}/meta/files/common-licenses/MIT;md5=0835ade698e0bcf8506ecda2f7b4f302"
 HOMEPAGE = "https://github.com/hoelzro/linotify.git"
 DEPENDS += "virtual/lua"
-RDEPENDS_${PN} += "virtual/lua"
+RDEPENDS:${PN} += "virtual/lua"
 
 include ../lua.inc
 
@@ -25,7 +25,7 @@ do_install () {
 	install -m 755 ${S}/inotify.so ${D}${libdir}/lua/${LUA_VER}
 }
 
-FILES_${PN} += "${libdir}/lua/${LUA_VER}/inotify.so"
+FILES:${PN} += "${libdir}/lua/${LUA_VER}/inotify.so"
 FILES-dbg_${PN} += "${libdir}/lua/${LUA_VER}/.debug/inotify.so"
 
 BBCLASSEXTEND = "native nativesdk"

@@ -1,8 +1,8 @@
-FILESEXTRAPATHS_prepend := "${THISDIR}/files:"
+FILESEXTRAPATHS:prepend := "${THISDIR}/files:"
 
-RDEPENDS_${PN} = "zsh-syntax-highlighting powerlevel10k powerline-fonts"
+RDEPENDS:${PN} = "zsh-syntax-highlighting powerlevel10k powerline-fonts"
 
-SRC_URI_append = " \
+SRC_URI:append = " \
 	file://zshrc \
 	file://vconsole.conf \
 	file://p10k.zsh \
@@ -10,7 +10,7 @@ SRC_URI_append = " \
 
 inherit retro-user
 
-do_install_append() {
+do_install:append() {
 	install -d ${D}${sysconfdir} -d ${D}${RETRO_USER_HOMEDIR}
 	install -m0644 ${WORKDIR}/vconsole.conf ${D}${sysconfdir}
 	install -m0644 ${WORKDIR}/p10k.zsh ${D}${RETRO_USER_HOMEDIR}/.p10k.zsh

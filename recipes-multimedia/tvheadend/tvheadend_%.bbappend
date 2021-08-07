@@ -1,6 +1,6 @@
-FILESEXTRAPATHS_prepend := "${THISDIR}/files:"
+FILESEXTRAPATHS:prepend := "${THISDIR}/files:"
 
-SRC_URI_append = "file://tvheadend.service"
+SRC_URI:append = "file://tvheadend.service"
 
 EXTRA_OECONF = "--arch=${TARGET_ARCH} \
 		--enable-nvenc \
@@ -22,7 +22,7 @@ EXTRA_OECONF = "--arch=${TARGET_ARCH} \
                  "
 
 
-do_install_append() {
+do_install:append() {
 	install -d ${D}${systemd_unitdir}/system
 	install -m 0644 ${WORKDIR}/tvheadend.service ${D}${systemd_unitdir}/system
 }

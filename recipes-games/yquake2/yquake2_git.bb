@@ -5,8 +5,8 @@ LICENSE = "GPL-2.0-only"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=cdfb10fe3916436d25f4410fcd6a97b8" 
 
 DEPENDS = "libsdl2 virtual/libgl curl openal-soft"
-RDEPENDS_${PN} = "openal-soft"
-RRECOMMENDS_${PN} = "quake2-pak"
+RDEPENDS:${PN} = "openal-soft"
+RRECOMMENDS:${PN} = "quake2-pak"
 
 inherit cmake pkgconfig
 
@@ -31,7 +31,7 @@ do_install() {
 	chmod 755 ${D}${bindir}/quake2
 }
 
-FILES_${PN} = " \
+FILES:${PN} = " \
 	${bindir} \
 	${prefix}/libexec \
 "

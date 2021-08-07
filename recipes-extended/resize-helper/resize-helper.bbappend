@@ -1,3 +1,3 @@
 
-CONFLICT_DISTRO_FEATURES_remove = "rauc"
+CONFLICT_DISTRO_FEATURES:remove = "rauc"
 

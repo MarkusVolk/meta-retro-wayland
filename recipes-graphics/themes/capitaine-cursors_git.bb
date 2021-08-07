@@ -26,5 +26,5 @@ do_install() {
 	done
 }
 
-FILES_${PN} = "${datadir}"
+FILES:${PN} = "${datadir}"
 

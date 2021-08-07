@@ -1,6 +1,6 @@
-FILESEXTRAPATHS_prepend := "${THISDIR}/files:"
+FILESEXTRAPATHS:prepend := "${THISDIR}/files:"
 
-SRC_URI_append =  " \
+SRC_URI:append =  " \
 	file://0001-WIP-DVDVideoCodecDRMPRIME-add-support-for-filters.patch \
 	file://0002-WIP-DRMPRIME-deinterlace-filter.patch \
 	file://0001-disable-wayland-scanner.patch \
@@ -11,8 +11,8 @@ SRC_URI_append =  " \
 	file://kodi-995.10-devinputmappings.patch \
 "
 
-DEPENDS_append += "kodi-tools-jsonschemabuilder-native kodi-tools-texturepacker-native wayland-native waylandpp-native"
-DEPENDS_remove = "libsquish"
+DEPENDS:append += "kodi-tools-jsonschemabuilder-native kodi-tools-texturepacker-native wayland-native waylandpp-native"
+DEPENDS:remove = "libsquish"
 
 EXTRA_OECMAKE += "-DWAYLANDPP_SCANNER=${STAGING_BINDIR_NATIVE}/wayland-scanner++" 
 EXTRA_OECMAKE += "-DCORE_PLATFORM_NAME=wayland"
@@ -25,10 +25,10 @@ inherit retro-overrides
 VAAPISUPPORT_armarch = "0"
 VDPAUSUPPORT_armarch = "0"
 
-PACKAGECONFIG_append += "bluetooth samba wayland"
+PACKAGECONFIG:append += "bluetooth samba wayland"
 
 
-RRECOMMENDS_${PN}_append = " \
+RRECOMMENDS:${PN}:append = " \
 	libcec \
 	libcurl \
 	libnfs \
@@ -67,7 +67,7 @@ RRECOMMENDS_${PN}_append = " \
 	alsa-plugins \
 "
 
-RRECOMMENDS_${PN}_append_libc-glibc = " \
+RRECOMMENDS:${PN}:append:libc-glibc = " \
 	glibc-charmap-ibm850 \
 	glibc-gconv-ibm850 \
 	glibc-charmap-ibm437 \

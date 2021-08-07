@@ -1,7 +1,7 @@
-PACKAGECONFIG_append = " \
+PACKAGECONFIG:append = " \
 	wayland-drm-egl-server-buffer \
 "
 
-PACKAGECONFIG_remove = " \
+PACKAGECONFIG:remove = " \
 	xcomposite-glx \
 "
