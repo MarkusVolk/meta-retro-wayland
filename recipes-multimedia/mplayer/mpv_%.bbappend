@@ -10,7 +10,7 @@ do_install:append() {
 	chown ${RETRO_USER_NAME} -R ${D}${RETRO_USER_HOMEDIR}
 }
 
-FILES_${PN} += "${RETRO_USER_HOMEDIR}"
+FILES:${PN} += "${RETRO_USER_HOMEDIR}"
 	
-INSANE_SKIP_${PN} = "host-user-contaminated"
+INSANE:SKIP:${PN} = "host-user-contaminated"
 

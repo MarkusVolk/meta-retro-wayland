@@ -25,4 +25,4 @@ do_install:append() {
 	chown ${RETRO_USER_NAME}:${RETRO_USER_NAME} ${D}${RETRO_USER_HOMEDIR}/.minidlna
 }
 
-FILES_${PN} += "${RETRO_USER_HOMEDIR} ${systemd_system_unitdir}"
+FILES:${PN} += "${RETRO_USER_HOMEDIR} ${systemd_system_unitdir}"

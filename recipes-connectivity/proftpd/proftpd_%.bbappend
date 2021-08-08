@@ -8,5 +8,5 @@ do_install:append () {
 	install -m 0644 ${WORKDIR}/proftpd.conf ${D}${sysconfdir}
 }
 
-FILES_${PN} += "${sysconfdir}/proftpd.conf"
+FILES:${PN} += "${sysconfdir}/proftpd.conf"
 
