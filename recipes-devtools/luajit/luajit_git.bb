@@ -4,7 +4,7 @@ LIC_FILES_CHKSUM = "file://COPYRIGHT;md5=abe9020de9c00909317d02d5c803810e"
 HOMEPAGE = "http://luajit.org"
 
 PV = "2.1"
-SRCREV = "fca488c715fd1592b8840b28e88346f9fb8a93f9"
+SRCREV = "983d66b8c5032b421e0f5fe8d39e9930bceb7031"
 SRC_URI = "git://luajit.org/git/luajit-2.0.git;protocol=http;branch=v2.1 \
 	   file://0001-Do-not-strip-automatically-this-leaves-the-stripping.patch \
 	   file://clang.patch \
@@ -27,14 +27,6 @@ BBCLASSEXTEND = "native"
 # (HOST_CC="gcc -m32").
 BUILD_CC_ARCH:append = " ${@['-m32',''][d.getVar('SITEINFO_BITS') != '32']}"
 
-# The lua makefiles expect the TARGET_SYS to be from uname -s
-# Values: Windows, Linux, Darwin, iOS, SunOS, PS3, GNU/kFreeBSD
-LUA_TARGET_OS = "Unknown"
-LUA_TARGET_OS_darwin = "Darwin"
-LUA_TARGET_OS_linux = "Linux"
-LUA_TARGET_OS_linux-gnueabi = "Linux"
-LUA_TARGET_OS_mingw32 = "Windows"
-
 # We don't want the lua buildsystem's compiler optimizations, or its
 # stripping, and we don't want it to pick up CFLAGS or LDFLAGS, as those apply
 # to both host and target compiles
@@ -43,7 +35,7 @@ EXTRA_OEMAKE = "\
     \
     CCOPT= CCOPT_x86= CFLAGS= LDFLAGS= TARGET_STRIP='@:' \
     \
-    'TARGET_SYS=${LUA_TARGET_OS}' \
+    'TARGET_SYS=Linux' \
     \
     'CC=${CC}' \
     'TARGET_AR=${AR} rcus' \
@@ -97,11 +89,3 @@ FILES:${PN}-dev += "${libdir}/libluajit-5.1.a \
 "
 FILES:luajit-common = "${datadir}/${BPN}-${PV}"
 
-# mips64/ppc/ppc64/riscv64 is not supported in this release
-COMPATIBLE_HOST_mipsarchn32 = "null"
-COMPATIBLE_HOST_mipsarchn64 = "null"
-COMPATIBLE_HOST_powerpc = "null"
-COMPATIBLE_HOST_powerpc64 = "null"
-COMPATIBLE_HOST_powerpc64le = "null"
-COMPATIBLE_HOST_riscv64 = "null"
-COMPATIBLE_HOST_riscv32 = "null"
