@@ -27,5 +27,5 @@ do_install:append() {
 	install -m 0644 ${WORKDIR}/tvheadend.service ${D}${systemd_unitdir}/system
 }
 
-FILES_${PN} += "${systemd_unitdir}"
+FILES:${PN} += "${systemd_unitdir}"
 
