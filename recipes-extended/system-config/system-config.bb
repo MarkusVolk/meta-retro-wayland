@@ -12,9 +12,6 @@ SRC_URI = " \
 	file://sway/scripts/retroarch.sh \
 	file://sway/scripts/thunar.sh \
 	file://profile \
-	file://10-disable-suspend.rules \
-	file://10-wifimanagement.rules \
-	file://49-nopasswd_global.rules \
 	file://automountd \
 	file://automount.service \
 	file://99-udisks2.rules \
@@ -50,7 +47,7 @@ do_install() {
 	install -d ${D}/home/root/.config/glib-2.0/settings
 	install -d ${D}${RETRO_USER_HOMEDIR}/.config/connman
 	install -d ${D}${RETRO_USER_HOMEDIR}/.config/waybar/scripts
-	install -d ${D}${sysconfdir}/polkit-1/rules.d
+	install -d ${D}${RETRO_USER_HOMEDIR}/.config/mpv/
 	install -d ${D}${sysconfdir}/udev/scripts
 	install -d ${D}${sysconfdir}/udev/rules.d
 	install -d ${D}${sysconfdir}/tmpfiles.d
@@ -62,9 +59,6 @@ do_install() {
 	install -m 0755 ${WORKDIR}/sway/scripts/kodi.sh ${D}${RETRO_USER_HOMEDIR}/.config/sway/scripts	
 	install -m 0755 ${WORKDIR}/sway/scripts/retroarch.sh ${D}${RETRO_USER_HOMEDIR}/.config/sway/scripts
 	install -m 0755 ${WORKDIR}/sway/scripts/thunar.sh ${D}${RETRO_USER_HOMEDIR}/.config/sway/scripts	
-	install -m 0644 ${WORKDIR}/10-disable-suspend.rules ${D}${sysconfdir}/polkit-1/rules.d
-	install -m 0644 ${WORKDIR}/10-wifimanagement.rules ${D}${sysconfdir}/polkit-1/rules.d
-	install -m 0644 ${WORKDIR}/49-nopasswd_global.rules ${D}${sysconfdir}/polkit-1/rules.d
 	install -m 0755 ${WORKDIR}/automountd ${D}${sysconfdir}/udev/scripts
 	install -m 0644 ${WORKDIR}/foot/foot.ini ${D}${RETRO_USER_HOMEDIR}/.config/foot/foot.ini
 	install -m 0644 ${WORKDIR}/waybar/config ${D}${RETRO_USER_HOMEDIR}/.config/waybar/config
@@ -82,9 +76,9 @@ do_install() {
 	install -m 0644 ${WORKDIR}/media.conf ${D}${sysconfdir}/tmpfiles.d
 	install -m 0644 ${WORKDIR}/glib-2.0/settings/keyfile ${D}${RETRO_USER_HOMEDIR}/.config/glib-2.0/settings
 	install -m 0644 ${WORKDIR}/glib-2.0/settings/keyfile ${D}/home/root/.config/glib-2.0/settings
+	echo -e "--gpu-context=wayland\n--hwdec=v4l2m2m\n" > ${D}${RETRO_USER_HOMEDIR}/.config/mpv/mpv.conf
 	chown ${RETRO_USER_NAME}:${RETRO_USER_NAME} -R ${D}${RETRO_USER_HOMEDIR}
 }
-
 
 FILES:${PN} = "${sysconfdir} ${RETRO_USER_HOMEDIR} /home/root ${systemd_system_unitdir}"
 
