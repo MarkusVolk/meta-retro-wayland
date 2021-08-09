@@ -34,7 +34,7 @@ export bindir="${base_bindir}"
 
 EXTRA_OEMAKE = "-e MAKEFLAGS="
 
-ALTERNATIVE_${PN} = "sh"
+ALTERNATIVE:${PN} = "sh"
 ALTERNATIVE_LINK_NAME[sh] = "${base_bindir}/sh"
 ALTERNATIVE_TARGET[sh] = "${base_bindir}/${BPN}"
 ALTERNATIVE_PRIORITY = "100"
@@ -46,7 +46,7 @@ do_configure () {
     oe_runconf
 }
 
-pkg_postinst_ontarget_${PN} () {
+pkg_postinst_ontarget:${PN} () {
     chsh -s /bin/zsh
 }
 

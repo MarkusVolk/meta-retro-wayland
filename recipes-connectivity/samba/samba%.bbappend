@@ -19,7 +19,7 @@ do_install:append() {
 
 inherit retro-user
 
-pkg_postinst_ontarget_${PN}() {
+pkg_postinst_ontarget:${PN}() {
 #!/bin/sh
 
 pdbedit -L | grep ${RETRO_USER_NAME} >> /dev/null || smbpasswd -n -a ${RETRO_USER_NAME}

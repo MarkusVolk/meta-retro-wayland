@@ -6,7 +6,7 @@ LIC_FILES_CHKSUM = "file://${COREBASE}/meta/files/common-licenses/GPL-2.0-only;m
 inherit allarch
 
 PACKAGES = "${PN}"
-ALLOW_EMPTY_${PN} = "1"
+ALLOW_EMPTY:${PN} = "1"
 
 RDEPENDS:${PN} = "\
 	drivers-atsc-usb-hauppauge \

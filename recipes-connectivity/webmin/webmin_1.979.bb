@@ -138,8 +138,8 @@ do_install:append() {
         echo "show=*" > ${D}${sysconfdir}/webmin/system-status/root.acl
 }
 
-SYSTEMD_SERVICE_${PN} = "webmin.service"
-SYSTEMD_AUTO_ENABLE_${PN} = "enable"
+SYSTEMD_SERVICE:${PN} = "webmin.service"
+SYSTEMD_AUTO_ENABLE:${PN} = "enable"
 
 DEPENDS += "perl smartmontools procps mdadm"
 

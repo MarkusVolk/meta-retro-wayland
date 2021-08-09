@@ -19,6 +19,6 @@ do_install:append () {
 
 FILES:${PN}-sshd += "${sysconfdir}/ssh/sshd_banner"
 
-pkg_postinst_ontarget_${PN} () {
+pkg_postinst_ontarget:${PN} () {
 	chmod 700 /etc/ssh
 }

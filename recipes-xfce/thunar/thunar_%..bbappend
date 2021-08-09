@@ -1,6 +1,6 @@
 PACKAGECONFIG:append += "pcre"
 
-RRECOMMENDS_${PN} = " \
+RRECOMMENDS:${PN} = " \
 	thunar-archive-plugin \
 	thunar-media-tags-plugin \
 	thunar-shares-plugin \

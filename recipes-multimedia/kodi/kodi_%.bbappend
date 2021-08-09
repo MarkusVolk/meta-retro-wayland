@@ -22,8 +22,8 @@ EXTRA_OECMAKE_BUILD = ""
 
 inherit retro-overrides
 
-VAAPISUPPORT_armarch = "0"
-VDPAUSUPPORT_armarch = "0"
+VAAPISUPPORT:armarch = "0"
+VDPAUSUPPORT:armarch = "0"
 
 PACKAGECONFIG:append += "bluetooth samba wayland"
 

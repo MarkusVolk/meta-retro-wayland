@@ -1,4 +1,4 @@
-RRECOMMENDS_${PN} += "e2fsprogs"
+RRECOMMENDS:${PN} += "e2fsprogs"
 
 # Crude hack to get gparted running under wayland.
 # Until security people made up their mind about the future direction, this is broken by design and needs a dirty hack anyway

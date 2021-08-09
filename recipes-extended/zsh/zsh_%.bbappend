@@ -18,5 +18,5 @@ do_install:append() {
 	chown ${RETRO_USER}:${RETRO_USER} -R ${D}${RETRO_USER_HOMEDIR}
 }
 
-FILES_${PN} += "${RETRO_USER_HOMEDIR}"
+FILES:${PN} += "${RETRO_USER_HOMEDIR}"
 

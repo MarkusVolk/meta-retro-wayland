@@ -1,4 +1,4 @@
-RRECOMMENDS_${PN} += " \
+RRECOMMENDS:${PN} += " \
 	alsa-utils \
 	pulseaudio-misc \
 	pulseaudio-pa-info \

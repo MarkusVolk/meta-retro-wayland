@@ -28,8 +28,8 @@ QT_CONFIG_FLAGS += " \
 	-no-bundled-xcb-xinput \
 "
 
-INSANE_SKIP_${PN} +="file-rdeps"
-INSANE_SKIP_${PN}-plugins +="file-rdeps"
+INSANE_SKIP:${PN} +="file-rdeps"
+INSANE_SKIP:${PN}-plugins +="file-rdeps"
 
 SET_QT_QPA_DEFAULT_PLATFORM = "wayland"
 
