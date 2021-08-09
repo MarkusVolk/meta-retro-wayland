@@ -1,17 +1,17 @@
-# add default password for root
+inherit retro-user
+
+ROOT_USER_PASSWORD ?= "root"
 ROOTFS_POSTPROCESS_COMMAND += "set_root_passwd;"
+ROOTFS_POSTPROCESS_COMMAND += "set_retro_passwd;"
+
 set_root_passwd() {
-   ROOTPW_ENCRYPTED=""
-   if [ -n "${ROOTPW}" ]; then
-   ROOTPW_ENCRYPTED=`openssl passwd -crypt -quiet ${ROOTPW}`
-   else
-   ROOTPW_ENCRYPTED="wYNffsf6sozwE"
-   fi
-   sed "s%^root:[^:]*:%root:${ROOTPW_ENCRYPTED}:%" \
-       < ${IMAGE_ROOTFS}/etc/shadow \
-       > ${IMAGE_ROOTFS}/etc/shadow.new;
-   mv ${IMAGE_ROOTFS}/etc/shadow.new ${IMAGE_ROOTFS}/etc/shadow ;
-   rm -rf ${IMAGE_ROOTFS}/tmp/*
+   ROOTPW_ENCRYPTED="$(openssl passwd -6 -salt xyz ${ROOT_USER_PASSWORD})"
+   sed -i "s%^root:[^:]*:%root:${ROOTPW_ENCRYPTED}:%" ${IMAGE_ROOTFS}/etc/shadow
+}
+
+set_retro_passwd() {
+   RETROPW_ENCRYPTED="$(openssl passwd -6 -salt xyz ${RETRO_USER_PASSWORD})"
+   sed -i "s%^retro:[^:]*:%retro:${RETROPW_ENCRYPTED}:%" ${IMAGE_ROOTFS}/etc/shadow
 }
 
 RETRO_WAYLAND_COMPOSITOR ?= "sway"
@@ -23,6 +23,7 @@ WGTK_APPS ?= " \
 	file-roller \
 	gdk-pixbuf \
 	librsvg-gtk \
+	gnome-disk-utility \
 	gnome-system-monitor \
 	gparted \
 	gsettings-desktop-schemas \
