@@ -12,9 +12,8 @@ SRC_URI:append = " \
 	file://0016-sql-make-VirtualCursor-standard-layout-type.patch \
 	file://fix-harfbuzz-supp-size.patch \
 	file://fix-ruy-numeric-limits.patch \
+	file://chromium-freetype-2.11.patch \
 "
 	
-
 SRC_URI:remove = "    file://0012-Fix-font-rendering-with-glibc-2.33.patch \"
-
 
