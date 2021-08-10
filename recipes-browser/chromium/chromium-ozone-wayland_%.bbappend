@@ -10,7 +10,11 @@ SRC_URI:append = " \
 	file://0014-linux-sandbox-fix-fstatat-crash.patch \
 	file://0015-make-GetUsableSize-handle-nullptr-gracefully.patch \
 	file://0016-sql-make-VirtualCursor-standard-layout-type.patch \
+	file://fix-harfbuzz-supp-size.patch \
+	file://fix-ruy-numeric-limits.patch \
 "
+	
 
 SRC_URI:remove = "    file://0012-Fix-font-rendering-with-glibc-2.33.patch \"
+
 
