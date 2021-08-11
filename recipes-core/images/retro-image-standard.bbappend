@@ -73,6 +73,7 @@ WCONSOLE_TOOLS ?= " \
 "
 
 WSYSTEM_CONF ?= " \
+	automountd \
 	ca-certificates \
 	glibc-binary-localedata-cs-cz \
 	glibc-binary-localedata-de-de \

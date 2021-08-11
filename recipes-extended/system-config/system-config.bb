@@ -1,7 +1,7 @@
 LICENSE = "GPL-2.0-only"
 LIC_FILES_CHKSUM = "file://${COMMON_LICENSE_DIR}/GPL-2.0-only;md5=801f80980d171dd6425610833a22dbe6"
 
-inherit retro-user
+inherit retro-user retro-overrides
 
 SRC_URI = " \
 	file://azotebg \
@@ -12,10 +12,6 @@ SRC_URI = " \
 	file://sway/scripts/retroarch.sh \
 	file://sway/scripts/thunar.sh \
 	file://profile \
-	file://automountd \
-	file://automount.service \
-	file://99-udisks2.rules \
-	file://media.conf \
 	file://foot/foot.ini \
 	file://waybar/config \
 	file://waybar/style.css \
@@ -44,14 +40,10 @@ do_install() {
 	install -d ${D}${RETRO_USER_HOMEDIR}/.config/foot
 	install -d ${D}${RETRO_USER_HOMEDIR}/.config/samba
 	install -d ${D}${RETRO_USER_HOMEDIR}/.config/glib-2.0/settings
-	install -d ${D}/home/root/.config/glib-2.0/settings
 	install -d ${D}${RETRO_USER_HOMEDIR}/.config/connman
 	install -d ${D}${RETRO_USER_HOMEDIR}/.config/waybar/scripts
 	install -d ${D}${RETRO_USER_HOMEDIR}/.config/mpv/
-	install -d ${D}${sysconfdir}/udev/scripts
-	install -d ${D}${sysconfdir}/udev/rules.d
-	install -d ${D}${sysconfdir}/tmpfiles.d
-	install -d ${D}${systemd_system_unitdir}/sysinit.target.wants
+	install -d ${D}${ROOT_HOME}/.config/glib-2.0/settings
 	install -m 0644 ${WORKDIR}/bashrc ${D}${RETRO_USER_HOMEDIR}/.bashrc
 	install -m 0644 ${WORKDIR}/profile ${D}${RETRO_USER_HOMEDIR}/.profile
 	install -m 0644 ${WORKDIR}/sway/config ${D}${RETRO_USER_HOMEDIR}/.config/sway
@@ -59,7 +51,6 @@ do_install() {
 	install -m 0755 ${WORKDIR}/sway/scripts/kodi.sh ${D}${RETRO_USER_HOMEDIR}/.config/sway/scripts	
 	install -m 0755 ${WORKDIR}/sway/scripts/retroarch.sh ${D}${RETRO_USER_HOMEDIR}/.config/sway/scripts
 	install -m 0755 ${WORKDIR}/sway/scripts/thunar.sh ${D}${RETRO_USER_HOMEDIR}/.config/sway/scripts	
-	install -m 0755 ${WORKDIR}/automountd ${D}${sysconfdir}/udev/scripts
 	install -m 0644 ${WORKDIR}/foot/foot.ini ${D}${RETRO_USER_HOMEDIR}/.config/foot/foot.ini
 	install -m 0644 ${WORKDIR}/waybar/config ${D}${RETRO_USER_HOMEDIR}/.config/waybar/config
 	install -m 0644 ${WORKDIR}/waybar/style.css ${D}${RETRO_USER_HOMEDIR}/.config/waybar/style.css
@@ -70,17 +61,23 @@ do_install() {
 	install -m 0755 ${WORKDIR}/waybar/scripts/processes.sh ${D}${RETRO_USER_HOMEDIR}/.config/waybar/scripts
 	install -m 0755 ${WORKDIR}/waybar/scripts/resources.sh ${D}${RETRO_USER_HOMEDIR}/.config/waybar/scripts
 	install -m 0755 ${WORKDIR}/azotebg ${D}${RETRO_USER_HOMEDIR}/.azotebg
-	install -m 0644 ${WORKDIR}/automount.service ${D}${systemd_system_unitdir}
-	ln -sf ${systemd_system_unitdir}/automount.service ${D}${systemd_system_unitdir}/sysinit.target.wants
-	install -m 0644 ${WORKDIR}/99-udisks2.rules ${D}${sysconfdir}/udev/rules.d
-	install -m 0644 ${WORKDIR}/media.conf ${D}${sysconfdir}/tmpfiles.d
 	install -m 0644 ${WORKDIR}/glib-2.0/settings/keyfile ${D}${RETRO_USER_HOMEDIR}/.config/glib-2.0/settings
-	install -m 0644 ${WORKDIR}/glib-2.0/settings/keyfile ${D}/home/root/.config/glib-2.0/settings
+	install -m 0644 ${WORKDIR}/glib-2.0/settings/keyfile ${D}${ROOT_HOME}/.config/glib-2.0/settings
+}
+
+do_install:append:armarch() {
 	echo -e "--gpu-context=wayland\n--hwdec=v4l2m2m\n" > ${D}${RETRO_USER_HOMEDIR}/.config/mpv/mpv.conf
+}
+
+do_install:append:x86arch() {
+	echo -e "--gpu-context=wayland\n--hwdec=vaapi\n" > ${D}${RETRO_USER_HOMEDIR}/.config/mpv/mpv.conf
+}
+
+do_install:append() {
 	chown ${RETRO_USER_NAME}:${RETRO_USER_NAME} -R ${D}${RETRO_USER_HOMEDIR}
 }
 
-FILES:${PN} = "${sysconfdir} ${RETRO_USER_HOMEDIR} /home/root ${systemd_system_unitdir}"
+FILES:${PN} = "${RETRO_USER_HOMEDIR} ${ROOT_HOME}"
 
 INSANE_SKIP:${PN} = "host-user-contaminated"
 
