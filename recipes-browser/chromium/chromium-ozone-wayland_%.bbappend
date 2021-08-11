@@ -14,6 +14,6 @@ SRC_URI:append = " \
 	file://fix-ruy-numeric-limits.patch \
 	file://chromium-freetype-2.11.patch \
 "
-	
+
 SRC_URI:remove = "    file://0012-Fix-font-rendering-with-glibc-2.33.patch \"
 
