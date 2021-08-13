@@ -71,8 +71,12 @@ do_install () {
           ${D}${libdir}/lua
 }
 
-do_install:append() {
-		ln -sf $(basename ${D}/usr/bin/luajit-*) ${D}/usr/bin/luajit
+do_install:append:class-native() {
+		ln -sf $(basename ${D}${STAGING_BINDIR_NATIVE}/luajit-*) ${D}${STAGING_BINDIR_NATIVE}/luajit
+}
+
+do_install:append:class-target() {
+		ln -sf $(basename ${D}${bindir}/luajit-*) ${D}${bindir}/luajit
 }
 
 PACKAGES += 'luajit-common'
