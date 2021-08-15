@@ -1,7 +1,6 @@
 FILESEXTRAPATHS:prepend := "${THISDIR}/files:"
 
 PACKAGECONFIG:append = " proprietary-codecs"
-PV = "92.0.4515.107"
 
 inherit ccache
 
@@ -13,4 +12,6 @@ SRC_URI:append = " \
 "
 
 SRC_URI:remove = "    file://0012-Fix-font-rendering-with-glibc-2.33.patch \"
+
+GN_ARGS += "use_custom_libcxx=true"
 

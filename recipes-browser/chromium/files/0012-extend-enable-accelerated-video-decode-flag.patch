@@ -1,4 +1,4 @@
-From 42ede1dac4628032ef749350e5a2796d4831bd91 Mon Sep 17 00:00:00 2001
+From df5f4633dc6c138cc54a7afbcc734507999ab4ec Mon Sep 17 00:00:00 2001
 From: Ted Meyer <tmathmeyer@chromium.org>
 Date: Wed, 2 Jun 2021 05:35:22 +0000
 Subject: [PATCH] Extend enable-accelerated-video-decode flag for linux to m93
@@ -22,10 +22,10 @@ Cr-Commit-Position: refs/heads/master@{#888312}
  1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/chrome/browser/flag-metadata.json b/chrome/browser/flag-metadata.json
-index 240f8765c8..290c41f5ae 100644
+index 723e29153f..8f5443a4bc 100644
 --- a/chrome/browser/flag-metadata.json
 +++ b/chrome/browser/flag-metadata.json
-@@ -1253,7 +1253,7 @@
+@@ -1224,7 +1224,7 @@
    {
      "name": "enable-accelerated-video-decode",
      "owners": [ "media-dev@chromium.org" ],

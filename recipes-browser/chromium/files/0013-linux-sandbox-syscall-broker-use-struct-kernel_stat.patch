@@ -1,4 +1,4 @@
-From 9ad3bf12f2a0381c4a40ecd1a0669925a5fd1514 Mon Sep 17 00:00:00 2001
+From 19695768996a52013a2ab01454e7b2299ab88922 Mon Sep 17 00:00:00 2001
 From: Matthew Denton <mpdenton@chromium.org>
 Date: Mon, 19 Jul 2021 14:03:13 +0000
 Subject: [PATCH] Reland "Reland "Linux sandbox syscall broker: use struct
@@ -799,18 +799,18 @@ index 08096b95aa..b1d7106340 100644
  }
  
 diff --git a/sandbox/linux/syscall_broker/remote_syscall_arg_handler_unittest.cc b/sandbox/linux/syscall_broker/remote_syscall_arg_handler_unittest.cc
-index 4c22bc44b3..5ab9de9290 100644
+index fffa9bb708..f517a9867c 100644
 --- a/sandbox/linux/syscall_broker/remote_syscall_arg_handler_unittest.cc
 +++ b/sandbox/linux/syscall_broker/remote_syscall_arg_handler_unittest.cc
-@@ -17,6 +17,7 @@
+@@ -16,6 +16,7 @@
+ #include "base/memory/page_size.h"
  #include "base/posix/unix_domain_socket.h"
- #include "base/process/process_metrics.h"
  #include "base/test/bind.h"
 +#include "sandbox/linux/tests/test_utils.h"
  #include "sandbox/linux/tests/unit_tests.h"
  #include "testing/gtest/include/gtest/gtest.h"
  
-@@ -53,19 +54,6 @@ void VerifyCorrectString(std::string str, size_t size) {
+@@ -52,19 +53,6 @@ void VerifyCorrectString(std::string str, size_t size) {
    }
  }
  
@@ -830,7 +830,7 @@ index 4c22bc44b3..5ab9de9290 100644
  pid_t ForkWaitingChild(base::OnceCallback<void(int)>
                             after_parent_signals_callback = base::DoNothing(),
                         base::ScopedFD* parent_sync_fd = nullptr) {
-@@ -106,13 +94,13 @@ void ReadTest(const ReadTestConfig& test_config) {
+@@ -105,13 +93,13 @@ void ReadTest(const ReadTestConfig& test_config) {
    size_t total_pages = (test_config.start_at + test_config.total_size +
                          base::GetPageSize() - 1) /
                         base::GetPageSize();
@@ -846,7 +846,7 @@ index 4c22bc44b3..5ab9de9290 100644
  
    pid_t pid = ForkWaitingChild();
    munmap(mmap_addr, base::GetPageSize() * total_pages);
-@@ -213,7 +201,7 @@ SANDBOX_TEST(BrokerRemoteSyscallArgHandler, ReadChunkPlus1EndingOnePastPage) {
+@@ -212,7 +200,7 @@ SANDBOX_TEST(BrokerRemoteSyscallArgHandler, ReadChunkPlus1EndingOnePastPage) {
  }
  
  SANDBOX_TEST(BrokerRemoteSyscallArgHandler, ReadChildExited) {
@@ -855,7 +855,7 @@ index 4c22bc44b3..5ab9de9290 100644
    FillBufferWithPath(static_cast<char*>(addr), strlen(kPathPart) + 1, true);
  
    base::ScopedFD parent_sync, child_sync;
-@@ -241,10 +229,10 @@ SANDBOX_TEST(BrokerRemoteSyscallArgHandler, ReadChildExited) {
+@@ -240,10 +228,10 @@ SANDBOX_TEST(BrokerRemoteSyscallArgHandler, ReadChildExited) {
  }
  
  SANDBOX_TEST(BrokerRemoteSyscallArgHandler, BasicWrite) {
@@ -868,7 +868,7 @@ index 4c22bc44b3..5ab9de9290 100644
    base::ScopedFD parent_signal_fd;
    const std::vector<int> empty_fd_vec;
  
-@@ -279,8 +267,8 @@ SANDBOX_TEST(BrokerRemoteSyscallArgHandler, BasicWrite) {
+@@ -278,8 +266,8 @@ SANDBOX_TEST(BrokerRemoteSyscallArgHandler, BasicWrite) {
  }
  
  SANDBOX_TEST(BrokerRemoteSyscallArgHandler, WriteToInvalidAddress) {
@@ -879,7 +879,7 @@ index 4c22bc44b3..5ab9de9290 100644
    base::ScopedFD parent_signal_fd;
    const std::vector<int> empty_fd_vec;
  
-@@ -296,11 +284,11 @@ SANDBOX_TEST(BrokerRemoteSyscallArgHandler, WriteToInvalidAddress) {
+@@ -295,11 +283,11 @@ SANDBOX_TEST(BrokerRemoteSyscallArgHandler, WriteToInvalidAddress) {
  }
  
  SANDBOX_TEST(BrokerRemoteSyscallArgHandler, WritePartiallyToInvalidAddress) {
@@ -894,7 +894,7 @@ index 4c22bc44b3..5ab9de9290 100644
    write_to += base::GetPageSize() / 2;
    base::ScopedFD parent_signal_fd;
    const std::vector<int> empty_fd_vec;
-@@ -315,7 +303,7 @@ SANDBOX_TEST(BrokerRemoteSyscallArgHandler, WritePartiallyToInvalidAddress) {
+@@ -314,7 +302,7 @@ SANDBOX_TEST(BrokerRemoteSyscallArgHandler, WritePartiallyToInvalidAddress) {
  }
  
  SANDBOX_TEST(BrokerRemoteSyscallArgHandler, WriteChildExited) {

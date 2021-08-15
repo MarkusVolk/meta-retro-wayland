@@ -1,4 +1,4 @@
-From f060a70a64efec2f24ce2408fa2f3349431df5b5 Mon Sep 17 00:00:00 2001
+From 57ca85d55d1f7622f8619a5eb74f75ec15e25add Mon Sep 17 00:00:00 2001
 From: Matthew Denton <mpdenton@chromium.org>
 Date: Wed, 21 Jul 2021 12:55:11 +0000
 Subject: [PATCH] Linux sandbox: fix fstatat() crash

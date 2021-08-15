@@ -1,4 +1,4 @@
-From 5c510ae6905ff30dcb267c7b24dafdd9e20ce19f Mon Sep 17 00:00:00 2001
+From a5319b586d1cd4e517a58d9114cf536dd946f79d Mon Sep 17 00:00:00 2001
 From: Bartek Nowierski <bartekn@chromium.org>
 Date: Wed, 21 Jul 2021 15:01:38 +0000
 Subject: [PATCH] Make GetUsableSize() handle nullptr gracefully
@@ -20,10 +20,10 @@ Cr-Commit-Position: refs/heads/master@{#903900}
  2 files changed, 7 insertions(+)
 
 diff --git a/base/allocator/partition_allocator/partition_alloc_unittest.cc b/base/allocator/partition_allocator/partition_alloc_unittest.cc
-index bb6faf759e..d494f02d4e 100644
+index 18e7309bda..84fc602e70 100644
 --- a/base/allocator/partition_allocator/partition_alloc_unittest.cc
 +++ b/base/allocator/partition_allocator/partition_alloc_unittest.cc
-@@ -2752,6 +2752,10 @@ TEST_F(PartitionAllocTest, OptimizedGetSlotNumber) {
+@@ -2745,6 +2745,10 @@ TEST_F(PartitionAllocTest, OptimizedGetSlotNumber) {
    }
  }
  
@@ -35,10 +35,10 @@ index bb6faf759e..d494f02d4e 100644
    size_t delta = SystemPageSize() + 1;
    for (size_t size = 1; size <= kMinDirectMappedDownsize; size += delta) {
 diff --git a/base/allocator/partition_allocator/partition_root.h b/base/allocator/partition_allocator/partition_root.h
-index 742ac8937c..de427e66bf 100644
+index 008a201d6b..68cff1f77f 100644
 --- a/base/allocator/partition_allocator/partition_root.h
 +++ b/base/allocator/partition_allocator/partition_root.h
-@@ -1164,6 +1164,9 @@ ALWAYS_INLINE bool PartitionRoot<thread_safe>::TryRecommitSystemPagesForData(
+@@ -1298,6 +1298,9 @@ ALWAYS_INLINE bool PartitionRoot<thread_safe>::TryRecommitSystemPagesForData(
  // PartitionAlloc's internal data. Used as malloc_usable_size.
  template <bool thread_safe>
  ALWAYS_INLINE size_t PartitionRoot<thread_safe>::GetUsableSize(void* ptr) {
