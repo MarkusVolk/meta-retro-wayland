@@ -113,6 +113,7 @@ WLUA ?= " \
 	lua-feedparser \
 	lua-json \
 	luaposix \
+	lgi \
 "
 
 IMAGE_INSTALL:append = " \
