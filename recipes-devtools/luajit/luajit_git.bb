@@ -11,7 +11,8 @@ SRC_URI = "git://luajit.org/git/luajit-2.0.git;protocol=http;branch=v2.1 \
            "
 
 PROVIDES = "virtual/lua"
-RPROVIDES:${PN} += "virtual/lua"
+RPROVIDES:${PN} = "virtual/lua"
+RCONFLICTS:${PN} = "lua"
 
 S = "${WORKDIR}/git"
 
@@ -72,11 +73,13 @@ do_install () {
 }
 
 do_install:append:class-native() {
-		ln -sf $(basename ${D}${STAGING_BINDIR_NATIVE}/luajit-*) ${D}${STAGING_BINDIR_NATIVE}/luajit
+	ln -sf $(basename ${D}${STAGING_BINDIR_NATIVE}/luajit-*) ${D}${STAGING_BINDIR_NATIVE}/luajit
+	ln -sf $(basename ${D}${STAGING_BINDIR_NATIVE}/luajit-*) ${D}${STAGING_BINDIR_NATIVE}/lua
 }
 
 do_install:append:class-target() {
-		ln -sf $(basename ${D}${bindir}/luajit-*) ${D}${bindir}/luajit
+	ln -sf $(basename ${D}${bindir}/luajit-*) ${D}${bindir}/luajit
+	ln -sf $(basename ${D}${bindir}/luajit-*) ${D}${bindir}/lua
 }
 
 PACKAGES += 'luajit-common'
