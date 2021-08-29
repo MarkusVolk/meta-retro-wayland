@@ -23,11 +23,11 @@ RDEPENDS:${PN} = "bash"
 inherit cmake pkgconfig
 
 SRC_URI = " \
-    git://github.com/wesnoth/wesnoth.git;protocol=https \
+    git://github.com/wesnoth/wesnoth.git;protocol=https;branch=1.16 \
     file://0001-CMakeLIST.txt-dont-use-sdl-config-dont-install-run-e.patch \
 "
 
-PV = "1.15.13"
+PV = "1.15.16"
 SRCREV = "${PV}"
 S = "${WORKDIR}/git"
 
