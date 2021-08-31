@@ -13,12 +13,12 @@ DEPENDS = " \
 inherit meson gtk-icon-cache
 
 SRC_URI = " \
-	git://github.com/dosbox-staging/dosbox-staging.git \
+	git://github.com/dosbox-staging/dosbox-staging.git;protocol=https;branch=kc/release-0.77.1 \
 	file://0001-ne2000.cpp-add-missing-header-file.patch \
 "
 
 SRCREV = "v${PV}"
-PV = "0.77.0"
+PV = "0.77.1"
 S = "${WORKDIR}/git"
 
 PACKAGECONFIG[fluidsynth] = "-Duse_fluidsynth=true,-Duse_fluidsynth=false,fluidsynth"
