@@ -11,6 +11,10 @@ SRC_URI:append =  " \
 	file://kodi-995.10-devinputmappings.patch \
 "
 
+SRC_URI:append:rockchip = " \
+	file://0001-kodi-rockchip-adjust-default-settings.patch \
+"
+
 DEPENDS:append += "kodi-tools-jsonschemabuilder-native kodi-tools-texturepacker-native wayland-native waylandpp-native"
 DEPENDS:remove = "libsquish"
 
@@ -22,11 +26,14 @@ EXTRA_OECMAKE_BUILD = ""
 
 inherit retro-overrides
 
-VAAPISUPPORT:armarch = "0"
 VDPAUSUPPORT:armarch = "0"
+VAAPISUPPORT:armarch = "0"
 
-PACKAGECONFIG:append += "bluetooth samba wayland"
-
+PACKAGECONFIG:append += " \
+	bluetooth \
+	samba \
+	wayland \
+"
 
 RRECOMMENDS:${PN}:append = " \
 	libcec \

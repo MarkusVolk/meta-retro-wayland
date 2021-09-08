@@ -1,0 +1,71 @@
+From 2c75826df8eb5c2cd8a3a3a8adb77e584fec9254 Mon Sep 17 00:00:00 2001
+From: MarkusVolk <f_l_k@t-online.de>
+Date: Tue, 7 Sep 2021 21:25:43 +0200
+Subject: [PATCH] kodi: adjust default settings
+
+Signed-off-by: MarkusVolk <f_l_k@t-online.de>
+---
+ system/settings/linux.xml    | 6 +++---
+ system/settings/settings.xml | 7 ++++---
+ 2 files changed, 7 insertions(+), 6 deletions(-)
+
+diff --git a/system/settings/linux.xml b/system/settings/linux.xml
+index 6d1fb9cd49e..0110f3cd34b 100644
+--- a/system/settings/linux.xml
++++ b/system/settings/linux.xml
+@@ -153,7 +153,7 @@
+           <requirement>HAS_GLES</requirement>
+           <visible>false</visible>
+           <level>2</level>
+-          <default>false</default>
++          <default>true</default>
+           <control type="toggle" />
+         </setting>
+         <setting id="videoplayer.useprimedecoderforhw" type="boolean" parent="videoplayer.useprimedecoder" label="13438" help="36172">
+@@ -197,9 +197,9 @@
+           <control type="toggle" />
+         </setting>
+         <setting id="videoscreen.limitguisize" type="integer" label="37021" help="36548">
+-          <visible>false</visible>
++          <visible>true</visible>
+           <level>3</level>
+-          <default>0</default>
++          <default>3</default>
+           <constraints>
+             <options>
+               <option label="37030">0</option> <!-- Unlimited -->
+diff --git a/system/settings/settings.xml b/system/settings/settings.xml
+index b8ab2a5ee35..4cf51085d20 100755
+--- a/system/settings/settings.xml
++++ b/system/settings/settings.xml
+@@ -2375,7 +2375,8 @@
+         <setting id="videoscreen.screenmode" type="string" parent="videoscreen.screen" label="243" help="36353">
+           <requirement>IsStandAlone</requirement>
+           <level>0</level>
+-          <default>DESKTOP</default>
++          <visible>false</visible>
++          <default>WINDOW</default>
+           <constraints>
+             <options>refreshrates</options>
+           </constraints>
+@@ -2672,7 +2673,7 @@
+       <group id="4" label="496">
+         <setting id="videoscreen.noofbuffers" type="integer" label="36043" help="36552">
+           <level>2</level>
+-          <default>3</default> <!-- triple buffers -->
++          <default>2</default>
+           <constraints>
+             <minimum>2</minimum>
+             <step>1</step>
+@@ -3197,7 +3198,7 @@
+         </setting>
+         <setting id="addons.unknownsources" type="boolean" label="36615" help="36616">
+           <level>0</level>
+-          <default>false</default>
++          <default>true</default>
+           <control type="toggle" />
+         </setting>
+         <setting id="addons.updatemode" type="integer" parent="addons.unknownsources" label="36422" help="36423">
+-- 
+2.25.1
+

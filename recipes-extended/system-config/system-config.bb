@@ -4,6 +4,7 @@ LIC_FILES_CHKSUM = "file://${COMMON_LICENSE_DIR}/GPL-2.0-only;md5=801f80980d171d
 inherit retro-user retro-overrides
 
 SRC_URI = " \
+	https://repo.kodinerds.net/addons/repository.kodinerds/repository.kodinerds-7.0.1.1.zip;unpack=0 \
 	file://azotebg \
 	file://bashrc \
 	file://sway/config \
@@ -24,6 +25,8 @@ SRC_URI = " \
 	file://glib-2.0/settings/keyfile \
 "
 
+SRC_URI[sha256sum] = "379e87793087017f16463ff5bacc5422dc7a3868332647e1899df7431573c7a0"
+
 RRECOMMENDS:${PN} = " \
 	autotiling \
 	capitaine-cursors \
@@ -43,6 +46,7 @@ do_install() {
 	install -d ${D}${RETRO_USER_HOMEDIR}/.config/connman
 	install -d ${D}${RETRO_USER_HOMEDIR}/.config/waybar/scripts
 	install -d ${D}${RETRO_USER_HOMEDIR}/.config/mpv/
+	install -d ${D}${RETRO_USER_HOMEDIR}/Downloads
 	install -d ${D}${ROOT_HOME}/.config/glib-2.0/settings
 	install -m 0644 ${WORKDIR}/bashrc ${D}${RETRO_USER_HOMEDIR}/.bashrc
 	install -m 0644 ${WORKDIR}/profile ${D}${RETRO_USER_HOMEDIR}/.profile
@@ -63,6 +67,7 @@ do_install() {
 	install -m 0755 ${WORKDIR}/azotebg ${D}${RETRO_USER_HOMEDIR}/.azotebg
 	install -m 0644 ${WORKDIR}/glib-2.0/settings/keyfile ${D}${RETRO_USER_HOMEDIR}/.config/glib-2.0/settings
 	install -m 0644 ${WORKDIR}/glib-2.0/settings/keyfile ${D}${ROOT_HOME}/.config/glib-2.0/settings
+	install -m 0644 ${WORKDIR}/repository.kodinerds-7.0.1.1.zip ${D}${RETRO_USER_HOMEDIR}/Downloads
 }
 
 do_install:append:rpi() {
@@ -81,7 +86,10 @@ do_install:append() {
 	chown ${RETRO_USER_NAME}:${RETRO_USER_NAME} -R ${D}${RETRO_USER_HOMEDIR}
 }
 
-FILES:${PN} = "${RETRO_USER_HOMEDIR} ${ROOT_HOME}"
+FILES:${PN} = " \
+	${RETRO_USER_HOMEDIR} \
+	${ROOT_HOME} \
+"
 
 INSANE_SKIP:${PN} = "host-user-contaminated"
 
