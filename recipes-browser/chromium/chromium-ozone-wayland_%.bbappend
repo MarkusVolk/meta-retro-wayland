@@ -12,7 +12,5 @@ SRC_URI:append = " \
 
 SRC_URI:remove = "    file://0012-Fix-font-rendering-with-glibc-2.33.patch \"
 
-RRECOMMENDS:${PN} = "libva-v4l2-request"
-
 GN_ARGS += "use_custom_libcxx=true"
 
