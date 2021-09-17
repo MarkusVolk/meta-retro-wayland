@@ -2,6 +2,8 @@ FILESEXTRAPATHS:prepend := "${THISDIR}/files:"
 
 SRC_URI:append = "file://tvheadend.service"
 
+SRCREV = "8fc2dfa7e1b1b3b1e8ba6f78cd4a81f77fa6a736"
+
 EXTRA_OECONF = "--arch=${TARGET_ARCH} \
 		--enable-nvenc \
 		--enable-cardclient \
