@@ -27,7 +27,7 @@ do_install() {
 	# install routine is missing ... do it manually
 	install -d ${D}${prefix}/libexec ${D}${bindir}
 	cp -rf ${B}/release ${D}${prefix}/libexec/quake2
-	echo -e "exec /usr/libexec/quake2/quake2 -datadir ${datadir}/games/quake2" > ${D}${bindir}/quake2
+	echo "exec /usr/libexec/quake2/quake2 -datadir ${datadir}/games/quake2" > ${D}${bindir}/quake2
 	chmod 755 ${D}${bindir}/quake2
 }
 
