@@ -1,4 +1,3 @@
 #!/usr/bin/env sh
-
-ps -e | grep blueman-manager && killall -q blueman-manager && exit 0
-exec /usr/bin/blueman-manager
+swaymsg "[app_id=blueman-manager] focus"  > /dev/null 2>&1 && pkill -f blueman-manager && exit 0
+exec /usr/bin/blueman-manager &

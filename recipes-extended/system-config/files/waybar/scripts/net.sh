@@ -1,5 +1,3 @@
 #!/usr/bin/env sh
-
-ps -e | grep connman-gtk && killall -q connman-gtk && exit 0
-exec /usr/bin/connman-gtk
-
+swaymsg "[app_id=connman-gtk] focus"  > /dev/null 2>&1 && pkill -f connman-gtk && exit 0
+exec /usr/bin/connman-gtk &

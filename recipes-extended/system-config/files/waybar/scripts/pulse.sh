@@ -1,5 +1,5 @@
 #!/usr/bin/env sh
 
-ps -e | grep pavucontrol && killall -q pavucontrol && exit 0
-exec /usr/bin/pavucontrol
+swaymsg "[app_id=pavucontrol] focus"  > /dev/null 2>&1 && pkill -f pavucontrol && exit 0
+exec /usr/bin/pavucontrol &
 

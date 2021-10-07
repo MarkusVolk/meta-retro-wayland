@@ -1,0 +1,66 @@
+From a55428639114d421c31711bd6fdb1c912487c4db Mon Sep 17 00:00:00 2001
+From: MarkusVolk <f_l_k@t-online.de>
+Date: Thu, 7 Oct 2021 16:25:13 +0200
+Subject: [PATCH] meson.build: fix
+
+Signed-off-by: MarkusVolk <f_l_k@t-online.de>
+---
+ meson.build | 19 +++++++------------
+ 1 file changed, 7 insertions(+), 12 deletions(-)
+
+diff --git a/meson.build b/meson.build
+index d149d1d..f319d97 100644
+--- a/meson.build
++++ b/meson.build
+@@ -4,11 +4,8 @@ project('eovpn',
+ )
+ 
+ i18n = import('i18n')
+-python = import('python')
+-python_instllation = python.find_installation(  modules: [
+-      'requests',
+-      'psutil'
+-    ],)
++python = import('python').find_installation('python3')
++python_fullname = 'python'+python.language_version()
+ 
+ gnome = import('gnome')
+ project_id = 'com.github.jkotra.eovpn'
+@@ -16,13 +13,11 @@ project_id = 'com.github.jkotra.eovpn'
+ 
+ prefix = get_option('prefix') # should be /usr
+ bindir = get_option('bindir') # should be bin
++libdir = get_option('libdir')
+ datadir = get_option('datadir') # should be /usr/share
+ pkg_datadir = join_paths(prefix, datadir, meson.project_name())
++pkg_pythondir = join_paths(prefix, libdir, python_fullname, 'site-packages')
+ schemas_dir = get_option('prefix') / get_option('datadir') / 'glib-2.0' / 'schemas'
+-python_dir = python_instllation.get_install_dir()
+-
+-message(prefix)
+-message(python_dir)
+ 
+ locale_dir = join_paths(prefix, get_option('localedir'))
+ icondir = join_paths(datadir, 'icons/hicolor')
+@@ -38,7 +33,7 @@ conf.set('PACKAGE_URL', 'https://github.com/jkotra/eovpn')
+ conf.set('DATA_DIR', datadir)
+ conf.set('PKG_DATADIR', pkg_datadir)
+ conf.set('LOCALE_DIR', join_paths(get_option('prefix'), get_option('datadir'), 'locale'))
+-conf.set('PYTHON_DIR', python_dir)
++conf.set('PYTHON_DIR', pkg_pythondir)
+ 
+ subdir('po')
+ subdir('data')
+@@ -50,7 +45,7 @@ endif
+ 
+ install_subdir(
+   'eovpn',
+-  install_dir: python_dir
++  install_dir: pkg_pythondir
+ )
+ 
+ 
+
+-- 
+2.25.1
+

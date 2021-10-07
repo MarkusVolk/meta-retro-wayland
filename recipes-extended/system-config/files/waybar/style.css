@@ -66,6 +66,7 @@ window#waybar.chromium {
 }
 
 #clock,
+#custom-vpn,
 #bluetooth,
 #cpu,
 #memory,
@@ -99,6 +100,11 @@ window#waybar.chromium {
 
 #clock {
     background-color: #64727D;
+}
+
+#custom-vpn {
+    background-color: #878787;
+    color: #000000;
 }
 
 #bluetooth {
