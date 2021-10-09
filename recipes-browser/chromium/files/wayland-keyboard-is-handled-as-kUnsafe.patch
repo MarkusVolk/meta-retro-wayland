@@ -1,0 +1,24 @@
+--- a/ui/ozone/platform/wayland/host/wayland_keyboard.cc	2021-10-01 03:37:23.000000000 +0200
++++ b/ui/ozone/platform/wayland/host/wayland_keyboard.cc	2021-10-09 02:25:00.409583467 +0200
+@@ -8,7 +8,7 @@
+ 
+ #include "base/files/scoped_file.h"
+ #include "base/logging.h"
+-#include "base/memory/unsafe_shared_memory_region.h"
++#include "base/memory/read_only_shared_memory_region.h"
+ #include "base/unguessable_token.h"
+ #include "ui/base/buildflags.h"
+ #include "ui/events/base_event_utils.h"
+@@ -119,10 +119,10 @@
+   base::ScopedFD fd(keymap_fd);
+   auto length = size - 1;
+   auto shmen = base::subtle::PlatformSharedMemoryRegion::Take(
+-      std::move(fd), base::subtle::PlatformSharedMemoryRegion::Mode::kUnsafe,
++      std::move(fd), base::subtle::PlatformSharedMemoryRegion::Mode::kReadOnly,
+       length, base::UnguessableToken::Create());
+   auto mapped_memory =
+-      base::UnsafeSharedMemoryRegion::Deserialize(std::move(shmen)).Map();
++      base::ReadOnlySharedMemoryRegion::Deserialize(std::move(shmen)).Map();
+   const char* keymap = mapped_memory.GetMemoryAs<char>();
+ 
+   if (!keymap || format != WL_KEYBOARD_KEYMAP_FORMAT_XKB_V1)
