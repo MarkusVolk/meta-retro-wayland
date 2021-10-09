@@ -37,6 +37,7 @@ WGTK_APPS ?= " \
 "
 
 WCONSOLE_TOOLS ?= " \
+	asciinema \
 	bash \
 	bzip2 \
 	coreutils-stdbuf \
