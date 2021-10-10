@@ -7,5 +7,8 @@ CHROMIUM_EXTRA_ARGS:append = " --enable-gpu-rasterization --enable-zero-copy --f
 
 inherit ccache
 
-GN_ARGS += "use_custom_libcxx=true"
+GN_ARGS += " \
+    use_custom_libcxx=true \
+    use_gtk=true \
+"
 
