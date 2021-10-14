@@ -4,7 +4,7 @@ LIC_FILES_CHKSUM = "file://COPYRIGHT;md5=abe9020de9c00909317d02d5c803810e"
 HOMEPAGE = "http://luajit.org"
 
 PV = "2.1"
-SRCREV = "983d66b8c5032b421e0f5fe8d39e9930bceb7031"
+SRCREV = "bfd076532cdf1159df13499392879f5f4d3a9a5d"
 SRC_URI = "git://luajit.org/git/luajit-2.0.git;protocol=http;branch=v2.1 \
 	   file://0001-Do-not-strip-automatically-this-leaves-the-stripping.patch \
 	   file://clang.patch \
