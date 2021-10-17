@@ -14,7 +14,7 @@ set $right right
 seat * hide_cursor 8000
 
 # set cursor theme
-seat * xcursor_theme capitaine-cursors-light 48
+seat * xcursor_theme capitaine-cursors-light 36
 
 # application launcher
 set $menu nwggrid
