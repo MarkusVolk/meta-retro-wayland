@@ -12,15 +12,21 @@ LIC_FILES_CHKSUM = "file://COPYING.LIB;md5=4fbd65380cdd255951079008b364516c \
 
 SECTION = "x11/utils"
 DEPENDS = "cairo gdk-pixbuf glib-2.0 libcroco libxml2 pango"
-BBCLASSEXTEND = "native nativesdk"
+BBCLASSEXTEND = "native"
 
 inherit gnomebase gtk-doc pixbufcache upstream-version-is-even gobject-introspection rust
 
-SRC_URI += " file://0001-Makefile.am-pass-rust-target-to-cargo-also-when-not-.patch \
-             file://0001-system-deps-src-lib.rs-do-not-probe-into-harcoded-li.patch \
-"
+SRC_URI += "file://0001-Makefile.am-pass-rust-target-to-cargo-also-when-not-.patch \
+           file://0001-system-deps-src-lib.rs-do-not-probe-into-harcoded-li.patch \
+           file://0001-crossbeam-utils-check-only-the-architecture-not-the-.patch \
+           file://0001-vendor-system-deps-sort-dependencies-before-using-th.patch \
+           file://0005-Add-base-definitions-for-riscv64-musl-libc-0.2.93.patch \
+           file://0006-FIXUP-linux-musl-mod.rs-add-riscv64-to-b64-set-libc-.patch \
+           file://0007-FIXUP-Correct-definitions-to-match-musl-libc-0.2.93.patch \
+           file://0008-Update-checksums-for-modified-files-for-rust-1.54.0-.patch \
+           "
 
-SRC_URI[archive.sha256sum] = "bd821fb3e16494b61f5185addd23b726b064f203122b3ab4b3d5d7a44e6bf393"
+SRC_URI[archive.sha256sum] = "03d2887c18ffb906e1a60f97fe46a7169f69aa28d6db5d285748f3618b093427"
 
 # librsvg is still autotools-based, but is calling cargo from its automake-driven makefiles
 # so we cannot use cargo class directly, but still need bits and pieces from it 
