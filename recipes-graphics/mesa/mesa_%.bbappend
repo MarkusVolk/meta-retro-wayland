@@ -1,7 +1,14 @@
-PV = "21.2.4"
-SRC_URI[sha256sum] = "fe6ede82d1ac02339da3c2ec1820a379641902fd351a52cc01153f76eff85b44"
-SRC_URI:remove = "           file://without-neon.patch \"
+SRC_URI = " \
+	git://github.com/mesa3d/mesa.git;protocol=https;branch=main \
+	file://0001-meson.build-check-for-all-linux-host_os-combinations.patch \
+	file://0002-meson.build-make-TLS-ELF-optional.patch \
+	file://0001-meson-misdetects-64bit-atomics-on-mips-clang.patch \
+	file://0001-futex.h-Define-__NR_futex-if-it-does-not-exist.patch \
+"
 
+PV = "dev+${SRCREV}"
+SRCREV = "c2d522b07f9a7c719eef1b4ebea3cc5975bbe15a"
+S = "${WORKDIR}/git"
 
 inherit retro-overrides
 
