@@ -24,6 +24,7 @@ WGTK_APPS ?= " \
 	file-roller \
 	gdk-pixbuf \
 	librsvg-gtk \
+	gnome-chess \
 	gnome-disk-utility \
 	gnome-system-monitor \
 	gparted \
