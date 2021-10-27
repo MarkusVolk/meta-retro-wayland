@@ -1,0 +1,4 @@
+PACKAGECONFIG:append = " \
+	gles \
+	libinput \
+"
