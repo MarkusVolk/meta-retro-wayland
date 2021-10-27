@@ -1,6 +1,6 @@
 FILESEXTRAPATHS:prepend := "${THISDIR}/mupen64plus-libretro:"
 
-SRC_URI:append = " \
+SRC_URI:append:aarch64 = " \
 	file://0001-remove-mvectorize-with-neon-quad.patch \
 	file://0001-remove-SOURCE-ASM.patch \
 	file://0001-neon-disable-s16-convert.patch \
