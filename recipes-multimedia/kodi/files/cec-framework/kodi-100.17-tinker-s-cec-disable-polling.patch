@@ -1,8 +1,19 @@
---- kodi-rockchip_18.2rc1-Leia.orig/xbmc/peripherals/bus/virtual/PeripheralBusCEC.cpp	2019-05-12 07:24:23.921984777 +0200
-+++ kodi-rockchip_18.2rc1-Leia/xbmc/peripherals/bus/virtual/PeripheralBusCEC.cpp	2019-05-12 07:03:41.221761552 +0200
-@@ -50,6 +50,10 @@
-         /** the Pi's adapter cannot be removed, no need to rescan */
-         m_bNeedsPolling = false;
+From 3cd6af54644ca4d4cf68e8ba785e3af59302a3f5 Mon Sep 17 00:00:00 2001
+From: MarkusVolk <f_l_k@t-online.de>
+Date: Mon, 18 Oct 2021 06:20:00 +0200
+Subject: [PATCH] kodi: add patches from libreelec
+
+---
+ xbmc/peripherals/bus/virtual/PeripheralBusCEC.cpp | 4 ++++
+ 1 file changed, 4 insertions(+)
+
+diff --git a/xbmc/peripherals/bus/virtual/PeripheralBusCEC.cpp b/xbmc/peripherals/bus/virtual/PeripheralBusCEC.cpp
+index e119638bc0..82e3a093dd 100644
+--- a/xbmc/peripherals/bus/virtual/PeripheralBusCEC.cpp
++++ b/xbmc/peripherals/bus/virtual/PeripheralBusCEC.cpp
+@@ -45,6 +45,10 @@ bool CPeripheralBusCEC::PerformDeviceScan(PeripheralScanResults& results)
+       case ADAPTERTYPE_P8_DAUGHTERBOARD:
+         result.m_mappedBusType = PERIPHERAL_BUS_USB;
          break;
 +      case ADAPTERTYPE_LINUX:
 +        /** the Linux adapter cannot be removed, no need to rescan */

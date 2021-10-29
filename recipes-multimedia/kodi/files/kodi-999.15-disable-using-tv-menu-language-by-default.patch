@@ -1,3 +1,14 @@
+From 08f4108b8889ccd5279c1699fe1ce3fc336f43c1 Mon Sep 17 00:00:00 2001
+From: MarkusVolk <f_l_k@t-online.de>
+Date: Mon, 18 Oct 2021 06:20:00 +0200
+Subject: [PATCH] kodi: add patches from libreelec
+
+---
+ system/peripherals.xml | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/system/peripherals.xml b/system/peripherals.xml
+index 1fbb4bc924..eee51755e2 100644
 --- a/system/peripherals.xml
 +++ b/system/peripherals.xml
 @@ -18,7 +18,7 @@

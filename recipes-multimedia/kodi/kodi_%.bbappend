@@ -4,6 +4,7 @@ SRC_URI:append =   " \
 	file://0001-WIP-DVDVideoCodecDRMPRIME-add-support-for-filters.patch \
 	file://0002-WIP-DRMPRIME-deinterlace-filter.patch \
 	file://0001-disable-wayland-scanner.patch \
+	file://0002-set-colorspace-connector-property.patch \
 	file://kodi-100.03-disable-online-check.patch \
 	file://kodi-100.05-make-binary-addons-executable.patch \
 	file://kodi-100.06-dont-set-_NET_WM_STATE_FULLSCREEN.patch \
@@ -40,4 +41,6 @@ PACKAGECONFIG:append += " \
 	samba \
 	wayland \
 "
+
+FILES:${PN} += "${datadir}/metainfo"
 
