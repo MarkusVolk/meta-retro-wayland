@@ -1,38 +1,26 @@
 DESCRIPTION = "luaposix is a POSIX binding for Lua."
 LICENSE = "MIT"
 HOMEPAGE = "https://github.com/luaposix/luaposix"
-LIC_FILES_CHKSUM = "file://LICENSE;md5=71690c320e7bd75799e67e43234bbf4f"
+LIC_FILES_CHKSUM = "file://LICENSE;md5=f81069e00c0cad249f20efe958276db1"
 
-DEPENDS += "lua-native virtual/lua libxcrypt"
+DEPENDS += "virtual/lua-native virtual/lua virtual/crypt"
 
-include ../lua.inc
-
-SRC_URI = "git://github.com/luaposix/luaposix.git;branch=master \
-	   file://0001-require-bit-for-luajit.patch \
+SRC_URI = "git://github.com/luaposix/luaposix.git;branch=release-v${PV} \
 "
-SRCREV = "1ff80ab330dad662bec01c377726d8c369e38d18"
-
+SRCREV = "14043c5086ae738823a5dfbc9170d9e14193fbef"
 S = "${WORKDIR}/git"
-PV = "35.0.0"
+B = "${S}"
+PV = "35.1"
 
-inherit siteinfo
+inherit pkgconfig
 
 do_compile() {
-        ${STAGING_BINDIR_NATIVE}/lua ${S}/build-aux/luke \
-        CFLAGS="-I${STAGING_INCDIR}/luajit-2.1"
+    ${S}/build-aux/luke CFLAGS="-I${STAGING_INCDIR}/luajit-2.1"
 }
-
-
 
 do_install() {
-	install -d ${D}${libdir}/lua/${LUA_VER} ${D}${datadir}/lua/${LUA_VER}
- 	cp -rf ${S}/linux/posix ${D}${libdir}/lua/${LUA_VER}
-	cp -rf ${S}/lib/posix ${D}${datadir}/lua/${LUA_VER}
+    ${S}/build-aux/luke PREFIX=${D}${prefix} install
 }
 
-FILES:${PN} = "${datadir}/lua/${LUA_VER} ${libdir}/lua/${LUA_VER}"
-
-BBCLASSEXTEND = "native"
-
-INSANE_SKIP:${PN} = "ldflags"
+FILES:${PN} = "${datadir} ${libdir}"
 
