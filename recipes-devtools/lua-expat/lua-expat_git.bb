@@ -2,8 +2,8 @@ DESCRIPTION = "lua-expat"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://doc/us/license.html;beginline=61;endline=105;md5=e883421fc699b0af5d55b94af3d817cf"
 HOMEPAGE = "https://www.github.com/tomasguisasola"
-DEPENDS += "expat virtual/lua"
-RDEPENDS:${PN} += "virtual/lua"
+DEPENDS += "expat lua"
+RDEPENDS:${PN} += "lua"
 
 include ../lua.inc
 

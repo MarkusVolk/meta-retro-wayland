@@ -4,7 +4,7 @@ LIC_FILES_CHKSUM = " \
 	file://JSON.lua;beginline=1;endline=16;md5=47b3a45c4ad6038f261c8a6670f02fb5 \
 "
 HOMEPAGE = "http://regex.info/blog/lua/json/"
-DEPENDS="virtual/lua"
+DEPENDS="lua"
 
 include ../lua.inc
 

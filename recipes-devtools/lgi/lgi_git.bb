@@ -6,8 +6,8 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=a77b7838f84aa753d37f88fd9c9ccf7d"
 SRC_URI = "git://github.com/pavouk/lgi.git;protocol=https"
 
 DEPENDS = " \
-	virtual/lua \
-	virtual/lua-native \
+	lua \
+	lua-native \
 	cairo \
 	gobject-introspection \
 	gobject-introspection-native \

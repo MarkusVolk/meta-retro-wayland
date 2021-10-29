@@ -5,7 +5,7 @@ HOMEPAGE = "https://github.com/slact/lua-feedparser"
 
 include ../lua.inc
 
-RDEPENDS:${PN} += "virtual/lua"
+RDEPENDS:${PN} += "lua"
 SRCREV = "9b284bc014ea6adbbd847b16ba64dadd40724fac"
 PR = "r1"
 

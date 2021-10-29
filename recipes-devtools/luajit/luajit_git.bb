@@ -4,14 +4,14 @@ LIC_FILES_CHKSUM = "file://COPYRIGHT;md5=abe9020de9c00909317d02d5c803810e"
 HOMEPAGE = "http://luajit.org"
 
 PV = "2.1"
-SRCREV = "bfd076532cdf1159df13499392879f5f4d3a9a5d"
+SRCREV = "b4b2dce9fc3ffaaaede39b36d06415311e2aa516"
 SRC_URI = "git://luajit.org/git/luajit-2.0.git;protocol=http;branch=v2.1 \
 	   file://0001-Do-not-strip-automatically-this-leaves-the-stripping.patch \
 	   file://clang.patch \
            "
 
-PROVIDES = "virtual/lua"
-RPROVIDES:${PN} = "virtual/lua"
+PROVIDES = "lua"
+RPROVIDES:${PN} = "lua"
 RCONFLICTS:${PN} = "lua"
 
 S = "${WORKDIR}/git"
