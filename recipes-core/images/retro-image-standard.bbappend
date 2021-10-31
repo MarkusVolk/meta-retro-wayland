@@ -23,7 +23,6 @@ WGTK_APPS ?= " \
 	eovpn \
 	file-roller \
 	gdk-pixbuf \
-	librsvg-gtk \
 	gnome-chess \
 	gnome-disk-utility \
 	gnome-system-monitor \
@@ -32,8 +31,11 @@ WGTK_APPS ?= " \
 	gvfs \
 	gvfsd-trash \
 	l3afpad \
+	librsvg-gtk \
+	nwg-launchers \
 	pavucontrol \
 	thunar \
+	waybar \
 	xfce-polkit \
 "
 
