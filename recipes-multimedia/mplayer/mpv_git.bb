@@ -6,15 +6,15 @@ HOMEPAGE = "http://www.mpv.io/"
 DEPENDS = "zlib ffmpeg jpeg libv4l libass"
 
 LICENSE = "GPLv2+"
-LIC_FILES_CHKSUM = "file://LICENSE.GPL;md5=91f1cb870c1cc2d31351a4d2595441cb"
+LIC_FILES_CHKSUM = "file://LICENSE.GPL;md5=b234ee4d69f5fce4486a80fdaf4a4263"
 
-PV = "0.33.1"
+PV = "0.34.0"
 SRCREV_mpv = "v${PV}"
 SRC_URI = " \
-    git://github.com/mpv-player/mpv;name=mpv;branch=release/0.33 \
-    https://waf.io/waf-2.0.20;name=waf;subdir=git \
+    git://github.com/mpv-player/mpv;name=mpv;branch=release/0.34 \
+    https://waf.io/waf-2.0.22;name=waf;subdir=git \
 "
-SRC_URI[waf.sha256sum] = "bf971e98edc2414968a262c6aa6b88541a26c3cd248689c89f4c57370955ee7f"
+SRC_URI[waf.sha256sum] = "0a09ad26a2cfc69fa26ab871cb558165b60374b5a653ff556a0c6aca63a00df1"
 
 S = "${WORKDIR}/git"
 
@@ -24,29 +24,32 @@ LDFLAGS:append:riscv64 = " -latomic"
 
 # Note: lua is required to get on-screen-display (controls)
 PACKAGECONFIG ??= " \
+	${@bb.utils.filter('DISTRO_FEATURES', 'alsa', d)} \
+	${@bb.utils.filter('DISTRO_FEATURES', 'opengl', d)} \
+	${@bb.utils.filter('DISTRO_FEATURES', 'pulseaudio', d)} \
+	${@bb.utils.filter('DISTRO_FEATURES', 'vulkan', d)} \
 	${@bb.utils.filter('DISTRO_FEATURES', 'wayland', d)} \
 	${@bb.utils.filter('DISTRO_FEATURES', 'x11', d)} \
-	${@bb.utils.filter('DISTRO_FEATURES', 'opengl', d)} \
-	${@bb.utils.filter('DISTRO_FEATURES', 'alsa', d)} \
-	${@bb.utils.filter('DISTRO_FEATURES', 'pulseaudio', d)} \
 "
 
-PACKAGECONFIG[x11] = "--enable-x11,--disable-x11,virtual/libx11 xsp libxv libxscrnsaver libxinerama"
-PACKAGECONFIG[opengl] = "--enable-gl,--disable-gl,virtual/libgl"
-PACKAGECONFIG[egl] = "--enable-egl,--disable-egl,"
+PACKAGECONFIG[alsa] = ",--disable-alsa,alsa-lib"
 PACKAGECONFIG[drm] = "--enable-drm,--disable-drm,libdrm"
+PACKAGECONFIG[egl] = "--enable-egl,--disable-egl,virtual/egl virtual/libgles2"
 PACKAGECONFIG[gbm] = "--enable-gbm,--disable-gbm,virtual/libgbm"
-PACKAGECONFIG[lua] = "--enable-lua,--disable-lua,luajit"
-PACKAGECONFIG[libarchive] = "--enable-libarchive,--disable-libarchive,libarchive"
 PACKAGECONFIG[jack] = "--enable-jack, --disable-jack, jack"
+PACKAGECONFIG[lcms] = "--enable-lcms2,--disable-lcms2,lcms"
+PACKAGECONFIG[libarchive] = "--enable-libarchive,--disable-libarchive,libarchive"
+PACKAGECONFIG[lua] = "--enable-lua,--disable-lua,luajit"
+PACKAGECONFIG[openal] = "--enable-openal,--disable-openal,openal-soft"
+PACKAGECONFIG[opengl] = "--enable-gl,--disable-gl,virtual/libgl"
+PACKAGECONFIG[pulseaudio] = ",--disable-pulse,pulseaudio"
+PACKAGECONFIG[sdl2] = "--enable-sdl2,--disable-sdl2,libsdl2"
+PACKAGECONFIG[shared] = "--enable-libmpv-shared,--enable-libmpv-static"
 PACKAGECONFIG[vaapi] = "--enable-vaapi,--disable-vaapi,libva"
 PACKAGECONFIG[vdpau] = "--enable-vdpau,--disable-vdpau,libvdpau"
-PACKAGECONFIG[wayland] = "--enable-wayland,--disable-wayland,wayland wayland-native libxkbcommon"
-PACKAGECONFIG[sdl2] = "--enable-sdl2,--disable-sdl2,libsdl2"
-PACKAGECONFIG[pulseaudio] = ",--disable-pulse,pulseaudio"
-PACKAGECONFIG[alsa] = ",--disable-alsa,alsa-lib"
-PACKAGECONFIG[openal] = "--enable-openal,--disable-openal,openal-soft"
-PACKAGECONFIG[shared] = "--enable-libmpv-shared,--enable-libmpv-static"
+PACKAGECONFIG[vulkan] = ",,vulkan-loader vulkan-headers libplacebo"
+PACKAGECONFIG[wayland] = "--enable-wayland,--disable-wayland,wayland wayland-native wayland-protocols libxkbcommon"
+PACKAGECONFIG[x11] = "--enable-x11,--disable-x11,virtual/libx11 xsp libxv libxscrnsaver libxinerama"
 PACKAGECONFIG[zimg] = ",,zimg"
 
 python __anonymous() {
@@ -87,14 +90,14 @@ EXTRA_OECONF = " \
     --disable-cdda \
     --disable-uchardet \
     --disable-rubberband \
-    --disable-lcms2 \
     --disable-vapoursynth \
     ${PACKAGECONFIG_CONFARGS} \
 "
 
 link_waf() {
-    ln -s waf-2.0.20 ${S}/waf
+    ln -s waf-2.0.22 ${S}/waf
 }
+
 do_unpack[postfuncs] += "link_waf"
 
 FILES:${PN} += " \
@@ -103,3 +106,4 @@ FILES:${PN} += " \
     ${datadir}/bash-completion \
     "
 EXCLUDE_FROM_WORLD = "${@bb.utils.contains("LICENSE_FLAGS_WHITELIST", "commercial", "0", "1", d)}"
+
