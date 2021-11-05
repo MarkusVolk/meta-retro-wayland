@@ -29,7 +29,7 @@ SRC_URI = " \
 SRC_URI[sha256sum] = "379e87793087017f16463ff5bacc5422dc7a3868332647e1899df7431573c7a0"
 
 RRECOMMENDS:${PN} = " \
-	autotiling \
+	autotiling-rs \
 	capitaine-cursors \
 	nwg-launchers \
 	waybar \
