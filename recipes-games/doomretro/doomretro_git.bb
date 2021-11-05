@@ -14,7 +14,7 @@ SRC_URI = " \
     git://github.com/bradharding/doomretro.git;protocol=https \
 "
 
-PV = "4.0.9"
+PV = "4.3"
 SRCREV = "v${PV}"
 S = "${WORKDIR}/git"
 
