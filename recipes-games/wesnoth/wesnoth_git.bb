@@ -27,7 +27,7 @@ SRC_URI = " \
     file://0001-CMakeLIST.txt-dont-use-sdl-config-dont-install-run-e.patch \
 "
 
-PV = "1.15.16"
+PV = "1.16.0"
 SRCREV = "${PV}"
 S = "${WORKDIR}/git"
 
