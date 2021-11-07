@@ -31,6 +31,11 @@ PV = "1.16.0"
 SRCREV = "${PV}"
 S = "${WORKDIR}/git"
 
+# Workaround sdl2 wayland issue if starting in fullscreen mode 
+do_install:append() {
+	sed -i "s|Exec=sh -c \"wesnoth|Exec=sh -c \"wesnoth -w|" ${D}${datadir}/applications/org.wesnoth.Wesnoth.desktop
+}
+
 FILES:${PN} += " \
 	${sysconfdir} \
 	${datadir} \
