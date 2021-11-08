@@ -20,6 +20,7 @@ SRC_URI = " \
 	file://ffmpeg-001-libreelec.patch \
 	file://ffmpeg-0002-WIP-deint-filter.patch \
 	file://ffmpeg-0003-libavfilter-v4l2deinterlace-dequeue-both-destination.patch \
+	file://ffmpeg-0006-libavfilter-v4l2deinterlace-support-more-formats-aut.patch \
 "
 
 SRC_URI:append:rpi = "	\
@@ -29,6 +30,9 @@ SRC_URI:append:rpi = "	\
 SRC_URI:append:rockchip = " \
 	file://ffmpeg-001-v4l2-request.patch \
 	file://ffmpeg-001-v4l2-drmprime.patch \
+	file://ffmpeg-0001-v4l2_request-validate-supported-framesizes.patch \
+	file://ffmpeg-0004-v4l2request-hevc-increase-max-slices.patch \
+	file://ffmpeg-0006-deint_v4l2m2m-increase-input-and-output-buffers.patch \
 "
 
 S = "${WORKDIR}/git"
