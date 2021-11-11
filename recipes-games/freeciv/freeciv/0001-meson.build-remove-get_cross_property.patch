@@ -1,0 +1,27 @@
+From abebb1bb9b798e50190e208b83cc01babd2089f1 Mon Sep 17 00:00:00 2001
+From: MarkusVolk <f_l_k@t-online.de>
+Date: Thu, 11 Nov 2021 08:25:33 +0100
+Subject: [PATCH] meson-build: remove get_cross_property
+
+Signed-off-by: MarkusVolk <f_l_k@t-online.de>
+---
+diff --git a/meson.build b/meson.build
+index 711d639a22..d4e96fa302 100644
+--- a/meson.build
++++ b/meson.build
+@@ -64,13 +64,8 @@ endif
+ 
+ c_compiler = meson.get_compiler('c')
+ 
+-if meson.is_cross_build()
+-  cross_inc_path = meson.get_cross_property('cross_inc_path')
+-  cross_lib_path = meson.get_cross_property('cross_lib_path')
+-else
+-  cross_inc_path = []
+-  cross_lib_path = []
+-endif
++cross_inc_path = []
++cross_lib_path = []
+ 
+ pub_headers = [
+   'locale.h',

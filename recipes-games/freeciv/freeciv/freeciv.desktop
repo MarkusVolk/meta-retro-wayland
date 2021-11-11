@@ -1,0 +1,9 @@
+[Desktop Entry]
+Type=Game
+Version=3.0.0
+Name=Freeciv
+GenericName=Freeciv
+Comment=Empire-building strategy game.
+Icon=freeciv-client
+Exec=freeciv
+
