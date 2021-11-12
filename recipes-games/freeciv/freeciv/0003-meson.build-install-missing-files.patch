@@ -1,15 +1,18 @@
-From abebb1bb9b798e50190e208b83cc01babd2089f1 Mon Sep 17 00:00:00 2001
+From 859904fd1fcee121cd36d3195a56f3cc6cea38c4 Mon Sep 17 00:00:00 2001
 From: MarkusVolk <f_l_k@t-online.de>
-Date: Thu, 11 Nov 2021 08:25:33 +0100
-Subject: [PATCH] meson.build: install missing files
+Date: Fri, 12 Nov 2021 04:16:11 +0100
+Subject: [PATCH] meson.build: add missing files
 
 Signed-off-by: MarkusVolk <f_l_k@t-online.de>
 ---
+ meson.build | 211 ++++++++++++++++++++++++++++++++++++++++++++++++++--
+ 1 file changed, 205 insertions(+), 6 deletions(-)
+
 diff --git a/meson.build b/meson.build
-index 711d639a22..d4e96fa302 100644
+index 711d639a22..7c2a79d92e 100644
 --- a/meson.build
 +++ b/meson.build
-@@ -1365,7 +1360,16 @@ client_common = static_library('fc_client_common',
+@@ -1365,7 +1365,16 @@ client_common = static_library('fc_client_common',
    )
  
  install_data('data/helpdata.txt',
@@ -26,7 +29,21 @@ index 711d639a22..d4e96fa302 100644
               'data/stdmusic.musicspec',
               'data/stdsounds.soundspec',
               install_dir : join_paths(get_option('datadir'), 'freeciv'))
-@@ -1447,6 +1451,21 @@ install_data('data/buildings/airport.png',
+@@ -1384,9 +1393,13 @@ install_data('data/misc/colors.tilespec',
+              'data/misc/specialists.spec',
+              'data/misc/events.png',
+              'data/misc/events.spec',
++             'data/misc/buildings.png',
++             'data/misc/buildings.spec',
+              'data/misc/buildings-large.spec',
+              'data/misc/wonders-large.spec',
++             'data/misc/flags.spec',
+              'data/misc/flags-large.spec',
++             'data/misc/shields.spec',
+              'data/misc/shields-large.spec',
+              'data/misc/cursors.png',
+              'data/misc/cursors.spec',
+@@ -1447,6 +1460,21 @@ install_data('data/buildings/airport.png',
               install_dir : join_paths(get_option('datadir'),
                                        'freeciv/buildings'))
  
@@ -48,7 +65,17 @@ index 711d639a22..d4e96fa302 100644
  install_data('data/wonders/apollo_program.png',
               'data/wonders/asmiths_trading_co.png',
               'data/wonders/colossus.png',
-@@ -2105,16 +2124,177 @@ install_data('data/hexemplio/activities.png',
+@@ -2060,7 +2088,9 @@ foreach flag : flags
+ endforeach
+ 
+ install_data('data/override/flags-large.spec',
++             'data/override/flags.spec',
+              'data/override/shields-large.spec',
++             'data/override/shields.spec',
+              install_dir : join_paths(get_option('datadir'), 'freeciv/override'))
+ 
+ install_data('data/hexemplio/activities.png',
+@@ -2105,16 +2135,177 @@ install_data('data/hexemplio/activities.png',
               'data/hexemplio/water3.spec',
               install_dir : join_paths(get_option('datadir'), 'freeciv/hexemplio'))
  
@@ -232,7 +259,7 @@ index 711d639a22..d4e96fa302 100644
               install_dir : join_paths(get_option('datadir'), 'freeciv/amplio2'))
  
  install_data('data/stdmusic/CullamBruce-Lockhart--Dawning_Fanfare.ogg',
-@@ -2142,6 +2322,14 @@ install_data('data/stdsounds/foot3.ogg',
+@@ -2142,6 +2333,14 @@ install_data('data/stdsounds/foot3.ogg',
  
  endif
  

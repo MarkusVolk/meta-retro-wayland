@@ -6,7 +6,6 @@ SECTION = "games"
 DEPENDS = " \
 	bzip2 \
 	curl \
-	icu \
 	libsdl2 \
 	libsdl2-mixer \
 	readline \
@@ -19,7 +18,6 @@ SRC_URI = " \
 	file://0001-meson.build-remove-get_cross_property.patch \
 	file://0002-meson.build-hack-tolua-dependency.patch \
 	file://0003-meson.build-install-missing-files.patch \
-	file://0001-tilespec-fix-dependent-filenames.patch \
 	file://freeciv.desktop \
 "
 
