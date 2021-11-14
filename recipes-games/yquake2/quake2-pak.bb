@@ -1,8 +1,8 @@
 SUMMARY = "Quake-2 v3.20 pak"
 HOMEPAGE = "https://archive.org" 
 
-LICENSE = "GPL-2.0-only"
-LIC_FILES_CHKSUM = "file://${COREBASE}/meta/files/common-licenses/GPL-2.0-only;md5=801f80980d171dd6425610833a22dbe6"
+LICENSE = "Proprietary"
+LIC_FILES_CHKSUM = "file://${COREBASE}/meta/files/common-licenses/Proprietary;md5=0557f9d92cf58f2ccdd50f62f8ac0b28"
 
 
 SRC_URI = " \

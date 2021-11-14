@@ -6,7 +6,7 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=cdfb10fe3916436d25f4410fcd6a97b8"
 
 DEPENDS = "libsdl2 virtual/libgl curl openal-soft"
 RDEPENDS:${PN} = "openal-soft"
-RRECOMMENDS:${PN} = "quake2-pak"
+RRECOMMENDS:${PN} = "quake2-pak rogue xatrix"
 
 inherit cmake pkgconfig gtk-icon-cache
 
@@ -26,17 +26,17 @@ ARM_INSTRUCTION_SET = "arm"
 
 do_install() {
 	# install routine is missing ... do it manually
-	install -d ${D}${prefix}/libexec ${D}${bindir} ${D}${datadir}/applications ${D}${datadir}/icons/hicolor/scalable/apps
+	install -d ${D}${libexecdir} ${D}${bindir} ${D}${datadir}/applications ${D}${datadir}/icons/hicolor/scalable/apps
 	install -m 644 ${WORKDIR}/quake2.desktop ${D}${datadir}/applications
 	install -m 644 ${S}/stuff/icon/Quake2.svg ${D}${datadir}/icons/hicolor/scalable/apps
-	cp -rf ${B}/release ${D}${prefix}/libexec/quake2
-	echo "exec /usr/libexec/quake2/quake2 +set r_mode -1 +set r_customwidth 1920 +set r_customheight 1080 -datadir ${datadir}/games/quake2" > ${D}${bindir}/quake2
+	cp -rf ${B}/release ${D}${libexecdir}/quake2
+	echo "exec ${libexecdir}/quake2/quake2 +set r_mode -1 +set r_customwidth 1920 +set r_customheight 1080 -datadir ${datadir}/games/quake2" > ${D}${bindir}/quake2
 	chmod 755 ${D}${bindir}/quake2
 }
 
 FILES:${PN} = " \
 	${bindir} \
-	${prefix}/libexec \
+	${libexecdir} \
 	${datadir} \
 "
 
