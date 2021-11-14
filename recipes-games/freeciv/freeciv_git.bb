@@ -14,16 +14,15 @@ DEPENDS = " \
 "
 
 SRC_URI = " \
-	git://github.com/freeciv/freeciv.git;protocol=https;branch=master \
+	git://github.com/freeciv/freeciv.git;protocol=https;branch=S3_1 \
 	file://0001-meson.build-remove-get_cross_property.patch \
 	file://0002-meson.build-hack-tolua-dependency.patch \
-	file://0003-meson.build-install-missing-files.patch \
 	file://freeciv.desktop \
 "
 
 S = "${WORKDIR}/git"
 PV = "3.0.0-beta3"
-SRCREV = "053a5e3b7752709ee83c1d9199f1f5687af1e74e"
+SRCREV = "8ad65a218a004beac89909e22728bb3d7a83d10f"
 
 inherit meson pkgconfig gettext gtk-icon-cache
 
