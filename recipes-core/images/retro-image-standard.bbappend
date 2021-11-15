@@ -95,6 +95,7 @@ WSYSTEM_CONF ?= " \
 	system-config \
 	tzdata \
 	tzdata-europe \
+	udev-rules-udisks-hide-bootpart \
 	wireless-regdb-static \
 "
 	
