@@ -3,7 +3,7 @@ LICENSE = "GPL-3.0"
 LIC_FILES_CHKSUM = "file://COPYING;md5=d32239bcb673463ab874e80d47fae504"
 
 
-SRC_URI = "git://github.com/vinceliuice/Tela-circle-icon-theme.git"
+SRC_URI = "git://github.com/vinceliuice/Tela-circle-icon-theme.git;protocol=https;branch=master"
 
 PV = "2021-05-11"
 SRCREV = "f16eaf61a6e46761ef1b728b7217763d7edf18da"

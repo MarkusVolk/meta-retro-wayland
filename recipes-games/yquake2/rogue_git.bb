@@ -12,7 +12,7 @@ inherit cmake
 EXTRA_OECMAKE += "-DCMAKE_BUILD_TYPE=Release"
 
 SRC_URI = " \
-    git://github.com/yquake2/rogue.git;protocol=https \
+    git://github.com/yquake2/rogue.git;protocol=https;branch=master \
 "
 
 PV = "2.08"

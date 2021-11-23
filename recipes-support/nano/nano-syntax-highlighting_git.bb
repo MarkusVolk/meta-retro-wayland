@@ -5,7 +5,7 @@ LIC_FILES_CHKSUM = "file://${COREBASE}/meta/files/common-licenses/GPL-3.0-or-lat
 SECTION = "console/utils"
 RDEPENDS:${PN} = "nano"
 
-SRC_URI = "git://github.com/scopatz/nanorc.git;protocol=https"
+SRC_URI = "git://github.com/scopatz/nanorc.git;protocol=https;branch=master"
 
 SRCREV = "${AUTOREV}"
 PV = "${SRCPV}"

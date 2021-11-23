@@ -11,7 +11,7 @@ LIC_FILES_CHKSUM = "file://LICENSE.GPL;md5=b234ee4d69f5fce4486a80fdaf4a4263"
 PV = "0.34.0"
 SRCREV_mpv = "v${PV}"
 SRC_URI = " \
-    git://github.com/mpv-player/mpv;name=mpv;branch=release/0.34 \
+    git://github.com/mpv-player/mpv;name=mpv;branch=release/0.34;protocol=https \
     https://waf.io/waf-2.0.22;name=waf;subdir=git \
 "
 SRC_URI[waf.sha256sum] = "0a09ad26a2cfc69fa26ab871cb558165b60374b5a653ff556a0c6aca63a00df1"

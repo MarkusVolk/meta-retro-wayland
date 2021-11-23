@@ -21,7 +21,7 @@ SRC_URI:append:rockchip = " \
 	file://0001-kodi-rockchip-adjust-default-settings.patch \
 "
 
-DEPENDS:append += "kodi-tools-jsonschemabuilder-native kodi-tools-texturepacker-native wayland-native waylandpp-native"
+DEPENDS:append = " kodi-tools-jsonschemabuilder-native kodi-tools-texturepacker-native wayland-native waylandpp-native"
 
 RRECOMMENDS:${PN} = "kodi-addon-inputstream-adaptive kodi-addon-peripheral-joystick"
 
@@ -36,7 +36,7 @@ inherit retro-overrides
 VDPAUSUPPORT:armarch = "0"
 VAAPISUPPORT:armarch = "0"
 
-PACKAGECONFIG:append += " \
+PACKAGECONFIG:append = " \
 	bluetooth \
 	samba \
 	wayland \

@@ -3,7 +3,7 @@ HOMEPAGE = "https://https://github.com/pavouk/lgi"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=a77b7838f84aa753d37f88fd9c9ccf7d"
 
-SRC_URI = "git://github.com/pavouk/lgi.git;protocol=https"
+SRC_URI = "git://github.com/pavouk/lgi.git;protocol=https;branch=master"
 
 DEPENDS = " \
 	lua \

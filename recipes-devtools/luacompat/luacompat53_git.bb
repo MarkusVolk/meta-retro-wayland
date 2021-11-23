@@ -9,8 +9,7 @@ include ../lua.inc
 
 SRCREV = "${AUTOREV}"
 
-SRC_URI = "git://github.com/keplerproject/lua-compat-5.3.git;protocol=https \
-"
+SRC_URI = "git://github.com/keplerproject/lua-compat-5.3.git;protocol=https;branch=master"
 
 S = "${WORKDIR}/git"
 

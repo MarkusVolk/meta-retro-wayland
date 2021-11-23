@@ -7,7 +7,7 @@ RDEPENDS:${PN} += "lua"
 
 include ../lua.inc
 
-SRC_URI = "git://github.com/keplerproject/luafilesystem.git;protocol=https \
+SRC_URI = "git://github.com/keplerproject/luafilesystem.git;protocol=https;branch=master \
 	   file://0001-adjust-config.patch \
 "
 
@@ -21,7 +21,7 @@ inherit autotools-brokensep pkgconfig
 
 TARGET_CC_ARCH += "${LDFLAGS}" 
 
-CFLAGS:append += "-I${STAGING_INCDIR}"
+CFLAGS:append = " -I${STAGING_INCDIR}"
 
 do_install () {
 	install -d ${D}${libdir}/lua/${LUA_VER}

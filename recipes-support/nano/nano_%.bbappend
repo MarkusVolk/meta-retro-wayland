@@ -1,8 +1,8 @@
 FILESEXTRAPATHS:prepend := "${THISDIR}/files:"
 
-SRC_URI:append += "file://nanorc"
+SRC_URI:append = " file://nanorc"
 
-RDEPENDS:${PN}:append += "nano-syntax-highlighting"
+RDEPENDS:${PN}:append = " nano-syntax-highlighting"
 
 do_install:append() {
 	# provided by nano-syntax-highlighting

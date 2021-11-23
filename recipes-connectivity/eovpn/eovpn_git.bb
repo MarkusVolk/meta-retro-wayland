@@ -20,7 +20,7 @@ RDEPENDS:${PN} = " \
 	python3-requests \
 "
 
-UNKNOWN_CONFIGURE_WHITELIST:append = " introspection"
+GIR_MESON_OPTION = ""
 
 inherit meson gtk-icon-cache mime-xdg pkgconfig features_check gobject-introspection
 

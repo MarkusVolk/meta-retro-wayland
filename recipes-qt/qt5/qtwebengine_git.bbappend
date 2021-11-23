@@ -11,7 +11,7 @@ SRC_URI:append = " \
 #SRCREV_qtwebengine = "a059e7404a6db799f4da0ad696e65ae9c854b4b0"
 #SRCREV_chromium = "79f989b810053095020e3a9d937c3d9cb6091dac"
 
-PACKAGECONFIG:append += "libwebp opus ffmpeg proprietary-codecs pepper-plugins webrtc glib zlib libevent"
+PACKAGECONFIG:append = " libwebp opus ffmpeg proprietary-codecs pepper-plugins webrtc glib zlib libevent"
 
 DEPENDS:append = "libnss-mdns libwebp-native lcms libopus"
 

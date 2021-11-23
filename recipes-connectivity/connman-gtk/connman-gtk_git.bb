@@ -8,8 +8,7 @@ DEPENDS = "gtk+3 dbus-glib glib-2.0-native"
 RDEPENDS:${PN} = "connman"
 
 SRCREV = "${AUTOREV}"
-SRC_URI = "git://github.com/jgke/connman-gtk.git \
-          "
+SRC_URI = "git://github.com/jgke/connman-gtk.git;branch=master;protocol=https"
 S = "${WORKDIR}/git"
 
 inherit meson gsettings pkgconfig features_check

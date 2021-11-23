@@ -7,7 +7,7 @@ LIC_FILES_CHKSUM = "file://BSD-3Clause;md5=c00800dd6c94916c7e311b6c52313dad"
 inherit cmake pkgconfig
 
 SRC_URI = " \
-    git://github.com/kcat/openal-soft.git;protocol=https \
+    git://github.com/kcat/openal-soft.git;protocol=https;branch=master \
 "
 
 PACKAGECONFIG[alsa] = ",,alsa-lib"

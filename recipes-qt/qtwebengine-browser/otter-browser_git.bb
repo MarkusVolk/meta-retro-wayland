@@ -10,8 +10,7 @@ DEPENDS += "qtwebengine qtmultimedia qtsvg"
 
 SRCREV = "${AUTOREV}"
 
-SRC_URI = "git://github.com/OtterBrowser/otter-browser.git;protocol=https \
-"
+SRC_URI = "git://github.com/OtterBrowser/otter-browser.git;protocol=https;branch=master"
 
 S = "${WORKDIR}/git"
 

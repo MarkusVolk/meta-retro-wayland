@@ -6,7 +6,7 @@ DEPENDS:append:class-target = " \
 	libxkbcommon \
 "
 
-EXTRA_OECONF:append:class-target += " \
+EXTRA_OECONF:append:class-target = " \
 	--enable-wayland-backend \	
 	--enable-introspection \
 "

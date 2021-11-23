@@ -8,10 +8,10 @@ DEPENDS = "libsdl2 libsdl2-image libsdl2-mixer"
 
 RRECOMMENDS:${PN} = "doom-wad"
 
-inherit cmake
+inherit cmake pkgconfig
 
 SRC_URI = " \
-    git://github.com/bradharding/doomretro.git;protocol=https \
+    git://github.com/bradharding/doomretro.git;protocol=https;branch=master \
 "
 
 PV = "4.3"

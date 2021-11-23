@@ -3,7 +3,7 @@ LICENSE = "LGPL-3.0"
 LIC_FILES_CHKSUM = "file://COPYING;md5=90cffc6a4f1bcbb66067c81f5512c14f"
 
 
-SRC_URI = "git://github.com/keeferrourke/capitaine-cursors.git"
+SRC_URI = "git://github.com/keeferrourke/capitaine-cursors.git;protocol=https;branch=master"
 
 DEPENDS += "bc-native"
 

@@ -1,6 +1,6 @@
 FILESEXTRAPATHS:prepend := "${THISDIR}/files:"
 
-RDEPENDS:${PN}:append += "glibc-gconv-ibm850"
+RDEPENDS:${PN}:append = " glibc-gconv-ibm850"
 
 SRC_URI:append = " \
 	file://samba \

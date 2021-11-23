@@ -13,7 +13,7 @@ inherit cmake pkgconfig gtk-icon-cache
 EXTRA_OECMAKE += "-DSYSTEMWIDE_SUPPORT=1"
 
 SRC_URI = " \
-    git://github.com/yquake2/yquake2.git;protocol=https \
+    git://github.com/yquake2/yquake2.git;protocol=https;branch=master \
     file://quake2.desktop \
 "
 

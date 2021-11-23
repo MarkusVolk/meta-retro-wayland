@@ -7,7 +7,7 @@ RDEPENDS:${PN} += "lua"
 
 include ../lua.inc
 
-SRC_URI = "git://github.com/xlq/lua-subprocess.git;protocol=https \
+SRC_URI = "git://github.com/xlq/lua-subprocess.git;protocol=https;branch=master \
 	   file://0001-subprocess.c-include-signal.h.patch \
 	   file://Makefile \
 "		
@@ -22,7 +22,7 @@ inherit autotools-brokensep
 
 TARGET_CC_ARCH += "${LDFLAGS}" 
 
-CFLAGS:append += "-I${STAGING_INCDIR}"
+CFLAGS:append = " -I${STAGING_INCDIR}"
 
 do_configure:prepend() {
 	cp -rf ${WORKDIR}/Makefile ${S}/Makefile

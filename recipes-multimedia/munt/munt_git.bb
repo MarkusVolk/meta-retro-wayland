@@ -9,7 +9,7 @@ DEPENDS = "glib-2.0"
 
 inherit cmake
 
-SRC_URI = "git://github.com/munt/munt.git"
+SRC_URI = "git://github.com/munt/munt.git;protocol=https;branch=master"
 SRCREV = "munt_${PV}"
 PV = "2_5_0"
 S = "${WORKDIR}/git"

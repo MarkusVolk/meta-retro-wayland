@@ -20,7 +20,7 @@ SRC_URI = " \
 
 inherit meson pkgconfig gobject-introspection gtk-icon-cache vala features_check mime-xdg gsettings
 
-UNKNOWN_CONFIGURE_WHITELIST:append = " introspection"
+GIR_MESON_OPTION = ""
 
 S = "${WORKDIR}/git"
 PV = "3.38.1"

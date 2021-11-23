@@ -7,7 +7,7 @@ LIC_FILES_CHKSUM = "file://COPYING;md5=a42532a0684420bdb15556c3cdd49a75"
 
 DEPENDS = "enca freetype libpng fribidi"
 
-SRC_URI = "git://github.com/libass/libass.git;protocol=https"
+SRC_URI = "git://github.com/libass/libass.git;protocol=https;branch=master"
 PV = "0.15.1"
 SRCREV = "${PV}"
 S = "${WORKDIR}/git"

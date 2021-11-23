@@ -12,8 +12,8 @@ SRCREV_meslo = "${AUTOREV}"
 SRCREV_FORMAT = "terminus"
 
 SRC_URI = " \
-	git://github.com/powerline/fonts.git;protocol=https;name=terminus \
-	git://github.com/romkatv/powerlevel10k-media.git;protocol=https;name=meslo;destsuffix=git/meslo \
+	git://github.com/powerline/fonts.git;protocol=https;name=terminus;branch=master \
+	git://github.com/romkatv/powerlevel10k-media.git;protocol=https;name=meslo;destsuffix=git/meslo;branch=master \
 "
 
 S = "${WORKDIR}/git"

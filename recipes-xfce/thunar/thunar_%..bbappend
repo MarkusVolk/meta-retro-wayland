@@ -1,4 +1,4 @@
-PACKAGECONFIG:append += "pcre"
+PACKAGECONFIG:append = " pcre"
 
 RRECOMMENDS:${PN} = " \
 	thunar-archive-plugin \

@@ -10,7 +10,7 @@ DEPENDS += "qtwebengine qtquickcontrols qtquickcontrols2 qtgraphicaleffects qtde
 
 SRCREV = "${AUTOREV}"
 
-SRC_URI = "git://github.com/LeFroid/Viper-Browser.git;protocol=https \
+SRC_URI = "git://github.com/LeFroid/Viper-Browser.git;protocol=https;branch=master \
 "
 
 S = "${WORKDIR}/git"

@@ -7,7 +7,7 @@ LIC_FILES_CHKSUM = "file://COPYING;md5=389a9e29629d1f05e115f8f05c283df5"
 inherit autotools pkgconfig
 
 SRC_URI = " \
-    git://github.com/sekrit-twc/zimg.git;protocol=https \
+    git://github.com/sekrit-twc/zimg.git;protocol=https;branch=master \
 "
 
 PV = "3.0.1"

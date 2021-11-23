@@ -8,7 +8,7 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=239c25ece29e6df812e1e05750ff8271"
 
 RDEPENDS:${PN} = "zsh"
 
-SRC_URI = "git://github.com/romkatv/powerlevel10k;depth=1;protocol=https \
+SRC_URI = "git://github.com/romkatv/powerlevel10k;depth=1;protocol=https;branch=master \
 "
 
 SRCREV = "${AUTOREV}"

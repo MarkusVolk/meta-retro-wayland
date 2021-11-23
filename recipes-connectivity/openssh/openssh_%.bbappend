@@ -7,7 +7,7 @@ SRC_URI += "file://sshd_config \
 	    file://sshd_check_keys \
 "
 
-DEPENDS:append += "libpam"
+DEPENDS:append = " libpam"
 
 # no compile problems with uclibc here. therefore overriding default bb settings
 EXTRA_OECONF:append = " --with-pam"
