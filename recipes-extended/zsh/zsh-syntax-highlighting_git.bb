@@ -8,8 +8,7 @@ LIC_FILES_CHKSUM = "file://COPYING.md;md5=3bf38c5f1bf4c65eeb1029f986724465"
 
 RDEPENDS:${PN} = "zsh"
 
-SRC_URI = "git://github.com/zsh-users/zsh-syntax-highlighting.git;protocol=https \
-"
+SRC_URI = "git://github.com/zsh-users/zsh-syntax-highlighting.git;protocol=https;branch=master"
 
 SRCREV = "55f846c673661bde03ef97333be7889f54079c7b"
 PV = "${SRCPV}"
