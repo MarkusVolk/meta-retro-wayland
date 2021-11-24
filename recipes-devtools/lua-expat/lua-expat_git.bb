@@ -7,7 +7,7 @@ RDEPENDS:${PN} += "lua"
 
 include ../lua.inc
 
-SRC_URI = "git://github.com/tomasguisasola/luaexpat.git;protocol=https \
+SRC_URI = "git://github.com/tomasguisasola/luaexpat.git;protocol=https;branch=master \
            "
 
 SRCREV = "9878960feecd9f3c30d76652dfc5a721a7117aac"
