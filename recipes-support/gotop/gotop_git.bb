@@ -6,7 +6,7 @@ LIC_FILES_CHKSUM = "file://src/${GO_IMPORT}/LICENSE;md5=d485113f92a06664566115c7
 
 GO_IMPORT = "github.com/xxxserxxx/gotop.git"
 
-SRC_URI = "git://${GO_IMPORT}"
+SRC_URI = "git://${GO_IMPORT};branch=master;protocol=https"
 
 PV = "4.1.2"
 SRCREV = "v${PV}"
