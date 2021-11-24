@@ -4,7 +4,7 @@ LIC_FILES_CHKSUM = "file://src/${GO_IMPORT}/LICENSE;md5=5d3b6c44af6e9177296f0570
 
 GO_IMPORT = "github.com/zyedidia/micro.git"
 
-SRC_URI = "git://${GO_IMPORT};nobranch=1"
+SRC_URI = "git://${GO_IMPORT};nobranch=1;protocol=https"
 
 PV = "2.0.9"
 SRCREV = "v${PV}"
