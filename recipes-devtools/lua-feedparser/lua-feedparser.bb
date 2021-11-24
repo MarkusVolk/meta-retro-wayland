@@ -11,7 +11,7 @@ PR = "r1"
 
 S = "${WORKDIR}/git"
 
-SRC_URI = "git://github.com/slact/lua-feedparser.git;protocol=git;branch=master \
+SRC_URI = "git://github.com/slact/lua-feedparser.git;protocol=https;branch=master \
 	   file://0001-lua-feedparser-adjust-Makefile-for-OE.patch \
 "
 
