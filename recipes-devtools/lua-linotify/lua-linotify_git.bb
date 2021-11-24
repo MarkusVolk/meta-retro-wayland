@@ -7,8 +7,7 @@ RDEPENDS:${PN} += "lua"
 
 include ../lua.inc
 
-SRC_URI = "git://github.com/hoelzro/linotify.git;protocol=https \
-"
+SRC_URI = "git://github.com/hoelzro/linotify.git;protocol=https;branch=master"
 
 SRCREV = "a56913e9c0922befb65227a00cf69c2e8052de1a"
 PV = "${SRCPV}"
