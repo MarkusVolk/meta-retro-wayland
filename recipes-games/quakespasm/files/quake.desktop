@@ -1,0 +1,9 @@
+[Desktop Entry]
+Type=Game
+Version=2021-10-14
+Name=Quake
+GenericName=Quakespasm
+Comment=Quake
+Icon=quake
+Exec=quake
+
