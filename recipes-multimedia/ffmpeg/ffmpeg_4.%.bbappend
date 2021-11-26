@@ -3,24 +3,10 @@ FILESEXTRAPATHS:prepend := "${THISDIR}/ffmpeg:"
 inherit retro-overrides
 
 SRC_URI = " \
-	git://github.com/xbmc/FFmpeg.git;protocol=https;branch=release/4.3-kodi \
-	file://mips64_cpu_detection.patch \
-	file://0001-libavutil-include-assembly-with-full-path-from-sourc.patch \
-	file://4_02_fix_mpegts.patch \
-	file://4_03_allow_to_choose_rtmp_impl_at_runtime.patch \
-	file://4_04_hls_replace_key_uri.patch \
-	file://4_06_optimize_aac.patch \
-	file://4_07_increase_buffer_size.patch \
-	file://4_08_recheck_discard_flags.patch \
-	file://4_09_ffmpeg_fix_edit_list_parsing.patch \
-	file://4_10_rtsp_patch \
-	file://4_11_dxva2_patch \
-	file://4_A02-corrupt-h264-frames.patch \
-	file://4_A11-FFmpeg-devel-amfenc-Add-support-for-pict_type-field.patch \
-	file://ffmpeg-001-libreelec.patch \
-	file://ffmpeg-0002-WIP-deint-filter.patch \
-	file://ffmpeg-0003-libavfilter-v4l2deinterlace-dequeue-both-destination.patch \
-	file://ffmpeg-0006-libavfilter-v4l2deinterlace-support-more-formats-aut.patch \
+	git://github.com/xbmc/FFmpeg.git;protocol=https;branch=release/4.4-kodi \
+	file://v4l2-drmprime/ffmpeg-001-v4l2-drmprime.patch \
+	file://v4l2-request/ffmpeg-001-v4l2-request.patch \
+	file://libreelec/ffmpeg-001-libreelec.patch \
 "
 
 SRC_URI:append:rpi = "	\
@@ -28,16 +14,17 @@ SRC_URI:append:rpi = "	\
 "
 	
 SRC_URI:append:rockchip = " \
-	file://ffmpeg-001-v4l2-request.patch \
-	file://ffmpeg-001-v4l2-drmprime.patch \
-	file://ffmpeg-0001-v4l2_request-validate-supported-framesizes.patch \
-	file://ffmpeg-0004-v4l2request-hevc-increase-max-slices.patch \
-	file://ffmpeg-0006-deint_v4l2m2m-increase-input-and-output-buffers.patch \
+	file://rockchip/ffmpeg-0001-v4l2_request-validate-supported-framesizes.patch \
+	file://rockchip/ffmpeg-0002-WIP-deint-filter.patch \
+	file://rockchip/ffmpeg-0003-libavfilter-v4l2deinterlace-dequeue-both-destination.patch \
+	file://rockchip/ffmpeg-0004-v4l2request-hevc-increase-max-slices.patch \
+	file://rockchip/ffmpeg-0006-deint_v4l2m2m-increase-input-and-output-buffers.patch \
+	file://rockchip/ffmpeg-0006-libavfilter-v4l2deinterlace-support-more-formats-aut.patch \
 "
 
 S = "${WORKDIR}/git"
-PV = "4.3.2"
-SRCREV = "${PV}-Matrix-19.2"
+PV = "4.4-N-Alpha1"
+SRCREV = "${PV}"
 
 PACKAGECONFIG[dav1d] = "--enable-libdav1d,--disable-libdav1d,dav1d"
 PACKAGECONFIG[libass] = "--enable-libass,--disable-libass,libass"
@@ -49,7 +36,6 @@ PACKAGECONFIG[libv4l2] = "--enable-libv4l2,--disable-libv4l2,v4l-utils"
 PACKAGECONFIG[pulseaudio] = "--enable-libpulse,--disable-libpulse,pulseaudio"
 PACKAGECONFIG[v4l2-m2m] = "--enable-v4l2_m2m --enable-libdrm,--disable-v4l2_m2m,libdrm"
 PACKAGECONFIG[v4l2-request] = "--enable-v4l2-request --enable-libudev,--disable-v4l2-request"
-PACKAGECONFIG[wavpack] = "--enable-libwavpack,--disable-libwavpack,wavpack"
 PACKAGECONFIG[webp] = "--enable-libwebp,--disable-libwebp,libwebp"
 PACKAGECONFIG[zimg] = "--enable-libzimg,--disable-libzimg,zimg"
 PACKAGECONFIG[libxml2] = "--enable-libxml2,--disable-libxml2,libxml2"
@@ -71,7 +57,6 @@ PACKAGECONFIG:append = " \
 	pulseaudio \
 	sdl2 \
 	vpx \
-	wavpack \
 	webp \
 	x264 \
 	x265 \

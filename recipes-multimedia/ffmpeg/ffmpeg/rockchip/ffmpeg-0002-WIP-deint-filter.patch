@@ -63,7 +63,7 @@ index 000000000000..1029e5b620fd
 + * deinterlace video filter - V4L2 M2M
 + */
 +
-+#include <libdrm/drm_fourcc.h>
++#include <drm_fourcc.h>
 +
 +#include <linux/videodev2.h>
 +
