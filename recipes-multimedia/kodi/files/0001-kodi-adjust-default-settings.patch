@@ -1,16 +1,17 @@
-From 2c75826df8eb5c2cd8a3a3a8adb77e584fec9254 Mon Sep 17 00:00:00 2001
+From 0c7554aa54e181fce09e032de63887ba34f844e2 Mon Sep 17 00:00:00 2001
 From: MarkusVolk <f_l_k@t-online.de>
 Date: Tue, 7 Sep 2021 21:25:43 +0200
 Subject: [PATCH] kodi: adjust default settings
 
 Signed-off-by: MarkusVolk <f_l_k@t-online.de>
+
 ---
  system/settings/linux.xml    | 6 +++---
  system/settings/settings.xml | 7 ++++---
  2 files changed, 7 insertions(+), 6 deletions(-)
 
 diff --git a/system/settings/linux.xml b/system/settings/linux.xml
-index 6d1fb9cd49e..0110f3cd34b 100644
+index 1f729fc60f..2adf0bcafc 100644
 --- a/system/settings/linux.xml
 +++ b/system/settings/linux.xml
 @@ -153,7 +153,7 @@
@@ -35,10 +36,10 @@ index 6d1fb9cd49e..0110f3cd34b 100644
              <options>
                <option label="37030">0</option> <!-- Unlimited -->
 diff --git a/system/settings/settings.xml b/system/settings/settings.xml
-index b8ab2a5ee35..4cf51085d20 100755
+index e13eace658..4c743e350e 100755
 --- a/system/settings/settings.xml
 +++ b/system/settings/settings.xml
-@@ -2375,7 +2375,8 @@
+@@ -2499,7 +2499,8 @@
          <setting id="videoscreen.screenmode" type="string" parent="videoscreen.screen" label="243" help="36353">
            <requirement>IsStandAlone</requirement>
            <level>0</level>
@@ -48,7 +49,7 @@ index b8ab2a5ee35..4cf51085d20 100755
            <constraints>
              <options>refreshrates</options>
            </constraints>
-@@ -2672,7 +2673,7 @@
+@@ -2809,7 +2810,7 @@
        <group id="4" label="496">
          <setting id="videoscreen.noofbuffers" type="integer" label="36043" help="36552">
            <level>2</level>
@@ -57,7 +58,7 @@ index b8ab2a5ee35..4cf51085d20 100755
            <constraints>
              <minimum>2</minimum>
              <step>1</step>
-@@ -3197,7 +3198,7 @@
+@@ -3360,7 +3361,7 @@
          </setting>
          <setting id="addons.unknownsources" type="boolean" label="36615" help="36616">
            <level>0</level>
@@ -66,6 +67,3 @@ index b8ab2a5ee35..4cf51085d20 100755
            <control type="toggle" />
          </setting>
          <setting id="addons.updatemode" type="integer" parent="addons.unknownsources" label="36422" help="36423">
--- 
-2.25.1
-

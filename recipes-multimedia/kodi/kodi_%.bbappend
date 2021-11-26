@@ -1,24 +1,20 @@
 FILESEXTRAPATHS:prepend := "${THISDIR}/files:"
 
+KODIVER ?= "20.0"
+SRCREV = "08b7599d63e063545e34a24bb17fc3738cd4dde7"
+PV = "20.0"
+
 SRC_URI:append =   " \
-	file://0001-WIP-DVDVideoCodecDRMPRIME-add-support-for-filters.patch \
-	file://0002-WIP-DRMPRIME-deinterlace-filter.patch \
-	file://0001-disable-wayland-scanner.patch \
-	file://0002-set-colorspace-connector-property.patch \
-	file://kodi-100.03-disable-online-check.patch \
-	file://kodi-100.05-make-binary-addons-executable.patch \
-	file://kodi-100.06-dont-set-_NET_WM_STATE_FULLSCREEN.patch \
-	file://kodi-100.08-setup-timezone.patch \
-	file://kodi-100.12-prevent-kodi-switching-to-windowed-mode.patch \
-	file://kodi-100.13-udevprovider-filter-out-OE-specific-mounts.patch \
-	file://kodi-100.25-hack-fix-texture-packer-cmake-source-dir.patch \
-	file://kodi-995.10-devinputmappings.patch \
-	file://kodi-999.15-disable-using-tv-menu-language-by-default.patch \
-	file://cec-framework/kodi-100.17-tinker-s-cec-disable-polling.patch \
+	file://0001-kodi-adjust-default-settings.patch \
+	file://libreelec/kodi-100.03-disable-online-check.patch \
+	file://libreelec/kodi-995.10-devinputmappings.patch \
+	file://libreelec/kodi-999.15-disable-using-tv-menu-language-by-default.patch \
+	file://libreelec/kodi-995.01-fix-missing-wayland-scanner-pkg-config.patch \
 "
 	
 SRC_URI:append:rockchip = " \
-	file://0001-kodi-rockchip-adjust-default-settings.patch \
+	file://rockchip/0001-WIP-DVDVideoCodecDRMPRIME-add-support-for-filters.patch \
+	file://rockchip/0002-WIP-DRMPRIME-deinterlace-filter.patch \
 "
 
 DEPENDS:append = " kodi-tools-jsonschemabuilder-native kodi-tools-texturepacker-native wayland-native waylandpp-native"
