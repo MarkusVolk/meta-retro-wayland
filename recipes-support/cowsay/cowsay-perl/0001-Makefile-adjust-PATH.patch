@@ -1,0 +1,26 @@
+From 545ace0786ed24e832230a512d3fef01870a1a74 Mon Sep 17 00:00:00 2001
+From: MarkusVolk <f_l_k@t-online.de>
+Date: Wed, 17 Nov 2021 07:34:44 +0100
+Subject: [PATCH] Makefile: adjust PATH
+
+Signed-off-by: MarkusVolk <f_l_k@t-online.de>
+---
+ Makefile | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/Makefile b/Makefile
+index 3feb32b..9009dfd 100644
+--- a/Makefile
++++ b/Makefile
+@@ -2,7 +2,7 @@
+ 
+ PACKAGE_TARNAME = cowsay
+ 
+-prefix = /usr/local
++prefix = /usr
+ exec_prefix = ${prefix}
+ bindir = ${exec_prefix}/bin
+ datarootdir = ${prefix}/share
+-- 
+2.25.1
+
