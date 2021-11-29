@@ -1,20 +1,21 @@
-From 24dd99435be6db91595c323064ed97a90e492111 Mon Sep 17 00:00:00 2001
+From f7bd82719c3b234e14da87173dcf4ff05cb61f79 Mon Sep 17 00:00:00 2001
 From: Markus Volk <f_l_k@t-online.de>
 Date: Fri, 28 May 2021 19:19:21 +0200
 Subject: [PATCH] use system luajit instead static internal source
 
 Signed-off-by: Markus Volk <f_l_k@t-online.de>
+
 ---
  Makefile.common   | 39 +++------------------------------------
  qb/config.libs.sh |  2 ++
  2 files changed, 5 insertions(+), 36 deletions(-)
 
 diff --git a/Makefile.common b/Makefile.common
-index 2c555ad17a..18fa5cf987 100644
+index 840324f852..64cc5a0d04 100644
 --- a/Makefile.common
 +++ b/Makefile.common
-@@ -2128,42 +2128,9 @@ ifeq ($(HAVE_NETWORKING), 1)
-              deps/rcheevos/src/rurl/url.o
+@@ -2144,42 +2144,9 @@ ifeq ($(HAVE_NETWORKING), 1)
+              deps/rcheevos/src/rapi/rc_api_user.o \
  
        ifeq ($(HAVE_LUA), 1)
 -         DEFINES += -DHAVE_LUA \
@@ -60,10 +61,10 @@ index 2c555ad17a..18fa5cf987 100644
           DEFINES += -DRC_DISABLE_LUA
        endif
 diff --git a/qb/config.libs.sh b/qb/config.libs.sh
-index 361766246b..676070596c 100644
+index e608bfa5f6..f044e0b323 100644
 --- a/qb/config.libs.sh
 +++ b/qb/config.libs.sh
-@@ -312,6 +312,8 @@ check_enabled FLAC BUILTINFLAC 'builtin flac' 'flac is' true
+@@ -313,6 +313,8 @@ check_enabled FLAC BUILTINFLAC 'builtin flac' 'flac is' true
  
  check_val '' FLAC '-lFLAC' '' flac '' '' false
  
@@ -72,6 +73,3 @@ index 361766246b..676070596c 100644
  
  check_enabled SSL SYSTEMMBEDTLS 'system mbedtls' 'ssl is' false
  check_enabled SSL BUILTINMBEDTLS 'builtin mbedtls' 'ssl is' false
--- 
-2.25.1
-

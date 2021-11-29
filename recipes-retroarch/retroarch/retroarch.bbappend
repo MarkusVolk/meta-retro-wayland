@@ -7,5 +7,3 @@ PACKAGECONFIG[lua] = "--enable-lua,--disable-lua,luajit"
 
 PACKAGECONFIG:append = " lakka gles3_2 openal flac lua"
 
-
-
