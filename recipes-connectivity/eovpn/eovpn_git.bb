@@ -25,7 +25,7 @@ GIR_MESON_OPTION = ""
 inherit meson gtk-icon-cache mime-xdg pkgconfig features_check gobject-introspection
 
 SRC_URI = " \
-    git://github.com/jkotra/eOVPN.git;protocol=https \
+    git://github.com/jkotra/eOVPN.git;protocol=https;branch=master \
     file://0001-meson.build-fix.patch \
 "
 
