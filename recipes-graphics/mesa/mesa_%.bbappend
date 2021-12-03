@@ -6,7 +6,7 @@ SRC_URI = " \
 	file://0001-futex.h-Define-__NR_futex-if-it-does-not-exist.patch \
 "
 
-PV = "21.3.0"
+PV = "21.3.1"
 SRCREV = "mesa-${PV}"
 S = "${WORKDIR}/git"
 
