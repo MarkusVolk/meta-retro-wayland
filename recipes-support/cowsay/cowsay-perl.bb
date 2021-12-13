@@ -5,7 +5,7 @@ LIC_FILES_CHKSUM = "file://LICENSE.txt;md5=d32239bcb673463ab874e80d47fae504"
 
 SRC_URI = " \
 	git://github.com/cowsay-org/cowsay.git;protocol=https;branch=master \
-	file://0001-Makefile-adjust-PATH.patch \	
+	file://0001-Makefile-adjust-PATH.patch \
 "
 
 DEPENDS = "perl-native perl"
