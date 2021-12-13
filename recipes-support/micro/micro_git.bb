@@ -6,7 +6,7 @@ GO_IMPORT = "github.com/zyedidia/micro.git"
 
 SRC_URI = "git://${GO_IMPORT};nobranch=1;protocol=https"
 
-PV = "2.0.9"
+PV = "2.0.10"
 SRCREV = "v${PV}"
 
 inherit go go-mod mime-xdg
