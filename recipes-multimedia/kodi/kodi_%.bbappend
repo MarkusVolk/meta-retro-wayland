@@ -14,11 +14,6 @@ SRC_URI:append:rockchip = " \
 
 RRECOMMENDS:${PN} = "kodi-addon-inputstream-adaptive kodi-addon-peripheral-joystick"
 
-inherit retro-overrides
-
-VDPAUSUPPORT:armarch = "0"
-VAAPISUPPORT:armarch = "0"
-
 PACKAGECONFIG:append = " \
 	bluetooth \
 	samba \
@@ -26,4 +21,3 @@ PACKAGECONFIG:append = " \
 "
 
 FILES:${PN} += "${datadir}/metainfo"
-
