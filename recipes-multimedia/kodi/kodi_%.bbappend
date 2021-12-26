@@ -12,6 +12,12 @@ SRC_URI:append:rockchip = " \
 	file://rockchip/0002-WIP-DRMPRIME-deinterlace-filter.patch \
 "
 
+SRC_URI:append:rpi = " \
+	file://rpi/kodi-001-deinterlace.patch \
+	file://rpi/kodi-002-set-max-bpc-for-high-bit-depth-videos.patch \
+	file://rpi/kodi-003-add-colourspace-connector-property.patch \
+"
+
 RRECOMMENDS:${PN} = "kodi-addon-inputstream-adaptive kodi-addon-peripheral-joystick"
 
 PACKAGECONFIG:append = " \

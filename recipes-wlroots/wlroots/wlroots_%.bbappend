@@ -1,5 +1,4 @@
 PACKAGECONFIG:append = " \
-	gles \
 	libinput \
-	libdrm \
+	gles \
 "

@@ -4,8 +4,6 @@ inherit retro-overrides
 
 SRC_URI = " \
 	git://github.com/xbmc/FFmpeg.git;protocol=https;branch=release/4.4-kodi \
-	file://v4l2-drmprime/ffmpeg-001-v4l2-drmprime.patch \
-	file://v4l2-request/ffmpeg-001-v4l2-request.patch \
 	file://libreelec/ffmpeg-001-libreelec.patch \
 "
 
@@ -14,6 +12,8 @@ SRC_URI:append:rpi = "	\
 "
 	
 SRC_URI:append:rockchip = " \
+	file://v4l2-drmprime/ffmpeg-001-v4l2-drmprime.patch \
+	file://v4l2-request/ffmpeg-001-v4l2-request.patch \
 	file://rockchip/ffmpeg-0001-v4l2_request-validate-supported-framesizes.patch \
 	file://rockchip/ffmpeg-0002-WIP-deint-filter.patch \
 	file://rockchip/ffmpeg-0003-libavfilter-v4l2deinterlace-dequeue-both-destination.patch \
