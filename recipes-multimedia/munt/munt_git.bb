@@ -10,8 +10,8 @@ DEPENDS = "glib-2.0"
 inherit cmake
 
 SRC_URI = "git://github.com/munt/munt.git;protocol=https;branch=master"
-SRCREV = "munt_${PV}"
-PV = "2_5_0"
+SRCREV = "libmt32emu_${PV}"
+PV = "2_5_3"
 S = "${WORKDIR}/git"
 
 EXTRA_OECMAKE = " \
