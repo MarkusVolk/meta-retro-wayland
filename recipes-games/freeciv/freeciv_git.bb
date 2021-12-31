@@ -22,7 +22,7 @@ SRC_URI = " \
 
 S = "${WORKDIR}/git"
 PV = "3.0.0-beta3"
-SRCREV = "8ad65a218a004beac89909e22728bb3d7a83d10f"
+SRCREV = "7a2b0a8847ade88428c99819a19e5067e425d4eb"
 
 inherit meson pkgconfig gettext gtk-icon-cache
 
