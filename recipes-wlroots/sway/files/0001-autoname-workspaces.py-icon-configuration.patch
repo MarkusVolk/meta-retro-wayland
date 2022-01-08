@@ -1,0 +1,33 @@
+From 063aa4a93124a6c26855cbfa502cb751f13247fb Mon Sep 17 00:00:00 2001
+From: Markus Volk <f_l_k@t-online.de>
+Date: Sat, 8 Jan 2022 08:08:38 +0100
+Subject: [PATCH] autoname-workspaces.py: icon configuration
+
+---
+ contrib/autoname-workspaces.py | 8 ++++++--
+ 1 file changed, 6 insertions(+), 2 deletions(-)
+
+diff --git a/contrib/autoname-workspaces.py b/contrib/autoname-workspaces.py
+index 3ec39928..22b89790 100755
+--- a/contrib/autoname-workspaces.py
++++ b/contrib/autoname-workspaces.py
+@@ -15,10 +15,14 @@ import signal
+ import sys
+ 
+ WINDOW_ICONS = {
+-    "firefox": "",
++    "chromium-browser": "  ",
++    "kodi": "  ",
++    "retroarch": "   ",
++    "thunar": "  ",
++    "mpv": "  "
+ }
+ 
+-DEFAULT_ICON = "󰀏"
++DEFAULT_ICON = "  "
+ 
+ 
+ def icon_for_window(window):
+-- 
+2.25.1
+
