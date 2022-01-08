@@ -15,3 +15,5 @@ inherit go go-mod
 
 GO_INSTALL = "${GO_IMPORT}"
 
+do_compile[network] = "1"
+

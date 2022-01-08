@@ -28,3 +28,5 @@ GO_INSTALL = "${GO_IMPORT}"
 
 FILES:${PN}:append = " ${datadir}"
 
+do_compile[network] = "1"
+

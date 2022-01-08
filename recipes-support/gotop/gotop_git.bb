@@ -26,5 +26,7 @@ do_install:append() {
 
 GO_INSTALL = "${GO_IMPORT}"
 
+do_compile[network] = "1"
+
 INSANE_SKIP:${PN}-dev = "file-rdeps"
 
