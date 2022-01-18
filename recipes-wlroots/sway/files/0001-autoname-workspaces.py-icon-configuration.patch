@@ -24,7 +24,7 @@ index 3ec39928..22b89790 100755
  }
  
 -DEFAULT_ICON = "󰀏"
-+DEFAULT_ICON = "  "
++#DEFAULT_ICON = "  "
  
  
  def icon_for_window(window):
