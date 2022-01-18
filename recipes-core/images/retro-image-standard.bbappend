@@ -122,12 +122,27 @@ WLUA ?= " \
 	lgi \
 "
 
+WRETROARCH = " \
+	retroarch \
+	retroarch-assets \
+	retroarch-overlays \
+	retroarch-autoconfig \
+	retroarch-database-cheats \
+	retroarch-database-titles \
+	retroarch-database-cursors \
+	retroarch-libretro-info \
+	retroarch-cg-shaders \
+	retroarch-glsl-shaders \
+	retroarch-slang-shaders \
+"
+
 IMAGE_INSTALL:append = " \
 	${WGTK_APPS} \
 	${WCONSOLE_TOOLS} \
 	${WSYSTEM_CONF} \
 	${WNET_SERVICES} \
 	${WLUA} \
+	${WRETROARCH} \
 "
 
 IMAGE_INSTALL:append:rockchip = " \
