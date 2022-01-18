@@ -12,5 +12,8 @@ SRCREV = "${PV}"
 
 S = "${WORKDIR}/git"
 
+DEPENDS:x64 = "nasm-native"
+DEPENDS:x64-64 = "nasm-native"
+
 inherit meson
 
