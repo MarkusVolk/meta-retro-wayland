@@ -8,4 +8,5 @@ inherit ccache
 GN_ARGS += " \
   use_custom_libcxx=true \
   use_gtk=true \
+  enable_widevine=true \
 "
