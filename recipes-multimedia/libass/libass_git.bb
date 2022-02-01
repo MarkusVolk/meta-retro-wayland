@@ -8,8 +8,8 @@ LIC_FILES_CHKSUM = "file://COPYING;md5=a42532a0684420bdb15556c3cdd49a75"
 DEPENDS = "enca freetype libpng fribidi"
 
 SRC_URI = "git://github.com/libass/libass.git;protocol=https;branch=master"
-PV = "0.15.1"
-SRCREV = "${PV}"
+PV = "0.15.2"
+SRCREV = "88cf01a448b1a14c8364294946f349af074c1969"
 S = "${WORKDIR}/git"
 
 inherit autotools pkgconfig

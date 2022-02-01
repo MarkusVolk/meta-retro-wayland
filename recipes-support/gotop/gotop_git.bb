@@ -9,7 +9,7 @@ GO_IMPORT = "github.com/xxxserxxx/gotop.git"
 SRC_URI = "git://${GO_IMPORT};branch=master;protocol=https"
 
 PV = "4.1.2"
-SRCREV = "v${PV}"
+SRCREV = "a32a1c05eae8c6612857f1e2e883382d793640e8"
 
 export CGO_ENABLED = "0"
 

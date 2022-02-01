@@ -12,7 +12,7 @@ DEPENDS = "perl-native perl"
 
 S = "${WORKDIR}/git"
 PV = "3.7.0"
-SRCREV = "v${PV}"
+SRCREV = "cb41f5a94471911fe8c0760e0a530bb63a84a87a"
 
 inherit autotools-brokensep
 

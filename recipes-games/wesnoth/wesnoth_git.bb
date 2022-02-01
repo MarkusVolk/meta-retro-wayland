@@ -23,12 +23,12 @@ RDEPENDS:${PN} = "bash"
 inherit cmake pkgconfig
 
 SRC_URI = " \
-    git://github.com/wesnoth/wesnoth.git;protocol=https;branch=1.16 \
-    file://0001-CMakeLIST.txt-dont-use-sdl-config-dont-install-run-e.patch \
+    git://github.com/wesnoth/wesnoth.git;protocol=https;nobranch=1 \
+    file://0001-CMakeLIST.txt-dont-install-run-e.patch \
 "
 
-PV = "1.16.0"
-SRCREV = "${PV}"
+PV = "1.17.0"
+SRCREV = "a7cf1fe714171cb33bd32380d89cbb1e85a13e03"
 S = "${WORKDIR}/git"
 
 # Workaround sdl2 wayland issue if starting in fullscreen mode 

@@ -9,7 +9,7 @@ inherit ruby
 
 S = "${WORKDIR}/git"
 PV = "2.2.1"
-SRCREV = "v${PV}"
+SRCREV = "e32748ffc0574fa21daa27ec50402c14fa5cd8c8"
 
 FILES:${PN} += "${libdir}"
 

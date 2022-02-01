@@ -17,8 +17,8 @@ SRC_URI = " \
     file://quake2.desktop \
 "
 
-PV = "8.00"
-SRCREV = "QUAKE2_8_00"
+PV = "8.01"
+SRCREV = "896bb48d360beb13f48a2c19f3a611f28db3d5ac"
 S = "${WORKDIR}/git"
 
 # thumb is unsupported

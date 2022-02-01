@@ -8,10 +8,10 @@ DEPENDS = "zlib ffmpeg jpeg libv4l libass"
 LICENSE = "GPLv2+"
 LIC_FILES_CHKSUM = "file://LICENSE.GPL;md5=b234ee4d69f5fce4486a80fdaf4a4263"
 
-PV = "0.34.0"
-SRCREV_mpv = "v${PV}"
+PV = "0.34.1"
+SRCREV_mpv = "712ef65e2a830e9db082d5d36563ff0d1df0097c"
 SRC_URI = " \
-    git://github.com/mpv-player/mpv;name=mpv;branch=release/0.34;protocol=https \
+    git://github.com/mpv-player/mpv;name=mpv;nobranch=1;protocol=https \
     https://waf.io/waf-2.0.22;name=waf;subdir=git \
 "
 SRC_URI[waf.sha256sum] = "0a09ad26a2cfc69fa26ab871cb558165b60374b5a653ff556a0c6aca63a00df1"

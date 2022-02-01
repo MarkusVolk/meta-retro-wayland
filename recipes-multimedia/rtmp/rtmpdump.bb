@@ -7,7 +7,7 @@ LIC_FILES_CHKSUM = "file://COPYING;md5=751419260aa954499f7abaabaa882bbe"
 
 DEPENDS = "openssl zlib"
 
-SRCREV ?= "${AUTOREV}"
+SRCREV = "530e342cb41b6d33de8fb3659a5f67645043f4c7"
 PV = "${SRCPV}"
 
 SRC_URI = " \

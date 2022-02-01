@@ -7,8 +7,8 @@ DEPENDS = "libxml2 bash-completion"
 
 inherit setuptools3
 
-SRCREV = "${PV}"
-PV = "2021.06.06"
+SRCREV = "5014bd67c22b421207b2650d4dc874b95b36dda1"
+PV = "2021.12.17"
 
 SRC_URI = "git://github.com/ytdl-org/youtube-dl.git;protocol=https;branch=master"
 

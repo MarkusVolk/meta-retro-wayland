@@ -8,7 +8,7 @@ SRC_URI = "git://github.com/keeferrourke/capitaine-cursors.git;protocol=https;br
 DEPENDS += "bc-native"
 
 PV = "4"
-SRCREV = "r${PV}"
+SRCREV = "06c88433662a4004cf56a6e471b523a0a8880be0"
 S = "${WORKDIR}/git"
 
 inherit gtk-icon-cache

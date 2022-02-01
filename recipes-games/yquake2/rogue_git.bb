@@ -16,7 +16,7 @@ SRC_URI = " \
 "
 
 PV = "2.08"
-SRCREV = "ROGUE_2_08"
+SRCREV = "ee6164cbce244e9b9d45aefe3a23bd127dc93ca3"
 S = "${WORKDIR}/git"
 
 do_install() {

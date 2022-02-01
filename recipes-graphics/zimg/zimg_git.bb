@@ -10,7 +10,7 @@ SRC_URI = " \
     git://github.com/sekrit-twc/zimg.git;protocol=https;branch=master \
 "
 
-PV = "3.0.1"
-SRCREV = "release-${PV}"
+PV = "3.0.3"
+SRCREV = "71e6c2a32b27a4ee5f69856b8a05bbc7808de90c"
 S = "${WORKDIR}/git"
 

@@ -19,7 +19,7 @@ EXTRA_OECONF = "--disable-nls"
 
 S = "${WORKDIR}/git"
 PV = "6.2.9"
-SRCREV = "v${PV}"
+SRCREV = "9ca1c7b943fd60a2cefc193274fe8327269f0ba9"
 
 FILES:${PN} += "${datadir}"
 

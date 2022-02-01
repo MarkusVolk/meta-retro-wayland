@@ -8,7 +8,7 @@ LIC_FILES_CHKSUM = "file://COPYING;md5=c8055cfe7548dfdaa3a6dc45d8793669"
 
 SRC_URI = "git://code.videolan.org/videolan/dav1d.git;protocol=https;branch=master"
 PV = "0.9.2"
-SRCREV = "${PV}"
+SRCREV = "7b433e077298d0f4faf8da6d6eb5774e29bffa54"
 
 S = "${WORKDIR}/git"
 

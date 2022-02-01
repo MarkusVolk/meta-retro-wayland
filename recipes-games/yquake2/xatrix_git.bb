@@ -16,7 +16,7 @@ SRC_URI = " \
 "
 
 PV = "2.09"
-SRCREV = "XATRIX_2_09"
+SRCREV = "dfd2224bbf0582b37d97a745aa2fe0d71f1766c8"
 S = "${WORKDIR}/git"
 
 do_install() {

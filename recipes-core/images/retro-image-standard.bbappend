@@ -115,9 +115,6 @@ WNET_SERVICES ?= " \
 
 WLUA ?= " \
 	luajit \
-	lua-expat \
-	lua-feedparser \
-	lua-json \
 	luaposix \
 	lgi \
 "

@@ -15,7 +15,7 @@ DEPENDS = " \
 RRECOMMENDS:${PN}  = "gnuchess"
 
 SRC_URI = " \
-	git://github.com/GNOME/gnome-chess.git;protocol=https;branch=gnome-3-38 \
+	git://github.com/GNOME/gnome-chess.git;protocol=https;nobranch=1 \
 "
 
 inherit meson pkgconfig gobject-introspection gtk-icon-cache vala features_check mime-xdg gsettings
@@ -24,7 +24,7 @@ GIR_MESON_OPTION = ""
 
 S = "${WORKDIR}/git"
 PV = "3.38.1"
-SRCREV = "${PV}"
+SRCREV = "433ffc18de77c6db9236d0e6d815e67ced98489a"
 
 FILES:${PN} += "${datadir}"
 

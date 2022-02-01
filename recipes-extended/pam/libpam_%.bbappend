@@ -1,5 +1,3 @@
-inherit retro-overrides
-
 do_install:append() {
 	echo "LANG=en_US.UTF-8" >> ${D}${sysconfdir}/environment
 	echo "LC_ALL=en_US.UTF-8" >> ${D}${sysconfdir}/environment
@@ -13,10 +11,18 @@ do_install:append() {
 	echo "FORTUNE_FILE=/usr/share/fortunes/fortunes" >> ${D}${sysconfdir}/environment
 }
 
-do_install:append:armarch() {
+do_install:append:arm() {
+	echo "MALLOC_MMAP_THRESHOLD_=8192" >> ${D}${sysconfdir}/environment
+}
+do_install:append:aarch64() {
 	echo "MALLOC_MMAP_THRESHOLD_=8192" >> ${D}${sysconfdir}/environment
 }
 
-do_install:append:x86arch() {
+do_install:append:x86() {
 	echo "MALLOC_MMAP_THRESHOLD_=524288" >> ${D}${sysconfdir}/environment
 }
+
+do_install:append:x86-64() {
+	echo "MALLOC_MMAP_THRESHOLD_=524288" >> ${D}${sysconfdir}/environment
+}
+
