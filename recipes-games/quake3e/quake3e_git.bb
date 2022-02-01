@@ -33,8 +33,15 @@ do_install() {
 	install -d ${D}${bindir} ${D}${datadir}/games/quake3 ${D}${datadir}/icons/hicolor/scalable/apps ${D}${datadir}/applications
 	install -m 0644 ${S}/build/release-linux-${TARGET_ARCH}/quake3e_opengl_${TARGET_ARCH}.so ${D}${datadir}/games/quake3
 	install -m 0644 ${S}/build/release-linux-${TARGET_ARCH}/quake3e_vulkan_${TARGET_ARCH}.so ${D}${datadir}/games/quake3
-	install -m 0755 ${S}/build/release-linux-${TARGET_ARCH}/quake3e.${TARGET_ARCH} ${D}${datadir}/games/quake3
-	install -m 0755 ${S}/build/release-linux-${TARGET_ARCH}/quake3e.ded.${TARGET_ARCH} ${D}${datadir}/games/quake3
+
+	if [ ${TARGET_ARCH} != "x86_64" ]; then
+		install -m 0755 ${S}/build/release-linux-${TARGET_ARCH}/quake3e.${TARGET_ARCH} ${D}${datadir}/games/quake3
+		install -m 0755 ${S}/build/release-linux-${TARGET_ARCH}/quake3e.ded.${TARGET_ARCH} ${D}${datadir}/games/quake3
+	else
+		install -m 0755 ${S}/build/release-linux-${TARGET_ARCH}/quake3e.x64 ${D}${datadir}/games/quake3/quake3e.${TARGET_ARCH}
+		install -m 0755 ${S}/build/release-linux-${TARGET_ARCH}/quake3e.ded.x64 ${D}${datadir}/games/quake3/quake3e.ded.${TARGET_ARCH}
+	fi
+
 	install -m 0644 ${S}/code/unix/quake3.svg ${D}${datadir}/icons/hicolor/scalable/apps
 	install -m 0644 ${WORKDIR}/quake3.desktop ${D}${datadir}/applications
 	ln -sf ${datadir}/games/quake3/quake3e.${TARGET_ARCH} ${D}${bindir}/quake3
