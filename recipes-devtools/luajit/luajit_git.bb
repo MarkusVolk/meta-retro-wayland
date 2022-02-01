@@ -1,10 +1,10 @@
 SUMMARY = "Just-In-Time Compiler for Lua"
 LICENSE = "MIT"
-LIC_FILES_CHKSUM = "file://COPYRIGHT;md5=abe9020de9c00909317d02d5c803810e"
+LIC_FILES_CHKSUM = "file://COPYRIGHT;md5=23d6278200de9b48fd1439f80507cba8"
 HOMEPAGE = "http://luajit.org"
 
 PV = "2.1"
-SRCREV = "b4b2dce9fc3ffaaaede39b36d06415311e2aa516"
+SRCREV = "1d7b5029c5ba36870d25c67524034d452b761d27"
 SRC_URI = "git://luajit.org/git/luajit-2.0.git;protocol=http;branch=v2.1 \
 	   file://0001-Do-not-strip-automatically-this-leaves-the-stripping.patch \
 	   file://clang.patch \
