@@ -118,8 +118,8 @@ set $ub #d41919
 
 #class                  border  backgr.  text  indicator child_border
 client.focused           $ab	  $bg     $fg    $bg        $ab
-client.focused_inactive  $ab	  $bg     $fg    $bg        $ab
-client.unfocused         $iab     $bg     $fg    $bg        $iab
+client.focused_inactive  $bg	  $bg     $fg    $bg        $bg
+client.unfocused         $bg     $bg     $fg    $bg        $bg
 client.urgent            $ub	  $bg     $fg    $bg        $ub
 client.placeholder	 $bg	  $bg     $fg    $bg        $bg
 
@@ -192,8 +192,8 @@ exec ~/.azotebg
 exec swaymsg "workspace 1:Kodi; exec kodi;"
 
 gaps inner 10
-default_border pixel 3
-default_floating_border pixel 3
+default_border pixel 2
+default_floating_border pixel 2
 titlebar_border_thickness 0
 smart_gaps on
 hide_edge_borders --i3 smart
