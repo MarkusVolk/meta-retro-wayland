@@ -12,7 +12,6 @@ SRC_URI = " \
 	file://sway/scripts/kodi.sh \
 	file://sway/scripts/retroarch.sh \
 	file://sway/scripts/thunar.sh \
-	file://profile \
 	file://foot/foot.ini \
 	file://waybar/config \
 	file://waybar/style.css \
@@ -24,6 +23,8 @@ SRC_URI = " \
 	file://waybar/scripts/resources.sh \
 	file://waybar/scripts/blueman-manager.sh \
 	file://glib-2.0/settings/keyfile \
+	file://unlock-keyring \
+	file://bash_profile \
 "
 
 SRC_URI[sha256sum] = "379e87793087017f16463ff5bacc5422dc7a3868332647e1899df7431573c7a0"
@@ -48,9 +49,10 @@ do_install() {
 	install -d ${D}${RETRO_USER_HOMEDIR}/.config/waybar/scripts
 	install -d ${D}${RETRO_USER_HOMEDIR}/.config/mpv/
 	install -d ${D}${RETRO_USER_HOMEDIR}/Downloads
+	install -d ${D}${bindir}
 	install -d ${D}${ROOT_HOME}/.config/glib-2.0/settings
 	install -m 0644 ${WORKDIR}/bashrc ${D}${RETRO_USER_HOMEDIR}/.bashrc
-	install -m 0644 ${WORKDIR}/profile ${D}${RETRO_USER_HOMEDIR}/.profile
+	install -m 0644 ${WORKDIR}/bash_profile ${D}${RETRO_USER_HOMEDIR}/.bash_profile
 	install -m 0644 ${WORKDIR}/sway/config ${D}${RETRO_USER_HOMEDIR}/.config/sway
 	install -m 0755 ${WORKDIR}/sway/scripts/chromium.sh ${D}${RETRO_USER_HOMEDIR}/.config/sway/scripts	
 	install -m 0755 ${WORKDIR}/sway/scripts/kodi.sh ${D}${RETRO_USER_HOMEDIR}/.config/sway/scripts	
@@ -70,6 +72,7 @@ do_install() {
 	install -m 0644 ${WORKDIR}/glib-2.0/settings/keyfile ${D}${RETRO_USER_HOMEDIR}/.config/glib-2.0/settings
 	install -m 0644 ${WORKDIR}/glib-2.0/settings/keyfile ${D}${ROOT_HOME}/.config/glib-2.0/settings
 	install -m 0644 ${WORKDIR}/repository.kodinerds-7.0.1.1.zip ${D}${RETRO_USER_HOMEDIR}/Downloads
+	install -m 0755 ${WORKDIR}/unlock-keyring ${D}${bindir}
 }
 
 do_install:append:rpi() {
@@ -91,6 +94,7 @@ do_install:append() {
 FILES:${PN} = " \
 	${RETRO_USER_HOMEDIR} \
 	${ROOT_HOME} \
+	${bindir} \
 "
 
 INSANE_SKIP:${PN} = "host-user-contaminated"
