@@ -73,15 +73,15 @@ do_install() {
 }
 
 do_install:append:rpi() {
-	echo -e "--gpu-context=wayland\n--hwdec=v4l2m2m\n" > ${D}${RETRO_USER_HOMEDIR}/.config/mpv/mpv.conf
+	echo "--gpu-context=wayland\n--hwdec=v4l2m2m" > ${D}${RETRO_USER_HOMEDIR}/.config/mpv/mpv.conf
 }
 
 do_install:append:x86arch() {
-	echo -e "--gpu-context=wayland\n--hwdec=vaapi\n" > ${D}${RETRO_USER_HOMEDIR}/.config/mpv/mpv.conf
+	echo "--gpu-context=wayland\n--hwdec=vaapi" > ${D}${RETRO_USER_HOMEDIR}/.config/mpv/mpv.conf
 }
 
 do_install:append:rockchip() {
-	echo -e "--gpu-context=wayland\n--hwdec=drm-copy\n" > ${D}${RETRO_USER_HOMEDIR}/.config/mpv/mpv.conf
+	echo "--gpu-context=wayland\n--hwdec=drm-copy" > ${D}${RETRO_USER_HOMEDIR}/.config/mpv/mpv.conf
 }
 
 do_install:append() {
