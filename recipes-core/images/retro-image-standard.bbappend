@@ -60,6 +60,7 @@ WCONSOLE_TOOLS ?= " \
 	less \
 	libswscale \
 	libusb1 \
+	light \
 	micro \
 	mpv \
 	procps \
