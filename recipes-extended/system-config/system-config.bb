@@ -88,6 +88,7 @@ do_install:append:rockchip() {
 }
 
 do_install:append() {
+	echo "--scripts=${libdir}/mpv/scripts/mpris.so" >> ${D}${RETRO_USER_HOMEDIR}/.config/mpv/mpv.conf
 	chown ${RETRO_USER_NAME}:${RETRO_USER_NAME} -R ${D}${RETRO_USER_HOMEDIR}
 }
 

@@ -63,6 +63,7 @@ WCONSOLE_TOOLS ?= " \
 	light \
 	micro \
 	mpv \
+	playerctl \
 	procps \
 	pv \
 	rsync \
