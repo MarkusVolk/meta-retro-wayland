@@ -27,8 +27,8 @@ SRC_URI = " \
     file://0001-CMakeLIST.txt-dont-install-run-e.patch \
 "
 
-PV = "1.17.0"
-SRCREV = "a7cf1fe714171cb33bd32380d89cbb1e85a13e03"
+PV = "1.17.1"
+SRCREV = "437bf5a9eccc7b58596a4dde1e6c84815c79c453"
 S = "${WORKDIR}/git"
 
 # Workaround sdl2 wayland issue if starting in fullscreen mode 
