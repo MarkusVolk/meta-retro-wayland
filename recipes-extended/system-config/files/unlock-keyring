@@ -1,10 +1,11 @@
 #!/bin/bash
 
-function unlock-keyring ()
-{
-    read -rsp "Password: " pass
-    export $(echo -n "$pass" | gnome-keyring-daemon --replace --unlock)
-    unset pass
-}
+pass=`zenity --password` || exit 1;
+export $(echo -n "$pass" | gnome-keyring-daemon --unlock --replace) || exit 1;
 
-unlock-keyring
+[[ -n $pass ]] && notify-send "
+        Unlocked the keyring
+"
+
+unset pass
+exit 0;

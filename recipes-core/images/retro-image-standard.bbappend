@@ -22,6 +22,7 @@ WGTK_APPS ?= " \
 	connman-gtk \
 	eovpn \
 	file-roller \
+	geary \
 	gdk-pixbuf \
 	gnome-chess \
 	gnome-disk-utility \
@@ -30,13 +31,14 @@ WGTK_APPS ?= " \
 	gsettings-desktop-schemas \
 	gvfs \
 	gvfsd-trash \
-	l3afpad \
+	gedit \
 	librsvg-gtk \
 	nwg-launchers \
 	pavucontrol \
 	thunar \
 	waybar \
 	xfce-polkit \
+	zenity \
 "
 
 WCONSOLE_TOOLS ?= " \

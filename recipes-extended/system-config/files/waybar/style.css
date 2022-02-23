@@ -67,6 +67,7 @@ window#waybar.chromium {
 
 #clock,
 #custom-vpn,
+#custom-keyring,
 #bluetooth,
 #cpu,
 #memory,
@@ -107,8 +108,13 @@ window#waybar.chromium {
     color: #000000;
 }
 
+#custom-keyring {
+    background-color: #69869B;
+    color: #000000;
+}
+
 #bluetooth {
-    background-color: #90b1b1;
+    background-color: #864647;
     color: #000000;
 }
 
