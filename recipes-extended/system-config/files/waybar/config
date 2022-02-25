@@ -27,7 +27,7 @@
         "format": "<span style=\"italic\">{}</span>"
     },
     "custom/power":{
-	"format": "  ",
+	"format": "",
 	"on-click":"nwgbar",
 	"tooltip": false,
     },

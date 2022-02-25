@@ -65,6 +65,7 @@ window#waybar.chromium {
     border-bottom: 3px solid #ffffff;
 }
 
+#custom-power,
 #clock,
 #custom-vpn,
 #custom-keyring,
@@ -99,22 +100,28 @@ window#waybar.chromium {
     margin-right: 0;
 }
 
+#custom-power {
+    background-color: #8B8386;
+    color: #000000
+}
+
 #clock {
-    background-color: #64727D;
+    background-color: #81a19b;
+    color: #000000;
 }
 
 #custom-vpn {
-    background-color: #878787;
+    background-color: #ffb380;
     color: #000000;
 }
 
 #custom-keyring {
-    background-color: #69869B;
+    background-color: #4f94cd;
     color: #000000;
 }
 
 #bluetooth {
-    background-color: #864647;
+    background-color: #fff3b8;
     color: #000000;
 }
 
@@ -130,12 +137,13 @@ label:focus {
 }
 
 #cpu {
-    background-color: #2ecc71;
+    background-color: #bdecb6;
     color: #000000;
 }
 
 #memory {
-    background-color: #9b59b6;
+    background-color: #cf8ef4;
+    color: #000000;
 }
 
 #disk {
@@ -143,7 +151,8 @@ label:focus {
 }
 
 #network {
-    background-color: #2980b9;
+    background-color: #74d0f1;
+    color: #000000;
 }
 
 #network.disconnected {
@@ -151,7 +160,7 @@ label:focus {
 }
 
 #pulseaudio {
-    background-color: #f1c40f;
+    background-color: #faff80;
     color: #000000;
 }
 
@@ -175,7 +184,8 @@ label:focus {
 }
 
 #temperature {
-    background-color: #f0932b;
+    background-color: #e48280;
+    color: #000000;
 }
 
 #temperature.critical {
