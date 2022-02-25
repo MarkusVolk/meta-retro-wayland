@@ -7,3 +7,6 @@ cursor-size=36
 [org/gnome/desktop/wm/preferences]
 theme='Nordic-darker'
 
+[org/gnome/gedit/preferences/editor]
+scheme='oblivion'
+

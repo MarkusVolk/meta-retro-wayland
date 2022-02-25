@@ -9,7 +9,7 @@ SRC_URI = "git://${GO_IMPORT};nobranch=1;protocol=https"
 PV = "2.0.10"
 SRCREV = "f20179519f8cff31263e3695edb51a9402b083ca"
 
-inherit go go-mod mime-xdg
+inherit go go-mod
 
 export CGO_ENABLED = "0"
 
@@ -18,8 +18,6 @@ do_compile() {
 }
 
 do_install:append() {
-	install -d ${D}${datadir}/applications
-	install -m 644 ${S}/src/${GO_IMPORT}/assets/packaging/micro.desktop ${D}${datadir}/applications
 	# make files removable by buildsystem
 	chmod +w -R ${B}/pkg/mod
 }
