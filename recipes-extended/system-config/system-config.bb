@@ -7,6 +7,7 @@ SRC_URI = " \
 	https://repo.kodinerds.net/addons/repository.kodinerds/repository.kodinerds-7.0.1.1.zip;unpack=0 \
 	file://azotebg \
 	file://bashrc \
+	file://kodi/kodi-addon-pvr-iptvsimple/settings.xml \
 	file://sway/config \
 	file://sway/scripts/chromium.sh \
 	file://sway/scripts/kodi.sh \
@@ -52,10 +53,12 @@ do_install() {
 	install -d ${D}${RETRO_USER_HOMEDIR}/.config/waybar/scripts
 	install -d ${D}${RETRO_USER_HOMEDIR}/.config/mpv/
 	install -d ${D}${RETRO_USER_HOMEDIR}/Downloads
+	install -d ${D}${RETRO_USER_HOMEDIR}/.kodi/userdata/addon_data/pvr.iptvsimple
 	install -d ${D}${bindir}
 	install -d ${D}${ROOT_HOME}/.config/glib-2.0/settings
 	install -m 0644 ${WORKDIR}/bashrc ${D}${RETRO_USER_HOMEDIR}/.bashrc
 	install -m 0644 ${WORKDIR}/bash_profile ${D}${RETRO_USER_HOMEDIR}/.bash_profile
+	install -m 0644 ${WORKDIR}/kodi/kodi-addon-pvr-iptvsimple/settings.xml ${D}${RETRO_USER_HOMEDIR}/.kodi/userdata/addon_data/pvr.iptvsimple
 	install -m 0644 ${WORKDIR}/sway/config ${D}${RETRO_USER_HOMEDIR}/.config/sway
 	install -m 0755 ${WORKDIR}/sway/scripts/chromium.sh ${D}${RETRO_USER_HOMEDIR}/.config/sway/scripts	
 	install -m 0755 ${WORKDIR}/sway/scripts/kodi.sh ${D}${RETRO_USER_HOMEDIR}/.config/sway/scripts	
