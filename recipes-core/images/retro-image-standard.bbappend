@@ -50,6 +50,7 @@ WCONSOLE_TOOLS ?= " \
 	dosfstools \
 	dosbox-staging \
 	e2fsprogs \
+	ffmpeg \
 	findutils \
 	fzf \
 	git \
