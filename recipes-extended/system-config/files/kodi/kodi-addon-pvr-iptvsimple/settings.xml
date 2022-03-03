@@ -5,7 +5,7 @@
     <setting id="m3uCache" default="true">true</setting>
     <setting id="startNum" default="true">1</setting>
     <setting id="numberByOrder" default="true">false</setting>
-    <setting id="m3uRefreshMode" default="true">0</setting>
+    <setting id="m3uRefreshMode">2</setting>
     <setting id="m3uRefreshIntervalMins" default="true">60</setting>
     <setting id="m3uRefreshHour" default="true">4</setting>
     <setting id="defaultProviderName" default="true" />
@@ -49,11 +49,11 @@
     <setting id="mediaGroupBySeason" default="true">true</setting>
     <setting id="mediaTitleSeasonEpisode" default="true">false</setting>
     <setting id="mediaVODAsRecordings" default="true">true</setting>
-    <setting id="timeshiftEnabled" default="true">false</setting>
+    <setting id="timeshiftEnabled">true</setting>
     <setting id="timeshiftEnabledAll" default="true">true</setting>
     <setting id="timeshiftEnabledHttp" default="true">true</setting>
     <setting id="timeshiftEnabledUdp" default="true">true</setting>
-    <setting id="timeshiftEnabledCustom" default="true">false</setting>
+    <setting id="timeshiftEnabledCustom">true</setting>
     <setting id="catchupEnabled" default="true">false</setting>
     <setting id="catchupQueryFormat" default="true" />
     <setting id="catchupDays" default="true">5</setting>
