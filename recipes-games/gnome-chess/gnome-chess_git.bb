@@ -1,6 +1,6 @@
 SUMMARY = "GNOME Chess is a 2D chess game, where games can be played between a combination of human and computer players."
 HOMEPAGE = "https://wiki.gnome.org/Apps/Chess"
-LICENSE = "GPL-3.0"
+LICENSE = "GPL-3.0-only"
 
 LIC_FILES_CHKSUM = "file://COPYING;md5=d32239bcb673463ab874e80d47fae504"
 

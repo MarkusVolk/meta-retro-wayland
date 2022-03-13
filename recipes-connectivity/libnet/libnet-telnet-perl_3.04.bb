@@ -11,7 +11,7 @@ shell."
 HOMEPAGE = "http://search.cpan.org/dist/Net-Telnet/"
 SECTION = "Development/Libraries"
 
-LICENSE = "Artistic-1.0|GPLv1+"
+LICENSE = "Artistic-1.0|GPL-1.0-or-later"
 LIC_FILES_CHKSUM = "file://README;beginline=4;endline=7;md5=3fd238bfb6ee1810cb15d5d95e07b0f5"
 
 SRC_URI = "http://search.cpan.org/CPAN/authors/id/J/JR/JROGERS/Net-Telnet-${PV}.tar.gz"

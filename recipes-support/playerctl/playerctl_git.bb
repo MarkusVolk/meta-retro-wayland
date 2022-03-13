@@ -1,5 +1,5 @@
 SUMMARY = "For true players only: vlc, mpv, RhythmBox, web browsers, cmus, mpd, spotify and others."
-LICENSE = "LGPL-3.0"
+LICENSE = "LGPL-3.0-only"
 LIC_FILES_CHKSUM = "file://COPYING;md5=e6a600fd5e1d9cbde2d983680233ad02"
 
 SRC_URI = "git://github.com/altdesktop/playerctl.git;protocol=https;branch=master"

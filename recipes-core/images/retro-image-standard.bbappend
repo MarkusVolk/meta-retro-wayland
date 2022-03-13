@@ -1,7 +1,5 @@
 inherit retro-user
 
-DEPENDS:append = " wic-tools"
-
 ROOT_USER_PASSWORD ?= "root"
 ROOTFS_POSTPROCESS_COMMAND += "set_root_passwd;"
 ROOTFS_POSTPROCESS_COMMAND += "set_retro_passwd;"

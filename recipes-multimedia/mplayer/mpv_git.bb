@@ -5,7 +5,7 @@ HOMEPAGE = "http://www.mpv.io/"
 
 DEPENDS = "zlib ffmpeg jpeg libv4l libass"
 RRECOMMENDS:${PN} += "mpv-mpris"
-LICENSE = "GPLv2+"
+LICENSE = "GPL-2.0-or-later"
 LIC_FILES_CHKSUM = "file://LICENSE.GPL;md5=b234ee4d69f5fce4486a80fdaf4a4263"
 
 PV = "0.34.1"

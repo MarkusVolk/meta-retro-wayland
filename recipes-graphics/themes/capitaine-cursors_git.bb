@@ -1,5 +1,5 @@
 SUMMARY = "This is a cursor theme inspired by macOS and based on KDE Breeze."
-LICENSE = "LGPL-3.0"
+LICENSE = "LGPL-3.0-only"
 LIC_FILES_CHKSUM = "file://COPYING;md5=90cffc6a4f1bcbb66067c81f5512c14f"
 
 
