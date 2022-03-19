@@ -5,30 +5,35 @@ LICENSE = "GPL-2.0-only"
 LIC_FILES_CHKSUM = "file://COPYING;md5=eb723b61539feef013de476e68b5c50a" 
 
 DEPENDS = " \
+	boost \
+	bzip2 \
+	cairo \
+	fontconfig \
+	libpng \
 	libsdl2 \
 	libsdl2-image \
 	libsdl2-mixer \
-	fontconfig \
-	pango \
-	cairo \
-	openssl \
-	zlib \
-	bzip2 \
+	libsdl2-net \
+	libsdl2-ttf \
 	libvorbis \
-	boost \
+	openssl \
+	pango \
+	zlib \
 "
+
+EXTRA_OECMAKE += "-DENABLE_SERVER=0"
 
 RDEPENDS:${PN} = "bash"
 
-inherit cmake pkgconfig
+inherit cmake pkgconfig gettext
 
 SRC_URI = " \
-    git://github.com/wesnoth/wesnoth.git;protocol=https;nobranch=1 \
-    file://0001-CMakeLIST.txt-dont-install-run-e.patch \
+    gitsm://github.com/wesnoth/wesnoth.git;protocol=https;branch=master \
+    file://0002-Do-not-adjust-compiler-flags.patch \
 "
 
 PV = "1.17.1"
-SRCREV = "437bf5a9eccc7b58596a4dde1e6c84815c79c453"
+SRCREV = "82d03090c634807cd9e40df9af0219bfc03b464d"
 S = "${WORKDIR}/git"
 
 # Workaround sdl2 wayland issue if starting in fullscreen mode 

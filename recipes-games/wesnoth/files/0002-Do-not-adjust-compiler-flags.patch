@@ -1,0 +1,77 @@
+Original Patch imported from meta-games
+- adjusted for 17.1 prerelease
+- do not change the number of lines
+
+Signed-off-by: Markus Volk <f_l_k@t-online.de>
+
+From a87ebed70e1d50097bad3b118e513830bb33a3c2 Mon Sep 17 00:00:00 2001
+From: =?UTF-8?q?Andreas=20M=C3=BCller?= <schnitzeltony@gmail.com>
+Date: Wed, 16 Mar 2022 22:15:30 +0100
+Subject: [PATCH] Do not adjust compiler flags
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+
+Just guesswork:
+Something ha changed elsewhere causing the if-condition pass as seen for broken
+build:
+
+CMake compiler flags set to »-Wall -Wextra -Werror... - long but missing includes
+
+Fixes build errors as:
+| <..>/wesnoth-1.16.2/src/color.hpp:17:10: fatal error: algorithm: No such file or directory
+| <..>/1.16.2-r0/wesnoth-1.16.2/src/tstring.hpp:18:10: fatal error: memory: No such file or directory
+
+Upstream-Status: Inappropriate Inappropriate [oe specific]
+
+Signed-off-by: Andreas Müller <schnitzeltony@gmail.com>
+---
+ CMakeLists.txt | 13 ++--------------
+ 1 file changed, 13 insertions(+), 13 deletions(-)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 49b3127a0f3..dc82ebbcd28 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -215,18 +215,18 @@ if(NOT MSVC)
+ 
+ ### Set the final compiler flags.
+ 
+-	set(COMPILER_FLAGS "${COMPILER_FLAGS} ${CXX_FLAGS_USER}")
+-
+-	if(NOT "${CMAKE_CXX_FLAGS}" STREQUAL "${COMPILER_FLAGS}")
+-		MESSAGE(STATUS "CMake compiler flags set to »${COMPILER_FLAGS}«")
+-		set(CMAKE_CXX_FLAGS
+-			"${COMPILER_FLAGS}"
+-			CACHE
+-			STRING
+-			"Global flags used by the CXX compiler during all builds."
+-			FORCE
+-		)
+-	endif()
++#	set(COMPILER_FLAGS "${COMPILER_FLAGS} ${CXX_FLAGS_USER}")
++
++#	if(NOT "${CMAKE_CXX_FLAGS}" STREQUAL "${COMPILER_FLAGS}")
++#		MESSAGE(STATUS "CMake compiler flags set to »${COMPILER_FLAGS}«")
++#		set(CMAKE_CXX_FLAGS
++#			"${COMPILER_FLAGS}"
++#			CACHE
++#			STRING
++#			"Global flags used by the CXX compiler during all builds."
++#			FORCE
++#		)
++#	endif()
+ 
+ # #
+ # Determine optimization level
+@@ -423,7 +423,7 @@ if(NOT MSVC)
+ # End setting profiler build options
+ # #
+ else()
+-	set(CMAKE_CXX_FLAGS "/W3 /WX /wd4503 /wd4351 /wd4250 /wd4244 /wd4267 /we4239 /wd4275 /EHsc /utf-8 /Zc:__cplusplus" CACHE STRING "Global flags used by the CXX compiler during all builds." FORCE)
++	set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} /W3 /WX /wd4503 /wd4351 /wd4250 /wd4244 /wd4267 /we4239 /wd4275 /EHsc /utf-8 /Zc:__cplusplus" CACHE STRING "Global flags used by the CXX compiler during all builds." FORCE)
+ 	set(CMAKE_C_FLAGS "/WX" CACHE STRING "Global flags used by the C compiler during all builds." FORCE)
+ 	add_definitions(-D_WIN32_WINNT=_WIN32_WINNT_WIN7 -D_CRT_SECURE_NO_WARNINGS -D_WINSOCK_DEPRECATED_NO_WARNINGS -DNOMINMAX)
+ 
+-- 
+2.25.1
