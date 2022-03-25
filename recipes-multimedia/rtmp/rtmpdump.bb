@@ -28,4 +28,5 @@ do_install:prepend() {
 	install -d ${D}/usr/lib
 }
 
+BBCLASSEXTEND = "native nativesdk"
 
