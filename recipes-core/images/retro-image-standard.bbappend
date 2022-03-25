@@ -29,6 +29,7 @@ WGTK_APPS ?= " \
 	gnome-system-monitor \
 	gparted \
 	gsettings-desktop-schemas \
+	gthumb \
 	gvfs \
 	gvfsd-trash \
 	gedit \
@@ -46,12 +47,14 @@ WCONSOLE_TOOLS ?= " \
 	bash \
 	bzip2 \
 	coreutils-stdbuf \
+	cowsay-perl \
 	curl \
 	dosfstools \
 	dosbox-staging \
 	e2fsprogs \
 	ffmpeg \
 	findutils \
+	fortunes \
 	fzf \
 	git \
 	gotop \
@@ -59,7 +62,6 @@ WCONSOLE_TOOLS ?= " \
 	gzip \
 	htop \
 	imagemagick \
-	imv \
 	less \
 	libswscale \
 	libusb1 \
