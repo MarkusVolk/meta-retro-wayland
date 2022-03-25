@@ -3,7 +3,7 @@ LICENSE = "BSD-3-Clause"
 LIC_FILES_CHKSUM = "file://LICENSE.md;md5=457477bba1a7ea611aa1002543d71889"
 
 SRC_URI = " \
-	git://github.com/bmc/fortune.git;protocol=https \
+	git://github.com/bmc/fortune.git;protocol=https;branch=master \
 "
 
 RDEPENDS:${PN} = " \
