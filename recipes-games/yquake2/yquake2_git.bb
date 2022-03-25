@@ -18,11 +18,13 @@ SRC_URI = " \
 "
 
 PV = "8.01"
-SRCREV = "896bb48d360beb13f48a2c19f3a611f28db3d5ac"
+SRCREV = "282d1b8ea640799aeb213ecf8249c7a78140c18d"
 S = "${WORKDIR}/git"
 
 # thumb is unsupported
 ARM_INSTRUCTION_SET = "arm"
+
+CFLAGS += "-lm"
 
 do_install() {
 	# install routine is missing ... do it manually
