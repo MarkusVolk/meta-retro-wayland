@@ -1,3 +1,5 @@
+inherit retro-user
+
 do_configure:prepend() {
 	sed -i 's|media_dir=\/opt|media_dir=\/media|' ${S}/minidlna.conf
 	sed -i 's|#user=jmaggard|user=${RETRO_USER_NAME}|' ${S}/minidlna.conf
