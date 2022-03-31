@@ -20,7 +20,7 @@ seat * xcursor_theme capitaine-cursors-light 36
 set $menu nwggrid
 
 # Output configuration
-output HDMI-A-1 pos 0 0 res 1920x1080
+include ~/.config/sway/outputs
 
 # Idle configuration
 #exec swayidle -w \

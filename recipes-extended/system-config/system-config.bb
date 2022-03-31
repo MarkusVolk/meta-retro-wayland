@@ -9,6 +9,7 @@ SRC_URI = " \
 	file://bashrc \
 	file://kodi/kodi-addon-pvr-iptvsimple/settings.xml \
 	file://sway/config \
+	file://sway/outputs \
 	file://sway/scripts/chromium.sh \
 	file://sway/scripts/kodi.sh \
 	file://sway/scripts/retroarch.sh \
@@ -60,6 +61,7 @@ do_install() {
 	install -m 0644 ${WORKDIR}/bash_profile ${D}${RETRO_USER_HOMEDIR}/.bash_profile
 	install -m 0644 ${WORKDIR}/kodi/kodi-addon-pvr-iptvsimple/settings.xml ${D}${RETRO_USER_HOMEDIR}/.kodi/userdata/addon_data/pvr.iptvsimple
 	install -m 0644 ${WORKDIR}/sway/config ${D}${RETRO_USER_HOMEDIR}/.config/sway
+	install -m 0644 ${WORKDIR}/sway/outputs ${D}${RETRO_USER_HOMEDIR}/.config/sway
 	install -m 0755 ${WORKDIR}/sway/scripts/chromium.sh ${D}${RETRO_USER_HOMEDIR}/.config/sway/scripts	
 	install -m 0755 ${WORKDIR}/sway/scripts/kodi.sh ${D}${RETRO_USER_HOMEDIR}/.config/sway/scripts	
 	install -m 0755 ${WORKDIR}/sway/scripts/retroarch.sh ${D}${RETRO_USER_HOMEDIR}/.config/sway/scripts

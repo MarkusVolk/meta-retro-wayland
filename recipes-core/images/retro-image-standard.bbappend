@@ -1,3 +1,5 @@
+DEPENDS += "e2fsprogs-native"
+
 inherit retro-user
 
 ROOT_USER_PASSWORD ?= "root"
@@ -34,6 +36,7 @@ WGTK_APPS ?= " \
 	gvfsd-trash \
 	gedit \
 	librsvg-gtk \
+	nwg-displays \
 	nwg-launchers \
 	pavucontrol \
 	thunar \
