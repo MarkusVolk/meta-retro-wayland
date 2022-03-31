@@ -16,6 +16,8 @@ SRC_URI = " \
 	file://sway/scripts/thunar.sh \
 	file://sway/scripts/geary.sh \
 	file://foot/foot.ini \
+	file://nwg-launchers/nwgbar/bar.json \
+	file://nwg-launchers/nwggrid/terminal \
 	file://waybar/config \
 	file://waybar/style.css \
 	file://waybar/scripts/eovpn.sh \
@@ -48,6 +50,8 @@ do_install() {
 	install -d ${D}${RETRO_USER_HOMEDIR}/.config/sway/scripts
 	install -d ${D}${RETRO_USER_HOMEDIR}/.config/systemd/user
 	install -d ${D}${RETRO_USER_HOMEDIR}/.config/foot
+	install -d ${D}${RETRO_USER_HOMEDIR}/.config/nwg-launchers/nwgbar
+	install -d ${D}${RETRO_USER_HOMEDIR}/.config/nwg-launchers/nwggrid
 	install -d ${D}${RETRO_USER_HOMEDIR}/.config/samba
 	install -d ${D}${RETRO_USER_HOMEDIR}/.config/glib-2.0/settings
 	install -d ${D}${RETRO_USER_HOMEDIR}/.config/connman
@@ -68,6 +72,8 @@ do_install() {
 	install -m 0755 ${WORKDIR}/sway/scripts/thunar.sh ${D}${RETRO_USER_HOMEDIR}/.config/sway/scripts	
 	install -m 0755 ${WORKDIR}/sway/scripts/geary.sh ${D}${RETRO_USER_HOMEDIR}/.config/sway/scripts	
 	install -m 0644 ${WORKDIR}/foot/foot.ini ${D}${RETRO_USER_HOMEDIR}/.config/foot/foot.ini
+	install -m 0644 ${WORKDIR}/nwg-launchers/nwgbar/bar.json ${D}${RETRO_USER_HOMEDIR}/.config/nwg-launchers/nwgbar
+	install -m 0644 ${WORKDIR}/nwg-launchers/nwggrid/terminal ${D}${RETRO_USER_HOMEDIR}/.config/nwg-launchers/nwggrid
 	install -m 0644 ${WORKDIR}/waybar/config ${D}${RETRO_USER_HOMEDIR}/.config/waybar/config
 	install -m 0644 ${WORKDIR}/waybar/style.css ${D}${RETRO_USER_HOMEDIR}/.config/waybar/style.css
 	install -m 0755 ${WORKDIR}/waybar/scripts/eovpn.sh ${D}${RETRO_USER_HOMEDIR}/.config/waybar/scripts/eovpn.sh
