@@ -1,0 +1,29 @@
+SUMMARY = "makeobj to compile Simutrans paks."
+HOMEPAGE = "https://www.simutrans.com" 
+
+LICENSE = "Artistic-2.0"
+LIC_FILES_CHKSUM = "file://../../LICENSE.txt;md5=10a3c09093deda8cbe4095ab2b158072" 
+
+DEPENDS = "zlib bzip2 libpng"
+
+inherit cmake
+
+SRC_URI = " \
+    git://github.com/aburch/simutrans.git;protocol=https;branch=master \
+    file://0001-CMakeList.txt-fix-build.patch \
+"
+
+PV = "r10594"
+SRCREV = "121276359065f4a2939b4524dfec150e5bdac5a4"
+S = "${WORKDIR}/git/src/makeobj"
+
+EXTRA_OECMAKE = "-DSIMUTRANS_MSG_LEVEL=1"
+
+do_install() {
+	install -d ${D}${bindir}
+	install -m 0755 ${B}/makeobj ${D}${bindir}
+}
+
+FILES:${PN} = "${bindir}"
+BBCLASSEXTEND = "native nativesdk"
+

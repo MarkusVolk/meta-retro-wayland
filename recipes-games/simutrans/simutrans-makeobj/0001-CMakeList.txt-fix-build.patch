@@ -1,0 +1,36 @@
+From 67dc6240f53f0c658802563c3cbc206c5277879d Mon Sep 17 00:00:00 2001
+From: Markus Volk <f_l_k@t-online.de>
+Date: Fri, 1 Apr 2022 11:15:27 +0200
+Subject: [PATCH] CMakeList.txt: fix build
+
+---
+ src/makeobj/CMakeLists.txt | 6 +++++-
+ 1 file changed, 5 insertions(+), 1 deletion(-)
+
+diff --git a/src/makeobj/CMakeLists.txt b/src/makeobj/CMakeLists.txt
+index 6f93e1fa0..4185756ad 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -8,7 +8,7 @@ add_executable(makeobj
+ )
+ 
+ target_compile_options(makeobj PRIVATE ${SIMUTRANS_COMMON_COMPILE_OPTIONS})
+-target_compile_definitions(makeobj PRIVATE MAKEOBJ=1 COLOUR_DEPTH=0)
++target_compile_definitions(makeobj PRIVATE MAKEOBJ=1 COLOUR_DEPTH=0 REVISION=1)
+ target_compile_definitions(makeobj PRIVATE MSG_LEVEL=${SIMUTRANS_MSG_LEVEL})
+ 
+ if (SIMUTRANS_USE_SYSLOG)
+@@ -20,6 +20,10 @@ if (NOT CMAKE_SIZEOF_VOID_P EQUAL 4 AND SIMUTRANS_BUILD_32BIT)
+ 	set_target_properties(makeobj PROPERTIES LINK_FLAGS "-m32")
+ endif ()
+ 
++find_package(ZLIB REQUIRED)
++find_package(BZip2 REQUIRED)
++find_package(PNG REQUIRED)
++
+ target_link_libraries(makeobj
+ 	PNG::PNG
+ )
+-- 
+2.25.1
+
