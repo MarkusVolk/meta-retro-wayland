@@ -71,6 +71,7 @@ WCONSOLE_TOOLS ?= " \
 	light \
 	micro \
 	mpv \
+	pamixer \
 	playerctl \
 	procps \
 	pv \
@@ -85,6 +86,7 @@ WCONSOLE_TOOLS ?= " \
 	util-linux-fstrim \
 	wf-recorder \
 	wlsunset \
+	wob \
 "
 
 WSYSTEM_CONF ?= " \
