@@ -23,15 +23,12 @@ LIC_FILES_CHKSUM = "file://COPYING;md5=e73e999e0c72b5ac9012424fa157ad77"
 DEPENDS = "glib-2.0 pixman"
 
 SRC_URI = " \
-	https://cairographics.org/snapshots/cairo-${PV}.tar.xz \
-	file://0001-cairo-backport-patch-to-make-symbol-lookup-optional.patch \
+	https://gitlab.freedesktop.org/cairo/cairo/-/archive/${PV}/cairo-${PV}.tar.bz2 \
 	file://cairo-get_bitmap_surface-bsc1036789-CVE-2017-7475.diff \
-	file://CVE-2019-6461.patch \
 	file://CVE-2019-6462.patch \
-	file://CVE-2020-35492.patch \
 "
 
-SRC_URI[sha256sum] = "74b24c1ed436bbe87499179a3b27c43f4143b8676d8ad237a6fa787401959705"
+SRC_URI[sha256sum] = "90496d135c9ef7612c98f8ee358390cdec0825534573778a896ea021155599d2"
 
 inherit meson pkgconfig upstream-version-is-even multilib_script
 
