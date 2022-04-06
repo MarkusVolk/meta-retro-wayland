@@ -16,12 +16,11 @@ DEPENDS = " \
 SRC_URI = " \
 	git://github.com/freeciv/freeciv.git;protocol=https;branch=S3_1 \
 	file://0001-meson.build-remove-get_cross_property.patch \
-	file://0002-meson.build-hack-tolua-dependency.patch \
 	file://freeciv.desktop \
 "
 
 S = "${WORKDIR}/git"
-PV = "3.0.0-beta3"
+PV = "3.1.0"
 SRCREV = "7a2b0a8847ade88428c99819a19e5067e425d4eb"
 
 inherit meson pkgconfig gettext gtk-icon-cache
@@ -39,6 +38,10 @@ PACKAGECONFIG[syslua] = "-Dsyslua=true,-Dsyslua=false,lua"
 PACKAGECONFIG ?= " \
 	${FREECIV_CLIENT} \
 "
+
+do_configure:prepend() {
+	sed -i "s|tolua_cmd = find_program('tolua')|tolua_cmd = find_program('/usr/bin/tolua')|" ${S}/meson.build
+}
 
 do_install:append() {
 	install -d ${D}${datadir}/applications
