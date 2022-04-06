@@ -2,11 +2,10 @@ SUMMARY = "Open Source multimedia player"
 DESCRIPTION = "mpv is a fork of mplayer2 and MPlayer. It shares some features with the former projects while introducing many more."
 SECTION = "multimedia"
 HOMEPAGE = "http://www.mpv.io/"
-
-DEPENDS = "zlib ffmpeg jpeg libv4l libass"
-RRECOMMENDS:${PN} += "mpv-mpris"
 LICENSE = "GPL-2.0-or-later"
 LIC_FILES_CHKSUM = "file://LICENSE.GPL;md5=b234ee4d69f5fce4486a80fdaf4a4263"
+
+DEPENDS = "zlib ffmpeg jpeg libv4l libass"
 
 PV = "0.34.1"
 SRCREV_mpv = "712ef65e2a830e9db082d5d36563ff0d1df0097c"
@@ -14,8 +13,8 @@ SRC_URI = " \
     git://github.com/mpv-player/mpv;name=mpv;nobranch=1;protocol=https \
     https://waf.io/waf-2.0.22;name=waf;subdir=git \
 "
-SRC_URI[waf.sha256sum] = "0a09ad26a2cfc69fa26ab871cb558165b60374b5a653ff556a0c6aca63a00df1"
 
+SRC_URI[waf.sha256sum] = "0a09ad26a2cfc69fa26ab871cb558165b60374b5a653ff556a0c6aca63a00df1"
 S = "${WORKDIR}/git"
 
 inherit waf pkgconfig mime-xdg
@@ -24,12 +23,9 @@ LDFLAGS:append:riscv64 = " -latomic"
 
 # Note: lua is required to get on-screen-display (controls)
 PACKAGECONFIG ??= " \
-	${@bb.utils.filter('DISTRO_FEATURES', 'alsa', d)} \
-	${@bb.utils.filter('DISTRO_FEATURES', 'opengl', d)} \
-	${@bb.utils.filter('DISTRO_FEATURES', 'pulseaudio', d)} \
-	${@bb.utils.filter('DISTRO_FEATURES', 'vulkan', d)} \
-	${@bb.utils.filter('DISTRO_FEATURES', 'wayland', d)} \
-	${@bb.utils.filter('DISTRO_FEATURES', 'x11', d)} \
+	lua \
+	${@bb.utils.filter('DISTRO_FEATURES', 'alsa pulseaudio vulkan wayland x11 vaapi vdpau', d)} \
+	${@bb.utils.contains('DISTRO_FEATURES', 'opengl', 'opengl egl gbm', '', d)} \
 "
 
 PACKAGECONFIG[alsa] = ",--disable-alsa,alsa-lib"
