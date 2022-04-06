@@ -14,7 +14,7 @@ SRC_URI[sha256sum] = "da93816b56634624ee70afc1629352bc6ca64ef61bb0558b3a8f717bc7
 do_install() {
 	install -d ${D}${datadir}/doomretro ${D}${bindir}
 	install -m 0644 ${WORKDIR}/DOOM.WAD ${D}${datadir}/doomretro
-	echo -e "exec doomretro ${datadir}/doomretro/DOOM.WAD\n" > ${D}${bindir}/doom
+	echo "exec doomretro ${datadir}/doomretro/DOOM.WAD\n" > ${D}${bindir}/doom
 	chmod 755 ${D}${bindir}/doom
 }
 

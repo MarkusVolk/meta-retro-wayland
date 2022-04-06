@@ -12,9 +12,18 @@ inherit cmake pkgconfig
 
 SRC_URI = " \
     git://github.com/bradharding/doomretro.git;protocol=https;branch=master \
+    file://doomretro.desktop \
+    file://doomretro.png \
 "
 
-PV = "4.4.3"
-SRCREV = "fde8043061f41b62ef92a69a04dc4a7a9e26f227"
+PV = "4.4.10"
+SRCREV = "5ac71af47d062d9ec9fd6b485d2a062aac015841"
 S = "${WORKDIR}/git"
 
+do_install:append() {
+	install -d ${D}${datadir}/applications ${D}${datadir}/icons/hicolor/128x128/apps
+	install -m 644 ${WORKDIR}/doomretro.desktop ${D}${datadir}/applications
+	install -m 644 ${WORKDIR}/doomretro.png ${D}${datadir}/icons/hicolor/128x128/apps
+}
+
+FILES:${PN} += "${datadir}"

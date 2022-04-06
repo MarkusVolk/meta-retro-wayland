@@ -1,0 +1,9 @@
+[Desktop Entry]
+Type=Game
+Version=4.4.10
+Name=Doomretro
+GenericName=Doomretro
+Comment=Doomretro Client
+Icon=doomretro
+Exec=doom
+
