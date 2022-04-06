@@ -6,22 +6,14 @@ Subject: [PATCH] Makefile: replace sdl-config with pkg-config
 Signed-off-by: MarkusVolk <f_l_k@t-online.de>
 ---
  quakespasm/Quake/Makefile | 16 ++++++----------
- 1 file changed, 6 insertions(+), 10 deletions(-)
+ 1 file changed, 4 insertions(+), 8 deletions(-)
 
 diff --git a/Makefile b/Makefile
 index 9304ed61..da264dac 100644
 --- a/Makefile
 +++ b/Makefile
-@@ -47,7 +47,7 @@ DEBUG   ?= 0
- 
- CC ?= gcc
- LINKER = $(CC)
--
-+PKG_CONFIG ?= pkg-config
- STRIP ?= strip
- 
- #CPUFLAGS= -mtune=i686
-@@ -102,18 +102,14 @@ endif
+
+@@ -94,16 +94,12 @@ endif
  
  ifeq ($(USE_SDL2),1)
  CFLAGS += -DUSE_SDL2
@@ -30,8 +22,6 @@ index 9304ed61..da264dac 100644
 +CFLAGS += $(SDL_CFLAGS)
 +LDFLAGS += $(SDL_LIBS)
  endif
- #make use of LFS on 32bit even on systems.
- CFLAGS += -D_FILE_OFFSET_BITS=64
  
 -ifeq ($(USE_SDL2),1)
 -SDL_CONFIG ?= sdl2-config

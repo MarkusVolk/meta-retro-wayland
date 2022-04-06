@@ -18,17 +18,17 @@ RRECOMMENDS:${PN} = "q1-music"
 inherit autotools-brokensep pkgconfig gtk-icon-cache
 
 SRC_URI = " \
-    git://github.com/Shpoike/Quakespasm.git;protocol=https;branch=master \
+    git://github.com/sezero/quakespasm.git;protocol=https;branch=master \
     file://0001-Makefile-replace-sdl-config-with-pkg-config.patch \
     file://quake.desktop \
     file://quake.svg \
 "
 
-PV = "0.92.1+${SRCREV}"
-SRCREV = "c48c4f2641f94089327b9136ef9b17d5f7a10b3c"
-S = "${WORKDIR}/git/quakespasm/Quake"
+PV = "0.94.3"
+SRCREV = "09396fd9ca86997b9af717e6399f63be22ab6dae"
+S = "${WORKDIR}/git/Quake"
 
-EXTRA_OEMAKE += "DO_USERDIRS=1"
+EXTRA_OEMAKE += "DO_USERDIRS=1 USE_SDL2=1"
 
 do_configure:prepend() {
 	sed -i "s|LDFLAGS =|LDFLAGS = ${LDFLAGS}|" ${S}/Makefile
