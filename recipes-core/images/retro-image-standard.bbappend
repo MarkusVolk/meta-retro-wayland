@@ -38,6 +38,7 @@ WGTK_APPS ?= " \
 	librsvg-gtk \
 	nwg-displays \
 	nwg-launchers \
+	nwg-look \
 	pavucontrol \
 	thunar \
 	waybar \

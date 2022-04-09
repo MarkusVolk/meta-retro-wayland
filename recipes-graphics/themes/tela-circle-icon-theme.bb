@@ -14,6 +14,8 @@ inherit gtk-icon-cache
 do_install() {
 	install -d ${D}${datadir}/icons
 	./install.sh -n Tela-circle -d ${D}${datadir}/icons
+	sed -i "s|Name=Tela circle|Name=Tela-circle|" ${D}${datadir}/icons/Tela-circle/index.theme
+	sed -i "s|Name=Tela circle dark|Name=Tela-circle-dark|" ${D}${datadir}/icons/Tela-circle-dark/index.theme
 }
 
 FILES:${PN} = "${datadir}"

@@ -54,6 +54,7 @@ do_install() {
 	install -d ${D}${RETRO_USER_HOMEDIR}/.config/nwg-launchers/nwggrid
 	install -d ${D}${RETRO_USER_HOMEDIR}/.config/samba
 	install -d ${D}${RETRO_USER_HOMEDIR}/.config/glib-2.0/settings
+	install -d ${D}${RETRO_USER_HOMEDIR}/.config/gtk-3.0
 	install -d ${D}${RETRO_USER_HOMEDIR}/.config/connman
 	install -d ${D}${RETRO_USER_HOMEDIR}/.config/waybar/scripts
 	install -d ${D}${RETRO_USER_HOMEDIR}/.config/mpv/
