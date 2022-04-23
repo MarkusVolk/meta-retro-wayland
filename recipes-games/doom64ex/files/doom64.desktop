@@ -1,0 +1,9 @@
+[Desktop Entry]
+Type=Game
+Version=2022
+Name=Doom64
+GenericName=Doom64ex
+Comment=Doom64 port
+Icon=doom
+Exec=doom64ex
+
