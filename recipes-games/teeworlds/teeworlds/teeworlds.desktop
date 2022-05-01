@@ -1,0 +1,9 @@
+[Desktop Entry]
+Type=Game
+Version=0.7.5
+Name=Teeworlds
+GenericName=Teeworlds
+Comment=Retro Multiplayer Shooter
+Icon=teeworlds
+Exec=teeworlds
+
