@@ -41,7 +41,9 @@ RRECOMMENDS:${PN} = " \
 	nwg-launchers \
 	waybar \
 	nordic-darker-theme \
-	tela-circle-icon-theme \
+	tela-circle \
+	tela-circle-blue \
+	tela-circle-purple \
 	xdg-user-dirs \
 	zenity \
 "	

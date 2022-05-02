@@ -1,6 +1,6 @@
 [org/gnome/desktop/interface]
 gtk-theme='Nordic-darker'
-icon-theme='Tela-circle-dark'
+icon-theme='Tela-circle-blue'
 cursor-theme='capitaine-cursors-light'
 cursor-size=36
 
