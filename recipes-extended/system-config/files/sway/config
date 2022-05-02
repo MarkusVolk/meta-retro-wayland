@@ -33,8 +33,12 @@ include ~/.config/sway/outputs
 input * {
     xkb_layout de
     xkb_variant nodeadkeys
-    xkb_options "caps:swapescape"
+    natural_scroll disabled
+    dwt enabled
+    accel_profile "flat" # disable mouse acceleration (enabled by default; to set it manually, use "adaptive" instead of "flat")
+    pointer_accel 0.5 # set mouse sensitivity (between -1 and 1)
 }
+
 # init wayland overlay bar
 set $WOBSOCK $XDG_RUNTIME_DIR/wob.sock
 exec rm -f $WOBSOCK && mkfifo $WOBSOCK && tail -f $WOBSOCK | wob
@@ -182,6 +186,7 @@ bindsym $mod+Shift+0 move container to workspace $ws10
 exec_always ~/.config/waybar/scripts/waybar.sh
 
 # Not Always
+exec ~/.azotebg &
 exec /usr/bin/xdg-user-dirs-update &
 exec /usr/libexec/xfce-polkit &
 exec /usr/bin/thunar --daemon &
@@ -190,7 +195,6 @@ exec /usr/bin/autotiling-rs &
 exec /usr/bin/inactive-windows-transparency.py &
 exec /usr/bin/wlsunset -l 49.5 -L 11.1 &
 exec /usr/bin/mako &
-exec ~/.azotebg
 
 # Startup program launcher
 exec swaymsg "workspace $ws1; exec kodi;"
