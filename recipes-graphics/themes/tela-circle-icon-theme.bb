@@ -14,8 +14,28 @@ S = "${WORKDIR}/git"
 
 inherit gtk-icon-cache
 
+# Create selected color variant
+# COLOR VARIANTS:
+#  standard                 Standard color folder version
+#  black                    Black color folder version
+#  blue                     Blue color folder version
+#  brown                    Brown color folder version
+#  green                    Green color folder version
+#  grey                     Grey color folder version
+#  orange                   Orange color folder version
+#  pink                     Pink color folder version
+#  purple                   Purple color folder version
+#  red                      Red color folder version
+#  yellow                   Yellow color folder version
+#  manjaro                  Manjaro default color folder version
+#  ubuntu                   Ubuntu default color folder version
+#  nord                     nord color folder version
+#
+# Add one or more entries seperated by spaces
+TELA_COLOR_VARIANT ?= "blue"
+
 # Create themes in all available colors. Increases creation time and disk usage!
-TELA_COLORED_THEMES ?= "enabled"
+TELA_COLORED_THEMES ?= "disabled"
 
 # Install circular folder icons
 TELA_CIRCULAR_FOLDERS ?= "enabled"
@@ -23,7 +43,7 @@ TELA_CIRCULAR_FOLDERS ?= "enabled"
 do_install() {
 	install -d ${D}${datadir}/icons
 	./install.sh -n Tela-circle \
-	${@bb.utils.contains('TELA_COLORED_THEMES', 'enabled', '-a', '', d)} \
+	${@bb.utils.contains('TELA_COLORED_THEMES', 'enabled', '-a', '${TELA_COLOR_VARIANT}', d)} \
 	${@bb.utils.contains('TELA_CIRCULAR_FOLDERS', 'enabled', '-c', '', d)} \
 	-d ${D}${datadir}/icons
 }
