@@ -4,7 +4,7 @@ LIC_FILES_CHKSUM = "file://${COMMON_LICENSE_DIR}/GPL-2.0-only;md5=801f80980d171d
 inherit retro-user retro-overrides
 
 SRC_URI = " \
-	https://repo.kodinerds.net/addons/repository.kodinerds/repository.kodinerds-7.0.1.1.zip;unpack=0 \
+	https://repo.kodinerds.net/addons/repository.kodinerds/repository.kodinerds-7.0.1.2.zip;unpack=0 \
 	file://azotebg \
 	file://bashrc \
 	file://kodi/kodi-addon-pvr-iptvsimple/settings.xml \
@@ -33,7 +33,7 @@ SRC_URI = " \
 	file://bash_profile \
 "
 
-SRC_URI[sha256sum] = "379e87793087017f16463ff5bacc5422dc7a3868332647e1899df7431573c7a0"
+SRC_URI[sha256sum] = "8b43a743ee4d38d9a1575dd4aab2d7d143bdc897caa7858f850c43226830b4e0"
 
 RRECOMMENDS:${PN} = " \
 	autotiling-rs \
@@ -88,7 +88,7 @@ do_install() {
 	install -m 0755 ${WORKDIR}/azotebg ${D}${RETRO_USER_HOMEDIR}/.azotebg
 	install -m 0644 ${WORKDIR}/glib-2.0/settings/keyfile ${D}${RETRO_USER_HOMEDIR}/.config/glib-2.0/settings
 	install -m 0644 ${WORKDIR}/glib-2.0/settings/keyfile ${D}${ROOT_HOME}/.config/glib-2.0/settings
-	install -m 0644 ${WORKDIR}/repository.kodinerds-7.0.1.1.zip ${D}${RETRO_USER_HOMEDIR}/Downloads
+	install -m 0644 ${WORKDIR}/repository.kodinerds-7.0.1.2.zip ${D}${RETRO_USER_HOMEDIR}/Downloads
 	install -m 0755 ${WORKDIR}/unlock-keyring ${D}${bindir}
 }
 
