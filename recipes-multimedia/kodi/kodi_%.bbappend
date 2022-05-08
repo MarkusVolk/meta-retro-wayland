@@ -5,9 +5,10 @@ SRC_URI:append:arm = " file://enable-drmprime.patch"
 SRC_URI:append:aarch64 = " file://enable-drmprime.patch"
 
 PACKAGECONFIG:append = " \
+	dvdcss \
 	bluetooth \
+	optical \
 	samba \
-	wayland \
 "
 
 KODIGRAPHICALBACKEND = "wayland"
