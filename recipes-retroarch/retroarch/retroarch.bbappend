@@ -11,3 +11,5 @@ EXTRA_OEMAKE += " \
   HAVE_BLUETOOTH=${@bb.utils.contains('DISTRO_FEATURES', 'bluetooth', '1', '0', d)} \
 "
 
+RRECOMMENDS:${PN} = "retroarch-autoconfig"
+
