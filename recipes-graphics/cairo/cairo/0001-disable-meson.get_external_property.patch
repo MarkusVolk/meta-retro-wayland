@@ -1,0 +1,11 @@
+--- a/meson.build	2022-03-18 19:40:07.000000000 +0100
++++ b/meson.build	2022-05-20 11:58:46.207814880 +0200
+@@ -363,7 +363,7 @@
+ 
+   # Can skip the run check by providing the result in a cross file or
+   # native file as bool property value.
+-  prop = meson.get_external_property('ipc_rmid_deferred_release', 'auto')
++  prop = meson.get_external_property('ipc_rmid_deferred_release', 'false')
+   # We don't know the type of prop (bool, string) but need to differentiate
+   # between a set value (bool) or the fallback value (string), so convert to
+   # a string and chec the string value.

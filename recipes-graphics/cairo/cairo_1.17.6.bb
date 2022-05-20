@@ -28,6 +28,8 @@ SRC_URI = " \
 	file://CVE-2019-6462.patch \
 "
 
+SRC_URI:append:class-nativesdk = " file://0001-disable-meson.get_external_property.patch"
+
 SRC_URI[sha256sum] = "90496d135c9ef7612c98f8ee358390cdec0825534573778a896ea021155599d2"
 
 inherit meson pkgconfig upstream-version-is-even multilib_script
@@ -54,6 +56,8 @@ PACKAGECONFIG[lzo] = ",,lzo"
 PACKAGECONFIG[tee] = "-Dtee=enabled,-Dtee=disabled"
 
 EXTRA_OEMESON = "-Dtests=disabled -Dsymbol-lookup=disabled"
+
+export prop="false"
 
 do_install:append () {
 	rm -rf ${D}${bindir}/cairo-sphinx
