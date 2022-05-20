@@ -57,8 +57,6 @@ PACKAGECONFIG[tee] = "-Dtee=enabled,-Dtee=disabled"
 
 EXTRA_OEMESON = "-Dtests=disabled -Dsymbol-lookup=disabled"
 
-export prop="false"
-
 do_install:append () {
 	rm -rf ${D}${bindir}/cairo-sphinx
 	rm -rf ${D}${libdir}/cairo/libcairo-fdr*

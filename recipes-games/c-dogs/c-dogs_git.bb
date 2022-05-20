@@ -18,7 +18,7 @@ SRC_URI = " \
 "
 
 PV = "1.3.0"
-SRCREV = "8d2e0be3ad3e978a6399eabbf55b13e03ac65251"
+SRCREV = "9e1e811b059a7be4333be7adf0a149f2d9e00a25"
 S = "${WORKDIR}/git"
 
 inherit cmake pkgconfig gtk-icon-cache
@@ -26,4 +26,4 @@ inherit cmake pkgconfig gtk-icon-cache
 EXTRA_OECMAKE = "-DCDOGS_DATA_DIR=${datadir}/games/c-dogs/"
 
 FILES:${PN} += "${datadir}"
-
+CFLAGS:append = " -Wno-stringop-overflow"

@@ -20,7 +20,7 @@ SRC_URI = " \
 "
 
 PV = "1.0"
-SRCREV = "e4b59faf6937414b1b2af9aeeb0e26fce0c7b548"
+SRCREV = "15dcff0fd4696bcc25774f2710829241af9942c2"
 S = "${WORKDIR}/git"
 
 inherit cmake gettext python3native gtk-icon-cache
@@ -37,10 +37,10 @@ EXTRA_OECMAKE = " \
 "
 
 do_install:append() {
-	mv -f ${D}/share/* ${D}${datadir}
-	rm -rf ${D}/share
 	install -d ${D}${bindir}
-	mv ${D}${prefix}/widelands ${D}${bindir}
+	ln -sf ${prefix}/games/widelands ${D}${bindir}/widelands
 }
 
 FILES:${PN} = "${prefix}"
+
+CXXFLAGS:append = " -Wno-uninitialized -Wno-use-after-free -Wno-stringop-overflow"
