@@ -24,7 +24,7 @@ LDFLAGS:append:riscv64 = " -latomic"
 # Note: lua is required to get on-screen-display (controls)
 PACKAGECONFIG ??= " \
 	lua \
-	${@bb.utils.filter('DISTRO_FEATURES', 'alsa pulseaudio vulkan wayland x11 vaapi vdpau', d)} \
+	${@bb.utils.filter('DISTRO_FEATURES', 'alsa pulseaudio vulkan wayland x11 vaapi', d)} \
 	${@bb.utils.contains('DISTRO_FEATURES', 'opengl', 'opengl egl gbm', '', d)} \
 "
 
