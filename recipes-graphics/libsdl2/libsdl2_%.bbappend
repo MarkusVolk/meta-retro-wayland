@@ -1,4 +1,5 @@
 inherit retro-overrides
 
-PACKAGECONFIG:append = " kmsdrm"
+PACKAGECONFIG:append = " libusb kmsdrm libdecor pipewire"
 PACKAGECONFIG:append:armarch = " arm-neon"
+
