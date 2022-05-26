@@ -31,11 +31,11 @@ PACKAGECONFIG[slirp] = "-Duse_slirp=true,-Duse_slirp=false,libslirp"
 PACKAGECONFIG ?= " \
 	alsa \
 	sdl2_net \
-	opengl \
 	fluidsynth \
 	mt32emu \
 	png \
 "
+
 
 FILES:${PN} += "${datadir}"
 
