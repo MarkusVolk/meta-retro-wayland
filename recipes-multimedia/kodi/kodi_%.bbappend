@@ -9,6 +9,7 @@ PACKAGECONFIG:append = " \
 	bluetooth \
 	optical \
 	samba \
+	vorbis \
 "
 
 KODIGRAPHICALBACKEND = "wayland"
