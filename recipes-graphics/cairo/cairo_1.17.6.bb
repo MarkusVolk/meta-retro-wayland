@@ -40,15 +40,16 @@ PACKAGECONFIG ??= " \
 	png \
 	zlib \
 	lzo \
-	${@bb.utils.filter('DISTRO_FEATURES', 'x11', d)} \
-	${@bb.utils.contains('DISTRO_FEATURES', 'wayland', 'glesv3', '', d)} \
+	${@bb.utils.contains('DISTRO_FEATURES', 'x11', 'xcb xlib', '', d)} \
+	${@bb.utils.contains('DISTRO_FEATURES', 'wayland', 'glesv2', '', d)} \
 "
 
-PACKAGECONFIG[x11] = "-Dgl-backend=gl -Dxcb=enabled -Dxlib=enabled,-Dxcb=disabled -Dxlib=disabled,virtual/libx11 virtual/libgl libsm libxrender libxext libxcb"
+PACKAGECONFIG[xcb] = "-Dxcb=enabled,-Dxcb=disabled,virtual/libx11 virtual/libgl libsm libxcb"
+PACKAGECONFIG[xlib] = "-Dxlib=enabled,-Dxlib=disabled,libxext libxrender"
 PACKAGECONFIG[fontconfig] = ",,fontconfig"
 PACKAGECONFIG[freetype] = ",,freetype"
-PACKAGECONFIG[glesv2] = "-Dgl-backend=glesv2 -Dglesv2=enabled"
-PACKAGECONFIG[glesv3] = "-Dgl-backend=glesv3 -Dglesv3=enabled"
+PACKAGECONFIG[glesv2] = "-Dgl-backend=glesv2 -Dglesv2=enabled,,virtual/libgles2"
+PACKAGECONFIG[glesv3] = "-Dgl-backend=glesv3 -Dglesv3=enabled,,virtual/libgles3"
 PACKAGECONFIG[png] = ",,libpng"
 PACKAGECONFIG[xml] = ",,libxml2"
 PACKAGECONFIG[zlib] = ",,zlib"
