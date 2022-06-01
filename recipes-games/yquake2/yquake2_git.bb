@@ -17,8 +17,8 @@ SRC_URI = " \
     file://quake2.desktop \
 "
 
-PV = "8.01"
-SRCREV = "282d1b8ea640799aeb213ecf8249c7a78140c18d"
+PV = "8.11pre"
+SRCREV = "3872a60e6ce76ef3c3409ad296442544b2e18522"
 S = "${WORKDIR}/git"
 
 # thumb is unsupported
@@ -42,4 +42,3 @@ FILES:${PN} = " \
 	${libexecdir} \
 	${datadir} \
 "
-
