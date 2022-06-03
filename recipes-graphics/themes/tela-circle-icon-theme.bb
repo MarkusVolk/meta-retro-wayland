@@ -1,15 +1,14 @@
 SUMMARY = "Tela circle Icon Theme."
-LICENSE = "GPL-3.0-only"
-LIC_FILES_CHKSUM = "file://COPYING.md;md5=0f7f40118b07053f43a50552fd48e11d"
-
+LICENSE = "GPL-3.0-only & Apache-2.0"
+LIC_FILES_CHKSUM = "file://COPYING.md;md5=63a90cb17067bf22a23a4b6bda1ad6e5"
 
 SRC_URI = " \
 	git://github.com/vinceliuice/Tela-circle-icon-theme.git;protocol=https;branch=master \
 	file://0001-install.sh-dont-rename-themes-using-spaces.patch \
 "
 
-PV = "2022-04-26"
-SRCREV = "58503e3e9963f8c9840740340b2065837aa7f34d"
+PV = "2022-05-30"
+SRCREV = "1c84c5a0937c362eb2b2e0d43b9c41eb11a2ef0c"
 S = "${WORKDIR}/git"
 
 inherit gtk-icon-cache
@@ -20,6 +19,7 @@ inherit gtk-icon-cache
 #  black                    Black color folder version
 #  blue                     Blue color folder version
 #  brown                    Brown color folder version
+#  dracula                  Dracula color folder version
 #  green                    Green color folder version
 #  grey                     Grey color folder version
 #  orange                   Orange color folder version
@@ -59,6 +59,8 @@ PACKAGES += " \
 	tela-circle-brown \
 	tela-circle-brown-dark \
 	tela-circle-dark \
+	tela-circle-dracula \
+	tela-circle-dracula-dark \
 	tela-circle-green \
 	tela-circle-green-dark \
 	tela-circle-grey \
@@ -89,6 +91,8 @@ FILES:tela-circle-blue-dark = "${datadir}/icons/Tela-circle-blue-dark"
 FILES:tela-circle-brown = "${datadir}/icons/Tela-circle-brown"
 FILES:tela-circle-brown-dark = "${datadir}/icons/Tela-circle-brown-dark"
 FILES:tela-circle-dark = "${datadir}/icons/Tela-circle-dark"
+FILES:tela-circle-dracula = "${datadir}/icons/Tela-circle-dracula"
+FILES:tela-circle-dracula-dark = "${datadir}/icons/Tela-circle-dracula-dark"
 FILES:tela-circle-green = "${datadir}/icons/Tela-circle-green"
 FILES:tela-circle-green-dark = "${datadir}/icons/Tela-circle-green-dark"
 FILES:tela-circle-grey = "${datadir}/icons/Tela-circle-grey"
@@ -120,6 +124,8 @@ RRECOMMENDS:${PN} = " \
 	tela-circle-brown-dark \
 	tela-circle-dark \
 	tela-circle-green \
+	tela-circle-dracula \
+	tela-circle-dracula-dark \
 	tela-circle-green-dark \
 	tela-circle-grey \
 	tela-circle-grey-dark \
