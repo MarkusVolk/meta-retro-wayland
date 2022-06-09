@@ -6,5 +6,6 @@ SRC_URI:append = " \
     file://gpio-sysfs.cfg \
     file://gamepad.cfg \
     file://nfsd.cfg \
+    file://wlan.cfg \
 "
 
