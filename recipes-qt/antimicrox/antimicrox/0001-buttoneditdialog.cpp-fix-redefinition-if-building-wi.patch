@@ -1,0 +1,26 @@
+From 6b5e669b395dc7f03d9ffd6babb3a75ddbac63c0 Mon Sep 17 00:00:00 2001
+From: Markus Volk <f_l_k@t-online.de>
+Date: Sat, 11 Jun 2022 16:24:22 +0200
+Subject: [PATCH] buttoneditdialog.cpp: fix redefinition if building without
+ x11
+
+---
+ src/gui/buttoneditdialog.cpp | 2 --
+ 1 file changed, 2 deletions(-)
+
+diff --git a/src/gui/buttoneditdialog.cpp b/src/gui/buttoneditdialog.cpp
+index cd25771c..8196b5a5 100644
+--- a/src/gui/buttoneditdialog.cpp
++++ b/src/gui/buttoneditdialog.cpp
+@@ -315,8 +315,6 @@ void ButtonEditDialog::keyReleaseEvent(QKeyEvent *event)
+         }
+ 
+     #else
+-        int finalvirtual = 0;
+-        int checkalias = 0;
+         if (QApplication::platformName() == QStringLiteral("xcb"))
+         {
+             finalvirtual = AntKeyMapper::getInstance()->returnVirtualKey(event->key());
+-- 
+2.25.1
+
