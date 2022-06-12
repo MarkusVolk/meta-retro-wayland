@@ -140,7 +140,7 @@ set $ws6 "6:"
 set $ws7 "7:"
 set $ws8 "8:"
 set $ws9 "9:"
-set $ws10 "10:Mpv   "
+set $ws10 "10:Mpv  "
 
 assign [app_id="Kodi"] $ws1
 assign [app_id="retroarch"] $ws2
@@ -181,6 +181,8 @@ bindsym $mod+Shift+8 move container to workspace $ws8
 bindsym $mod+Shift+9 move container to workspace $ws9
 bindsym $mod+Shift+0 move container to workspace $ws10
 
+bindsym F11 exec "~/.config/sway/scripts/rotate_workspaces.sh prev"
+bindsym F12 exec "~/.config/sway/scripts/rotate_workspaces.sh next"
 
 # Always
 exec_always ~/.config/waybar/scripts/waybar.sh

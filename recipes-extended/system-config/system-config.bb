@@ -15,6 +15,7 @@ SRC_URI = " \
 	file://sway/scripts/retroarch.sh \
 	file://sway/scripts/thunar.sh \
 	file://sway/scripts/geary.sh \
+	file://sway/scripts/rotate_workspaces.sh \
 	file://foot/foot.ini \
 	file://nwg-launchers/nwgbar/bar.json \
 	file://nwg-launchers/nwggrid/terminal \
@@ -71,7 +72,8 @@ do_install() {
 	install -m 0755 ${WORKDIR}/sway/scripts/kodi.sh ${D}${RETRO_USER_HOMEDIR}/.config/sway/scripts	
 	install -m 0755 ${WORKDIR}/sway/scripts/retroarch.sh ${D}${RETRO_USER_HOMEDIR}/.config/sway/scripts
 	install -m 0755 ${WORKDIR}/sway/scripts/thunar.sh ${D}${RETRO_USER_HOMEDIR}/.config/sway/scripts	
-	install -m 0755 ${WORKDIR}/sway/scripts/geary.sh ${D}${RETRO_USER_HOMEDIR}/.config/sway/scripts	
+	install -m 0755 ${WORKDIR}/sway/scripts/geary.sh ${D}${RETRO_USER_HOMEDIR}/.config/sway/scripts
+	install -m 0755 ${WORKDIR}/sway/scripts/rotate_workspaces.sh ${D}${RETRO_USER_HOMEDIR}/.config/sway/scripts
 	install -m 0644 ${WORKDIR}/foot/foot.ini ${D}${RETRO_USER_HOMEDIR}/.config/foot/foot.ini
 	install -m 0644 ${WORKDIR}/nwg-launchers/nwgbar/bar.json ${D}${RETRO_USER_HOMEDIR}/.config/nwg-launchers/nwgbar
 	install -m 0644 ${WORKDIR}/nwg-launchers/nwggrid/terminal ${D}${RETRO_USER_HOMEDIR}/.config/nwg-launchers/nwggrid
