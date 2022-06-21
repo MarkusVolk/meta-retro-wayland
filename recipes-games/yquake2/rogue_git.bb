@@ -15,8 +15,8 @@ SRC_URI = " \
     git://github.com/yquake2/rogue.git;protocol=https;branch=master \
 "
 
-PV = "2.08"
-SRCREV = "ee6164cbce244e9b9d45aefe3a23bd127dc93ca3"
+PV = "2.09"
+SRCREV = "15ffab8518c907d00748f0401be364db7132fc8e"
 S = "${WORKDIR}/git"
 
 do_install() {
