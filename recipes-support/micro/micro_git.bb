@@ -11,20 +11,11 @@ SRCREV = "03ae049c0fe5862ca6010474dd775656bd6e5b86"
 
 inherit go go-mod
 
-export CGO_ENABLED = "0"
-
 do_compile() {
 	go install -trimpath ./cmd/micro
 }
 
-do_install:append() {
-	# make files removable by buildsystem
-	chmod +w -R ${B}/pkg/mod
-}
-
 GO_INSTALL = "${GO_IMPORT}"
-
-FILES:${PN}:append = " ${datadir}"
 
 do_compile[network] = "1"
 
