@@ -9,6 +9,16 @@ SRC_URI = " \
 "
 
 DEPENDS = "perl-native perl"
+RDEPENDS:${PN} = " \
+	perl-module-cwd \
+	perl-module-constant \
+	perl-module-file-basename \
+	perl-module-file-find \
+	perl-module-file-spec \
+	perl-module-getopt-std \
+	perl-module-text-tabs \
+	perl-module-text-wrap \
+"
 
 S = "${WORKDIR}/git"
 PV = "3.7.0"
