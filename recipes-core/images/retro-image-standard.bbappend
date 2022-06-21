@@ -101,6 +101,7 @@ WSYSTEM_CONF ?= " \
 	glibc-binary-localedata-pl-pl \
 	glibc-binary-localedata-ru-ru \
 	glibc-charmap-utf-8 \
+	linux-firmware \
 	localedef \
 	packagegroup-fonts-truetype \
 	shared-mime-info \
