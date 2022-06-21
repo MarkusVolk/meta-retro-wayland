@@ -17,8 +17,8 @@ SRC_URI = " \
     file://fix-datadir.patch \
 "
 
-PV = "1.3.0"
-SRCREV = "9e1e811b059a7be4333be7adf0a149f2d9e00a25"
+PV = "1.3.1"
+SRCREV = "af83c8f6fcb599b175ded12f95776b7956e6b969"
 S = "${WORKDIR}/git"
 
 inherit cmake pkgconfig gtk-icon-cache
