@@ -15,8 +15,8 @@ SRC_URI = " \
     git://github.com/yquake2/xatrix.git;protocol=https;branch=master \
 "
 
-PV = "2.09"
-SRCREV = "dfd2224bbf0582b37d97a745aa2fe0d71f1766c8"
+PV = "2.10"
+SRCREV = "8d6a6188c33b61832b28de8cf7a71d0df3a3cc83"
 S = "${WORKDIR}/git"
 
 do_install() {
