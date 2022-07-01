@@ -23,11 +23,11 @@ SRC_URI = " \
     file://quake3.desktop \
 "
 
-PV = "2021-10-14"
-SRCREV = "16b08caa9801e06f9f54bb3ca5670ea12ed9e903"
+PV = "2022-07-01"
+SRCREV = "525a5ae69322c973268a1807fd9d9a3128fcfd4d"
 S = "${WORKDIR}/git"
 
-EXTRA_OEMAKE += "CROSS_COMPILING=1 ARCH=${TARGET_ARCH} USE_SYSTEM_JPEG=1 USE_OPENGL=0 USE_VULKAN=1"
+EXTRA_OEMAKE += "CROSS_COMPILING=1 ARCH=${TARGET_ARCH} USE_SYSTEM_JPEG=1 USE_OPENGL=1 USE_VULKAN=1"
 
 do_configure:prepend() {
 	sed -i "s|-I/usr/include -I/usr/local/include|-I${STAGING_INCDIR}|" ${S}/Makefile
@@ -35,7 +35,7 @@ do_configure:prepend() {
 
 do_install() {
 	install -d ${D}${bindir} ${D}${datadir}/games/quake3 ${D}${datadir}/icons/hicolor/scalable/apps ${D}${datadir}/applications
-	install -m 0644 ${S}/build/release-linux-${TARGET_ARCH}/quake3e_vulkan_${TARGET_ARCH}.so ${D}${datadir}/games/quake3
+	install -m 0644 ${S}/build/release-linux-${TARGET_ARCH}/quake3e_*.so ${D}${datadir}/games/quake3
 
 	if [ ${TARGET_ARCH} != "x86_64" ]; then
 		install -m 0755 ${S}/build/release-linux-${TARGET_ARCH}/quake3e.${TARGET_ARCH} ${D}${datadir}/games/quake3
