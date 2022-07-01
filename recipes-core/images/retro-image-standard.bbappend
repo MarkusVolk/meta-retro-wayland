@@ -2,17 +2,17 @@ DEPENDS += "e2fsprogs-native"
 
 inherit retro-user
 
-ROOT_USER_PASSWORD ?= "root"
+ROOT_USER_PASSWORD ??= "root"
 ROOTFS_POSTPROCESS_COMMAND += "set_root_passwd;"
 ROOTFS_POSTPROCESS_COMMAND += "set_retro_passwd;"
 
 set_root_passwd() {
-   ROOTPW_ENCRYPTED="$(openssl passwd -6 -salt xyz ${ROOT_USER_PASSWORD})"
+   ROOTPW_ENCRYPTED="$(openssl passwd -6 -salt $(date '+%s') ${ROOT_USER_PASSWORD})"
    sed -i "s%^root:[^:]*:%root:${ROOTPW_ENCRYPTED}:%" ${IMAGE_ROOTFS}/etc/shadow
 }
 
 set_retro_passwd() {
-   RETROPW_ENCRYPTED="$(openssl passwd -6 -salt xyz ${RETRO_USER_PASSWORD})"
+   RETROPW_ENCRYPTED="$(openssl passwd -6 -salt $(date '+%s') ${RETRO_USER_PASSWORD})"
    sed -i "s%^retro:[^:]*:%retro:${RETROPW_ENCRYPTED}:%" ${IMAGE_ROOTFS}/etc/shadow
 }
 
