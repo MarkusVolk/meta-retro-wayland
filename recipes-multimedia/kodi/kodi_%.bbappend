@@ -6,7 +6,6 @@ SRC_URI:append:aarch64 = " file://enable-drmprime.patch"
 
 PACKAGECONFIG:append = " \
 	dvdcss \
-	bluetooth \
 	optical \
 	samba \
 	vorbis \
@@ -15,3 +14,10 @@ PACKAGECONFIG:append = " \
 KODIGRAPHICALBACKEND = "wayland"
 KODISYSTEMDAUTOSTART = "disable"
 
+KODI_PLUGINS_INSTALL:append = " \
+	kodi-addon-netflix \
+	kodi-addon-ardundzdf \
+	kodi-addon-radio \
+	kodi-addon-fluxfm \
+	kodi-addon-pvr-plutotv \
+"
