@@ -17,5 +17,10 @@ do_compile() {
 
 GO_INSTALL = "${GO_IMPORT}"
 
+do_install:append() {
+	# make files removable by buildsystem
+	chmod +w -R ${B}/pkg/mod
+}
+
 do_compile[network] = "1"
 
