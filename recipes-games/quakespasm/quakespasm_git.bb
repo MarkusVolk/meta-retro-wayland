@@ -24,8 +24,8 @@ SRC_URI = " \
     file://quake.svg \
 "
 
-PV = "0.94.3"
-SRCREV = "09396fd9ca86997b9af717e6399f63be22ab6dae"
+PV = "0.94.6"
+SRCREV = "f10c33ad0643c36f3a1fbe437856aa8f9058cd58"
 S = "${WORKDIR}/git/Quake"
 
 EXTRA_OEMAKE += "DO_USERDIRS=1 USE_SDL2=1"
