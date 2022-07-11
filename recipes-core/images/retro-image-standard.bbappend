@@ -88,6 +88,7 @@ WCONSOLE_TOOLS ?= " \
 	wf-recorder \
 	wlsunset \
 	wob \
+	xz \
 "
 
 WSYSTEM_CONF ?= " \
