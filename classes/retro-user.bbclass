@@ -3,6 +3,7 @@ inherit useradd
 RETRO_USER_ID ?= "1000"
 RETRO_USER_GROUPS ?= "audio dialout disk i2c input plugdev shutdown sudo tty users video"
 RETRO_USER_NAME ??= "retro"
+RETRO_USER_PASSWORD ??= "retro"
 
 RETRO_USER_HOMEDIR ?= "/home/${RETRO_USER_NAME}"
 
