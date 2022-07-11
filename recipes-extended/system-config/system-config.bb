@@ -40,6 +40,7 @@ RRECOMMENDS:${PN} = " \
 	autotiling-rs \
 	capitaine-cursors \
 	nwg-launchers \
+	nwg-shell-wallpapers \
 	waybar \
 	nordic-darker-theme \
 	tela-circle-icon-theme \
