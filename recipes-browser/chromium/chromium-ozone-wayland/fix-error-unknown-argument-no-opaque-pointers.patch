@@ -1,0 +1,10 @@
+--- a/build/config/compiler/BUILD.gn	2022-07-10 09:03:33.125651551 +0200
++++ b/build/config/compiler/BUILD.gn	2022-07-10 11:33:28.246725233 +0200
+@@ -1496,7 +1496,6 @@
+         # TODO(https://crbug.com/1316298): Re-enable once test failure is figured out
+         cflags += [
+           "-Xclang",
+-          "-no-opaque-pointers",
+         ]
+       }
+ 
