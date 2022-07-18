@@ -1,9 +1,9 @@
 [Desktop Entry]
-Type=Game
-Version=8.0.0
-Name=Quake2
-GenericName=yQuake2
-Comment=yQuake2 client
-Icon=Quake2
+Encoding=UTF-8
+Type=Application
 Exec=quake2
-
+Name=Quake2
+Icon=Quake2
+Terminal=false
+GenericName=yquake2
+Comment=yquake Quake2 Client

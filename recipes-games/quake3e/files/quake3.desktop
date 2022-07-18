@@ -1,9 +1,9 @@
 [Desktop Entry]
-Type=Game
-Version=2021-10-14
-Name=Quake3 Arena
-GenericName=Quake3e
-Comment=Quake3e client
-Icon=quake3
+Encoding=UTF-8
+Type=Application
 Exec=quake3
-
+Name=Quake3 Arena
+Icon=quake3
+Terminal=false
+GenericName=quake3e
+Comment=Quake3e Quake3 Client

@@ -40,6 +40,7 @@ WGTK_APPS ?= " \
 	nwg-launchers \
 	nwg-look \
 	pavucontrol \
+	sirula \
 	thunar \
 	waybar \
 	xfce-polkit \

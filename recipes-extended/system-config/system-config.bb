@@ -22,6 +22,7 @@ SRC_URI = " \
 	file://waybar/config \
 	file://waybar/style.css \
 	file://waybar/scripts/eovpn.sh \
+	file://waybar/scripts/launch.sh \
 	file://waybar/scripts/waybar.sh \
 	file://waybar/scripts/pulse.sh \
 	file://waybar/scripts/net.sh \
@@ -81,6 +82,7 @@ do_install() {
 	install -m 0644 ${WORKDIR}/waybar/config ${D}${RETRO_USER_HOMEDIR}/.config/waybar/config
 	install -m 0644 ${WORKDIR}/waybar/style.css ${D}${RETRO_USER_HOMEDIR}/.config/waybar/style.css
 	install -m 0755 ${WORKDIR}/waybar/scripts/eovpn.sh ${D}${RETRO_USER_HOMEDIR}/.config/waybar/scripts/eovpn.sh
+	install -m 0755 ${WORKDIR}/waybar/scripts/launch.sh ${D}${RETRO_USER_HOMEDIR}/.config/waybar/scripts
 	install -m 0755 ${WORKDIR}/waybar/scripts/waybar.sh ${D}${RETRO_USER_HOMEDIR}/.config/waybar/scripts/waybar.sh
 	install -m 0755 ${WORKDIR}/waybar/scripts/pulse.sh ${D}${RETRO_USER_HOMEDIR}/.config/waybar/scripts	
 	install -m 0755 ${WORKDIR}/waybar/scripts/net.sh ${D}${RETRO_USER_HOMEDIR}/.config/waybar/scripts

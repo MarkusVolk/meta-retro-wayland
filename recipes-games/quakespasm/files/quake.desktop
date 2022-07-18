@@ -1,9 +1,9 @@
 [Desktop Entry]
-Type=Game
-Version=2021-10-14
-Name=Quake
-GenericName=Quakespasm
-Comment=Quake
-Icon=quake
+Encoding=UTF-8
+Type=Application
 Exec=quake
-
+Name=Quake
+Icon=quake
+Terminal=false
+GenericName=quakespasm
+Comment=Quakespasm Quake Client

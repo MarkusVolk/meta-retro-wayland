@@ -6,7 +6,7 @@
     // Choose the order of the modules
     "modules-left": ["sway/workspaces", "sway/mode", "custom/media"],
     "modules-center": ["sway/window"],
-    "modules-right": ["pulseaudio", "network", "cpu", "memory", "temperature", "bluetooth", "custom/keyring", "custom/vpn", "clock", "custom/power"],
+    "modules-right": ["pulseaudio", "network", "cpu", "memory", "temperature", "bluetooth", "custom/keyring", "custom/vpn", "clock", "custom/power", "custom/launch"],
     // Modules configuration
     // "sway/workspaces": {
     //     "disable-scroll": true,
@@ -26,6 +26,11 @@
     "sway/mode": {
         "format": "<span style=\"italic\">{}</span>"
     },
+    "custom/launch":{
+	"format": "    ",
+	"on-click":"~/.config/waybar/scripts/launch.sh",
+	"tooltip": false,
+    },    
     "custom/power":{
 	"format": "",
 	"on-click":"nwgbar",
@@ -55,7 +60,7 @@
         "on-click": "$HOME/.config/waybar/scripts/resources.sh"
     },
     "memory": {
-	"format": "{}% ",
+	"format": "{}% ",
 	"on-click": "$HOME/.config/waybar/scripts/processes.sh"
     },
     "temperature": {
@@ -70,10 +75,10 @@
 	// "interface": "wlp2*", // (Optional) To force the use of this interface
 	"format": "{icon}",
 	"format-wifi": "{essid} ({signalStrength}%) ",
-	"format-ethernet": "{ifname}: {ipaddr}/{cidr} ",
-	"format-linked": "{ifname} (No IP) ",
+	"format-ethernet": "{ifname}: {ipaddr}/{cidr} ",
+	"format-linked": "{ifname} (No IP) ",
 	"format-disconnected": "Disconnected ⚠",
-	"format-icons": [""],
+	"format-icons": [""],
 	"on-click": "$HOME/.config/waybar/scripts/net.sh"
     },
     "pulseaudio": {
