@@ -7,8 +7,8 @@ SRC_URI = "git://${GO_IMPORT};branch=master;protocol=https"
 
 GO_IMPORT = "github.com/xxxserxxx/gotop.git"
 
-PV = "4.1.2"
-SRCREV = "a32a1c05eae8c6612857f1e2e883382d793640e8"
+PV = "4.1.4"
+SRCREV = "cd0cf0f6ed85f3d9e9cbc7dfd2eb6e0a03f18dc2"
 
 inherit go go-mod
 
