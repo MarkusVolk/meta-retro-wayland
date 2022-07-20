@@ -51,6 +51,7 @@ WCONSOLE_TOOLS ?= " \
 	asciinema \
 	bash \
 	bzip2 \
+	coreutils \
 	coreutils-stdbuf \
 	cowsay-perl \
 	curl \
@@ -61,6 +62,7 @@ WCONSOLE_TOOLS ?= " \
 	findutils \
 	fortunes \
 	fzf \
+	gawk \
 	git \
 	gotop \
 	grep \
@@ -76,6 +78,7 @@ WCONSOLE_TOOLS ?= " \
 	pamixer \
 	playerctl \
 	procps \
+	psmisc \
 	pv \
 	rsync \
 	sed \
@@ -87,6 +90,7 @@ WCONSOLE_TOOLS ?= " \
 	util-linux-agetty \
 	util-linux-fstrim \
 	wf-recorder \
+	which \
 	wlsunset \
 	wob \
 	xz \
