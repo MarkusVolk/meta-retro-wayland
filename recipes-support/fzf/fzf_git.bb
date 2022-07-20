@@ -8,8 +8,8 @@ GO_IMPORT = "github.com/junegunn/fzf"
 
 SRC_URI = "git://${GO_IMPORT};branch=master;protocol=https"
 
-PV = "0.29.0"
-SRCREV = "9cb7a364a31bdb882d873807774bdcf6fad0c9e4"
+PV = "0.30.0"
+SRCREV = "209366754892b04a01fd40de03cb9874a1e8fef7"
 
 inherit go go-mod
 
