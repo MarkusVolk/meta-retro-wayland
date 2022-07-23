@@ -7,8 +7,8 @@ DEPENDS = "glib-2.0 mpv"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=6d9f933220f595813218a175adc13001"
 
-PV = "0.6"
-SRCREV = "22f9ba0f7c52437e2b3c2157b74e338e466b09e9"
+PV = "0.8.1"
+SRCREV = "6f07b20acd6d4fa317f97004dfcfd53037eca0f2"
 SRC_URI = " \
     git://github.com/hoyon/mpv-mpris.git;nobranch=1;protocol=https \
 "
