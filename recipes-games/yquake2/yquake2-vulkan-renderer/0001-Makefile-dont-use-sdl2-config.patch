@@ -1,0 +1,34 @@
+From 31bcbc29c793943e6af95f4d78e10bc0c6269442 Mon Sep 17 00:00:00 2001
+From: Markus Volk <f_l_k@t-online.de>
+Date: Mon, 25 Jul 2022 17:03:14 +0200
+Subject: [PATCH] Makefile: dont use sdl2-config
+
+---
+ Makefile | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/Makefile b/Makefile
+index 116bea5..b8bdb6f 100644
+--- a/Makefile
++++ b/Makefile
+@@ -179,7 +179,7 @@ endif
+ # ----------
+ 
+ # Extra CFLAGS for SDL.
+-SDLCFLAGS := $(shell sdl2-config --cflags)
++SDLCFLAGS := $(shell pkg-config --cflags sdl2)
+ 
+ # ----------
+ 
+@@ -256,7 +256,7 @@ endif
+ # ----------
+ 
+ # Extra LDFLAGS for SDL
+-SDLLDFLAGS := $(shell sdl2-config --libs)
++SDLLDFLAGS := $(shell pkg-config --libs sdl2)
+ 
+ # The renderer libs don't need libSDL2main, libmingw32 or -mwindows.
+ ifeq ($(YQ2_OSTYPE), Windows)
+-- 
+2.34.1
+

@@ -6,6 +6,7 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=cdfb10fe3916436d25f4410fcd6a97b8"
 
 DEPENDS = "libsdl2 curl openal-soft"
 RDEPENDS:${PN} = "openal-soft"
+RDEPENDS:${PN} += "${@bb.utils.contains('DISTRO_FEATURES', 'vulkan', 'yquake2-vulkan-renderer', '', d)}"
 RRECOMMENDS:${PN} = "quake2-pak rogue xatrix"
 
 inherit cmake pkgconfig gtk-icon-cache
