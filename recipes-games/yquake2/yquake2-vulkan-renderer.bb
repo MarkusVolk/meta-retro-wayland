@@ -28,3 +28,4 @@ FILES:${PN} = " \
 	${libexecdir} \
 "
 
+EXTRA_OEMAKE = "YQ2_ARCH=${TARGET_ARCH}"
