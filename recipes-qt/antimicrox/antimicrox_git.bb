@@ -10,8 +10,8 @@ SRC_URI = " \
 	git://github.com/AntiMicroX/antimicrox.git;protocol=https;branch=master \
 	file://0001-buttoneditdialog.cpp-fix-redefinition-if-building-wi.patch \
 "
-SRCREV = "e6bb2e73acae08777a620974ca558de5c7bf073e"
-PV = "3.2.3"
+SRCREV = "2f7504457a4c098cc3906a952f194195e4c4fd78"
+PV = "3.2.5"
 S = "${WORKDIR}/git"
 
 DEPENDS = " \
