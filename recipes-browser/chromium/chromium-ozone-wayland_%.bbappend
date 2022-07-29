@@ -1,7 +1,5 @@
 FILESEXTRAPATHS:prepend := "${THISDIR}/chromium-ozone-wayland:"
 
-SRC_URI:append = " file://fix-error-unknown-argument-no-opaque-pointers.patch"
-
 PACKAGECONFIG:append = " proprietary-codecs"
 CHROMIUM_EXTRA_ARGS:append = " --password-store=gnome --enable-gpu-rasterization --enable-zero-copy --force-dark-mode --enable-features=WebUIDarkMode --no-default-browser-check"
 
