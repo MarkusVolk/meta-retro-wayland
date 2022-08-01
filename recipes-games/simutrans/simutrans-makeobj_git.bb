@@ -9,12 +9,11 @@ DEPENDS = "zlib bzip2 libpng"
 inherit cmake
 
 SRC_URI = " \
-    git://github.com/aburch/simutrans.git;protocol=https;branch=master \
+    git://github.com/simutrans/simutrans.git;protocol=https;nobranch=1 \
     file://0001-CMakeList.txt-fix-build.patch \
 "
 
-PV = "r10594"
-SRCREV = "121276359065f4a2939b4524dfec150e5bdac5a4"
+SRCREV = "6f26cce03f49ec3329a1bd4e578def35afc2e8f0"
 S = "${WORKDIR}/git/src/makeobj"
 
 EXTRA_OECMAKE = "-DSIMUTRANS_MSG_LEVEL=1"

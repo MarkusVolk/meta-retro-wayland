@@ -10,11 +10,10 @@ RDEPENDS:${PN} = "bash simutrans-pak128"
 inherit cmake pkgconfig gtk-icon-cache
 
 SRC_URI = " \
-    git://github.com/aburch/simutrans.git;protocol=https;branch=master \
+    git://github.com/simutrans/simutrans.git;protocol=https;nobranch=1 \
 "
 
-PV = "r10594"
-SRCREV = "121276359065f4a2939b4524dfec150e5bdac5a4"
+SRCREV = "6f26cce03f49ec3329a1bd4e578def35afc2e8f0"
 S = "${WORKDIR}/git"
 
 EXTRA_OECMAKE = "-DSIMUTRANS_USE_REVISION=1"
