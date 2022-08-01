@@ -20,7 +20,7 @@ SRC_URI = " \
 "
 
 PV = "1.0"
-SRCREV = "67db32ab27c3d32d3dee110a8bc3a4d3d16386e3"
+SRCREV = "a7704bd38b75ffe6679da9ff86892f95bffef1d7"
 S = "${WORKDIR}/git"
 
 inherit cmake gettext python3native gtk-icon-cache
