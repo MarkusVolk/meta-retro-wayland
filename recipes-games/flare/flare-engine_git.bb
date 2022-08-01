@@ -12,7 +12,7 @@ SRC_URI = " \
 "
 
 PV = "1.13.04"
-SRCREV = "3337b5569df0d37ecf7cef6c3a616e62898304d6"
+SRCREV = "39f02c8e00b8c25afc3a5e112cf1ceafd439b383"
 S = "${WORKDIR}/git"
 
 FILES:${PN} = "${datadir} ${prefix}/games"

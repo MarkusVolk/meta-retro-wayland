@@ -10,7 +10,7 @@ SRC_URI = " \
 RDEPENDS:${PN} = "flare-engine"
 
 PV = "1.13.04"
-SRCREV = "dea655586e4b54d1c7b4f61a4999fd7958017a04"
+SRCREV = "97b74b9c4096e784323604746d7f211bc173e884"
 S = "${WORKDIR}/git"
 
 inherit cmake
