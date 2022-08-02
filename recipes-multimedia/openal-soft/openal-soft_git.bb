@@ -22,8 +22,8 @@ PACKAGECONFIG ?= "\
     ffmpeg \
 "
 
-PV = "1.22.0"
-SRCREV = "c1c63a27de66cd44ef756b190a73bfa8bc6dbbab"
+PV = "1.22.2"
+SRCREV = "dc83d99c95a42c960150ddeee06c124134b52208"
 S = "${WORKDIR}/git"
 
 FILES:${PN} += "${datadir}"
