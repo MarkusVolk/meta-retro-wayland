@@ -7,6 +7,7 @@ SRC_URI = " \
 	file://azotebg \
 	file://bashrc \
 	file://kodi/kodi-addon-pvr-iptvsimple/settings.xml \
+	file://swappy/config \
 	file://sway/config \
 	file://sway/outputs \
 	file://sway/scripts/chromium.sh \
@@ -47,6 +48,7 @@ RRECOMMENDS:${PN} = " \
 "	
 	
 do_install() {
+	install -d ${D}${RETRO_USER_HOMEDIR}/.config/swappy
 	install -d ${D}${RETRO_USER_HOMEDIR}/.config/sway/scripts
 	install -d ${D}${RETRO_USER_HOMEDIR}/.config/systemd/user
 	install -d ${D}${RETRO_USER_HOMEDIR}/.config/foot
@@ -65,6 +67,7 @@ do_install() {
 	install -m 0644 ${WORKDIR}/bashrc ${D}${RETRO_USER_HOMEDIR}/.bashrc
 	install -m 0644 ${WORKDIR}/bash_profile ${D}${RETRO_USER_HOMEDIR}/.bash_profile
 	install -m 0644 ${WORKDIR}/kodi/kodi-addon-pvr-iptvsimple/settings.xml ${D}${RETRO_USER_HOMEDIR}/.kodi/userdata/addon_data/pvr.iptvsimple
+	install -m 0644 ${WORKDIR}/swappy/config ${D}${RETRO_USER_HOMEDIR}/.config/swappy
 	install -m 0644 ${WORKDIR}/sway/config ${D}${RETRO_USER_HOMEDIR}/.config/sway
 	install -m 0644 ${WORKDIR}/sway/outputs ${D}${RETRO_USER_HOMEDIR}/.config/sway
 	install -m 0755 ${WORKDIR}/sway/scripts/chromium.sh ${D}${RETRO_USER_HOMEDIR}/.config/sway/scripts	
