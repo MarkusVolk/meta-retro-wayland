@@ -41,6 +41,7 @@ WGTK_APPS ?= " \
 	nwg-look \
 	pavucontrol \
 	sirula \
+	swappy \
 	thunar \
 	waybar \
 	xfce-polkit \

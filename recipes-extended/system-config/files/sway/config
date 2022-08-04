@@ -65,7 +65,7 @@ bindsym $mod+Shift+q kill
 bindsym $mod+d exec $menu -i
 
 # screenshot
-bindsym $mod+Shift+c exec grimshot save
+bindsym $mod+Shift+c exec grim -g "$(slurp)" - | swappy -f -
 
 # mouse shit
 focus_follows_mouse no
