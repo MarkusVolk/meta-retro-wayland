@@ -148,6 +148,7 @@ assign [app_id="chromium-browser"] $ws3
 assign [app_id="thunar"] $ws4
 assign [app_id="geary"] $ws5
 assign [app_id="mpv"] $ws10
+assign [app_id="swappy"] $ws4
 
 for_window [app_id="Kodi"] fullscreen enable
 for_window [app_id="Kodi"] focus
@@ -158,6 +159,8 @@ for_window [app_id="geary"] focus
 for_window [app_id="chromium-browser"] focus
 for_window [app_id="mpv"] fullscreen enable
 for_window [app_id="mpv"] focus
+for_window [app_id="swappy"] focus
+
 
 bindsym $mod+1 workspace $ws1; exec ~/.config/sway/scripts/kodi.sh
 bindsym $mod+2 workspace $ws2; exec ~/.config/sway/scripts/retroarch.sh
