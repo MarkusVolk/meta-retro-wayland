@@ -33,6 +33,7 @@ SRC_URI = " \
 	file://glib-2.0/settings/keyfile \
 	file://unlock-keyring \
 	file://bash_profile \
+	file://mimeapps.list \
 "
 
 RRECOMMENDS:${PN} = " \
@@ -60,6 +61,7 @@ do_install() {
 	install -d ${D}${RETRO_USER_HOMEDIR}/.config/connman
 	install -d ${D}${RETRO_USER_HOMEDIR}/.config/waybar/scripts
 	install -d ${D}${RETRO_USER_HOMEDIR}/.config/mpv/
+	install -d ${D}${RETRO_USER_HOMEDIR}/.local/share/applications
 	install -d ${D}${RETRO_USER_HOMEDIR}/Downloads
 	install -d ${D}${RETRO_USER_HOMEDIR}/.kodi/userdata/addon_data/pvr.iptvsimple
 	install -d ${D}${bindir}
@@ -77,6 +79,8 @@ do_install() {
 	install -m 0755 ${WORKDIR}/sway/scripts/geary.sh ${D}${RETRO_USER_HOMEDIR}/.config/sway/scripts
 	install -m 0755 ${WORKDIR}/sway/scripts/rotate_workspaces.sh ${D}${RETRO_USER_HOMEDIR}/.config/sway/scripts
 	install -m 0644 ${WORKDIR}/foot/foot.ini ${D}${RETRO_USER_HOMEDIR}/.config/foot/foot.ini
+	install -m 0644 ${WORKDIR}/mimeapps.list ${D}${RETRO_USER_HOMEDIR}/.config
+	ln -sf ${RETRO_USER_HOMEDIR}/.config/mimeapps.list ${D}${RETRO_USER_HOMEDIR}/.local/share/applications/mimeapps.list
 	install -m 0644 ${WORKDIR}/nwg-launchers/nwgbar/bar.json ${D}${RETRO_USER_HOMEDIR}/.config/nwg-launchers/nwgbar
 	install -m 0644 ${WORKDIR}/nwg-launchers/nwggrid/terminal ${D}${RETRO_USER_HOMEDIR}/.config/nwg-launchers/nwggrid
 	install -m 0644 ${WORKDIR}/waybar/config ${D}${RETRO_USER_HOMEDIR}/.config/waybar/config
