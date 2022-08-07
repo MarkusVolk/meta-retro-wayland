@@ -5,7 +5,8 @@ LIC_FILES_CHKSUM = "file://COPYING;md5=b234ee4d69f5fce4486a80fdaf4a4263"
 GNOMEBASEBUILDCLASS = "meson"
 
 DEPENDS = " \
-    avahi \
+    appstream-glib-native \
+    desktop-file-utils-native \
     gcr \
     glib-2.0 \
     gnupg \
@@ -15,12 +16,18 @@ DEPENDS = " \
     libpwquality \
     libsecret \
     libsoup-2.4 \
-    openldap \
+    openssh \
 "
 
 inherit gnomebase itstool vala
 
-SRC_URI[archive.sha256sum] = "e6eec09e810448295f547f18c1d5772b65c3edc1d9e5a2595f10b5dde68929f5"
+SRC_URI[archive.sha256sum] = "c50cacebf8de7a7e2e5f1dae0b98232114741296abe8d543e3923d62a153d630"
+
+PACKAGECONFIG[key-sharing] = "-Dkey-sharing=true,-Dkey-sharing=false,avahi"
+PACKAGECONFIG[ldap-support] = "-Dldap-support=true,-Dldap-support=false,openldap"
+PACKAGECONFIG[pkcs11-support] = "-Dpkcs11-support=true,-Dpkcs11-support=false,p11-kit"
+
+PACKAGECONFIG ??= "pkcs11-support"
 
 do_configure:prepend() {
     sed -i "s|ssh_keygen = find_program('ssh-keygen')|#ssh_keygen = find_program('ssh-keygen')|" ${S}/meson.build
@@ -28,4 +35,3 @@ do_configure:prepend() {
 } 
 
 FILES:${PN} += "${datadir}"
-
