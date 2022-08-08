@@ -6,8 +6,8 @@ GO_IMPORT = "github.com/zyedidia/micro.git"
 
 SRC_URI = "git://${GO_IMPORT};nobranch=1;protocol=https"
 
-PV = "2.0.10"
-SRCREV = "6aa3ea70dc9b48182e708a244afd3e037f786830"
+PV = "2.0.11"
+SRCREV = "225927b9a25f0d50ea63ea18bc7bb68e404c0cfd"
 
 inherit go go-mod
 
