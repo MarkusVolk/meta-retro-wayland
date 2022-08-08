@@ -9,8 +9,8 @@ inherit cmake
 SRC_URI = " \
   git://github.com/KDE/extra-cmake-modules.git;protocol=https;branch=master \
 "
-SRCREV = "b6c8b20c1047006f148a9376046e45e8f036b3bd"
-PV = "5.94.0"
+SRCREV = "0064cf77e96acda8a99c0eba4cc89f83768b65d3"
+PV = "5.96.0"
 S = "${WORKDIR}/git"
 
 FILES:${PN} += "${datadir}"
