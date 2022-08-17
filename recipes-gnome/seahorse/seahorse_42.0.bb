@@ -19,7 +19,7 @@ DEPENDS = " \
     openssh \
 "
 
-inherit gnomebase itstool vala
+inherit gnomebase itstool vala mime-xdg
 
 SRC_URI[archive.sha256sum] = "c50cacebf8de7a7e2e5f1dae0b98232114741296abe8d543e3923d62a153d630"
 
