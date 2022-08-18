@@ -1,5 +1,3 @@
-DEPENDS += "e2fsprogs-native"
-
 inherit retro-user
 
 ROOT_USER_PASSWORD ??= "root"
@@ -118,6 +116,7 @@ WSYSTEM_CONF ?= " \
 	tzdata-europe \
 	udev-rules-udisks-hide-bootpart \
 	wireless-regdb-static \
+	pulseaudio-user-service \
 "
 	
 WNET_SERVICES ?= " \
@@ -129,7 +128,7 @@ WNET_SERVICES ?= " \
 	ntpdate \
 	oscam \
 	proftpd \
-	pulseaudio \
+	pipewire \
 	rpcbind \
 	samba \
 "
