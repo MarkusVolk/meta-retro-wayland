@@ -1,3 +1,5 @@
+WIRELESS_DAEMON = "iwd"
+
 PACKAGECONFIG:append = " openvpn vpnc l2tp pptp"
 
 RRECOMMENDS:${PN} += " \
