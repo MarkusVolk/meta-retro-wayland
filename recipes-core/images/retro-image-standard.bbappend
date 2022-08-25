@@ -20,7 +20,6 @@ WGTK_APPS ?= " \
 	azote \
 	blueman \
 	connman-gtk \
-	eovpn \
 	file-roller \
 	geary \
 	gdk-pixbuf \
