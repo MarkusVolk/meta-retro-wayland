@@ -3,7 +3,7 @@ FILESEXTRAPATHS:prepend := "${THISDIR}/chromium-ozone-wayland:"
 PACKAGECONFIG:append = " proprietary-codecs"
 CHROMIUM_EXTRA_ARGS:append = " --password-store=gnome --enable-gpu-rasterization --enable-zero-copy --force-dark-mode --enable-features=WebUIDarkMode --no-default-browser-check"
 
-inherit ccache
+inherit ccache mime-xdg
 
 DEPENDS:append:x86 = " libva"
 DEPENDS:append:x86_64 = " libva"
