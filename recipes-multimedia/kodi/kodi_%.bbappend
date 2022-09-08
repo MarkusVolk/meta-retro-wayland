@@ -9,6 +9,7 @@ PACKAGECONFIG:append = " \
 	optical \
 	samba \
 	vorbis \
+	mariadb \
 "
 
 KODIGRAPHICALBACKEND = "wayland"
