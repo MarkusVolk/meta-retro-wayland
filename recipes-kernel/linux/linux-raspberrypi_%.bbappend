@@ -1,4 +1,4 @@
-FILESEXTRAPATHS:prepend := "${THISDIR}/files:"
+FILESEXTRAPATHS:prepend := "${THISDIR}/raspberrypi:"
 
 SRC_URI:append = " \
     file://0001-nintendo-switch-driver.patch \
