@@ -16,7 +16,7 @@ RDEPENDS:${PN} = "yquake2"
 inherit autotools-brokensep pkgconfig
 
 S = "${WORKDIR}/git"
-SRCREV = "36b41fc107149ec1d4a94b3824e979b00a8213ae"
+SRCREV = "d7a11c33bed98465cd56ae5486a3f4e46e8a82bc"
 PV = "1.0.2"
 
 do_install() {
@@ -28,4 +28,4 @@ FILES:${PN} = " \
 	${libexecdir} \
 "
 
-EXTRA_OEMAKE = "YQ2_ARCH=${TARGET_ARCH}"
+EXTRA_OEMAKE = "YQ2_ARCH=${TARGET_ARCH} INCLUDE=-I${STAGING_INCDIR}"
