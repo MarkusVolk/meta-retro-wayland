@@ -26,7 +26,7 @@ SRC_URI = "${SOURCEFORGE_MIRROR}/webadmin/webmin-${PV}.tar.gz \
 
 RDEPENDS-${PN}-module += "perl"
 
-SRC_URI[sha256sum] = "aee5ae6d73d6fb4904f03215efa8aa485e27fbf65b13aca726a8ab9723fea0ee"
+SRC_URI[sha256sum] = "98111b70457cc7b96e9368076e8a46c6a966bc46158947459726a92c2a9a8963"
 
 inherit perlnative systemd retro-user
 
