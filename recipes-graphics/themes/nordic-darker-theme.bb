@@ -6,8 +6,8 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=84dcc94da3adb52b53ae4fa38fe49e5d"
 SRC_URI = "https://github.com/EliverLara/Nordic/releases/download/${PV}/Nordic-darker.tar.xz"
 SRC_URI[sha256sum] = "fb9057fbb419cb0e598ec984e93bb2289909fe57e35e40a9833da226dbd5a774"
 
-PV = "2.0.0"
-SRCREV = "${PV}"
+PV = "2.2.0"
+SRCREV = "bb5e31ec1488b1fd5641aa10f65f36d8714b5dba"
 S = "${WORKDIR}/Nordic-darker"
 
 
