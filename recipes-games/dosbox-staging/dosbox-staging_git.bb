@@ -1,10 +1,9 @@
 SUMMARY = "Modernized DOSBox codebase by using current development practices and tools."
 HOMEPAGE = "https://github.com/dosbox-staging/dosbox-staging" 
-LICENSE = "GPL-2.0-only"
+LICENSE = "GPL-3.0-or-later"
 LIC_FILES_CHKSUM = "file://COPYING;md5=ca8be14ecd86a8ae1155f8023c73bca6" 
 
 DEPENDS = " \
-	alsa-lib \
 	iir1 \
 	libsdl2 \
 	libxkbfile \
@@ -15,16 +14,14 @@ DEPENDS = " \
 
 inherit meson gtk-icon-cache pkgconfig
 
-SRC_URI = " \
-	git://github.com/dosbox-staging/dosbox-staging.git;protocol=https;branch=release/0.79.x \
-"
+SRC_URI = "git://github.com/dosbox-staging/dosbox-staging.git;protocol=https;branch=release/0.79.x"
 
 SRCREV = "81514caf0ddc1d49f45bd39d6809f331f48addc4"
 PV = "0.79.0"
 S = "${WORKDIR}/git"
 
 PACKAGECONFIG ?= " \
-	${@bb.utils.contains('DISTRO_FEATURES', 'opengl', 'opengl', '', d)} \
+	${@bb.utils.filter('DISTRO_FEATURES', 'opengl', d)} \
 	alsa \
 	sdl2_net \
 	fluidsynth \
@@ -44,4 +41,3 @@ EXTRA_OEMESON += "-Dsystem_libraries=fluidsynth,glib,iir,mt32emu,opusfile,png,sd
 EXTRA_OEMESON += "-Ddefault_library=shared"
 
 FILES:${PN} += "${datadir}"
-
