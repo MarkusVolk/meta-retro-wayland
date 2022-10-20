@@ -6,4 +6,5 @@ GenericName=Doomretro
 Comment=Doomretro Client
 Icon=doomretro
 Exec=doom
+Categories=Game
 

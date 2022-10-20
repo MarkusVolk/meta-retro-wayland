@@ -6,7 +6,7 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=b79a3a253030f1021bea5fd6c54d5241"
 
 DEPENDS = "libsdl2 libsdl2-image libsdl2-mixer"
 
-RRECOMMENDS:${PN} = "doom-wad"
+RRECOMMENDS:${PN} = "doomretro-doom-wad"
 
 inherit cmake pkgconfig
 
