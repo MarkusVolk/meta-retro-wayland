@@ -1,0 +1,55 @@
+From 413a8ced3b8310579f2e2ddf487492a9f2ed52b9 Mon Sep 17 00:00:00 2001
+From: Markus Volk <f_l_k@t-online.de>
+Date: Thu, 20 Oct 2022 00:59:06 +0200
+Subject: [PATCH] gameconfigfile.cpp:  fix config paths
+
+---
+ source/core/gameconfigfile.cpp | 16 ++++++++++++----
+ 1 file changed, 12 insertions(+), 4 deletions(-)
+
+diff --git a/source/core/gameconfigfile.cpp b/source/core/gameconfigfile.cpp
+index de8df7921..944a52e78 100644
+--- a/source/core/gameconfigfile.cpp
++++ b/source/core/gameconfigfile.cpp
+@@ -103,8 +103,12 @@ FGameConfigFile::FGameConfigFile ()
+ 		// Debian likes them in /usr/share/games/raze
+ 		// I assume other distributions don't do anything radically different
+ 		SetValueForKey ("Path", "/opt/raze", true);
++		SetValueForKey ("Path", "/usr/share/raze", true);
++		SetValueForKey ("Path", "/usr/share/raze/*", true);
+ 		SetValueForKey ("Path", "/usr/share/games/raze", true);
++		SetValueForKey ("Path", "/usr/share/games/raze/*", true);
+ 		SetValueForKey ("Path", "/usr/local/share/games/raze", true);
++		SetValueForKey ("Path", "/usr/local/share/games/raze/*", true);
+ 		SetValueForKey ("Path", "/usr/share/games/jfduke3d", true);
+ 		SetValueForKey ("Path", "/usr/local/share/games/jfduke3d", true);
+ 		SetValueForKey ("Path", "/usr/share/games/eduke32", true);
+@@ -135,6 +139,10 @@ FGameConfigFile::FGameConfigFile ()
+ #else
+ 		SetValueForKey ("Path", "$HOME/" GAME_DIR, true);
+ 		SetValueForKey ("Path", SHARE_DIR, true);
++		SetValueForKey ("Path", "/usr/share/games/raze", true);
++		SetValueForKey ("Path", "/usr/local/share/games/raze", true);
++		SetValueForKey ("Path", "/usr/share/raze", true);
++		SetValueForKey ("Path", "/usr/local/share/raze", true);
+ 		SetValueForKey ("Path", "/usr/share/games/jfduke3d", true);
+ 		SetValueForKey ("Path", "/usr/local/share/games/jfduke3d", true);
+ 		SetValueForKey ("Path", "/usr/share/games/eduke32", true);
+@@ -157,10 +165,10 @@ FGameConfigFile::FGameConfigFile ()
+ 		SetValueForKey("Path", "$PROGDIR/soundfonts", true);
+ #else
+ 		SetValueForKey("Path", "$HOME/" GAME_DIR "/soundfonts", true);
+-		SetValueForKey("Path", "/usr/local/share/" GAME_DIR "/soundfonts", true);
+-		SetValueForKey("Path", "/usr/local/share/games/" GAME_DIR "/soundfonts", true);
+-		SetValueForKey("Path", "/usr/share/" GAME_DIR "/soundfonts", true);
+-		SetValueForKey("Path", "/usr/share/games/" GAME_DIR "/soundfonts", true);
++		SetValueForKey("Path", "/usr/share/games/raze/soundfonts", true);
++		SetValueForKey("Path", "/usr/local/share/games/raze/soundfonts", true);
++		SetValueForKey("Path", "/usr/share/raze/soundfonts", true);
++		SetValueForKey("Path", "/usr/local/share/raze/soundfonts", true);
+ #endif
+ 	}
+ 
+-- 
+2.34.1
+

@@ -1,0 +1,156 @@
+From 75b6d3f4503e0c0fa8dd01b8d1da8ed75c2f3429 Mon Sep 17 00:00:00 2001
+From: Markus Volk <f_l_k@t-online.de>
+Date: Tue, 18 Oct 2022 19:29:18 +0200
+Subject: [PATCH] zipdir: remove deprecated liblzma  support
+
+---
+ CMakeLists.txt |  2 +-
+ zipdir.c       | 75 -------------------------------------
+ 2 files changed, 1 insertion(+), 76 deletions(-)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 65eb2fb72..04d678fea 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -1,7 +1,7 @@
+ cmake_minimum_required( VERSION 3.1.0 )
+ 
+ if( NOT CMAKE_CROSSCOMPILING )
+-	include_directories( "${ZLIB_INCLUDE_DIR}" "${BZIP2_INCLUDE_DIR}" "${LZMA_INCLUDE_DIR}" )
++	include_directories( "${ZLIB_INCLUDE_DIR}" "${BZIP2_INCLUDE_DIR}" )
+ 	add_executable( zipdir
+ 		zipdir.c )
+ 	target_link_libraries( zipdir ${ZLIB_LIBRARIES} ${BZIP2_LIBRARIES} lzma )
+diff --git a/zipdir.c b/zipdir.c
+index dab0dac04..355abdd6e 100644
+--- a/zipdir.c
++++ b/zipdir.c
+@@ -48,8 +48,6 @@
+ #include <time.h>
+ #include "zlib.h"
+ #include "bzlib.h"
+-#include "LzmaEnc.h"
+-#include "7zVersion.h"
+ #ifdef PPMD
+ #include "../../ppmd/PPMd.h"
+ #endif
+@@ -91,7 +89,6 @@ static unsigned int LittleLong(unsigned int x)
+ #define METHOD_STORED	0
+ #define METHOD_DEFLATE	8
+ #define METHOD_BZIP2	12
+-#define METHOD_LZMA		14
+ #define METHOD_PPMD		98
+ 
+ // Buffer size for central directory search
+@@ -216,7 +213,6 @@ int write_central_dir(FILE *zip, file_sorted_t *file);
+ void time_to_dos(struct tm *time, short *dosdate, short *dostime);
+ int method_to_version(int method);
+ const char *method_name(int method);
+-int compress_lzma(Byte *out, unsigned int *outlen, const Byte *in, unsigned int inlen);
+ int compress_bzip2(Byte *out, unsigned int *outlen, const Byte *in, unsigned int inlen);
+ int compress_ppmd(Byte *out, unsigned int *outlen, const Byte *in, unsigned int inlen);
+ int compress_deflate(Byte *out, unsigned int *outlen, const Byte *in, unsigned int inlen);
+@@ -224,11 +220,6 @@ BYTE *find_central_dir(FILE *fin);
+ CentralDirectoryEntry *find_file_in_zip(BYTE *dir, const char *path, unsigned int len, unsigned int crc, short date, short time);
+ int copy_zip_file(FILE *zip, file_entry_t *file, FILE *ozip, CentralDirectoryEntry *dirent);
+ 
+-// PRIVATE FUNCTION PROTOTYPES ---------------------------------------------
+-
+-static void *SzAlloc(ISzAllocPtr p, size_t size) { p = p; return malloc(size); }
+-static void SzFree(ISzAllocPtr p, void *address) { p = p; free(address); }
+-
+ // EXTERNAL DATA DECLARATIONS ----------------------------------------------
+ 
+ // PUBLIC DATA DEFINITIONS -------------------------------------------------
+@@ -244,10 +235,8 @@ static const UINT32 endofdir = ZIP_ENDOFDIR;
+ 
+ static int no_mem;
+ 
+-static ISzAlloc Alloc = { SzAlloc, SzFree };
+ static compressor_t Compressors[] =
+ {
+-	{ compress_lzma,	METHOD_LZMA },
+ 	{ compress_bzip2,	METHOD_BZIP2 },
+ #ifdef PPMD
+ 	{ compress_ppmd,	METHOD_PPMD },
+@@ -1182,10 +1171,6 @@ const char *method_name(int method)
+ 	{
+ 		return "Deflate";
+ 	}
+-	if (method == METHOD_LZMA)
+-	{
+-		return "LZMA";
+-	}
+ 	if (method == METHOD_PPMD)
+ 	{
+ 		return "PPMd";
+@@ -1198,66 +1183,6 @@ const char *method_name(int method)
+ 	return unkn;
+ }
+ 
+-//==========================================================================
+-//
+-// compress_lzma
+-//
+-// Returns non-negative offset to start of data stream on success. Barring
+-// any strange changes to the LZMA library in the future, success should
+-// always return 0.
+-//
+-//==========================================================================
+-
+-int compress_lzma(Byte *out, unsigned int *outlen, const Byte *in, unsigned int inlen)
+-{
+-	CLzmaEncProps lzma_props;
+-	size_t props_size;
+-	size_t comp_len;
+-	int offset;
+-
+-	if (*outlen < 1 + 4 + LZMA_PROPS_SIZE)
+-	{
+-		// Not enough room for LZMA properties header + compressed data.
+-		return -1;
+-	}
+-	if (out == NULL || in == NULL || inlen == 0)
+-	{
+-		return -1;
+-	}
+-
+-	LzmaEncProps_Init(&lzma_props);
+-//	lzma_props.level = 9;
+-	props_size = LZMA_PROPS_SIZE;
+-	comp_len = *outlen - 4 - LZMA_PROPS_SIZE;
+-
+-	if (SZ_OK != LzmaEncode(out + 4 + LZMA_PROPS_SIZE, &comp_len, in, inlen, &lzma_props,
+-		out + 4, &props_size, 0, NULL, &Alloc, &Alloc))
+-	{
+-		return -1;
+-	}
+-	// Fill in LZMA properties header
+-	offset = 0;
+-	if (props_size != LZMA_PROPS_SIZE)
+-	{
+-		// Move LZMA properties to be adjacent to the compressed data, because for
+-		// some reaseon the library didn't use all the space provided.
+-		int i;
+-
+-		offset = (int)(LZMA_PROPS_SIZE - props_size);
+-		for (i = 4 + LZMA_PROPS_SIZE - 1; i > 4 + offset; --i)
+-		{
+-			out[i] = out[i - offset];
+-		}
+-	}
+-	out[offset] = MY_VER_MAJOR;
+-	out[offset+1] = MY_VER_MINOR;
+-	out[offset+2] = (Byte)props_size;
+-	out[offset+3] = 0;
+-	// Add header length to outlen
+-	*outlen = (unsigned int)(comp_len + 4 + props_size);
+-	return offset;
+-}
+-
+ //==========================================================================
+ //
+ // compress_bzip2
+-- 
+2.34.1
+

@@ -1,0 +1,10 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Application
+Exec=gzdoom
+Name=gzDOOM
+Icon=gzdoom
+Terminal=false
+GenericName=gzDOOM
+Comment=gzDOOM Game Engine
+Categories=Game

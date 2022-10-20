@@ -1,0 +1,37 @@
+From aefaf85de0ef02d7ce268a0057146ac07e559b59 Mon Sep 17 00:00:00 2001
+From: Markus Volk <f_l_k@t-online.de>
+Date: Wed, 19 Oct 2022 13:12:06 +0200
+Subject: [PATCH] CMakeLists.txt: compile fix
+
+---
+ CMakeLists.txt | 7 +------
+ 1 file changed, 1 insertion(+), 6 deletions(-)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index c0b8ac9df..4b55af1d5 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -24,11 +24,6 @@ if( FORCE_CROSSCOMPILE )
+ 	set( CMAKE_CROSSCOMPILING TRUE )
+ endif()
+ 
+-if(CMAKE_CROSSCOMPILING)
+-	set(IMPORT_EXECUTABLES "IMPORTFILE-NOTFOUND" CACHE FILEPATH "Export file from native build.")
+-	include(${IMPORT_EXECUTABLES})
+-endif()
+-
+ # Recursive function to place PK3 archive source files into a hierarchy of source file in the IDE
+ function( assort_pk3_source_folder FOLDER_NAME PK3_DIR )
+ 	# Assort source files into folders in the IDE
+@@ -89,7 +84,7 @@ function( add_pk3 PK3_NAME PK3_DIR )
+ 	# Touch the zipdir executable here so that the pk3s are forced to
+ 	# rebuild each time since their dependency has "changed."
+ 	add_custom_target( ${PK3_TARGET} ALL
+-		COMMAND ${CMAKE_COMMAND} -E touch $<TARGET_FILE:zipdir>
++		COMMAND ${CMAKE_COMMAND} -E touch zipdir
+ 		DEPENDS ${ZDOOM_OUTPUT_DIR}/${PK3_NAME}
+ 		SOURCES ${PK3_SRCS})
+ 	# Phase 3: Assign source files to a nice folder structure in the IDE
+-- 
+2.34.1
+

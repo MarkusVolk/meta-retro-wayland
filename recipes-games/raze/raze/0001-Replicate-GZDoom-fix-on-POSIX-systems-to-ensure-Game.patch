@@ -1,0 +1,38 @@
+From 8fb4549998c6b0cf14e7252ce95be74b6a96d002 Mon Sep 17 00:00:00 2001
+From: Mitchell Richters <mjr4077au@gmail.com>
+Date: Sun, 24 Jul 2022 20:11:00 +1000
+Subject: [PATCH] - Replicate GZDoom fix on POSIX systems to ensure
+ `GameConfig` global is initialised before trying to load the `ENGINERES`
+ file.
+
+* Same fix as https://github.com/ZDoom-Official/gzdoom/commit/0f0b4b7620557410e4969cec6119a7771b8acf35.
+
+Patch-Status: Backport
+---
+ source/core/gamecontrol.cpp | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+
+diff --git a/source/core/gamecontrol.cpp b/source/core/gamecontrol.cpp
+index d8e9a145c..5a6207dde 100644
+--- a/source/core/gamecontrol.cpp
++++ b/source/core/gamecontrol.cpp
+@@ -957,6 +957,8 @@ int RunGame()
+ {
+ 	GameStartupInfo.FgColor = 0xffffff;
+ 
++	G_LoadConfig();
++
+ 	auto wad = BaseFileSearch(ENGINERES_FILE, NULL, true, GameConfig);
+ 	if (wad == NULL)
+ 	{
+@@ -979,7 +981,6 @@ int RunGame()
+ 	}
+ 	I_DetectOS();
+ 	userConfig.ProcessOptions();
+-	G_LoadConfig();
+ 	GetGames();
+ 	auto usedgroups = SetupGame();
+ 
+-- 
+2.34.1
+

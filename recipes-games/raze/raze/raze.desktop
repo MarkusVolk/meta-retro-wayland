@@ -1,0 +1,10 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Application
+Exec=raze
+Name=Raze
+Icon=raze
+Terminal=false
+GenericName=Raze
+Comment=Raze DukeNukem Game Engine
+Categories=Game
