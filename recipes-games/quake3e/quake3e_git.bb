@@ -10,7 +10,6 @@ DEPENDS = " \
 	virtual/egl \
 	vulkan-loader \
 	vulkan-headers \
-	glslang \
 	glslang-native \
 "
 
@@ -23,8 +22,8 @@ SRC_URI = " \
     file://quake3.desktop \
 "
 
-PV = "2022-07-01"
-SRCREV = "525a5ae69322c973268a1807fd9d9a3128fcfd4d"
+PV = "2022-10-14"
+SRCREV = "f69865508ef4f3d63bcc82c8505d661a1c290f92"
 S = "${WORKDIR}/git"
 
 EXTRA_OEMAKE += "CROSS_COMPILING=1 ARCH=${TARGET_ARCH} USE_SYSTEM_JPEG=1 USE_OPENGL=1 USE_VULKAN=1"
