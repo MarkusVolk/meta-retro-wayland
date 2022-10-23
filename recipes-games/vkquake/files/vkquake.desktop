@@ -1,0 +1,10 @@
+[Desktop Entry]
+Encoding=UTF-8
+Type=Application
+Exec=vkquake
+Name=Quake
+Icon=vkquake
+Terminal=false
+GenericName=vkquake
+Comment=Vulkan Quake Client
+Categories=Game
