@@ -13,7 +13,7 @@ SRC_URI = " \
     git://github.com/simutrans/simutrans.git;protocol=https;nobranch=1 \
 "
 
-SRCREV = "6f26cce03f49ec3329a1bd4e578def35afc2e8f0"
+SRCREV = "a84b878870a4fe9bcdb649aaaf9b5eeefa9c96e6"
 S = "${WORKDIR}/git"
 
 EXTRA_OECMAKE = "-DSIMUTRANS_USE_REVISION=1"

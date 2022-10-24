@@ -10,7 +10,7 @@ SRC_URI = "git://github.com/simutrans/pak128.git;protocol=https;branch=master"
 
 inherit autotools-brokensep
 
-SRCREV = "0adb1d2a6cd9cb1254bede2f52081916cbb93921"
+SRCREV = "2bbb3e7c92d3dca8da934916c62aca344046194a"
 S = "${WORKDIR}/git"
 PV = "2.8.2"
 
