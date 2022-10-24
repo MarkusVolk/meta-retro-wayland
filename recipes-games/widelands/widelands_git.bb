@@ -16,11 +16,11 @@ DEPENDS = " \
 "
 
 SRC_URI = " \
-    git://github.com/widelands/widelands.git;protocol=https;branch=master \
+    git://github.com/widelands/widelands.git;protocol=https;branch=release-1.1 \
 "
 
-PV = "1.0"
-SRCREV = "a7704bd38b75ffe6679da9ff86892f95bffef1d7"
+PV = "1.1"
+SRCREV = "98e30234167b1172fd876fffd8ffbd90762cf385"
 S = "${WORKDIR}/git"
 
 inherit cmake gettext python3native gtk-icon-cache
@@ -42,5 +42,3 @@ do_install:append() {
 }
 
 FILES:${PN} = "${prefix}"
-
-CXXFLAGS:append = " -Wno-uninitialized -Wno-use-after-free -Wno-stringop-overflow"
