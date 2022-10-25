@@ -22,13 +22,12 @@ inherit meson pkgconfig gtk-icon-cache
 
 SRC_URI = " \
     git://github.com/Novum/vkQuake.git;protocol=https;branch=master \
-    file://0001-meson-build-use-native-for-bintoc.patch \
     file://vkquake.desktop \
     file://vkquake.svg \
 "
 
 PV = "1.20.3"
-SRCREV = "41ecf07dc40c4b1fde2a60ee592fa7ba264bbbff"
+SRCREV = "6c8b3c43644dad1fa3839c20e69fac17d497f32c"
 S = "${WORKDIR}/git"
 
 do_install() {
