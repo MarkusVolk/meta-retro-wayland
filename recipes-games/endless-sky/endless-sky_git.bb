@@ -17,8 +17,8 @@ SRC_URI = " \
     git://github.com/endless-sky/endless-sky.git;protocol=https;branch=master \
 "
 
-PV = "0.9.14"
-SRCREV = "819708acf67587a38fabdcbb73048970b1179ffd"
+PV = "0.9.16.1"
+SRCREV = "d930b95c14119a74c6ffaadbe14bfd67a679af81"
 S = "${WORKDIR}/git"
 
 inherit scons pkgconfig gtk-icon-cache
