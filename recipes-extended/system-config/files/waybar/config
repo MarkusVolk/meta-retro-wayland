@@ -27,7 +27,7 @@
         "format": "<span style=\"italic\">{}</span>"
     },
     "custom/launch":{
-	"format": "    ",
+	"format": "",
 	"on-click":"~/.config/waybar/scripts/launch.sh",
 	"tooltip": false,
     },    
