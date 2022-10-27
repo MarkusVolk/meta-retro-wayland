@@ -137,7 +137,7 @@ label:focus {
 }
 
 #cpu {
-    background-color: #bdecb6;
+    background-color: #e48280;
     color: #000000;
 }
 
@@ -184,12 +184,13 @@ label:focus {
 }
 
 #temperature {
-    background-color: #e48280;
+    background-color: #bdecb6;
     color: #000000;
 }
 
 #temperature.critical {
-    background-color: #eb4d4b;
+    background-color: #e48280;
+    color: #000000;
 }
 
 #idle_inhibitor {
