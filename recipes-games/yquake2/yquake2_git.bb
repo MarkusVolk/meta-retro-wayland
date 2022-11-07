@@ -19,7 +19,7 @@ SRC_URI = " \
 "
 
 PV = "8.11pre"
-SRCREV = "1a450ef23d7504e66d553c25441a56d82fcc3db9"
+SRCREV = "57db0df75210c8601c75455bb28c2175ade769f5"
 S = "${WORKDIR}/git"
 
 # thumb is unsupported

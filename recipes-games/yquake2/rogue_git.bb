@@ -16,7 +16,7 @@ SRC_URI = " \
 "
 
 PV = "2.09"
-SRCREV = "15ffab8518c907d00748f0401be364db7132fc8e"
+SRCREV = "9922dd88bb7723354915bef34e16fd172da6d29c"
 S = "${WORKDIR}/git"
 
 do_install() {
