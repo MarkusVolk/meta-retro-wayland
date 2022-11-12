@@ -7,8 +7,8 @@ SRC_URI = " \
 	file://0001-install.sh-dont-rename-themes-using-spaces.patch \
 "
 
-PV = "2022-10-13"
-SRCREV = "18c0f3697885b15fd6ebaaf4c911f581ed29acb9"
+PV = "2022-11-12"
+SRCREV = "de2b1bdbbb68ed858a65c014756bf1b9f01bd87c"
 S = "${WORKDIR}/git"
 
 inherit gtk-icon-cache
