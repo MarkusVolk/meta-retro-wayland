@@ -76,10 +76,10 @@
 	// "interface": "wlp2*", // (Optional) To force the use of this interface
 	"format": "{icon}",
 	"format-wifi": "{essid} ({signalStrength}%) ",
-	"format-ethernet": "{ifname}: {ipaddr}/{cidr} ",
+	"format-ethernet": "{ifname}: {ipaddr}/{cidr} 🌎",
 	"format-linked": "{ifname} (No IP) ",
-	"format-disconnected": "Disconnected ⚠",
-	"format-icons": [""],
+	"format-disconnected": "Disconnected ",
+	"format-icons": ["🌎"],
 	"on-click": "$HOME/.config/waybar/scripts/net.sh"
     },
     "pulseaudio": {

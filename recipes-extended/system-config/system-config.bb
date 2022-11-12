@@ -19,6 +19,7 @@ SRC_URI = " \
 	file://foot/foot.ini \
 	file://nwg-launchers/nwgbar/bar.json \
 	file://nwg-launchers/nwggrid/terminal \
+	file://nwg-launchers/nwggrid/grid.conf \
 	file://waybar/config \
 	file://waybar/style.css \
 	file://waybar/scripts/eovpn.sh \
@@ -83,6 +84,7 @@ do_install() {
 	ln -sf ${RETRO_USER_HOMEDIR}/.config/mimeapps.list ${D}${RETRO_USER_HOMEDIR}/.local/share/applications/mimeapps.list
 	install -m 0644 ${WORKDIR}/nwg-launchers/nwgbar/bar.json ${D}${RETRO_USER_HOMEDIR}/.config/nwg-launchers/nwgbar
 	install -m 0644 ${WORKDIR}/nwg-launchers/nwggrid/terminal ${D}${RETRO_USER_HOMEDIR}/.config/nwg-launchers/nwggrid
+	install -m 0644 ${WORKDIR}/nwg-launchers/nwggrid/grid.conf ${D}${RETRO_USER_HOMEDIR}/.config/nwg-launchers/nwggrid
 	install -m 0644 ${WORKDIR}/waybar/config ${D}${RETRO_USER_HOMEDIR}/.config/waybar/config
 	install -m 0644 ${WORKDIR}/waybar/style.css ${D}${RETRO_USER_HOMEDIR}/.config/waybar/style.css
 	install -m 0755 ${WORKDIR}/waybar/scripts/eovpn.sh ${D}${RETRO_USER_HOMEDIR}/.config/waybar/scripts/eovpn.sh
