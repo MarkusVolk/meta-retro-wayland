@@ -23,7 +23,7 @@ PACKAGECONFIG ?= "\
 "
 
 PV = "1.22.2"
-SRCREV = "dc83d99c95a42c960150ddeee06c124134b52208"
+SRCREV = "c835f07f7e8db54455bb1b8ecbc15380498c660b"
 S = "${WORKDIR}/git"
 
 FILES:${PN} += "${datadir}"
