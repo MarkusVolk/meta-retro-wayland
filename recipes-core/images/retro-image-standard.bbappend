@@ -23,6 +23,7 @@ WGTK_APPS ?= " \
 	pavucontrol \
 	sirula \
 	swappy \
+	swayosd \
 	thunar \
 	waybar \
 	xfce-polkit \
@@ -54,10 +55,8 @@ WCONSOLE_TOOLS ?= " \
 	less \
 	libswscale \
 	libusb1 \
-	light \
 	micro \
 	mpv \
-	pamixer \
 	playerctl \
 	procps \
 	psmisc \
@@ -74,7 +73,6 @@ WCONSOLE_TOOLS ?= " \
 	wf-recorder \
 	which \
 	wlsunset \
-	wob \
 	xz \
 "
 
