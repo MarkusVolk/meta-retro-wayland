@@ -7,8 +7,8 @@ LIC_FILES_CHKSUM = "file://src/${GO_IMPORT}/LICENSE.txt;md5=1bd8766c3c92d7680188
 GO_IMPORT = "github.com/johnkerl/miller.git"
 
 SRC_URI = "git://${GO_IMPORT};nobranch=1;protocol=https"
-PV = "6.3.0"
-SRCREV = "31d8632a7f17f9b8ac11ebb8cdd3efafb424349f"
+PV = "6.4.0"
+SRCREV = "3c5cc37bdfeacb2c031be5daf4a37cd423d9b144"
 
 inherit go go-mod
 
