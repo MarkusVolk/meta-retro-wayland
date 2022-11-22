@@ -11,10 +11,10 @@ PV = "0.35.0"
 SRCREV_mpv = "75d938912ddd50f5658d874c59e1b50e13b28bf1"
 SRC_URI = " \
     git://github.com/mpv-player/mpv;name=mpv;nobranch=1;protocol=https \
-    https://waf.io/waf-2.0.22;name=waf;subdir=git \
+    https://waf.io/waf-2.0.23;name=waf;subdir=git \
 "
+SRC_URI[waf.sha256sum] = "28a2e4583314a162cfcbffefb8a9202c1d7869040d30b5852da479b76d9c0491"
 
-SRC_URI[waf.sha256sum] = "0a09ad26a2cfc69fa26ab871cb558165b60374b5a653ff556a0c6aca63a00df1"
 S = "${WORKDIR}/git"
 
 inherit waf pkgconfig mime-xdg
@@ -95,7 +95,7 @@ SIMPLE_TARGET_SYS = "${@'${TARGET_SYS}'.replace('${TARGET_VENDOR}', '')}"
 FILES:${PN} += "${datadir}"
 
 link_waf() {
-    ln -s waf-2.0.22 ${S}/waf
+    ln -s waf-2.0.23 ${S}/waf
 }
 
 do_unpack[postfuncs] += "link_waf"
