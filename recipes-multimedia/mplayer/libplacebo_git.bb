@@ -10,20 +10,20 @@ SRC_URI = " \
 "
 
 S = "${WORKDIR}/git"
-SRCREV = "12d55df496aa473296b180318b3132fdceb068fe"
-PV = "4.208.0"
+SRCREV = "34314e37306e3d12fe5a0416c9b79eaf268b0cb2"
+PV = "5.229.1"
 
 inherit meson pkgconfig
 
 PACKAGECONFIG ??= " \
 	${@bb.utils.filter('DISTRO_FEATURES', 'vulkan opengl', d)} \
+	lcms \
 "
 
-PACKAGECONFIG[vulkan] = ",,vulkan-loader vulkan-headers shaderc python3-mako-native"
-PACKAGECONFIG[opengl] = ",,libepoxy"
-PACKAGECONFIG[lcms] = ",,lcms"
-PACKAGECONFIG[sdl2] = ",,libsdl2 libsdl2-image"
-PACKAGECONFIG[ffmpeg] = ",,ffmpeg"
+PACKAGECONFIG[vulkan] = "-Dvulkan=enabled,-Dvulkan=disabled,vulkan-loader vulkan-headers shaderc spirv-shader-generator python3-mako-native python3-jinja2-native glad-native"
+PACKAGECONFIG[opengl] = "-Dopengl=enabled,-Dopengl=disabled,libepoxy"
+PACKAGECONFIG[lcms] = "-Dlcms=enabled,-Dlcms=disabled,lcms"
+PACKAGECONFIG[demos] = "-Ddemos=true,-Ddemos=false,ffmpeg libsdl2 libsdl2-image"
 
 EXTRA_OEMESON = "-Dvulkan-registry=${STAGING_DATADIR}/vulkan/registry/vk.xml"
 
