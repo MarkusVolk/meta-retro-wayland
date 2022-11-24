@@ -24,7 +24,7 @@ LDFLAGS:append:riscv64 = " -latomic"
 EXTRA_OECONF = " \
     --prefix=${prefix} \
     --target=${SIMPLE_TARGET_SYS} \
-    --confdir=${sysconfdir} \
+    --confdir=${sysconfdir}/mpv \
     --datadir=${datadir} \
     --disable-manpage-build \
     --disable-libbluray \
@@ -40,7 +40,10 @@ PACKAGECONFIG ??= " \
 	lua \
 	libarchive \
 	drm \
-	${@bb.utils.filter('DISTRO_FEATURES', 'alsa pulseaudio vulkan wayland x11 vaapi pipewire', d)} \
+	openal \
+	shared \
+	zimg \
+	${@bb.utils.filter('DISTRO_FEATURES', 'alsa pulseaudio vaapi vulkan wayland x11 pipewire', d)} \
 	${@bb.utils.contains('DISTRO_FEATURES', 'opengl', 'opengl egl gbm', '', d)} \
 "
 
@@ -93,6 +96,8 @@ python __anonymous() {
 SIMPLE_TARGET_SYS = "${@'${TARGET_SYS}'.replace('${TARGET_VENDOR}', '')}"
 
 FILES:${PN} += "${datadir}"
+
+RRECOMMENDS:${PN} += "mpv-mpris"
 
 link_waf() {
     ln -s waf-2.0.23 ${S}/waf
