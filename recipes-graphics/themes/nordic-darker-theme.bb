@@ -3,11 +3,10 @@ LICENSE = "GPL-3.0-only"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=84dcc94da3adb52b53ae4fa38fe49e5d"
 
 
-SRC_URI = "https://github.com/EliverLara/Nordic/releases/download/${PV}/Nordic-darker.tar.xz"
-SRC_URI[sha256sum] = "fb9057fbb419cb0e598ec984e93bb2289909fe57e35e40a9833da226dbd5a774"
+SRC_URI = "https://github.com/EliverLara/Nordic/releases/download/v${PV}/Nordic-darker.tar.xz"
+SRC_URI[sha256sum] = "49115292bfa15aaa9aea661c7468b48918708a6940e4b8058ac46f3dbb81c626"
 
 PV = "2.2.0"
-SRCREV = "bb5e31ec1488b1fd5641aa10f65f36d8714b5dba"
 S = "${WORKDIR}/Nordic-darker"
 
 
