@@ -3,7 +3,6 @@ RETRO_WAYLAND_COMPOSITOR ?= "sway"
 WGTK_APPS ?= " \
 	azote \
 	blueman \
-	connman-gtk \
 	file-roller \
 	geary \
 	gdk-pixbuf \
@@ -16,6 +15,7 @@ WGTK_APPS ?= " \
 	gvfs \
 	gvfsd-trash \
 	gedit \
+	iwgtk \
 	librsvg-gtk \
 	nwg-displays \
 	nwg-launchers \
