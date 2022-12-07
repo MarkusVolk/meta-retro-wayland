@@ -26,14 +26,14 @@ RDEPENDS:${PN} = "openal-soft stk-assets"
 
 inherit cmake pkgconfig
 
-EXTRA_OECMAKE += "-DBUILD_RECORDER=0 -DCHECK_ASSETS=off"
+EXTRA_OECMAKE += "-DBUILD_RECORDER=0 -DCHECK_ASSETS=off -DSTK_INSTALL_DATA_DIR=${datadir}/games/supertuxkart"
 
 SRC_URI = " \
-    git://github.com/supertuxkart/stk-code.git;protocol=https;branch=1.3 \
+    git://github.com/supertuxkart/stk-code.git;protocol=https;nobranch=1 \
 "
 
-PV = "1.3"
-SRCREV = "ec1775ebedb9cfa41b8099f980325271f80a007b"
+PV = "1.4"
+SRCREV = "bea5b530a56296e6110e7755a56d79742bd94176"
 S = "${WORKDIR}/git"
 
 FILES:${PN} += "${datadir}"
