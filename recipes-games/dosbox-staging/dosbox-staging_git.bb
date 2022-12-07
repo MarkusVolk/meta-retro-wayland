@@ -16,8 +16,8 @@ inherit meson gtk-icon-cache pkgconfig
 
 SRC_URI = "git://github.com/dosbox-staging/dosbox-staging.git;protocol=https;branch=release/0.79.x"
 
-SRCREV = "81514caf0ddc1d49f45bd39d6809f331f48addc4"
-PV = "0.79.0"
+SRCREV = "dd7f21809870cc998005b3b09a33f1c36bd764a6"
+PV = "0.79.1"
 S = "${WORKDIR}/git"
 
 PACKAGECONFIG ?= " \
