@@ -35,8 +35,8 @@ SRC_URI = " \
     file://gzdoom.desktop \
 "
 
-PV = "4.8.2"
-SRCREV = "c2373fed99998790dc63ee1f706183e89d0f7929"
+PV = "4.10.0"
+SRCREV = "75da94aecd9b1c4c2e16b449dea1b9f9838c1af2"
 S = "${WORKDIR}/git"
 
 EXTRA_OECMAKE = "-DCLANG_FORMAT_CMD=OFF"
