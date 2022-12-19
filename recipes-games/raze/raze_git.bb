@@ -41,8 +41,8 @@ SRC_URI = " \
     file://raze.desktop \
 "
 
-PV = "1.5.0"
-SRCREV = "bfafe4e21c47350c5bc52d8170fdecee1a5bfcdf"
+PV = "1.6.0"
+SRCREV = "5e4dc64fa5d3133e41b5a6be2ffdd14fed72fb56"
 S = "${WORKDIR}/git"
 
 EXTRA_OECMAKE = "-DCLANG_FORMAT_CMD=OFF"
