@@ -6,7 +6,7 @@ RRECOMMENDS:${PN} += "e2fsprogs"
 
 do_install:append() {
 	echo "#!/bin/sh" > ${D}${bindir}/gparted-wayland
-	echo -e "\nexec sudo --preserve-env=XDG_RUNTIME_DIR,WAYLAND_DISPLAY gparted\n" >> ${D}${bindir}/gparted-wayland
+	echo "exec sudo -E gparted" >> ${D}${bindir}/gparted-wayland
 	chmod +x ${D}${bindir}/gparted-wayland
 	sed -i "s:\/usr\/bin\/gparted:\/usr\/bin\/gparted-wayland:" ${D}${datadir}/applications/gparted.desktop
 }
