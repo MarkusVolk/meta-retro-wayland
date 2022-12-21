@@ -6,7 +6,7 @@
     // Choose the order of the modules
     "modules-left": ["sway/workspaces", "sway/mode", "custom/media"],
     "modules-center": ["sway/window"],
-    "modules-right": ["pulseaudio", "network", "cpu", "memory", "temperature", "bluetooth", "custom/keyring", "custom/vpn", "clock", "custom/power", "custom/launch"],
+    "modules-right": ["pulseaudio", "network", "cpu", "memory", "temperature", "bluetooth", "clock", "custom/power", "custom/launch"],
     // Modules configuration
     // "sway/workspaces": {
     //     "disable-scroll": true,
@@ -40,15 +40,6 @@
         // "timezone": "America/New_York",
         "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
         "format-alt": "{:%Y-%m-%d}"
-    },
-    "custom/vpn":{
-	"format": "",
-	"on-click":"~/.config/waybar/scripts/eovpn.sh",
-	"tooltip": false,
-    },
-    "custom/keyring":{
-	"format": "",
-	"on-click":".config/waybar/scripts/keyring.sh",
     },
     "bluetooth": {
         "format": "  ",

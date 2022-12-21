@@ -11,6 +11,7 @@ SRC_URI = " \
 	file://sway/config \
 	file://sway/outputs \
 	file://sway/scripts/chromium.sh \
+	file://sway/scripts/flathub.sh \
 	file://sway/scripts/kodi.sh \
 	file://sway/scripts/retroarch.sh \
 	file://sway/scripts/thunar.sh \
@@ -22,24 +23,22 @@ SRC_URI = " \
 	file://nwg-launchers/nwggrid/grid.conf \
 	file://waybar/config \
 	file://waybar/style.css \
-	file://waybar/scripts/eovpn.sh \
 	file://waybar/scripts/launch.sh \
 	file://waybar/scripts/waybar.sh \
 	file://waybar/scripts/pulse.sh \
 	file://waybar/scripts/net.sh \
-	file://waybar/scripts/keyring.sh \
 	file://waybar/scripts/processes.sh \
 	file://waybar/scripts/resources.sh \
 	file://waybar/scripts/blueman-manager.sh \
-	file://glib-2.0/settings/keyfile \
-	file://unlock-keyring \
 	file://bash_profile \
 	file://mimeapps.list \
+	file://nwg-look/gsettings \
 "
 
 RRECOMMENDS:${PN} = " \
 	autotiling-rs \
 	capitaine-cursors \
+	netcat \
 	nwg-launchers \
 	nwg-shell-wallpapers \
 	waybar \
@@ -50,56 +49,49 @@ RRECOMMENDS:${PN} = " \
 "	
 	
 do_install() {
-	install -d ${D}${RETRO_USER_HOMEDIR}/.config/swappy
-	install -d ${D}${RETRO_USER_HOMEDIR}/.config/sway/scripts
-	install -d ${D}${RETRO_USER_HOMEDIR}/.config/systemd/user
 	install -d ${D}${RETRO_USER_HOMEDIR}/.config/foot
+	install -d ${D}${RETRO_USER_HOMEDIR}/.config/mpv/
 	install -d ${D}${RETRO_USER_HOMEDIR}/.config/nwg-launchers/nwgbar
 	install -d ${D}${RETRO_USER_HOMEDIR}/.config/nwg-launchers/nwggrid
 	install -d ${D}${RETRO_USER_HOMEDIR}/.config/samba
-	install -d ${D}${RETRO_USER_HOMEDIR}/.config/glib-2.0/settings
-	install -d ${D}${RETRO_USER_HOMEDIR}/.config/gtk-3.0
-	install -d ${D}${RETRO_USER_HOMEDIR}/.config/connman
+	install -d ${D}${RETRO_USER_HOMEDIR}/.config/swappy
+	install -d ${D}${RETRO_USER_HOMEDIR}/.config/sway/scripts
+	install -d ${D}${RETRO_USER_HOMEDIR}/.config/systemd/user
 	install -d ${D}${RETRO_USER_HOMEDIR}/.config/waybar/scripts
-	install -d ${D}${RETRO_USER_HOMEDIR}/.config/mpv/
-	install -d ${D}${RETRO_USER_HOMEDIR}/.local/share/applications
 	install -d ${D}${RETRO_USER_HOMEDIR}/Downloads
 	install -d ${D}${RETRO_USER_HOMEDIR}/.kodi/userdata/addon_data/pvr.iptvsimple
-	install -d ${D}${bindir}
-	install -d ${D}${ROOT_HOME}/.config/glib-2.0/settings
-	install -m 0644 ${WORKDIR}/bashrc ${D}${RETRO_USER_HOMEDIR}/.bashrc
+	install -d ${D}${RETRO_USER_HOMEDIR}/.local/share/applications
+	install -d ${D}${RETRO_USER_HOMEDIR}/.local/share/nwg-look
 	install -m 0644 ${WORKDIR}/bash_profile ${D}${RETRO_USER_HOMEDIR}/.bash_profile
+	install -m 0644 ${WORKDIR}/bashrc ${D}${RETRO_USER_HOMEDIR}/.bashrc
+	install -m 0644 ${WORKDIR}/foot/foot.ini ${D}${RETRO_USER_HOMEDIR}/.config/foot/foot.ini
 	install -m 0644 ${WORKDIR}/kodi/kodi-addon-pvr-iptvsimple/settings.xml ${D}${RETRO_USER_HOMEDIR}/.kodi/userdata/addon_data/pvr.iptvsimple
+	install -m 0644 ${WORKDIR}/mimeapps.list ${D}${RETRO_USER_HOMEDIR}/.config
+	install -m 0644 ${WORKDIR}/nwg-launchers/nwgbar/bar.json ${D}${RETRO_USER_HOMEDIR}/.config/nwg-launchers/nwgbar
+	install -m 0644 ${WORKDIR}/nwg-launchers/nwggrid/grid.conf ${D}${RETRO_USER_HOMEDIR}/.config/nwg-launchers/nwggrid
+	install -m 0644 ${WORKDIR}/nwg-launchers/nwggrid/terminal ${D}${RETRO_USER_HOMEDIR}/.config/nwg-launchers/nwggrid
+	install -m 0644 ${WORKDIR}/nwg-look/gsettings ${D}${RETRO_USER_HOMEDIR}/.local/share/nwg-look
 	install -m 0644 ${WORKDIR}/swappy/config ${D}${RETRO_USER_HOMEDIR}/.config/swappy
 	install -m 0644 ${WORKDIR}/sway/config ${D}${RETRO_USER_HOMEDIR}/.config/sway
 	install -m 0644 ${WORKDIR}/sway/outputs ${D}${RETRO_USER_HOMEDIR}/.config/sway
-	install -m 0755 ${WORKDIR}/sway/scripts/chromium.sh ${D}${RETRO_USER_HOMEDIR}/.config/sway/scripts	
-	install -m 0755 ${WORKDIR}/sway/scripts/kodi.sh ${D}${RETRO_USER_HOMEDIR}/.config/sway/scripts	
-	install -m 0755 ${WORKDIR}/sway/scripts/retroarch.sh ${D}${RETRO_USER_HOMEDIR}/.config/sway/scripts
-	install -m 0755 ${WORKDIR}/sway/scripts/thunar.sh ${D}${RETRO_USER_HOMEDIR}/.config/sway/scripts	
-	install -m 0755 ${WORKDIR}/sway/scripts/geary.sh ${D}${RETRO_USER_HOMEDIR}/.config/sway/scripts
-	install -m 0755 ${WORKDIR}/sway/scripts/rotate_workspaces.sh ${D}${RETRO_USER_HOMEDIR}/.config/sway/scripts
-	install -m 0644 ${WORKDIR}/foot/foot.ini ${D}${RETRO_USER_HOMEDIR}/.config/foot/foot.ini
-	install -m 0644 ${WORKDIR}/mimeapps.list ${D}${RETRO_USER_HOMEDIR}/.config
-	ln -sf ${RETRO_USER_HOMEDIR}/.config/mimeapps.list ${D}${RETRO_USER_HOMEDIR}/.local/share/applications/mimeapps.list
-	install -m 0644 ${WORKDIR}/nwg-launchers/nwgbar/bar.json ${D}${RETRO_USER_HOMEDIR}/.config/nwg-launchers/nwgbar
-	install -m 0644 ${WORKDIR}/nwg-launchers/nwggrid/terminal ${D}${RETRO_USER_HOMEDIR}/.config/nwg-launchers/nwggrid
-	install -m 0644 ${WORKDIR}/nwg-launchers/nwggrid/grid.conf ${D}${RETRO_USER_HOMEDIR}/.config/nwg-launchers/nwggrid
 	install -m 0644 ${WORKDIR}/waybar/config ${D}${RETRO_USER_HOMEDIR}/.config/waybar/config
 	install -m 0644 ${WORKDIR}/waybar/style.css ${D}${RETRO_USER_HOMEDIR}/.config/waybar/style.css
-	install -m 0755 ${WORKDIR}/waybar/scripts/eovpn.sh ${D}${RETRO_USER_HOMEDIR}/.config/waybar/scripts/eovpn.sh
-	install -m 0755 ${WORKDIR}/waybar/scripts/launch.sh ${D}${RETRO_USER_HOMEDIR}/.config/waybar/scripts
-	install -m 0755 ${WORKDIR}/waybar/scripts/waybar.sh ${D}${RETRO_USER_HOMEDIR}/.config/waybar/scripts/waybar.sh
-	install -m 0755 ${WORKDIR}/waybar/scripts/pulse.sh ${D}${RETRO_USER_HOMEDIR}/.config/waybar/scripts	
-	install -m 0755 ${WORKDIR}/waybar/scripts/net.sh ${D}${RETRO_USER_HOMEDIR}/.config/waybar/scripts
-	install -m 0755 ${WORKDIR}/waybar/scripts/keyring.sh ${D}${RETRO_USER_HOMEDIR}/.config/waybar/scripts
-	install -m 0755 ${WORKDIR}/waybar/scripts/blueman-manager.sh ${D}${RETRO_USER_HOMEDIR}/.config/waybar/scripts
-	install -m 0755 ${WORKDIR}/waybar/scripts/processes.sh ${D}${RETRO_USER_HOMEDIR}/.config/waybar/scripts
-	install -m 0755 ${WORKDIR}/waybar/scripts/resources.sh ${D}${RETRO_USER_HOMEDIR}/.config/waybar/scripts
 	install -m 0755 ${WORKDIR}/azotebg ${D}${RETRO_USER_HOMEDIR}/.azotebg
-	install -m 0644 ${WORKDIR}/glib-2.0/settings/keyfile ${D}${RETRO_USER_HOMEDIR}/.config/glib-2.0/settings
-	install -m 0644 ${WORKDIR}/glib-2.0/settings/keyfile ${D}${ROOT_HOME}/.config/glib-2.0/settings
-	install -m 0755 ${WORKDIR}/unlock-keyring ${D}${bindir}
+	install -m 0755 ${WORKDIR}/sway/scripts/chromium.sh ${D}${RETRO_USER_HOMEDIR}/.config/sway/scripts	
+	install -m 0755 ${WORKDIR}/sway/scripts/geary.sh ${D}${RETRO_USER_HOMEDIR}/.config/sway/scripts
+	install -m 0755 ${WORKDIR}/sway/scripts/flathub.sh ${D}${RETRO_USER_HOMEDIR}/.config/sway/scripts
+	install -m 0755 ${WORKDIR}/sway/scripts/kodi.sh ${D}${RETRO_USER_HOMEDIR}/.config/sway/scripts	
+	install -m 0755 ${WORKDIR}/sway/scripts/retroarch.sh ${D}${RETRO_USER_HOMEDIR}/.config/sway/scripts
+	install -m 0755 ${WORKDIR}/sway/scripts/rotate_workspaces.sh ${D}${RETRO_USER_HOMEDIR}/.config/sway/scripts
+	install -m 0755 ${WORKDIR}/sway/scripts/thunar.sh ${D}${RETRO_USER_HOMEDIR}/.config/sway/scripts
+	install -m 0755 ${WORKDIR}/waybar/scripts/blueman-manager.sh ${D}${RETRO_USER_HOMEDIR}/.config/waybar/scripts
+	install -m 0755 ${WORKDIR}/waybar/scripts/launch.sh ${D}${RETRO_USER_HOMEDIR}/.config/waybar/scripts
+	install -m 0755 ${WORKDIR}/waybar/scripts/net.sh ${D}${RETRO_USER_HOMEDIR}/.config/waybar/scripts
+	install -m 0755 ${WORKDIR}/waybar/scripts/processes.sh ${D}${RETRO_USER_HOMEDIR}/.config/waybar/scripts
+	install -m 0755 ${WORKDIR}/waybar/scripts/pulse.sh ${D}${RETRO_USER_HOMEDIR}/.config/waybar/scripts
+	install -m 0755 ${WORKDIR}/waybar/scripts/resources.sh ${D}${RETRO_USER_HOMEDIR}/.config/waybar/scripts
+	install -m 0755 ${WORKDIR}/waybar/scripts/waybar.sh ${D}${RETRO_USER_HOMEDIR}/.config/waybar/scripts/waybar.sh
+	ln -sf ${RETRO_USER_HOMEDIR}/.config/mimeapps.list ${D}${RETRO_USER_HOMEDIR}/.local/share/applications/mimeapps.list
 }
 
 do_install:append:rpi() {
@@ -119,11 +111,7 @@ do_install:append() {
 	chown ${RETRO_USER_NAME}:${RETRO_USER_NAME} -R ${D}${RETRO_USER_HOMEDIR}
 }
 
-FILES:${PN} = " \
-	${RETRO_USER_HOMEDIR} \
-	${ROOT_HOME} \
-	${bindir} \
-"
+FILES:${PN} = "${RETRO_USER_HOMEDIR}"
 
 INSANE_SKIP:${PN} = "host-user-contaminated"
 

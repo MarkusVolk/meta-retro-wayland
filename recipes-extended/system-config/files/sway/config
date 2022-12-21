@@ -187,19 +187,22 @@ bindsym $mod+Shift+0 move container to workspace $ws10
 bindsym F11 exec "~/.config/sway/scripts/rotate_workspaces.sh prev"
 bindsym F12 exec "~/.config/sway/scripts/rotate_workspaces.sh next"
 
-# Always
-exec_always ~/.config/waybar/scripts/waybar.sh
+# setup for xdg-desktop-portal-wlr
+exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway
 
 # Not Always
-exec ~/.azotebg &
-exec /usr/bin/xdg-user-dirs-update &
-exec /usr/libexec/xfce-polkit &
-exec /usr/bin/thunar --daemon &
-exec /usr/bin/blueman-applet &
-exec /usr/bin/autotiling-rs &
-exec /usr/bin/inactive-windows-transparency.py &
-exec /usr/bin/wlsunset -l 49.5 -L 11.1 &
-exec /usr/bin/mako &
+exec ~/.azotebg
+exec ~/.config/sway/scripts/flathub.sh
+exec ~/.config/waybar/scripts/waybar.sh
+exec /usr/bin/autotiling-rs
+exec /usr/bin/blueman-applet
+exec /usr/bin/inactive-windows-transparency.py
+exec /usr/bin/mako
+exec /usr/bin/nwg-look -a
+exec /usr/bin/thunar --daemon
+exec /usr/bin/wlsunset -l 49.5 -L 11.1
+exec /usr/bin/xdg-user-dirs-update
+exec /usr/libexec/xfce-polkit
 
 # Startup program launcher
 exec swaymsg "workspace $ws1; exec kodi;"

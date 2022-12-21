@@ -68,8 +68,6 @@ window#waybar.chromium {
 #custom-launch,
 #custom-power,
 #clock,
-#custom-vpn,
-#custom-keyring,
 #bluetooth,
 #cpu,
 #memory,
@@ -103,32 +101,22 @@ window#waybar.chromium {
 
 #custom-launch {
     background-color: transparent;
-    color: #FFFFFF
+    color: #FFFFFF;
 }
 
 #custom-power {
-    background-color: #8B8386;
-    color: #000000
+    background-color: transparent;
+    color: #FFFFFF;
 }
 
 #clock {
-    background-color: #81a19b;
-    color: #000000;
-}
-
-#custom-vpn {
-    background-color: #ffb380;
-    color: #000000;
-}
-
-#custom-keyring {
-    background-color: #4f94cd;
-    color: #000000;
+    background-color: transparent;
+    color: #FFFFFF;
 }
 
 #bluetooth {
-    background-color: #fff3b8;
-    color: #000000;
+    background-color: transparent;
+    color: #FFFFFF;
 }
 
 @keyframes blink {
