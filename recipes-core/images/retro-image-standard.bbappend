@@ -9,6 +9,7 @@ WGTK_APPS ?= " \
 	gnome-chess \
 	gnome-disk-utility \
 	gnome-system-monitor \
+	gnome-software \
 	gparted \
 	gsettings-desktop-schemas \
 	gthumb \
@@ -26,7 +27,6 @@ WGTK_APPS ?= " \
 	thunar \
 	waybar \
 	xfce-polkit \
-	zenity \
 "
 
 WCONSOLE_TOOLS ?= " \
@@ -42,6 +42,7 @@ WCONSOLE_TOOLS ?= " \
 	e2fsprogs \
 	ffmpeg \
 	findutils \
+	flatpak \
 	fortunes \
 	fzf \
 	gawk \
