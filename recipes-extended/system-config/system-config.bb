@@ -45,7 +45,7 @@ RRECOMMENDS:${PN} = " \
 	nordic-darker-theme \
 	tela-circle-icon-theme \
 	xdg-user-dirs \
-	zenity \
+	xdg-desktop-portal \
 "	
 	
 do_install() {
