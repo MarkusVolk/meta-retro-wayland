@@ -10,12 +10,10 @@ SRC_URI = "${SOURCEFORGE_MIRROR}/webadmin/webmin-${PV}.tar.gz \
            file://remove-startup-option.patch \
            file://nfs-export.patch \
            file://exports-lib.pl.patch \
-           file://mount-excludefs.patch \
            file://samba-config-fix.patch \
            file://proftpd-config-fix.patch \
            file://net-lib.pl.patch \
            file://media-tomb.patch \
-           file://remove-python2.3.patch \
            file://webmin.service \
 	   file://samba_config \
 	   file://exports_config \
@@ -26,7 +24,7 @@ SRC_URI = "${SOURCEFORGE_MIRROR}/webadmin/webmin-${PV}.tar.gz \
 
 RDEPENDS-${PN}-module += "perl"
 
-SRC_URI[sha256sum] = "98111b70457cc7b96e9368076e8a46c6a966bc46158947459726a92c2a9a8963"
+SRC_URI[sha256sum] = "69a5cc42a1f529e26330b5b4a37211c968a93e5879767053034ccc3735e47bae"
 
 inherit perlnative systemd retro-user
 
